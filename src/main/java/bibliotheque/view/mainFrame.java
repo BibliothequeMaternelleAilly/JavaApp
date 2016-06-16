@@ -1,9 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bibliotheque.view;
+
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,8 +17,18 @@ public class mainFrame extends javax.swing.JFrame {
     /**
      * Creates new form mainFrame
      */
+    
+    private Font defaultFont;
+    
     public mainFrame() {
         initComponents();
+        try {
+            defaultFont = Font.createFont(NORMAL, new File(""));
+        } catch (FontFormatException ex) {
+            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -27,12 +40,23 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        background = new bibliotheque.view.bgPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1350, 900));
+        setPreferredSize(new java.awt.Dimension(1350, 900));
+        setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(115, 115, 115));
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+        background.setBackground(new java.awt.Color(46, 54, 1));
+        background.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 52));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1246, 796));
+        background.add(jPanel1);
+
+        getContentPane().add(background, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,6 +97,7 @@ public class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
+    private bibliotheque.view.bgPanel background;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
