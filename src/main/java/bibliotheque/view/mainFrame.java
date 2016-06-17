@@ -18,17 +18,17 @@ public class mainFrame extends javax.swing.JFrame {
      * Creates new form mainFrame
      */
     
-    private Font defaultFont;
+//    private Font defaultFont;
     
     public mainFrame() {
         initComponents();
-        try {
-            defaultFont = Font.createFont(NORMAL, new File(""));
-        } catch (FontFormatException ex) {
-            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            defaultFont = Font.createFont(NORMAL, new File(""));
+//        } catch (FontFormatException ex) {
+//            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**
@@ -41,7 +41,15 @@ public class mainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new bibliotheque.view.bgPanel();
+        controls = new javax.swing.JPanel();
+        L_title = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(32767, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1350, 900));
@@ -51,10 +59,41 @@ public class mainFrame extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(46, 54, 1));
         background.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 52));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        controls.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        controls.setOpaque(false);
+        controls.setPreferredSize(new java.awt.Dimension(1246, 796));
+        controls.setLayout(new java.awt.BorderLayout());
+
+        L_title.setForeground(new java.awt.Color(238, 238, 238));
+        L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title.setText("Bibliotheque de l'école maternelle");
+        L_title.setMaximumSize(new java.awt.Dimension(1243, 17));
+        L_title.setMinimumSize(new java.awt.Dimension(1243, 17));
+        L_title.setPreferredSize(new java.awt.Dimension(1243, 17));
+        controls.add(L_title, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jToggleButton1.setText("jToggleButton1");
+        jPanel2.add(jToggleButton1);
+
+        jToggleButton2.setText("jToggleButton2");
+        jPanel2.add(jToggleButton2);
+
+        jToggleButton3.setText("jToggleButton3");
+        jPanel2.add(jToggleButton3);
+
+        jToggleButton4.setText("jToggleButton4");
+        jPanel2.add(jToggleButton4);
+
+        controls.add(jPanel2, java.awt.BorderLayout.LINE_START);
+
         jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(1246, 796));
-        background.add(jPanel1);
+        controls.add(jPanel1, java.awt.BorderLayout.CENTER);
+        controls.add(filler1, java.awt.BorderLayout.LINE_END);
+
+        background.add(controls);
 
         getContentPane().add(background, java.awt.BorderLayout.CENTER);
 
@@ -97,7 +136,15 @@ public class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel L_title;
     private bibliotheque.view.bgPanel background;
+    private javax.swing.JPanel controls;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     // End of variables declaration//GEN-END:variables
 }
