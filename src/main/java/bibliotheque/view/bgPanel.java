@@ -1,11 +1,12 @@
 
 package bibliotheque.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
+import java.awt.Toolkit;
 import java.io.IOException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -17,26 +18,36 @@ import javax.swing.JPanel;
  */
 public class bgPanel extends JPanel {
     
-    private Image background;
+    private Image bg_img;
+    private Font titleFont;
+    private int width, height;
 
     public bgPanel() {
         super();
-//        try {
-//            background = ImageIO.read(new File("src/main/background.png"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         try {
-            URL test = getClass().getResource("/background.png");
-            ImageIO.read(test);
-        } catch (IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                bg_img = ImageIO.read(getClass().getResource("/background.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            width = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75);
+            height = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75);
+            setPreferredSize(new Dimension(width, height));
+            bg_img = bg_img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
     
     @Override
     public void paintComponent(Graphics g) {
-        g.drawImage(background, 0, 0, null);
+        g.drawImage(bg_img, 0, 0, null);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
     
 }
