@@ -35,7 +35,12 @@ public class mainFrame extends javax.swing.JFrame {
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-   }
+        try {
+            glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,13 +60,22 @@ public class mainFrame extends javax.swing.JFrame {
         TB_tab2 = new javax.swing.JToggleButton();
         TB_tab3 = new javax.swing.JToggleButton();
         TB_tab4 = new javax.swing.JToggleButton();
-        F_paging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), toggleButtons.getPreferredSize(), new java.awt.Dimension(32767, 0));
+        F_controlsPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), toggleButtons.getPreferredSize(), new java.awt.Dimension(32767, 0));
         tabGroups = new javax.swing.JPanel();
-        defaultTab = new javax.swing.JPanel();
         tab1 = new javax.swing.JPanel();
         tab2 = new javax.swing.JPanel();
         tab3 = new javax.swing.JPanel();
         tab4 = new javax.swing.JPanel();
+        defaultTab = new javax.swing.JPanel();
+        P_titles = new javax.swing.JPanel();
+        L_title1 = new javax.swing.JLabel();
+        L_title2 = new javax.swing.JLabel();
+        P_mainButtons = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        F_defaultTabPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 350), new java.awt.Dimension(0, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -137,13 +151,10 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_tab4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
-        controls.add(F_paging, java.awt.BorderLayout.LINE_END);
+        controls.add(F_controlsPaging, java.awt.BorderLayout.LINE_END);
 
         tabGroups.setOpaque(false);
         tabGroups.setLayout(new java.awt.CardLayout());
-
-        defaultTab.setOpaque(false);
-        tabGroups.add(defaultTab, "card6");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
         tabGroups.add(tab1, "card2");
@@ -156,6 +167,48 @@ public class mainFrame extends javax.swing.JFrame {
 
         tab4.setBackground(new java.awt.Color(208, 61, 199));
         tabGroups.add(tab4, "card5");
+
+        defaultTab.setOpaque(false);
+        defaultTab.setLayout(new java.awt.BorderLayout());
+
+        P_titles.setOpaque(false);
+        P_titles.setPreferredSize(new java.awt.Dimension(100, 50));
+
+        L_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title1.setText("Bienvenue à la bibliotheque de l'école maternelle!");
+        L_title1.setMaximumSize(new java.awt.Dimension(2147483647, 17));
+        L_title1.setMinimumSize(new java.awt.Dimension(569, 17));
+        L_title1.setPreferredSize(new java.awt.Dimension(569, 17));
+        L_title1.setRequestFocusEnabled(false);
+        P_titles.add(L_title1);
+
+        L_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title2.setText("Cliquez sur un des onglets à gauche pour commencer");
+        L_title2.setMaximumSize(new java.awt.Dimension(277, 17));
+        L_title2.setMinimumSize(new java.awt.Dimension(277, 17));
+        P_titles.add(L_title2);
+
+        defaultTab.add(P_titles, java.awt.BorderLayout.PAGE_START);
+
+        P_mainButtons.setBackground(new java.awt.Color(59, 18, 0));
+        P_mainButtons.setForeground(new java.awt.Color(59, 18, 0));
+
+        jButton1.setText("jButton1");
+        P_mainButtons.add(jButton1);
+
+        jButton2.setText("jButton2");
+        P_mainButtons.add(jButton2);
+
+        jButton3.setText("jButton3");
+        P_mainButtons.add(jButton3);
+
+        jButton4.setText("jButton4");
+        P_mainButtons.add(jButton4);
+
+        defaultTab.add(P_mainButtons, java.awt.BorderLayout.CENTER);
+        defaultTab.add(F_defaultTabPaging, java.awt.BorderLayout.PAGE_END);
+
+        tabGroups.add(defaultTab, "card6");
 
         controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
@@ -205,9 +258,15 @@ public class mainFrame extends javax.swing.JFrame {
     
     private Font titleFont;
     private Font tabFont;
+    private Font glyphicons;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler F_paging;
+    private javax.swing.Box.Filler F_controlsPaging;
+    private javax.swing.Box.Filler F_defaultTabPaging;
     private javax.swing.JLabel L_title;
+    private javax.swing.JLabel L_title1;
+    private javax.swing.JLabel L_title2;
+    private javax.swing.JPanel P_mainButtons;
+    private javax.swing.JPanel P_titles;
     private javax.swing.JToggleButton TB_tab1;
     private javax.swing.JToggleButton TB_tab2;
     private javax.swing.JToggleButton TB_tab3;
@@ -215,6 +274,10 @@ public class mainFrame extends javax.swing.JFrame {
     private bibliotheque.view.bgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel defaultTab;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
