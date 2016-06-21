@@ -3,6 +3,7 @@ package bibliotheque.view;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -19,7 +20,6 @@ import javax.swing.JPanel;
 public class bgPanel extends JPanel {
     
     private Image bg_img;
-    private Font titleFont;
     private int width, height;
 
     public bgPanel() {

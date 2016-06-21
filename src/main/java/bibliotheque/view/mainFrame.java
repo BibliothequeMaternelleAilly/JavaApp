@@ -21,7 +21,21 @@ public class mainFrame extends javax.swing.JFrame {
     
     public mainFrame() {
         initComponents();
-    }
+        setTitle("Bibliothèque");
+        
+        try {
+            titleFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
+            titleFont = titleFont.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1));
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            tabFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
+            tabFont = tabFont.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5));
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,8 +51,17 @@ public class mainFrame extends javax.swing.JFrame {
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
         toggleButtons = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(32767, 0));
+        TB_tab1 = new javax.swing.JToggleButton();
+        TB_tab2 = new javax.swing.JToggleButton();
+        TB_tab3 = new javax.swing.JToggleButton();
+        TB_tab4 = new javax.swing.JToggleButton();
+        F_paging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), toggleButtons.getPreferredSize(), new java.awt.Dimension(32767, 0));
+        tabGroups = new javax.swing.JPanel();
+        defaultTab = new javax.swing.JPanel();
+        tab1 = new javax.swing.JPanel();
+        tab2 = new javax.swing.JPanel();
+        tab3 = new javax.swing.JPanel();
+        tab4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -54,15 +77,9 @@ public class mainFrame extends javax.swing.JFrame {
         workingArea.setPreferredSize(new java.awt.Dimension(872, 491));
         workingArea.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.85), (int) Math.round(background.getHeight()*0.85)+1));
         workingArea.setLayout(new java.awt.BorderLayout());
-        try {
-            titleFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-            titleFont = titleFont.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
         L_title.setFont(titleFont);
-        L_title.setForeground(new java.awt.Color(238, 238, 238));
+        L_title.setForeground(new java.awt.Color(254, 226, 165));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Bibliotheque de l'école maternelle");
         L_title.setMaximumSize(new java.awt.Dimension(1243, 17));
@@ -79,16 +96,68 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
         toggleButtons.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.09), toggleButtons.getPreferredSize().height));
 
-        jToggleButton1.setBackground(new java.awt.Color(234, 121, 23));
-        jToggleButton1.setText("jToggleButton1");
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setFocusPainted(false);
-        jToggleButton1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
-        jToggleButton1.setMinimumSize(new java.awt.Dimension(0, 0));
-        toggleButtons.add(jToggleButton1);
+        TB_tab1.setBackground(new java.awt.Color(237, 146, 21));
+        TB_tab1.setFont(tabFont);
+        TB_tab1.setForeground(new java.awt.Color(253, 250, 206));
+        TB_tab1.setText("Tab1");
+        TB_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
+        TB_tab1.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_tab1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_tab1.setMinimumSize(new java.awt.Dimension(0, 0));
+        toggleButtons.add(TB_tab1);
+
+        TB_tab2.setBackground(new java.awt.Color(237, 66, 21));
+        TB_tab2.setFont(tabFont);
+        TB_tab2.setForeground(new java.awt.Color(253, 250, 206));
+        TB_tab2.setText("Tab2");
+        TB_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
+        TB_tab2.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_tab2.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_tab2.setMinimumSize(new java.awt.Dimension(0, 0));
+        toggleButtons.add(TB_tab2);
+
+        TB_tab3.setBackground(new java.awt.Color(237, 21, 66));
+        TB_tab3.setFont(tabFont);
+        TB_tab3.setForeground(new java.awt.Color(253, 250, 206));
+        TB_tab3.setText("Tab3");
+        TB_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
+        TB_tab3.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_tab3.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_tab3.setMinimumSize(new java.awt.Dimension(0, 0));
+        toggleButtons.add(TB_tab3);
+
+        TB_tab4.setBackground(new java.awt.Color(208, 61, 199));
+        TB_tab4.setFont(tabFont);
+        TB_tab4.setForeground(new java.awt.Color(253, 250, 206));
+        TB_tab4.setText("Tab4");
+        TB_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
+        TB_tab4.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_tab4.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_tab4.setMinimumSize(new java.awt.Dimension(0, 0));
+        toggleButtons.add(TB_tab4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
-        controls.add(filler1, java.awt.BorderLayout.LINE_END);
+        controls.add(F_paging, java.awt.BorderLayout.LINE_END);
+
+        tabGroups.setOpaque(false);
+        tabGroups.setLayout(new java.awt.CardLayout());
+
+        defaultTab.setOpaque(false);
+        tabGroups.add(defaultTab, "card6");
+
+        tab1.setBackground(new java.awt.Color(237, 146, 21));
+        tabGroups.add(tab1, "card2");
+
+        tab2.setBackground(new java.awt.Color(237, 66, 21));
+        tabGroups.add(tab2, "card3");
+
+        tab3.setBackground(new java.awt.Color(237, 21, 66));
+        tabGroups.add(tab3, "card4");
+
+        tab4.setBackground(new java.awt.Color(208, 61, 199));
+        tabGroups.add(tab4, "card5");
+
+        controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
         workingArea.add(controls, java.awt.BorderLayout.CENTER);
 
@@ -135,12 +204,22 @@ public class mainFrame extends javax.swing.JFrame {
     }
     
     private Font titleFont;
+    private Font tabFont;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler F_paging;
     private javax.swing.JLabel L_title;
+    private javax.swing.JToggleButton TB_tab1;
+    private javax.swing.JToggleButton TB_tab2;
+    private javax.swing.JToggleButton TB_tab3;
+    private javax.swing.JToggleButton TB_tab4;
     private bibliotheque.view.bgPanel background;
     private javax.swing.JPanel controls;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel defaultTab;
+    private javax.swing.JPanel tab1;
+    private javax.swing.JPanel tab2;
+    private javax.swing.JPanel tab3;
+    private javax.swing.JPanel tab4;
+    private javax.swing.JPanel tabGroups;
     private javax.swing.JPanel toggleButtons;
     private javax.swing.JPanel workingArea;
     // End of variables declaration//GEN-END:variables
