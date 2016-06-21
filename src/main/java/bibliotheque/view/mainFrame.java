@@ -4,7 +4,6 @@ package bibliotheque.view;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,18 +19,14 @@ public class mainFrame extends javax.swing.JFrame {
      */
     
     public mainFrame() {
-        initComponents();
         setTitle("Bibliothèque");
-        
         try {
-            titleFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-            titleFont = titleFont.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1));
+            littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            tabFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
-            tabFont = tabFont.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5));
+            clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,6 +35,7 @@ public class mainFrame extends javax.swing.JFrame {
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        initComponents();
     }
 
     /**
@@ -60,26 +56,25 @@ public class mainFrame extends javax.swing.JFrame {
         TB_tab2 = new javax.swing.JToggleButton();
         TB_tab3 = new javax.swing.JToggleButton();
         TB_tab4 = new javax.swing.JToggleButton();
-        F_controlsPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), toggleButtons.getPreferredSize(), new java.awt.Dimension(32767, 0));
+        F_controlsPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(36, 100), new java.awt.Dimension(32767, 0));
         tabGroups = new javax.swing.JPanel();
-        tab1 = new javax.swing.JPanel();
-        tab2 = new javax.swing.JPanel();
-        tab3 = new javax.swing.JPanel();
-        tab4 = new javax.swing.JPanel();
         defaultTab = new javax.swing.JPanel();
         P_titles = new javax.swing.JPanel();
         L_title1 = new javax.swing.JLabel();
         L_title2 = new javax.swing.JLabel();
         P_mainButtons = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        B_fullScreen = new javax.swing.JButton();
+        B_settings = new javax.swing.JButton();
+        B_help = new javax.swing.JButton();
+        B_quit = new javax.swing.JButton();
         F_defaultTabPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 350), new java.awt.Dimension(0, 32767));
+        tab1 = new javax.swing.JPanel();
+        tab2 = new javax.swing.JPanel();
+        tab3 = new javax.swing.JPanel();
+        tab4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
-        setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75)+getInsets().top));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(91, 43, 5));
@@ -92,7 +87,7 @@ public class mainFrame extends javax.swing.JFrame {
         workingArea.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.85), (int) Math.round(background.getHeight()*0.85)+1));
         workingArea.setLayout(new java.awt.BorderLayout());
 
-        L_title.setFont(titleFont);
+        L_title.setFont(littleBird.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1)));
         L_title.setForeground(new java.awt.Color(254, 226, 165));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Bibliotheque de l'école maternelle");
@@ -107,11 +102,11 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.setAutoscrolls(true);
         toggleButtons.setMaximumSize(new java.awt.Dimension(30000, 30000));
         toggleButtons.setOpaque(false);
-        toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
         toggleButtons.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.09), toggleButtons.getPreferredSize().height));
+        toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
         TB_tab1.setBackground(new java.awt.Color(237, 146, 21));
-        TB_tab1.setFont(tabFont);
+        TB_tab1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_tab1.setForeground(new java.awt.Color(253, 250, 206));
         TB_tab1.setText("Tab1");
         TB_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
@@ -121,7 +116,7 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_tab1);
 
         TB_tab2.setBackground(new java.awt.Color(237, 66, 21));
-        TB_tab2.setFont(tabFont);
+        TB_tab2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_tab2.setForeground(new java.awt.Color(253, 250, 206));
         TB_tab2.setText("Tab2");
         TB_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
@@ -131,7 +126,7 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_tab2);
 
         TB_tab3.setBackground(new java.awt.Color(237, 21, 66));
-        TB_tab3.setFont(tabFont);
+        TB_tab3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_tab3.setForeground(new java.awt.Color(253, 250, 206));
         TB_tab3.setText("Tab3");
         TB_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
@@ -141,7 +136,7 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_tab3);
 
         TB_tab4.setBackground(new java.awt.Color(208, 61, 199));
-        TB_tab4.setFont(tabFont);
+        TB_tab4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_tab4.setForeground(new java.awt.Color(253, 250, 206));
         TB_tab4.setText("Tab4");
         TB_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
@@ -151,10 +146,98 @@ public class mainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_tab4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
+
+        F_controlsPaging.setPreferredSize(toggleButtons.getPreferredSize());
         controls.add(F_controlsPaging, java.awt.BorderLayout.LINE_END);
 
         tabGroups.setOpaque(false);
         tabGroups.setLayout(new java.awt.CardLayout());
+
+        defaultTab.setOpaque(false);
+        defaultTab.setLayout(new java.awt.BorderLayout());
+
+        P_titles.setMinimumSize(new java.awt.Dimension(861, 50));
+        P_titles.setOpaque(false);
+        P_titles.setPreferredSize(new Dimension(defaultTab.getPreferredSize().width, (int) Math.round(defaultTab.getPreferredSize().height*0.15)));
+
+        L_title1.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.05)));
+        L_title1.setForeground(new java.awt.Color(253, 250, 206));
+        L_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title1.setText("Bienvenue à la bibliotheque de l'école maternelle!");
+        L_title1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        L_title1.setMinimumSize(new java.awt.Dimension(0, 0));
+        L_title1.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
+        L_title1.setRequestFocusEnabled(false);
+        P_titles.add(L_title1);
+
+        L_title2.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.05)));
+        L_title2.setForeground(new java.awt.Color(253, 250, 206));
+        L_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title2.setText("Cliquez sur un des onglets à gauche pour commencer");
+        L_title2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        L_title2.setMinimumSize(new java.awt.Dimension(0, 0));
+        L_title2.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
+        P_titles.add(L_title2);
+
+        defaultTab.add(P_titles, java.awt.BorderLayout.PAGE_START);
+
+        P_mainButtons.setBackground(new java.awt.Color(49, 17, 3));
+        P_mainButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+
+        B_fullScreen.setBackground(new java.awt.Color(255, 78, 0));
+        B_fullScreen.setFont(glyphicons.deriveFont((float) B_fullScreen.getPreferredSize().height));
+        B_fullScreen.setForeground(new java.awt.Color(253, 250, 206));
+        B_fullScreen.setText("\uE140");
+        B_fullScreen.setToolTipText("Passer en mode plein écran");
+        B_fullScreen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_fullScreen.setBorderPainted(false);
+        B_fullScreen.setContentAreaFilled(false);
+        B_fullScreen.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        B_fullScreen.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        P_mainButtons.add(B_fullScreen);
+
+        B_settings.setBackground(new java.awt.Color(255, 78, 0));
+        B_settings.setFont(glyphicons.deriveFont((float) B_settings.getPreferredSize().height));
+        B_settings.setForeground(new java.awt.Color(253, 250, 206));
+        B_settings.setText("\uE019");
+        B_settings.setToolTipText("Paramètres");
+        B_settings.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_settings.setBorderPainted(false);
+        B_settings.setContentAreaFilled(false);
+        B_settings.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        B_settings.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        P_mainButtons.add(B_settings);
+
+        B_help.setBackground(new java.awt.Color(255, 78, 0));
+        B_help.setFont(glyphicons.deriveFont((float) B_help.getPreferredSize().height));
+        B_help.setForeground(new java.awt.Color(253, 250, 206));
+        B_help.setText("\uE085");
+        B_help.setToolTipText("À propos…");
+        B_help.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_help.setBorderPainted(false);
+        B_help.setContentAreaFilled(false);
+        B_help.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        B_help.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        P_mainButtons.add(B_help);
+
+        B_quit.setBackground(new java.awt.Color(255, 78, 0));
+        B_quit.setFont(glyphicons.deriveFont((float) B_quit.getPreferredSize().height));
+        B_quit.setForeground(new java.awt.Color(253, 250, 206));
+        B_quit.setText("\uE083");
+        B_quit.setToolTipText("Quitter");
+        B_quit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_quit.setBorderPainted(false);
+        B_quit.setContentAreaFilled(false);
+        B_quit.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        B_quit.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        P_mainButtons.add(B_quit);
+
+        defaultTab.add(P_mainButtons, java.awt.BorderLayout.CENTER);
+
+        F_defaultTabPaging.setPreferredSize((new Dimension(0, (int) Math.round(defaultTab.getPreferredSize().height*0.85))));
+        defaultTab.add(F_defaultTabPaging, java.awt.BorderLayout.PAGE_END);
+
+        tabGroups.add(defaultTab, "card6");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
         tabGroups.add(tab1, "card2");
@@ -167,48 +250,6 @@ public class mainFrame extends javax.swing.JFrame {
 
         tab4.setBackground(new java.awt.Color(208, 61, 199));
         tabGroups.add(tab4, "card5");
-
-        defaultTab.setOpaque(false);
-        defaultTab.setLayout(new java.awt.BorderLayout());
-
-        P_titles.setOpaque(false);
-        P_titles.setPreferredSize(new java.awt.Dimension(100, 50));
-
-        L_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title1.setText("Bienvenue à la bibliotheque de l'école maternelle!");
-        L_title1.setMaximumSize(new java.awt.Dimension(2147483647, 17));
-        L_title1.setMinimumSize(new java.awt.Dimension(569, 17));
-        L_title1.setPreferredSize(new java.awt.Dimension(569, 17));
-        L_title1.setRequestFocusEnabled(false);
-        P_titles.add(L_title1);
-
-        L_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title2.setText("Cliquez sur un des onglets à gauche pour commencer");
-        L_title2.setMaximumSize(new java.awt.Dimension(277, 17));
-        L_title2.setMinimumSize(new java.awt.Dimension(277, 17));
-        P_titles.add(L_title2);
-
-        defaultTab.add(P_titles, java.awt.BorderLayout.PAGE_START);
-
-        P_mainButtons.setBackground(new java.awt.Color(59, 18, 0));
-        P_mainButtons.setForeground(new java.awt.Color(59, 18, 0));
-
-        jButton1.setText("jButton1");
-        P_mainButtons.add(jButton1);
-
-        jButton2.setText("jButton2");
-        P_mainButtons.add(jButton2);
-
-        jButton3.setText("jButton3");
-        P_mainButtons.add(jButton3);
-
-        jButton4.setText("jButton4");
-        P_mainButtons.add(jButton4);
-
-        defaultTab.add(P_mainButtons, java.awt.BorderLayout.CENTER);
-        defaultTab.add(F_defaultTabPaging, java.awt.BorderLayout.PAGE_END);
-
-        tabGroups.add(defaultTab, "card6");
 
         controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
@@ -237,15 +278,11 @@ public class mainFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -256,10 +293,14 @@ public class mainFrame extends javax.swing.JFrame {
         });
     }
     
-    private Font titleFont;
-    private Font tabFont;
+    private Font littleBird;
+    private Font clearLine;
     private Font glyphicons;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_fullScreen;
+    private javax.swing.JButton B_help;
+    private javax.swing.JButton B_quit;
+    private javax.swing.JButton B_settings;
     private javax.swing.Box.Filler F_controlsPaging;
     private javax.swing.Box.Filler F_defaultTabPaging;
     private javax.swing.JLabel L_title;
@@ -274,10 +315,6 @@ public class mainFrame extends javax.swing.JFrame {
     private bibliotheque.view.bgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel defaultTab;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
