@@ -67,7 +67,6 @@ public class mainFrame extends javax.swing.JFrame {
         B_settings = new javax.swing.JButton();
         B_help = new javax.swing.JButton();
         B_quit = new javax.swing.JButton();
-        F_defaultTabPaging = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 350), new java.awt.Dimension(0, 32767));
         tab1 = new javax.swing.JPanel();
         tab2 = new javax.swing.JPanel();
         tab3 = new javax.swing.JPanel();
@@ -96,13 +95,12 @@ public class mainFrame extends javax.swing.JFrame {
         workingArea.add(L_title, java.awt.BorderLayout.PAGE_START);
 
         controls.setOpaque(false);
-        controls.setPreferredSize(new java.awt.Dimension(50, 50));
+        controls.setPreferredSize(new Dimension(workingArea.getPreferredSize().width, workingArea.getPreferredSize().height-L_title.getPreferredSize().height));
         controls.setLayout(new java.awt.BorderLayout());
 
         toggleButtons.setAutoscrolls(true);
-        toggleButtons.setMaximumSize(new java.awt.Dimension(30000, 30000));
         toggleButtons.setOpaque(false);
-        toggleButtons.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.09), toggleButtons.getPreferredSize().height));
+        toggleButtons.setPreferredSize(new Dimension((int) Math.round(controls.getPreferredSize().width*0.09), 0));
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
         TB_tab1.setBackground(new java.awt.Color(237, 146, 21));
@@ -151,16 +149,18 @@ public class mainFrame extends javax.swing.JFrame {
         controls.add(F_controlsPaging, java.awt.BorderLayout.LINE_END);
 
         tabGroups.setOpaque(false);
+        tabGroups.setPreferredSize(new Dimension(controls.getPreferredSize().width-2*toggleButtons.getPreferredSize().width, controls.getPreferredSize().height));
         tabGroups.setLayout(new java.awt.CardLayout());
 
         defaultTab.setOpaque(false);
-        defaultTab.setLayout(new java.awt.BorderLayout());
+        defaultTab.setPreferredSize(new Dimension(tabGroups.getPreferredSize().width, tabGroups.getPreferredSize().height));
 
         P_titles.setMinimumSize(new java.awt.Dimension(861, 50));
         P_titles.setOpaque(false);
-        P_titles.setPreferredSize(new Dimension(defaultTab.getPreferredSize().width, (int) Math.round(defaultTab.getPreferredSize().height*0.15)));
+        P_titles.setPreferredSize(new java.awt.Dimension(600, 50));
+        P_titles.setPreferredSize(new Dimension(defaultTab.getPreferredSize().width, (int) Math.round(defaultTab.getPreferredSize().height*0.30)));
 
-        L_title1.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.05)));
+        L_title1.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.12)));
         L_title1.setForeground(new java.awt.Color(253, 250, 206));
         L_title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title1.setText("Bienvenue à la bibliotheque de l'école maternelle!");
@@ -170,7 +170,7 @@ public class mainFrame extends javax.swing.JFrame {
         L_title1.setRequestFocusEnabled(false);
         P_titles.add(L_title1);
 
-        L_title2.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.05)));
+        L_title2.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.10)));
         L_title2.setForeground(new java.awt.Color(253, 250, 206));
         L_title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title2.setText("Cliquez sur un des onglets à gauche pour commencer");
@@ -179,13 +179,14 @@ public class mainFrame extends javax.swing.JFrame {
         L_title2.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
         P_titles.add(L_title2);
 
-        defaultTab.add(P_titles, java.awt.BorderLayout.PAGE_START);
+        defaultTab.add(P_titles);
 
         P_mainButtons.setBackground(new java.awt.Color(49, 17, 3));
+        P_mainButtons.setPreferredSize(new Dimension(defaultTab.getPreferredSize().width, (int) Math.round(defaultTab.getPreferredSize().height*0.30)));
         P_mainButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         B_fullScreen.setBackground(new java.awt.Color(255, 78, 0));
-        B_fullScreen.setFont(glyphicons.deriveFont((float) B_fullScreen.getPreferredSize().height));
+        B_fullScreen.setFont(glyphicons.deriveFont((float) Math.round(P_mainButtons.getPreferredSize().height*0.85)));
         B_fullScreen.setForeground(new java.awt.Color(253, 250, 206));
         B_fullScreen.setText("\uE140");
         B_fullScreen.setToolTipText("Passer en mode plein écran");
@@ -193,11 +194,11 @@ public class mainFrame extends javax.swing.JFrame {
         B_fullScreen.setBorderPainted(false);
         B_fullScreen.setContentAreaFilled(false);
         B_fullScreen.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        B_fullScreen.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        B_fullScreen.setPreferredSize(new Dimension(P_mainButtons.getPreferredSize().height, P_mainButtons.getPreferredSize().height));
         P_mainButtons.add(B_fullScreen);
 
         B_settings.setBackground(new java.awt.Color(255, 78, 0));
-        B_settings.setFont(glyphicons.deriveFont((float) B_settings.getPreferredSize().height));
+        B_settings.setFont(glyphicons.deriveFont((float) Math.round(P_mainButtons.getPreferredSize().height*0.85)));
         B_settings.setForeground(new java.awt.Color(253, 250, 206));
         B_settings.setText("\uE019");
         B_settings.setToolTipText("Paramètres");
@@ -205,11 +206,11 @@ public class mainFrame extends javax.swing.JFrame {
         B_settings.setBorderPainted(false);
         B_settings.setContentAreaFilled(false);
         B_settings.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        B_settings.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        B_settings.setPreferredSize(new Dimension(P_mainButtons.getPreferredSize().height, P_mainButtons.getPreferredSize().height));
         P_mainButtons.add(B_settings);
 
         B_help.setBackground(new java.awt.Color(255, 78, 0));
-        B_help.setFont(glyphicons.deriveFont((float) B_help.getPreferredSize().height));
+        B_help.setFont(glyphicons.deriveFont((float) Math.round(P_mainButtons.getPreferredSize().height*0.85)));
         B_help.setForeground(new java.awt.Color(253, 250, 206));
         B_help.setText("\uE085");
         B_help.setToolTipText("À propos…");
@@ -217,11 +218,11 @@ public class mainFrame extends javax.swing.JFrame {
         B_help.setBorderPainted(false);
         B_help.setContentAreaFilled(false);
         B_help.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        B_help.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        B_help.setPreferredSize(new Dimension(P_mainButtons.getPreferredSize().height, P_mainButtons.getPreferredSize().height));
         P_mainButtons.add(B_help);
 
         B_quit.setBackground(new java.awt.Color(255, 78, 0));
-        B_quit.setFont(glyphicons.deriveFont((float) B_quit.getPreferredSize().height));
+        B_quit.setFont(glyphicons.deriveFont((float) Math.round(P_mainButtons.getPreferredSize().height*0.85)));
         B_quit.setForeground(new java.awt.Color(253, 250, 206));
         B_quit.setText("\uE083");
         B_quit.setToolTipText("Quitter");
@@ -229,13 +230,10 @@ public class mainFrame extends javax.swing.JFrame {
         B_quit.setBorderPainted(false);
         B_quit.setContentAreaFilled(false);
         B_quit.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        B_quit.setPreferredSize(new Dimension(defaultTab.getPreferredSize().height, defaultTab.getPreferredSize().height));
+        B_quit.setPreferredSize(new Dimension(P_mainButtons.getPreferredSize().height, P_mainButtons.getPreferredSize().height));
         P_mainButtons.add(B_quit);
 
-        defaultTab.add(P_mainButtons, java.awt.BorderLayout.CENTER);
-
-        F_defaultTabPaging.setPreferredSize((new Dimension(0, (int) Math.round(defaultTab.getPreferredSize().height*0.85))));
-        defaultTab.add(F_defaultTabPaging, java.awt.BorderLayout.PAGE_END);
+        defaultTab.add(P_mainButtons);
 
         tabGroups.add(defaultTab, "card6");
 
@@ -289,6 +287,7 @@ public class mainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new mainFrame().setVisible(true);
+                
             }
         });
     }
@@ -302,7 +301,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton B_quit;
     private javax.swing.JButton B_settings;
     private javax.swing.Box.Filler F_controlsPaging;
-    private javax.swing.Box.Filler F_defaultTabPaging;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
