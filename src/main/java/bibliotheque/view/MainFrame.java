@@ -13,33 +13,33 @@ import javax.swing.JFrame;
  *
  * @author shiro
  */
-public class mainFrame extends javax.swing.JFrame {
+public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form mainFrame
      */
     
-    public mainFrame() {
+    public MainFrame() {
         setTitle("Bibliothèque");
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
     }
     
-    public mainFrame(boolean fullscreen) {
+    public MainFrame(boolean fullscreen) {
         if (fullscreen) {
             setUndecorated(true);
             setResizable(true);
@@ -49,17 +49,17 @@ public class mainFrame extends javax.swing.JFrame {
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
     }
@@ -73,7 +73,7 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new bibliotheque.view.bgPanel();
+        background = new bibliotheque.view.BgPanel();
         workingArea = new javax.swing.JPanel();
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
@@ -260,19 +260,19 @@ public class mainFrame extends javax.swing.JFrame {
 
         defaultTab.add(P_titles);
 
-        tabGroups.add(defaultTab, "card0");
+        tabGroups.add(defaultTab, "card6");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
-        tabGroups.add(tab1, "card1");
+        tabGroups.add(tab1, "card2");
 
         tab2.setBackground(new java.awt.Color(237, 66, 21));
-        tabGroups.add(tab2, "card2");
+        tabGroups.add(tab2, "card3");
 
         tab3.setBackground(new java.awt.Color(237, 21, 66));
-        tabGroups.add(tab3, "card3");
+        tabGroups.add(tab3, "card4");
 
         tab4.setBackground(new java.awt.Color(208, 61, 199));
-        tabGroups.add(tab4, "card4");
+        tabGroups.add(tab4, "card5");
 
         controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
@@ -302,8 +302,9 @@ public class mainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
         //</editor-fold>
@@ -311,7 +312,7 @@ public class mainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainFrame().setVisible(true);
+                new MainFrame().setVisible(true);
                 
             }
         });
@@ -333,7 +334,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton TB_tab2;
     private javax.swing.JToggleButton TB_tab3;
     private javax.swing.JToggleButton TB_tab4;
-    private bibliotheque.view.bgPanel background;
+    private bibliotheque.view.BgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel defaultTab;
     private javax.swing.JPanel mainMenuButtons;

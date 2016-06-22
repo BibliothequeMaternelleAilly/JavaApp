@@ -15,17 +15,17 @@ import javax.swing.JPanel;
  *
  * @author shiro
  */
-public class bgPanel extends JPanel {
+public class BgPanel extends JPanel {
     
     private Image bg_img;
     private int width, height;
 
-    public bgPanel() {
+    public BgPanel() {
         super();
         try {
             bg_img = ImageIO.read(getClass().getResource("/background.png"));
         } catch (IOException ex) {
-            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         width = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75);
         height = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75);
