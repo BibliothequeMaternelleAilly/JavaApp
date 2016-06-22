@@ -23,18 +23,22 @@ public class bgPanel extends JPanel {
     public bgPanel() {
         super();
         try {
-                bg_img = ImageIO.read(getClass().getResource("/background.png"));
-            } catch (IOException ex) {
-                Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            width = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75);
-            height = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75);
-            setPreferredSize(new Dimension(width, height));
-            bg_img = bg_img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            bg_img = ImageIO.read(getClass().getResource("/background.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(bgPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        width = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75);
+        height = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75);
+        setPreferredSize(new Dimension(width, height));
+        bg_img = bg_img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
     
     @Override
     public void paintComponent(Graphics g) {
+        width = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75);
+        height = (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75);
+        setPreferredSize(new Dimension(width, height));
+        bg_img = bg_img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         g.drawImage(bg_img, 0, 0, null);
     }
 

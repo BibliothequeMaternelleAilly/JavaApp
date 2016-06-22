@@ -260,19 +260,19 @@ public class mainFrame extends javax.swing.JFrame {
 
         defaultTab.add(P_titles);
 
-        tabGroups.add(defaultTab, "card0");
+        tabGroups.add(defaultTab, "card6");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
-        tabGroups.add(tab1, "card1");
+        tabGroups.add(tab1, "card2");
 
         tab2.setBackground(new java.awt.Color(237, 66, 21));
-        tabGroups.add(tab2, "card2");
+        tabGroups.add(tab2, "card3");
 
         tab3.setBackground(new java.awt.Color(237, 21, 66));
-        tabGroups.add(tab3, "card3");
+        tabGroups.add(tab3, "card4");
 
         tab4.setBackground(new java.awt.Color(208, 61, 199));
-        tabGroups.add(tab4, "card4");
+        tabGroups.add(tab4, "card5");
 
         controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
