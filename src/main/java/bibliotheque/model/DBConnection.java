@@ -18,7 +18,8 @@ public final class DBConnection {
     private final Connection connection;
     private static volatile DBConnection instance = null;
     
-    private DBConnection(String path) throws SQLException {
+    private DBConnection(String path) throws SQLException, ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection("jdbc:sqlite:" + path);
     }
     
@@ -26,7 +27,7 @@ public final class DBConnection {
         if (instance == null) {
             try {
                 instance = new DBConnection(path);
-            } catch (SQLException ex) {
+            } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
