@@ -39,7 +39,7 @@ public class Eleve {
         return eleves;
     }
     
-    public static void clearDataBase() throws SQLException {
+    public static void clearTable() throws SQLException {
         String query = "DELETE FROM eleves";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.execute();
