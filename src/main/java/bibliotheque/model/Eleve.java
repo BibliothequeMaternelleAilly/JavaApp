@@ -26,14 +26,15 @@ public class Eleve {
         ArrayList<Eleve> eleves = new ArrayList();
 
         try (Statement statement = DBConnection.createStatement();
-             ResultSet result = statement.executeQuery("SELECT * FROM eleves")) {
-
+             ResultSet result = statement.executeQuery("SELECT * FROM eleves"))
+        {
             while (result.next())
                 eleves.add(new Eleve(result.getInt("id"),
                         result.getString("nom"),
                         result.getString("prenom")));
             
             result.close();
+            statement.close();
         }
         
         return eleves;
@@ -46,6 +47,26 @@ public class Eleve {
             statement.close();
         }
     }
+    
+    public static ArrayList<Eleve> selectAllEmprunteur() throws SQLException {
+        ArrayList<Eleve> list = new ArrayList();
+        
+        String query = "SELECT * FROM eleves WHERE id IN "
+                         + "(SELECT idEmprunteur FROM livres WHERE idEmprunteur!='')";
+        try (PreparedStatement statement = DBConnection.prepareStatement(query);
+             ResultSet result = statement.executeQuery())
+        {
+            while (result.next())
+                list.add(new Eleve(result.getInt("id"),
+                        result.getString("nom"),
+                        result.getString("prenom")));
+            
+            result.close();
+            statement.close();
+        }
+        return list;
+    }
+    
 
     public void deleteEleve() throws SQLException {
         String query = "DELETE FROM eleves WHERE id=?";
@@ -79,6 +100,29 @@ public class Eleve {
             statemement.close();
         }
     }
+    
+    public ArrayList<Livre> selectLivres() throws SQLException {
+        ArrayList<Livre> list = new ArrayList();
+        
+        String query = "SELECT * FROM livres WHERE idEmprunteur=?";
+        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next())
+                    list.add(new Livre(result.getInt("id"), result.getString("codeISBN"),
+                            result.getString("titre"), result.getString("auteur"),
+                            result.getString("mots_cles"), result.getString("theme"),
+                            result.getInt("idEmprunteur"), result.getString("date_emprun")));
+                
+                result.close();
+            }
+            statement.close();
+        }
+        
+        return list;
+    }
+    
     
     public int getId() {
         return id;
