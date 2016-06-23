@@ -28,7 +28,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>bibliotheque.view.mainFrame</mainClass>
+                            <mainClass>bibliotheque.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
