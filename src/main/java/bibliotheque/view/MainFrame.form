@@ -3,9 +3,16 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[400, 300]"/>
+    <Property name="extendedState" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="JFrame.MAXIMIZED_BOTH" type="code"/>
     </Property>
+    <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+      <Point value="[0, 0]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75))" type="code"/>
+    </Property>
+    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -35,22 +42,18 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5" green="2b" red="5b" type="rgb"/>
         </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[400, 300]"/>
-        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new BgPanel()"/>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePre" type="java.lang.String" value="setVisible(true);&#xa;setPreferredSize(new Dimension(getWidth(), getHeight()));&#xa;getContentPane().add(background, java.awt.BorderLayout.CENTER);&#xa;background.initBackground();&#xa;background.repaint();&#xa;background.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(background.getHeight()*0.075)));"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
         </Constraint>
       </Constraints>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-        <Property name="horizontalGap" type="int" value="0"/>
-        <Property name="verticalGap" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="(int) Math.round(background.getHeight()*0.075)" type="code"/>
-        </Property>
-      </Layout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="workingArea">
           <Properties>
@@ -67,6 +70,7 @@
             </Property>
           </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="background.validate();"/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="workingArea.setPreferredSize(new Dimension((int) Math.round(background.getWidth()*0.85), (int) Math.round(background.getHeight()*0.85)+1));"/>
           </AuxValues>
 
@@ -161,6 +165,11 @@
                             </LineBorder>
                           </Border>
                         </Property>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                           <Insets value="[1, 1, 1, 1]"/>
                         </Property>
@@ -191,6 +200,11 @@
                             </LineBorder>
                           </Border>
                         </Property>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                           <Insets value="[1, 1, 1, 1]"/>
                         </Property>
@@ -221,6 +235,11 @@
                             </LineBorder>
                           </Border>
                         </Property>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                           <Insets value="[1, 1, 1, 1]"/>
                         </Property>
@@ -251,6 +270,11 @@
                             </LineBorder>
                           </Border>
                         </Property>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                           <Insets value="[1, 1, 1, 1]"/>
                         </Property>
@@ -283,7 +307,7 @@
                     <Property name="axis" type="int" value="3"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="B_fullScreen">
+                    <Component class="javax.swing.JButton" name="B_webSite">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="4e" red="ff" type="rgb"/>
@@ -295,18 +319,22 @@
                           <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="&quot;\uE140&quot;" type="code"/>
+                          <Connection code="&quot;\uE135&quot;" type="code"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Passer en mode plein &#xe9;cran"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                            <LineBorder thickness="4">
-                              <Color PropertyName="color" blue="0" green="4e" red="ff" type="rgb"/>
+                            <LineBorder thickness="7">
+                              <Color PropertyName="color" blue="d" green="18" red="31" type="rgb"/>
                             </LineBorder>
                           </Border>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[32767, 32767]"/>
                         </Property>
@@ -333,12 +361,16 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
-                              <Color PropertyName="color" blue="0" green="4e" red="ff" type="rgb"/>
+                              <Color PropertyName="color" blue="d" green="18" red="31" type="rgb"/>
                             </LineBorder>
                           </Border>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[32767, 32767]"/>
                         </Property>
@@ -365,12 +397,16 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
-                              <Color PropertyName="color" blue="0" green="4e" red="ff" type="rgb"/>
+                              <Color PropertyName="color" blue="d" green="18" red="31" type="rgb"/>
                             </LineBorder>
                           </Border>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[32767, 32767]"/>
                         </Property>
@@ -391,18 +427,22 @@
                           <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="&quot;\uE083&quot;" type="code"/>
+                          <Connection code="&quot;\uE017&quot;" type="code"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value="Quitter"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
-                              <Color PropertyName="color" blue="0" green="4e" red="ff" type="rgb"/>
+                              <Color PropertyName="color" blue="d" green="18" red="31" type="rgb"/>
                             </LineBorder>
                           </Border>
                         </Property>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[32767, 32767]"/>
                         </Property>

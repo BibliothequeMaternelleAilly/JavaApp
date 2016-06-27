@@ -5,11 +5,15 @@ import bibliotheque.model.DBConnection;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -20,33 +24,8 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form mainFrame
      */
-    
     public MainFrame() {
-        setTitle("Bibliothèque");
-        try {
-            littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        initComponents();
-    }
-    
-    public MainFrame(boolean fullscreen) {
-        if (fullscreen) {
-            setUndecorated(true);
-            setResizable(true);
-            setExtendedState(JFrame.MAXIMIZED_BOTH);
-        }
+        
         setTitle("Bibliothèque");
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
@@ -75,7 +54,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new bibliotheque.view.BgPanel();
+        background = new BgPanel();
         workingArea = new javax.swing.JPanel();
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
@@ -85,7 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_tab3 = new javax.swing.JToggleButton();
         TB_tab4 = new javax.swing.JToggleButton();
         mainMenuButtons = new javax.swing.JPanel();
-        B_fullScreen = new javax.swing.JButton();
+        B_webSite = new javax.swing.JButton();
         B_settings = new javax.swing.JButton();
         B_help = new javax.swing.JButton();
         B_quit = new javax.swing.JButton();
@@ -100,7 +79,10 @@ public class MainFrame extends javax.swing.JFrame {
         tab4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(400, 300));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocation(new java.awt.Point(0, 0));
+        setMinimumSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75)));
+        setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -109,7 +91,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         background.setBackground(new java.awt.Color(91, 43, 5));
-        background.setMinimumSize(new java.awt.Dimension(400, 300));
+        setVisible(true);
+        setPreferredSize(new Dimension(getWidth(), getHeight()));
+        getContentPane().add(background, java.awt.BorderLayout.CENTER);
+        background.initBackground();
+        background.repaint();
         background.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(background.getHeight()*0.075)));
 
         workingArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 226, 165)));
@@ -142,6 +128,9 @@ public class MainFrame extends javax.swing.JFrame {
         TB_tab1.setForeground(new java.awt.Color(254, 226, 165));
         TB_tab1.setText("Tab1");
         TB_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
+        TB_tab1.setContentAreaFilled(false);
+        TB_tab1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_tab1.setFocusPainted(false);
         TB_tab1.setMargin(new java.awt.Insets(1, 1, 1, 1));
         TB_tab1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
         TB_tab1.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -152,6 +141,9 @@ public class MainFrame extends javax.swing.JFrame {
         TB_tab2.setForeground(new java.awt.Color(254, 226, 165));
         TB_tab2.setText("Tab2");
         TB_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
+        TB_tab2.setContentAreaFilled(false);
+        TB_tab2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_tab2.setFocusPainted(false);
         TB_tab2.setMargin(new java.awt.Insets(1, 1, 1, 1));
         TB_tab2.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
         TB_tab2.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -162,6 +154,9 @@ public class MainFrame extends javax.swing.JFrame {
         TB_tab3.setForeground(new java.awt.Color(254, 226, 165));
         TB_tab3.setText("Tab3");
         TB_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
+        TB_tab3.setContentAreaFilled(false);
+        TB_tab3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_tab3.setFocusPainted(false);
         TB_tab3.setMargin(new java.awt.Insets(1, 1, 1, 1));
         TB_tab3.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
         TB_tab3.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -172,6 +167,9 @@ public class MainFrame extends javax.swing.JFrame {
         TB_tab4.setForeground(new java.awt.Color(254, 226, 165));
         TB_tab4.setText("Tab4");
         TB_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
+        TB_tab4.setContentAreaFilled(false);
+        TB_tab4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_tab4.setFocusPainted(false);
         TB_tab4.setMargin(new java.awt.Insets(1, 1, 1, 1));
         TB_tab4.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
         TB_tab4.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -183,26 +181,30 @@ public class MainFrame extends javax.swing.JFrame {
         mainMenuButtons.setPreferredSize(toggleButtons.getPreferredSize());
         mainMenuButtons.setLayout(new javax.swing.BoxLayout(mainMenuButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
-        B_fullScreen.setBackground(new java.awt.Color(255, 78, 0));
-        B_fullScreen.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
-        B_fullScreen.setForeground(new java.awt.Color(254, 226, 165));
-        B_fullScreen.setText("\uE140");
-        B_fullScreen.setToolTipText("Passer en mode plein écran");
-        B_fullScreen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
-        B_fullScreen.setBorderPainted(false);
-        B_fullScreen.setContentAreaFilled(false);
-        B_fullScreen.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        B_fullScreen.setPreferredSize(new Dimension(mainMenuButtons.getPreferredSize().width, mainMenuButtons.getPreferredSize().width));
-        mainMenuButtons.add(B_fullScreen);
+        B_webSite.setBackground(new java.awt.Color(255, 78, 0));
+        B_webSite.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
+        B_webSite.setForeground(new java.awt.Color(254, 226, 165));
+        B_webSite.setText("\uE135");
+        B_webSite.setToolTipText("Passer en mode plein écran");
+        B_webSite.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 7));
+        B_webSite.setBorderPainted(false);
+        B_webSite.setContentAreaFilled(false);
+        B_webSite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        B_webSite.setFocusPainted(false);
+        B_webSite.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        B_webSite.setPreferredSize(new Dimension(mainMenuButtons.getPreferredSize().width, mainMenuButtons.getPreferredSize().width));
+        mainMenuButtons.add(B_webSite);
 
         B_settings.setBackground(new java.awt.Color(255, 78, 0));
         B_settings.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
         B_settings.setForeground(new java.awt.Color(254, 226, 165));
         B_settings.setText("\uE019");
         B_settings.setToolTipText("Paramètres");
-        B_settings.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_settings.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 4));
         B_settings.setBorderPainted(false);
         B_settings.setContentAreaFilled(false);
+        B_settings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        B_settings.setFocusPainted(false);
         B_settings.setMaximumSize(new java.awt.Dimension(32767, 32767));
         B_settings.setPreferredSize(new Dimension(mainMenuButtons.getPreferredSize().width, mainMenuButtons.getPreferredSize().width));
         mainMenuButtons.add(B_settings);
@@ -212,9 +214,11 @@ public class MainFrame extends javax.swing.JFrame {
         B_help.setForeground(new java.awt.Color(254, 226, 165));
         B_help.setText("\uE085");
         B_help.setToolTipText("À propos…");
-        B_help.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_help.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 4));
         B_help.setBorderPainted(false);
         B_help.setContentAreaFilled(false);
+        B_help.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        B_help.setFocusPainted(false);
         B_help.setMaximumSize(new java.awt.Dimension(32767, 32767));
         B_help.setPreferredSize(new Dimension(mainMenuButtons.getPreferredSize().width, mainMenuButtons.getPreferredSize().width));
         mainMenuButtons.add(B_help);
@@ -222,11 +226,13 @@ public class MainFrame extends javax.swing.JFrame {
         B_quit.setBackground(new java.awt.Color(255, 78, 0));
         B_quit.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
         B_quit.setForeground(new java.awt.Color(254, 226, 165));
-        B_quit.setText("\uE083");
+        B_quit.setText("\uE017");
         B_quit.setToolTipText("Quitter");
-        B_quit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 78, 0), 4));
+        B_quit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 4));
         B_quit.setBorderPainted(false);
         B_quit.setContentAreaFilled(false);
+        B_quit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        B_quit.setFocusPainted(false);
         B_quit.setMaximumSize(new java.awt.Dimension(32767, 32767));
         B_quit.setPreferredSize(new Dimension(mainMenuButtons.getPreferredSize().width, mainMenuButtons.getPreferredSize().width));
         mainMenuButtons.add(B_quit);
@@ -286,6 +292,7 @@ public class MainFrame extends javax.swing.JFrame {
         workingArea.add(controls, java.awt.BorderLayout.CENTER);
 
         background.add(workingArea);
+        background.validate();
 
         getContentPane().add(background, java.awt.BorderLayout.CENTER);
 
@@ -300,15 +307,67 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosed
 
+    public JButton getB_help() {
+        return B_help;
+    }
+
+    public JButton getB_quit() {
+        return B_quit;
+    }
+
+    public JButton getB_settings() {
+        return B_settings;
+    }
+
+    public JToggleButton getTB_tab1() {
+        return TB_tab1;
+    }
+
+    public JToggleButton getTB_tab2() {
+        return TB_tab2;
+    }
+
+    public JToggleButton getTB_tab3() {
+        return TB_tab3;
+    }
+
+    public JToggleButton getTB_tab4() {
+        return TB_tab4;
+    }
+
+    public JPanel getDefaultTab() {
+        return defaultTab;
+    }
+
+    public JPanel getTab1() {
+        return tab1;
+    }
+
+    public JPanel getTab2() {
+        return tab2;
+    }
+
+    public JPanel getTab3() {
+        return tab3;
+    }
+
+    public JPanel getTab4() {
+        return tab4;
+    }
+
+    public JPanel getToggleButtons() {
+        return toggleButtons;
+    }
+    
     
     private Font littleBird;
     private Font clearLine;
     private Font glyphicons;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton B_fullScreen;
     private javax.swing.JButton B_help;
     private javax.swing.JButton B_quit;
     private javax.swing.JButton B_settings;
+    private javax.swing.JButton B_webSite;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
