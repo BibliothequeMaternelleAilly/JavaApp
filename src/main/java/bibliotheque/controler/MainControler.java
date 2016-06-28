@@ -69,7 +69,9 @@ public class MainControler {
         };
         MouseListener toggleButtonListener = new MouseListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {}
+            public void mouseClicked(MouseEvent e) {
+                showTab(e.getSource());
+            }
             @Override
             public void mousePressed(MouseEvent e) {
                 toggleButtonsClicked(e.getSource());
@@ -94,10 +96,10 @@ public class MainControler {
         mainView.getB_settings().addMouseListener(buttonListener);
         mainView.getB_help().addMouseListener(buttonListener);
         mainView.getB_quit().addMouseListener(buttonListener);
-        mainView.getTB_tab1().addMouseListener(toggleButtonListener);
-        mainView.getTB_tab2().addMouseListener(toggleButtonListener);
-        mainView.getTB_tab3().addMouseListener(toggleButtonListener);
-        mainView.getTB_tab4().addMouseListener(toggleButtonListener);
+        mainView.getTB_card1().addMouseListener(toggleButtonListener);
+        mainView.getTB_card2().addMouseListener(toggleButtonListener);
+        mainView.getTB_card3().addMouseListener(toggleButtonListener);
+        mainView.getTB_card4().addMouseListener(toggleButtonListener);
 
     }
 
@@ -119,20 +121,28 @@ public class MainControler {
         else button.setFont(glyphNormal);
     }
     
-    private void unselectTab(JToggleButton button) {
+    private void unselectToggleButton(JToggleButton button) {
         if (button.isSelected()) {
             button.setSelected(false);
             button.setContentAreaFilled(false);
         }
     }
     
+    private void showTab(Object obj) {
+        JToggleButton toggleButton = (JToggleButton) obj;
+        
+        String index = toggleButton.getName();
+        if (!toggleButton.isSelected()) index = "card0";
+        mainView.getTabGroupsLayout().show(mainView.getTabGroups(), index);
+    }
+    
     private void toggleButtonsClicked(Object obj) {
         JToggleButton toggleButton = (JToggleButton) obj;
         
-        if (toggleButton!=mainView.getTB_tab1()) unselectTab(mainView.getTB_tab1());
-        if (toggleButton!=mainView.getTB_tab2()) unselectTab(mainView.getTB_tab2());
-        if (toggleButton!=mainView.getTB_tab3()) unselectTab(mainView.getTB_tab3());
-        if (toggleButton!=mainView.getTB_tab4()) unselectTab(mainView.getTB_tab4());
+        if (toggleButton!=mainView.getTB_card1()) unselectToggleButton(mainView.getTB_card1());
+        if (toggleButton!=mainView.getTB_card2()) unselectToggleButton(mainView.getTB_card2());
+        if (toggleButton!=mainView.getTB_card3()) unselectToggleButton(mainView.getTB_card3());
+        if (toggleButton!=mainView.getTB_card4()) unselectToggleButton(mainView.getTB_card4());
 
         UIManager.put("ToggleButton.select", toggleButton.getBackground().darker());
         SwingUtilities.updateComponentTreeUI(mainView);

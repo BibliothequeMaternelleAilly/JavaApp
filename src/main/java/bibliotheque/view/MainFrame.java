@@ -2,6 +2,7 @@
 package bibliotheque.view;
 
 import bibliotheque.model.DBConnection;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -59,10 +60,10 @@ public class MainFrame extends javax.swing.JFrame {
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
         toggleButtons = new javax.swing.JPanel();
-        TB_tab1 = new javax.swing.JToggleButton();
-        TB_tab2 = new javax.swing.JToggleButton();
-        TB_tab3 = new javax.swing.JToggleButton();
-        TB_tab4 = new javax.swing.JToggleButton();
+        TB_card1 = new javax.swing.JToggleButton();
+        TB_card2 = new javax.swing.JToggleButton();
+        TB_card3 = new javax.swing.JToggleButton();
+        TB_card4 = new javax.swing.JToggleButton();
         mainMenuButtons = new javax.swing.JPanel();
         B_webSite = new javax.swing.JButton();
         B_settings = new javax.swing.JButton();
@@ -123,57 +124,61 @@ public class MainFrame extends javax.swing.JFrame {
         toggleButtons.setPreferredSize(new Dimension((int) Math.round(controls.getPreferredSize().width*0.09), controls.getPreferredSize().height));
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
-        TB_tab1.setBackground(new java.awt.Color(237, 146, 21));
-        TB_tab1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
-        TB_tab1.setForeground(new java.awt.Color(254, 226, 165));
-        TB_tab1.setText("Tab1");
-        TB_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
-        TB_tab1.setContentAreaFilled(false);
-        TB_tab1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TB_tab1.setFocusPainted(false);
-        TB_tab1.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        TB_tab1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
-        TB_tab1.setMinimumSize(new java.awt.Dimension(0, 0));
-        toggleButtons.add(TB_tab1);
+        TB_card1.setBackground(new java.awt.Color(237, 146, 21));
+        TB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card1.setForeground(new java.awt.Color(254, 226, 165));
+        TB_card1.setText("Tab1");
+        TB_card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
+        TB_card1.setContentAreaFilled(false);
+        TB_card1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_card1.setFocusPainted(false);
+        TB_card1.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_card1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_card1.setMinimumSize(new java.awt.Dimension(0, 0));
+        TB_card1.setName("card1"); // NOI18N
+        toggleButtons.add(TB_card1);
 
-        TB_tab2.setBackground(new java.awt.Color(237, 66, 21));
-        TB_tab2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
-        TB_tab2.setForeground(new java.awt.Color(254, 226, 165));
-        TB_tab2.setText("Tab2");
-        TB_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
-        TB_tab2.setContentAreaFilled(false);
-        TB_tab2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TB_tab2.setFocusPainted(false);
-        TB_tab2.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        TB_tab2.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
-        TB_tab2.setMinimumSize(new java.awt.Dimension(0, 0));
-        toggleButtons.add(TB_tab2);
+        TB_card2.setBackground(new java.awt.Color(237, 66, 21));
+        TB_card2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card2.setForeground(new java.awt.Color(254, 226, 165));
+        TB_card2.setText("Tab2");
+        TB_card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
+        TB_card2.setContentAreaFilled(false);
+        TB_card2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_card2.setFocusPainted(false);
+        TB_card2.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_card2.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_card2.setMinimumSize(new java.awt.Dimension(0, 0));
+        TB_card2.setName("card2"); // NOI18N
+        toggleButtons.add(TB_card2);
 
-        TB_tab3.setBackground(new java.awt.Color(237, 21, 66));
-        TB_tab3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
-        TB_tab3.setForeground(new java.awt.Color(254, 226, 165));
-        TB_tab3.setText("Tab3");
-        TB_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
-        TB_tab3.setContentAreaFilled(false);
-        TB_tab3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TB_tab3.setFocusPainted(false);
-        TB_tab3.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        TB_tab3.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
-        TB_tab3.setMinimumSize(new java.awt.Dimension(0, 0));
-        toggleButtons.add(TB_tab3);
+        TB_card3.setBackground(new java.awt.Color(237, 21, 66));
+        TB_card3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card3.setForeground(new java.awt.Color(254, 226, 165));
+        TB_card3.setText("Tab3");
+        TB_card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
+        TB_card3.setContentAreaFilled(false);
+        TB_card3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_card3.setFocusPainted(false);
+        TB_card3.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_card3.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_card3.setMinimumSize(new java.awt.Dimension(0, 0));
+        TB_card3.setName("card3"); // NOI18N
+        toggleButtons.add(TB_card3);
 
-        TB_tab4.setBackground(new java.awt.Color(208, 61, 199));
-        TB_tab4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
-        TB_tab4.setForeground(new java.awt.Color(254, 226, 165));
-        TB_tab4.setText("Tab4");
-        TB_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
-        TB_tab4.setContentAreaFilled(false);
-        TB_tab4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TB_tab4.setFocusPainted(false);
-        TB_tab4.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        TB_tab4.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
-        TB_tab4.setMinimumSize(new java.awt.Dimension(0, 0));
-        toggleButtons.add(TB_tab4);
+        TB_card4.setBackground(new java.awt.Color(208, 61, 199));
+        TB_card4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card4.setForeground(new java.awt.Color(254, 226, 165));
+        TB_card4.setText("Tab4");
+        TB_card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
+        TB_card4.setContentAreaFilled(false);
+        TB_card4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TB_card4.setFocusPainted(false);
+        TB_card4.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        TB_card4.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width));
+        TB_card4.setMinimumSize(new java.awt.Dimension(0, 0));
+        TB_card4.setName("card4"); // NOI18N
+        toggleButtons.add(TB_card4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
 
@@ -273,19 +278,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         defaultTab.add(P_titles);
 
-        tabGroups.add(defaultTab, "card6");
+        tabGroups.add(defaultTab, "card0");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
-        tabGroups.add(tab1, "card2");
+        tabGroups.add(tab1, "card1");
 
         tab2.setBackground(new java.awt.Color(237, 66, 21));
-        tabGroups.add(tab2, "card3");
+        tabGroups.add(tab2, "card2");
 
         tab3.setBackground(new java.awt.Color(237, 21, 66));
-        tabGroups.add(tab3, "card4");
+        tabGroups.add(tab3, "card3");
 
         tab4.setBackground(new java.awt.Color(208, 61, 199));
-        tabGroups.add(tab4, "card5");
+        tabGroups.add(tab4, "card4");
 
         controls.add(tabGroups, java.awt.BorderLayout.CENTER);
 
@@ -319,40 +324,28 @@ public class MainFrame extends javax.swing.JFrame {
         return B_settings;
     }
 
-    public JToggleButton getTB_tab1() {
-        return TB_tab1;
+    public JToggleButton getTB_card1() {
+        return TB_card1;
     }
 
-    public JToggleButton getTB_tab2() {
-        return TB_tab2;
+    public JToggleButton getTB_card2() {
+        return TB_card2;
     }
 
-    public JToggleButton getTB_tab3() {
-        return TB_tab3;
+    public JToggleButton getTB_card3() {
+        return TB_card3;
     }
 
-    public JToggleButton getTB_tab4() {
-        return TB_tab4;
+    public JToggleButton getTB_card4() {
+        return TB_card4;
     }
 
-    public JPanel getDefaultTab() {
-        return defaultTab;
+    public CardLayout getTabGroupsLayout() {
+        return (CardLayout) tabGroups.getLayout();
     }
 
-    public JPanel getTab1() {
-        return tab1;
-    }
-
-    public JPanel getTab2() {
-        return tab2;
-    }
-
-    public JPanel getTab3() {
-        return tab3;
-    }
-
-    public JPanel getTab4() {
-        return tab4;
+    public JPanel getTabGroups() {
+        return tabGroups;
     }
 
     public JPanel getToggleButtons() {
@@ -376,10 +369,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
     private javax.swing.JPanel P_titles;
-    private javax.swing.JToggleButton TB_tab1;
-    private javax.swing.JToggleButton TB_tab2;
-    private javax.swing.JToggleButton TB_tab3;
-    private javax.swing.JToggleButton TB_tab4;
+    private javax.swing.JToggleButton TB_card1;
+    private javax.swing.JToggleButton TB_card2;
+    private javax.swing.JToggleButton TB_card3;
+    private javax.swing.JToggleButton TB_card4;
     private bibliotheque.view.BgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel defaultTab;

@@ -146,7 +146,7 @@
                     <Property name="axis" type="int" value="3"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JToggleButton" name="TB_tab1">
+                    <Component class="javax.swing.JToggleButton" name="TB_card1">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="15" green="92" red="ed" type="rgb"/>
@@ -179,9 +179,10 @@
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[0, 0]"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="card1" noResource="true"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_tab2">
+                    <Component class="javax.swing.JToggleButton" name="TB_card2">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="15" green="42" red="ed" type="rgb"/>
@@ -214,9 +215,10 @@
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[0, 0]"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="card2" noResource="true"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_tab3">
+                    <Component class="javax.swing.JToggleButton" name="TB_card3">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="42" green="15" red="ed" type="rgb"/>
@@ -249,9 +251,10 @@
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[0, 0]"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="card3" noResource="true"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_tab4">
+                    <Component class="javax.swing.JToggleButton" name="TB_card4">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="c7" green="3d" red="d0" type="rgb"/>
@@ -284,6 +287,7 @@
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[0, 0]"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="card4" noResource="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -477,7 +481,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="card6"/>
+                          <CardConstraints cardName="card0"/>
                         </Constraint>
                       </Constraints>
 
@@ -558,7 +562,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="card2"/>
+                          <CardConstraints cardName="card1"/>
                         </Constraint>
                       </Constraints>
 
@@ -572,7 +576,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="card3"/>
+                          <CardConstraints cardName="card2"/>
                         </Constraint>
                       </Constraints>
 
@@ -586,7 +590,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="card4"/>
+                          <CardConstraints cardName="card3"/>
                         </Constraint>
                       </Constraints>
 
@@ -600,7 +604,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="card5"/>
+                          <CardConstraints cardName="card4"/>
                         </Constraint>
                       </Constraints>
 
