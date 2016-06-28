@@ -121,13 +121,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         toggleButtons.setAutoscrolls(true);
         toggleButtons.setOpaque(false);
-        toggleButtons.setPreferredSize(new Dimension((int) Math.round(controls.getPreferredSize().width*0.09), controls.getPreferredSize().height));
+        toggleButtons.setPreferredSize(new Dimension((int) Math.round(controls.getPreferredSize().width*0.1), controls.getPreferredSize().height));
+        toggleButtons.setRequestFocusEnabled(false);
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
         TB_card1.setBackground(new java.awt.Color(237, 146, 21));
-        TB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34)));
         TB_card1.setForeground(new java.awt.Color(254, 226, 165));
-        TB_card1.setText("Tab1");
+        TB_card1.setText("Emprunter");
         TB_card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 146, 21), 4));
         TB_card1.setContentAreaFilled(false);
         TB_card1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -139,9 +140,9 @@ public class MainFrame extends javax.swing.JFrame {
         toggleButtons.add(TB_card1);
 
         TB_card2.setBackground(new java.awt.Color(237, 66, 21));
-        TB_card2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
+        TB_card2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.4)));
         TB_card2.setForeground(new java.awt.Color(254, 226, 165));
-        TB_card2.setText("Tab2");
+        TB_card2.setText("Rendre");
         TB_card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 66, 21), 4));
         TB_card2.setContentAreaFilled(false);
         TB_card2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -155,7 +156,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_card3.setBackground(new java.awt.Color(237, 21, 66));
         TB_card3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_card3.setForeground(new java.awt.Color(254, 226, 165));
-        TB_card3.setText("Tab3");
+        TB_card3.setText("Éleves");
         TB_card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 21, 66), 4));
         TB_card3.setContentAreaFilled(false);
         TB_card3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -169,7 +170,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_card4.setBackground(new java.awt.Color(208, 61, 199));
         TB_card4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_card4.setForeground(new java.awt.Color(254, 226, 165));
-        TB_card4.setText("Tab4");
+        TB_card4.setText("Livres");
         TB_card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(208, 61, 199), 4));
         TB_card4.setContentAreaFilled(false);
         TB_card4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
