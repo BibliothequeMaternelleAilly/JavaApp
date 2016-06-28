@@ -75,6 +75,10 @@ public class MainFrame extends javax.swing.JFrame {
         L_title1 = new javax.swing.JLabel();
         L_title2 = new javax.swing.JLabel();
         tab1 = new javax.swing.JPanel();
+        L_title3 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         tab2 = new javax.swing.JPanel();
         tab3 = new javax.swing.JPanel();
         tab4 = new javax.swing.JPanel();
@@ -282,6 +286,28 @@ public class MainFrame extends javax.swing.JFrame {
         tabGroups.add(defaultTab, "card0");
 
         tab1.setBackground(new java.awt.Color(237, 146, 21));
+        tab1.setLayout(new java.awt.BorderLayout());
+
+        L_title3.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.12)));
+        L_title3.setForeground(new java.awt.Color(254, 226, 165));
+        L_title3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title3.setText("Emprunter un livre");
+        L_title3.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        L_title3.setMinimumSize(new java.awt.Dimension(0, 0));
+        L_title3.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
+        L_title3.setRequestFocusEnabled(false);
+        tab1.add(L_title3, java.awt.BorderLayout.PAGE_START);
+
+        jLabel1.setText("jLabel1");
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(330, 100, 130, 40);
+
+        jTextField1.setText("jTextField1");
+        jLayeredPane1.add(jTextField1);
+        jTextField1.setBounds(310, 170, 170, 50);
+
+        tab1.add(jLayeredPane1, java.awt.BorderLayout.CENTER);
+
         tabGroups.add(tab1, "card1");
 
         tab2.setBackground(new java.awt.Color(237, 66, 21));
@@ -369,6 +395,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
+    private javax.swing.JLabel L_title3;
     private javax.swing.JPanel P_titles;
     private javax.swing.JToggleButton TB_card1;
     private javax.swing.JToggleButton TB_card2;
@@ -377,6 +404,9 @@ public class MainFrame extends javax.swing.JFrame {
     private bibliotheque.view.BgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel defaultTab;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
