@@ -90,6 +90,7 @@ public class MainControler {
                 
         
         mainView.getB_quit().addActionListener(closeActionListener);
+        mainView.getB_webSite().addMouseListener(buttonListener);
         mainView.getB_settings().addMouseListener(buttonListener);
         mainView.getB_help().addMouseListener(buttonListener);
         mainView.getB_quit().addMouseListener(buttonListener);
@@ -126,12 +127,13 @@ public class MainControler {
     }
     
     private void toggleButtonsClicked(Object obj) {
-        unselectTab(mainView.getTB_tab1());
-        unselectTab(mainView.getTB_tab2());
-        unselectTab(mainView.getTB_tab3());
-        unselectTab(mainView.getTB_tab4());
-        
         JToggleButton toggleButton = (JToggleButton) obj;
+        
+        if (toggleButton!=mainView.getTB_tab1()) unselectTab(mainView.getTB_tab1());
+        if (toggleButton!=mainView.getTB_tab2()) unselectTab(mainView.getTB_tab2());
+        if (toggleButton!=mainView.getTB_tab3()) unselectTab(mainView.getTB_tab3());
+        if (toggleButton!=mainView.getTB_tab4()) unselectTab(mainView.getTB_tab4());
+
         UIManager.put("ToggleButton.select", toggleButton.getBackground().darker());
         SwingUtilities.updateComponentTreeUI(mainView);
     }

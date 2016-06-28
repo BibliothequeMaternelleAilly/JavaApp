@@ -185,7 +185,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_webSite.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
         B_webSite.setForeground(new java.awt.Color(254, 226, 165));
         B_webSite.setText("\uE135");
-        B_webSite.setToolTipText("Passer en mode plein écran");
+        B_webSite.setToolTipText("Aller sur le site internet");
         B_webSite.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 7));
         B_webSite.setBorderPainted(false);
         B_webSite.setContentAreaFilled(false);
@@ -357,6 +357,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     public JPanel getToggleButtons() {
         return toggleButtons;
+    }
+
+    public JButton getB_webSite() {
+        return B_webSite;
     }
     
     

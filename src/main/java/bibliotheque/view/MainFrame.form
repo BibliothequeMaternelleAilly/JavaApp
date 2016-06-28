@@ -321,7 +321,7 @@
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="&quot;\uE135&quot;" type="code"/>
                         </Property>
-                        <Property name="toolTipText" type="java.lang.String" value="Passer en mode plein &#xe9;cran"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Aller sur le site internet"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="7">
