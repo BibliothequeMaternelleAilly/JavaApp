@@ -75,10 +75,16 @@ public class MainFrame extends javax.swing.JFrame {
         L_title1 = new javax.swing.JLabel();
         L_title2 = new javax.swing.JLabel();
         tab1 = new javax.swing.JPanel();
-        L_title3 = new javax.swing.JLabel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        L_title_tab1 = new javax.swing.JLabel();
+        controls_tab1 = new javax.swing.JPanel();
+        fields_tab1 = new javax.swing.JPanel();
+        scan_tab1 = new javax.swing.JPanel();
+        P_scanFrame = new javax.swing.JPanel();
+        P_scanFrame_title = new javax.swing.JPanel();
+        L_scanFrame_title = new javax.swing.JLabel();
+        P_scanFrame_controls = new javax.swing.JPanel();
+        FTF_barCode = new javax.swing.JFormattedTextField();
+        B_validate = new javax.swing.JButton();
         tab2 = new javax.swing.JPanel();
         tab3 = new javax.swing.JPanel();
         tab4 = new javax.swing.JPanel();
@@ -288,25 +294,71 @@ public class MainFrame extends javax.swing.JFrame {
         tab1.setBackground(new java.awt.Color(237, 146, 21));
         tab1.setLayout(new java.awt.BorderLayout());
 
-        L_title3.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.12)));
-        L_title3.setForeground(new java.awt.Color(254, 226, 165));
-        L_title3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title3.setText("Emprunter un livre");
-        L_title3.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        L_title3.setMinimumSize(new java.awt.Dimension(0, 0));
-        L_title3.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
-        L_title3.setRequestFocusEnabled(false);
-        tab1.add(L_title3, java.awt.BorderLayout.PAGE_START);
+        L_title_tab1.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.12)));
+        L_title_tab1.setForeground(new java.awt.Color(254, 226, 165));
+        L_title_tab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title_tab1.setText("Emprunter un livre");
+        L_title_tab1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        L_title_tab1.setMinimumSize(new java.awt.Dimension(0, 0));
+        L_title_tab1.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
+        L_title_tab1.setRequestFocusEnabled(false);
+        tab1.add(L_title_tab1, java.awt.BorderLayout.PAGE_START);
 
-        jLabel1.setText("jLabel1");
-        jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(330, 100, 130, 40);
+        controls_tab1.setOpaque(false);
+        controls_tab1.setLayout(new java.awt.CardLayout());
 
-        jTextField1.setText("jTextField1");
-        jLayeredPane1.add(jTextField1);
-        jTextField1.setBounds(310, 170, 170, 50);
+        fields_tab1.setOpaque(false);
+        controls_tab1.add(fields_tab1, "card2");
 
-        tab1.add(jLayeredPane1, java.awt.BorderLayout.CENTER);
+        scan_tab1.setOpaque(false);
+        scan_tab1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(tabGroups.getPreferredSize().height*0.1)));
+
+        P_scanFrame.setBackground(new java.awt.Color(254, 247, 189));
+        P_scanFrame.setPreferredSize(new Dimension(tabGroups.getPreferredSize().width, (int) Math.round(tabGroups.getPreferredSize().height*0.3)));
+        P_scanFrame.setLayout(new javax.swing.BoxLayout(P_scanFrame, javax.swing.BoxLayout.PAGE_AXIS));
+
+        P_scanFrame_title.setOpaque(false);
+        P_scanFrame_title.setLayout(new java.awt.BorderLayout());
+
+        L_scanFrame_title.setForeground(new java.awt.Color(49, 24, 13));
+        L_scanFrame_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_scanFrame_title.setText("Veuillez scanner le code barre du livre ou le taper dans la zone de texte:");
+        P_scanFrame_title.add(L_scanFrame_title, java.awt.BorderLayout.CENTER);
+
+        P_scanFrame.add(P_scanFrame_title);
+
+        P_scanFrame_controls.setOpaque(false);
+        P_scanFrame_controls.setPreferredSize(new Dimension(P_scanFrame.getPreferredSize().width, (int) Math.round(P_scanFrame.getPreferredSize().height*0.4)));
+
+        FTF_barCode.setBackground(new java.awt.Color(253, 179, 55));
+        FTF_barCode.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, new java.awt.Color(161, 58, 13), new java.awt.Color(49, 24, 13)));
+        FTF_barCode.setColumns(13);
+        FTF_barCode.setForeground(new java.awt.Color(49, 24, 13));
+        try {
+            FTF_barCode.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        FTF_barCode.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        P_scanFrame_controls.add(FTF_barCode);
+
+        B_validate.setFont(glyphicons.deriveFont((float) Math.round(P_scanFrame_controls.getPreferredSize().height*0.8)));
+        B_validate.setForeground(new java.awt.Color(123, 178, 40));
+        B_validate.setText("\uE084");
+        B_validate.setToolTipText("Valider");
+        B_validate.setBorderPainted(false);
+        B_validate.setContentAreaFilled(false);
+        B_validate.setEnabled(false);
+        B_validate.setFocusPainted(false);
+        P_scanFrame_controls.add(B_validate);
+
+        P_scanFrame.add(P_scanFrame_controls);
+
+        scan_tab1.add(P_scanFrame);
+
+        controls_tab1.add(scan_tab1, "card1");
+
+        tab1.add(controls_tab1, java.awt.BorderLayout.CENTER);
 
         tabGroups.add(tab1, "card1");
 
@@ -391,11 +443,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton B_help;
     private javax.swing.JButton B_quit;
     private javax.swing.JButton B_settings;
+    private javax.swing.JButton B_validate;
     private javax.swing.JButton B_webSite;
+    private javax.swing.JFormattedTextField FTF_barCode;
+    private javax.swing.JLabel L_scanFrame_title;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
-    private javax.swing.JLabel L_title3;
+    private javax.swing.JLabel L_title_tab1;
+    private javax.swing.JPanel P_scanFrame;
+    private javax.swing.JPanel P_scanFrame_controls;
+    private javax.swing.JPanel P_scanFrame_title;
     private javax.swing.JPanel P_titles;
     private javax.swing.JToggleButton TB_card1;
     private javax.swing.JToggleButton TB_card2;
@@ -403,11 +461,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton TB_card4;
     private bibliotheque.view.BgPanel background;
     private javax.swing.JPanel controls;
+    private javax.swing.JPanel controls_tab1;
     private javax.swing.JPanel defaultTab;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel fields_tab1;
     private javax.swing.JPanel mainMenuButtons;
+    private javax.swing.JPanel scan_tab1;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
