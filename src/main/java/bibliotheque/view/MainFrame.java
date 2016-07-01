@@ -43,6 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            maritime = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("MaritimeTropicalNeue.ttf"));
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -59,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         workingArea = new javax.swing.JPanel();
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         toggleButtons = new javax.swing.JPanel();
         TB_card1 = new javax.swing.JToggleButton();
         TB_card2 = new javax.swing.JToggleButton();
@@ -78,6 +84,18 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab1 = new javax.swing.JLabel();
         controls_tab1 = new javax.swing.JPanel();
         fields_tab1 = new javax.swing.JPanel();
+        P_fields_tab1_mdl = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         scan_tab1 = new javax.swing.JPanel();
         P_scanFrame = new javax.swing.JPanel();
         P_scanFrame_title = new javax.swing.JPanel();
@@ -119,15 +137,20 @@ public class MainFrame extends javax.swing.JFrame {
         L_title.setForeground(new java.awt.Color(253, 250, 206));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Bibliotheque de l'école maternelle");
-        L_title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 226, 165)));
         L_title.setMaximumSize(new java.awt.Dimension(1243, 17));
         L_title.setMinimumSize(new java.awt.Dimension(1243, 17));
-        workingArea.add(L_title, java.awt.BorderLayout.PAGE_START);
+        workingArea.add(L_title, java.awt.BorderLayout.NORTH);
 
-        controls.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 226, 165)));
         controls.setOpaque(false);
         controls.setPreferredSize(new Dimension(workingArea.getPreferredSize().width, workingArea.getPreferredSize().height-L_title.getPreferredSize().height));
         controls.setLayout(new java.awt.BorderLayout());
+
+        jSeparator1.setBackground(new java.awt.Color(254, 226, 165));
+        jSeparator1.setForeground(new java.awt.Color(254, 226, 165));
+        jSeparator1.setMaximumSize(new java.awt.Dimension(32767, 1));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(4, 1));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(4, 1));
+        controls.add(jSeparator1, java.awt.BorderLayout.NORTH);
 
         toggleButtons.setAutoscrolls(true);
         toggleButtons.setOpaque(false);
@@ -305,9 +328,67 @@ public class MainFrame extends javax.swing.JFrame {
         tab1.add(L_title_tab1, java.awt.BorderLayout.PAGE_START);
 
         controls_tab1.setOpaque(false);
+        controls_tab1.setPreferredSize(new Dimension(200,0));
         controls_tab1.setLayout(new java.awt.CardLayout());
 
         fields_tab1.setOpaque(false);
+        fields_tab1.setPreferredSize(new Dimension(200,200));
+        fields_tab1.setLayout(new javax.swing.BoxLayout(fields_tab1, javax.swing.BoxLayout.PAGE_AXIS));
+
+        P_fields_tab1_mdl.setBackground(new java.awt.Color(254, 247, 189));
+        P_fields_tab1_mdl.setLayout(new java.awt.GridLayout(2, 1));
+
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.15)));
+        jLabel1.setForeground(new java.awt.Color(49, 24, 13));
+        jLabel1.setText("jLabel1");
+        jPanel2.add(jLabel1);
+
+        P_fields_tab1_mdl.add(jPanel2);
+
+        jPanel5.setOpaque(false);
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Nom et prénom de l'emprunteur:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jPanel5.add(jLabel3);
+
+        jPanel1.setOpaque(false);
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "NOM Prénom" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList2.setVisibleRowCount(3);
+        jScrollPane2.setViewportView(jList2);
+
+        jPanel1.add(jScrollPane2);
+
+        jTextField2.setColumns(20);
+        jTextField2.setText("jTextField2");
+        jPanel1.add(jTextField2);
+
+        jTextField1.setColumns(20);
+        jTextField1.setText("jTextField1");
+        jPanel1.add(jTextField1);
+
+        jPanel5.add(jPanel1);
+
+        P_fields_tab1_mdl.add(jPanel5);
+
+        fields_tab1.add(P_fields_tab1_mdl);
+
+        jPanel4.setOpaque(false);
+
+        jButton1.setText("jButton1");
+        jPanel4.add(jButton1);
+
+        fields_tab1.add(jPanel4);
+
         controls_tab1.add(fields_tab1, "card2");
 
         scan_tab1.setOpaque(false);
@@ -439,6 +520,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Font littleBird;
     private Font clearLine;
     private Font glyphicons;
+    private Font maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_help;
     private javax.swing.JButton B_quit;
@@ -451,6 +533,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
     private javax.swing.JLabel L_title_tab1;
+    private javax.swing.JPanel P_fields_tab1_mdl;
     private javax.swing.JPanel P_scanFrame;
     private javax.swing.JPanel P_scanFrame_controls;
     private javax.swing.JPanel P_scanFrame_title;
@@ -464,6 +547,18 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel controls_tab1;
     private javax.swing.JPanel defaultTab;
     private javax.swing.JPanel fields_tab1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel scan_tab1;
     private javax.swing.JPanel tab1;
