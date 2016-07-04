@@ -84,18 +84,16 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab1 = new javax.swing.JLabel();
         controls_tab1 = new javax.swing.JPanel();
         fields_tab1 = new javax.swing.JPanel();
-        P_fields_tab1_mdl = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        P_fields_tab1_top = new javax.swing.JPanel();
+        L_fields_tab1_bookTitle = new javax.swing.JLabel();
+        L_fields_tab1_name = new javax.swing.JLabel();
+        P_fields_tab1_nameFields = new javax.swing.JPanel();
+        SP_pupilList = new javax.swing.JScrollPane();
+        L_pupilList = new javax.swing.JList<>();
+        P_tab1_nameFields_name = new javax.swing.JTextField();
+        P_tab1_nameFields_surname = new javax.swing.JTextField();
+        P_fields_tab1_btm = new javax.swing.JPanel();
+        B_fields_tab1_validate = new javax.swing.JButton();
         scan_tab1 = new javax.swing.JPanel();
         P_scanFrame = new javax.swing.JPanel();
         P_scanFrame_title = new javax.swing.JPanel();
@@ -335,59 +333,77 @@ public class MainFrame extends javax.swing.JFrame {
         fields_tab1.setPreferredSize(new Dimension(200,200));
         fields_tab1.setLayout(new javax.swing.BoxLayout(fields_tab1, javax.swing.BoxLayout.PAGE_AXIS));
 
-        P_fields_tab1_mdl.setBackground(new java.awt.Color(254, 247, 189));
-        P_fields_tab1_mdl.setLayout(new java.awt.GridLayout(2, 1));
+        P_fields_tab1_top.setBackground(new java.awt.Color(254, 247, 189));
+        P_fields_tab1_top.setLayout(new javax.swing.BoxLayout(P_fields_tab1_top, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        L_fields_tab1_bookTitle.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.1)));
+        L_fields_tab1_bookTitle.setForeground(new java.awt.Color(49, 24, 13));
+        L_fields_tab1_bookTitle.setText("jLabel1");
+        P_fields_tab1_top.add(L_fields_tab1_bookTitle);
 
-        jLabel1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.15)));
-        jLabel1.setForeground(new java.awt.Color(49, 24, 13));
-        jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1);
+        L_fields_tab1_name.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        L_fields_tab1_name.setForeground(new java.awt.Color(49, 24, 13));
+        L_fields_tab1_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_fields_tab1_name.setText("Nom et prénom de l'emprunteur:");
+        L_fields_tab1_name.setMaximumSize(new java.awt.Dimension(32767, 17));
+        P_fields_tab1_top.add(L_fields_tab1_name);
 
-        P_fields_tab1_mdl.add(jPanel2);
+        P_fields_tab1_nameFields.setAutoscrolls(true);
+        P_fields_tab1_nameFields.setOpaque(false);
+        P_fields_tab1_nameFields.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        jPanel5.setOpaque(false);
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.PAGE_AXIS));
+        SP_pupilList.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13)), "Liste des élèves", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, L_fields_tab1_name.getFont().deriveFont((float) Math.round(L_fields_tab1_name.getFont().getSize()*0.9)), new java.awt.Color(49, 24, 13)));
+        SP_pupilList.setForeground(new java.awt.Color(49, 24, 13));
+        SP_pupilList.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        SP_pupilList.setOpaque(false);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nom et prénom de l'emprunteur:");
-        jLabel3.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        jPanel5.add(jLabel3);
-
-        jPanel1.setOpaque(false);
-
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "NOM Prénom" };
+        L_pupilList.setBackground(new java.awt.Color(254, 249, 189));
+        L_pupilList.setFont(L_fields_tab1_name.getFont().deriveFont((float) Math.round(L_fields_tab1_name.getFont().getSize()*0.7)));
+        L_pupilList.setForeground(new java.awt.Color(49, 24, 13));
+        L_pupilList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "……………………………………………………" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList2.setVisibleRowCount(3);
-        jScrollPane2.setViewportView(jList2);
+        L_pupilList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        L_pupilList.setCellRenderer(new CustomListCellRenderer());
+        L_pupilList.setVisibleRowCount(4);
+        SP_pupilList.setViewportView(L_pupilList);
 
-        jPanel1.add(jScrollPane2);
+        P_fields_tab1_nameFields.add(SP_pupilList);
 
-        jTextField2.setColumns(20);
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2);
+        P_tab1_nameFields_name.setBackground(new java.awt.Color(249, 176, 74));
+        P_tab1_nameFields_name.setColumns(15);
+        P_tab1_nameFields_name.setFont(L_fields_tab1_name.getFont().deriveFont((float) Math.round(L_fields_tab1_name.getFont().getSize()*0.7)));
+        P_tab1_nameFields_name.setForeground(new java.awt.Color(49, 24, 13));
+        P_tab1_nameFields_name.setText("NOM");
+        P_tab1_nameFields_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13)));
+        P_tab1_nameFields_name.setCaretColor(new java.awt.Color(49, 24, 13));
+        P_tab1_nameFields_name.setCaretPosition(0);
+        P_tab1_nameFields_name.setOpaque(false);
+        P_fields_tab1_nameFields.add(P_tab1_nameFields_name);
 
-        jTextField1.setColumns(20);
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1);
+        P_tab1_nameFields_surname.setBackground(new java.awt.Color(249, 176, 74));
+        P_tab1_nameFields_surname.setColumns(15);
+        P_tab1_nameFields_surname.setFont(L_fields_tab1_name.getFont().deriveFont((float) Math.round(L_fields_tab1_name.getFont().getSize()*0.7)));
+        P_tab1_nameFields_surname.setForeground(new java.awt.Color(49, 24, 13));
+        P_tab1_nameFields_surname.setText("Prénom");
+        P_tab1_nameFields_surname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13)));
+        P_tab1_nameFields_surname.setCaretColor(new java.awt.Color(49, 24, 13));
+        P_tab1_nameFields_surname.setCaretPosition(0);
+        P_tab1_nameFields_surname.setOpaque(false);
+        P_fields_tab1_nameFields.add(P_tab1_nameFields_surname);
 
-        jPanel5.add(jPanel1);
+        P_fields_tab1_top.add(P_fields_tab1_nameFields);
 
-        P_fields_tab1_mdl.add(jPanel5);
+        fields_tab1.add(P_fields_tab1_top);
 
-        fields_tab1.add(P_fields_tab1_mdl);
+        P_fields_tab1_btm.setOpaque(false);
 
-        jPanel4.setOpaque(false);
+        B_fields_tab1_validate.setText("jButton1");
+        P_fields_tab1_btm.add(B_fields_tab1_validate);
 
-        jButton1.setText("jButton1");
-        jPanel4.add(jButton1);
-
-        fields_tab1.add(jPanel4);
+        fields_tab1.add(P_fields_tab1_btm);
 
         controls_tab1.add(fields_tab1, "card2");
 
@@ -522,22 +538,31 @@ public class MainFrame extends javax.swing.JFrame {
     private Font glyphicons;
     private Font maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_fields_tab1_validate;
     private javax.swing.JButton B_help;
     private javax.swing.JButton B_quit;
     private javax.swing.JButton B_settings;
     private javax.swing.JButton B_validate;
     private javax.swing.JButton B_webSite;
     private javax.swing.JFormattedTextField FTF_barCode;
+    private javax.swing.JLabel L_fields_tab1_bookTitle;
+    private javax.swing.JLabel L_fields_tab1_name;
+    private javax.swing.JList<String> L_pupilList;
     private javax.swing.JLabel L_scanFrame_title;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
     private javax.swing.JLabel L_title_tab1;
-    private javax.swing.JPanel P_fields_tab1_mdl;
+    private javax.swing.JPanel P_fields_tab1_btm;
+    private javax.swing.JPanel P_fields_tab1_nameFields;
+    private javax.swing.JPanel P_fields_tab1_top;
     private javax.swing.JPanel P_scanFrame;
     private javax.swing.JPanel P_scanFrame_controls;
     private javax.swing.JPanel P_scanFrame_title;
+    private javax.swing.JTextField P_tab1_nameFields_name;
+    private javax.swing.JTextField P_tab1_nameFields_surname;
     private javax.swing.JPanel P_titles;
+    private javax.swing.JScrollPane SP_pupilList;
     private javax.swing.JToggleButton TB_card1;
     private javax.swing.JToggleButton TB_card2;
     private javax.swing.JToggleButton TB_card3;
@@ -547,18 +572,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel controls_tab1;
     private javax.swing.JPanel defaultTab;
     private javax.swing.JPanel fields_tab1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel scan_tab1;
     private javax.swing.JPanel tab1;
