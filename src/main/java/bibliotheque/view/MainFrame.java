@@ -116,11 +116,9 @@ public class MainFrame extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -130,6 +128,9 @@ public class MainFrame extends javax.swing.JFrame {
         jList2 = new javax.swing.JList<>();
         jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         tab4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -571,34 +572,36 @@ public class MainFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
+        jPanel1.setForeground(new java.awt.Color(253, 206, 216));
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(jPanel1.getForeground()), "Rechercher un élève", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), jPanel1.getForeground())); // NOI18N
         jPanel2.setOpaque(false);
 
-        jLabel1.setText("Rechercher un élève");
-        jPanel2.add(jLabel1);
-
-        jTextField1.setText("jTextField1");
+        jTextField1.setColumns(15);
+        jTextField1.setText("NOM");
         jPanel2.add(jTextField1);
 
-        jButton1.setText("jButton1");
+        jTextField2.setColumns(15);
+        jTextField2.setText("Prénom");
+        jPanel2.add(jTextField2);
+
+        jButton1.setText("Rechercher");
         jPanel2.add(jButton1);
 
         jPanel1.add(jPanel2);
 
-        jPanel3.setOpaque(false);
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(jSeparator2, java.awt.BorderLayout.NORTH);
-
         jPanel4.setOpaque(false);
         jPanel4.setLayout(new java.awt.GridLayout(4, 2));
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setForeground(jPanel1.getForeground());
+        jLabel3.setText("NOM");
         jPanel4.add(jLabel3);
         jPanel4.add(filler2);
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setForeground(jPanel1.getForeground());
+        jLabel2.setText("Prénom");
         jPanel4.add(jLabel2);
         jPanel4.add(filler1);
 
@@ -613,18 +616,26 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel5.setOpaque(false);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Rendu");
         jPanel5.add(jButton2);
 
         jPanel4.add(jPanel5);
 
-        jPanel3.add(jPanel4, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(jPanel3);
+        jPanel1.add(jPanel4);
 
         jSplitPane1.setRightComponent(jPanel1);
 
         tab3.add(jSplitPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel6.setOpaque(false);
+
+        jButton3.setText("Nouvel élève");
+        jPanel6.add(jButton3);
+
+        jButton4.setText("Supprimer l'élève");
+        jPanel6.add(jButton4);
+
+        tab3.add(jPanel6, java.awt.BorderLayout.SOUTH);
 
         tabGroups.add(tab3, "card3");
 
@@ -746,22 +757,23 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel scan_tab1;
     private javax.swing.JPanel scan_tab2;

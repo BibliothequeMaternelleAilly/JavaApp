@@ -1177,6 +1177,9 @@
                             </Container>
                             <Container class="javax.swing.JPanel" name="jPanel1">
                               <Properties>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d8" green="ce" red="fd" type="rgb"/>
+                                </Property>
                                 <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
                               <Constraints>
@@ -1191,132 +1194,155 @@
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="jPanel2">
                                   <Properties>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                        <TitledBorder justification="2" title="Rechercher un &#xe9;l&#xe8;ve">
+                                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                            <LineBorder>
+                                              <Connection PropertyName="color" component="jPanel1" name="foreground" type="property"/>
+                                            </LineBorder>
+                                          </Border>
+                                          <Connection PropertyName="color" component="jPanel1" name="foreground" type="property"/>
+                                        </TitledBorder>
+                                      </Border>
+                                    </Property>
                                     <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="jLabel1">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Rechercher un &#xe9;l&#xe8;ve"/>
-                                      </Properties>
-                                    </Component>
                                     <Component class="javax.swing.JTextField" name="jTextField1">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="jTextField1"/>
+                                        <Property name="columns" type="int" value="15"/>
+                                        <Property name="text" type="java.lang.String" value="NOM"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="jTextField2">
+                                      <Properties>
+                                        <Property name="columns" type="int" value="15"/>
+                                        <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="jButton1">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="jButton1"/>
+                                        <Property name="text" type="java.lang.String" value="Rechercher"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel3">
+                                <Container class="javax.swing.JPanel" name="jPanel4">
                                   <Properties>
                                     <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
 
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="2"/>
+                                    <Property name="rows" type="int" value="4"/>
+                                  </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JSeparator" name="jSeparator2">
-                                      <Constraints>
-                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                          <BorderConstraints direction="North"/>
-                                        </Constraint>
-                                      </Constraints>
+                                    <Component class="javax.swing.JLabel" name="jLabel3">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection component="jPanel1" name="foreground" type="property"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="NOM"/>
+                                      </Properties>
                                     </Component>
-                                    <Container class="javax.swing.JPanel" name="jPanel4">
+                                    <Component class="javax.swing.Box$Filler" name="filler2">
+                                      <Properties>
+                                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[32767, 32767]"/>
+                                        </Property>
+                                      </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
+                                      </AuxValues>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel2">
+                                      <Properties>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection component="jPanel1" name="foreground" type="property"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.Box$Filler" name="filler1">
+                                      <Properties>
+                                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[32767, 32767]"/>
+                                        </Property>
+                                      </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
+                                      </AuxValues>
+                                    </Component>
+                                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JList" name="jList2">
+                                          <Properties>
+                                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                                              <StringArray count="5">
+                                                <StringItem index="0" value="Item 1"/>
+                                                <StringItem index="1" value="Item 2"/>
+                                                <StringItem index="2" value="Item 3"/>
+                                                <StringItem index="3" value="Item 4"/>
+                                                <StringItem index="4" value="Item 5"/>
+                                              </StringArray>
+                                            </Property>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                          </AuxValues>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel5">
                                       <Properties>
                                         <Property name="opaque" type="boolean" value="false"/>
                                       </Properties>
-                                      <Constraints>
-                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                          <BorderConstraints direction="Center"/>
-                                        </Constraint>
-                                      </Constraints>
 
-                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                        <Property name="columns" type="int" value="2"/>
-                                        <Property name="rows" type="int" value="4"/>
-                                      </Layout>
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel3">
+                                        <Component class="javax.swing.JButton" name="jButton2">
                                           <Properties>
-                                            <Property name="text" type="java.lang.String" value="jLabel3"/>
+                                            <Property name="text" type="java.lang.String" value="Rendu"/>
                                           </Properties>
                                         </Component>
-                                        <Component class="javax.swing.Box$Filler" name="filler2">
-                                          <Properties>
-                                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                              <Dimension value="[32767, 32767]"/>
-                                            </Property>
-                                          </Properties>
-                                          <AuxValues>
-                                            <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
-                                          </AuxValues>
-                                        </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel2">
-                                          <Properties>
-                                            <Property name="text" type="java.lang.String" value="jLabel2"/>
-                                          </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.Box$Filler" name="filler1">
-                                          <Properties>
-                                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                              <Dimension value="[32767, 32767]"/>
-                                            </Property>
-                                          </Properties>
-                                          <AuxValues>
-                                            <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
-                                          </AuxValues>
-                                        </Component>
-                                        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-                                          <AuxValues>
-                                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                          </AuxValues>
-
-                                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                                          <SubComponents>
-                                            <Component class="javax.swing.JList" name="jList2">
-                                              <Properties>
-                                                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                                                  <StringArray count="5">
-                                                    <StringItem index="0" value="Item 1"/>
-                                                    <StringItem index="1" value="Item 2"/>
-                                                    <StringItem index="2" value="Item 3"/>
-                                                    <StringItem index="3" value="Item 4"/>
-                                                    <StringItem index="4" value="Item 5"/>
-                                                  </StringArray>
-                                                </Property>
-                                              </Properties>
-                                              <AuxValues>
-                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                              </AuxValues>
-                                            </Component>
-                                          </SubComponents>
-                                        </Container>
-                                        <Container class="javax.swing.JPanel" name="jPanel5">
-                                          <Properties>
-                                            <Property name="opaque" type="boolean" value="false"/>
-                                          </Properties>
-
-                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-                                          <SubComponents>
-                                            <Component class="javax.swing.JButton" name="jButton2">
-                                              <Properties>
-                                                <Property name="text" type="java.lang.String" value="jButton2"/>
-                                              </Properties>
-                                            </Component>
-                                          </SubComponents>
-                                        </Container>
                                       </SubComponents>
                                     </Container>
                                   </SubComponents>
                                 </Container>
                               </SubComponents>
                             </Container>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="jPanel6">
+                          <Properties>
+                            <Property name="opaque" type="boolean" value="false"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                              <BorderConstraints direction="South"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JButton" name="jButton3">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Nouvel &#xe9;l&#xe8;ve"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton4">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Supprimer l&apos;&#xe9;l&#xe8;ve"/>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
