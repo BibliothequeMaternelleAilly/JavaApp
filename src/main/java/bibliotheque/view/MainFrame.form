@@ -1134,6 +1134,9 @@
                               <Connection component="tab3" name="background" type="property"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="BasicSplitPaneUI splitPane = (BasicSplitPaneUI) jSplitPane1.getUI();&#xa;splitPane.getDivider().setBackground(new Color(253,206,216));&#xa;splitPane.getDivider().setForeground(new Color(253,59,99));&#xa;splitPane.getDivider().setBorder(BorderFactory.createLineBorder(new Color(253,59,99), 1));"/>
+                          </AuxValues>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                               <BorderConstraints direction="Center"/>

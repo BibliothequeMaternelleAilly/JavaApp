@@ -15,6 +15,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -559,6 +562,10 @@ public class MainFrame extends javax.swing.JFrame {
         tab3.setBackground(new java.awt.Color(253, 59, 99));
         tab3.setLayout(new java.awt.BorderLayout());
 
+        BasicSplitPaneUI splitPane = (BasicSplitPaneUI) jSplitPane1.getUI();
+        splitPane.getDivider().setBackground(new Color(253,206,216));
+        splitPane.getDivider().setForeground(new Color(253,59,99));
+        splitPane.getDivider().setBorder(BorderFactory.createLineBorder(new Color(253,59,99), 1));
         jSplitPane1.setBackground(tab3.getBackground());
 
         jScrollPane1.setOpaque(false);
