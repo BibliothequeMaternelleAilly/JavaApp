@@ -396,9 +396,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         L_pupilList.setBackground(new java.awt.Color(254, 249, 189));
         L_pupilList.setFont(L_fields_tab1_name.getFont().deriveFont((float) Math.round(L_fields_tab1_name.getFont().getSize()*0.7)));
-        L_pupilList.setForeground(fields_tab1.getForeground());
         L_pupilList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "……………………………………………………" };
+            String[] strings = { "Default" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -440,7 +439,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_fields_tab1_validate.setBackground(new java.awt.Color(123, 178, 40));
         B_fields_tab1_validate.setFont(L_fields_tab1_name.getFont());
         B_fields_tab1_validate.setForeground(fields_tab1.getForeground());
-        B_fields_tab1_validate.setText("Emprunter");
+        B_fields_tab1_validate.setText("   Emprunter   ");
         B_fields_tab1_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(90, 150, 0)));
         B_fields_tab1_validate.setContentAreaFilled(false);
         B_fields_tab1_validate.setFocusPainted(false);
@@ -567,62 +566,106 @@ public class MainFrame extends javax.swing.JFrame {
         tab3.setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setBackground(tab3.getBackground());
+        jSplitPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jSplitPane1.setForeground(new java.awt.Color(253, 206, 216));
+        jSplitPane1.setContinuousLayout(true);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), "Élèves ayant emprunté", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(253, 206, 216)));
+        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        jScrollPane1.setOpaque(false);
+
+        jList1.setBackground(new java.awt.Color(254, 185, 200));
+        jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138)));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Default" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        CustomListCellRenderer cellRenderer = new CustomListCellRenderer();
+        cellRenderer.setBackground(new Color(253,157,177));
+        cellRenderer.setForeground(Color.WHITE);
+        cellRenderer.setSelectionForeground(tab3.getBackground());
+        jList1.setCellRenderer(cellRenderer);
         jScrollPane1.setViewportView(jList1);
 
         jSplitPane1.setLeftComponent(jScrollPane1);
 
-        jPanel1.setForeground(new java.awt.Color(253, 206, 216));
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(jPanel1.getForeground()), "Rechercher un élève", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), jPanel1.getForeground())); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)), jSplitPane1.getForeground()));
         jPanel2.setOpaque(false);
 
         jTextField1.setColumns(15);
+        jTextField1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        jTextField1.setForeground(jSplitPane1.getForeground());
         jTextField1.setText("NOM");
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(jSplitPane1.getForeground()));
+        jTextField1.setOpaque(false);
         jPanel2.add(jTextField1);
 
         jTextField2.setColumns(15);
+        jTextField2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        jTextField2.setForeground(jSplitPane1.getForeground());
         jTextField2.setText("Prénom");
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(jSplitPane1.getForeground()));
+        jTextField2.setOpaque(false);
         jPanel2.add(jTextField2);
 
-        jButton1.setText("Rechercher");
+        jButton1.setBackground(jSplitPane1.getForeground());
+        jButton1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        jButton1.setForeground(jSplitPane1.getForeground());
+        jButton1.setText(" Rechercher ");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
         jPanel2.add(jButton1);
 
         jPanel1.add(jPanel2);
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
         jPanel4.setOpaque(false);
         jPanel4.setLayout(new java.awt.GridLayout(4, 2));
 
-        jLabel3.setForeground(jPanel1.getForeground());
+        jLabel3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
+        jLabel3.setForeground(jSplitPane1.getForeground());
         jLabel3.setText("NOM");
         jPanel4.add(jLabel3);
         jPanel4.add(filler2);
 
-        jLabel2.setForeground(jPanel1.getForeground());
+        jLabel2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
+        jLabel2.setForeground(jSplitPane1.getForeground());
         jLabel2.setText("Prénom");
         jPanel4.add(jLabel2);
         jPanel4.add(filler1);
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane2.setViewportBorder(null);
+        jScrollPane2.setOpaque(false);
+
+        jList2.setBackground(new java.awt.Color(254, 185, 200));
+        jList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138), 2));
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Default" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList2.setCellRenderer(cellRenderer);
         jScrollPane2.setViewportView(jList2);
 
         jPanel4.add(jScrollPane2);
 
         jPanel5.setOpaque(false);
+        jPanel5.setLayout(new java.awt.BorderLayout());
 
-        jButton2.setText("Rendu");
-        jPanel5.add(jButton2);
+        jButton2.setBackground(new java.awt.Color(123, 178, 40));
+        jButton2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
+        jButton2.setForeground(jSplitPane1.getForeground());
+        jButton2.setText("  Rendu  ");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jPanel5.add(jButton2, java.awt.BorderLayout.LINE_START);
 
         jPanel4.add(jPanel5);
 
@@ -632,12 +675,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         tab3.add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 1));
         jPanel6.setOpaque(false);
 
-        jButton3.setText("Nouvel élève");
+        jButton3.setBackground(jSplitPane1.getForeground());
+        jButton3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        jButton3.setForeground(jSplitPane1.getForeground());
+        jButton3.setText(" Nouvel élève ");
+        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
         jPanel6.add(jButton3);
 
-        jButton4.setText("Supprimer l'élève");
+        jButton4.setBackground(jSplitPane1.getForeground());
+        jButton4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        jButton4.setForeground(jSplitPane1.getForeground());
+        jButton4.setText(" Supprimer l'élève ");
+        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
         jPanel6.add(jButton4);
 
         tab3.add(jPanel6, java.awt.BorderLayout.SOUTH);

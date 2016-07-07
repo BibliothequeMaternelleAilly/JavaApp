@@ -16,24 +16,52 @@ import javax.swing.border.Border;
 public class CustomListCellRenderer implements ListCellRenderer {
 
     private final JLabel lblCell = new JLabel("……………………………………………………", JLabel.LEFT);
-    private final Border lineBorder = BorderFactory.createLineBorder(new Color(237,146,21), 1),
-                         emptyBorder = BorderFactory.createEmptyBorder(2, 2, 2, 2);
+    private Color background = new Color(249,176,74),
+                  selectionForeground = new Color(254,247,189),
+                  foreground = new Color(49,24,13);
     
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         
+        Border lineBorder = BorderFactory.createLineBorder(selectionForeground, 1),
+               emptyBorder = BorderFactory.createEmptyBorder(2, 2, 2, 2);
+        
         if (isSelected) {
             lblCell.setOpaque(true);
-            lblCell.setForeground(new Color(254,247,189));
-            lblCell.setBackground(new Color(249,176,74));
+            lblCell.setForeground(selectionForeground);
+            lblCell.setBackground(background);
             lblCell.setBorder(lineBorder);
         } else {
             lblCell.setOpaque(false);
-            lblCell.setForeground(new Color(49,24,13));
+            lblCell.setForeground(foreground);
             lblCell.setBorder(emptyBorder);
         }
         
         return lblCell;
     }
+
+    public Color getBackground() {
+        return background;
+    }
+
+    public Color getForeground() {
+        return foreground;
+    }
+
+    public Color getSelectionForeground() {
+        return selectionForeground;
+    }
+
+    public void setBackground(Color background) {
+        this.background = background;
+    }
+
+    public void setForeground(Color foreground) {
+        this.foreground = foreground;
+    }
+
+    public void setSelectionForeground(Color selectionForeground) {
+        this.selectionForeground = selectionForeground;
+    }  
     
 }
