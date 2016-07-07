@@ -109,6 +109,7 @@ public class MainFrame extends javax.swing.JFrame {
         FTF_barCode_tab1 = new javax.swing.JFormattedTextField();
         B_validate_tab1 = new javax.swing.JButton();
         tab2 = new javax.swing.JPanel();
+        L_title_tab2 = new javax.swing.JLabel();
         scan_tab2 = new javax.swing.JPanel();
         F_paging_scan_tab2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         P_scanFrame_tab2 = new javax.swing.JPanel();
@@ -116,8 +117,8 @@ public class MainFrame extends javax.swing.JFrame {
         P_scanFrame_controls_tab2 = new javax.swing.JPanel();
         FTF_barCode_tab2 = new javax.swing.JFormattedTextField();
         B_validate_tab2 = new javax.swing.JButton();
-        L_title_tab2 = new javax.swing.JLabel();
         tab3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -504,6 +505,16 @@ public class MainFrame extends javax.swing.JFrame {
         tab2.setBackground(new java.awt.Color(255, 97, 54));
         tab2.setLayout(new java.awt.BorderLayout());
 
+        L_title_tab2.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
+        L_title_tab2.setForeground(new java.awt.Color(253, 212, 198));
+        L_title_tab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        L_title_tab2.setText("Rendre un livre");
+        L_title_tab2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        L_title_tab2.setMinimumSize(new java.awt.Dimension(0, 0));
+        L_title_tab2.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
+        L_title_tab2.setRequestFocusEnabled(false);
+        tab2.add(L_title_tab2, java.awt.BorderLayout.PAGE_START);
+
         scan_tab2.setForeground(new java.awt.Color(49, 20, 13));
         scan_tab2.setOpaque(false);
         scan_tab2.setLayout(new java.awt.GridLayout(3, 0));
@@ -550,20 +561,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         tab2.add(scan_tab2, java.awt.BorderLayout.CENTER);
 
-        L_title_tab2.setFont(clearLine.deriveFont((float) Math.round(defaultTab.getPreferredSize().height *0.12)));
-        L_title_tab2.setForeground(new java.awt.Color(253, 212, 198));
-        L_title_tab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title_tab2.setText("Rendre un livre");
-        L_title_tab2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        L_title_tab2.setMinimumSize(new java.awt.Dimension(0, 0));
-        L_title_tab2.setPreferredSize(new Dimension(P_titles.getPreferredSize().width, (int) Math.round(P_titles.getPreferredSize().height/2)));
-        L_title_tab2.setRequestFocusEnabled(false);
-        tab2.add(L_title_tab2, java.awt.BorderLayout.PAGE_START);
-
         tabGroups.add(tab2, "card2");
 
         tab3.setBackground(new java.awt.Color(253, 59, 99));
         tab3.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
+        jLabel1.setForeground(new java.awt.Color(255, 229, 235));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Gestion des élèves");
+        tab3.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         jSplitPane1.setBackground(tab3.getBackground());
         jSplitPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -820,6 +827,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
