@@ -1,5 +1,5 @@
 
-package bibliotheque.view;
+package bibliotheque.view.customComponents;
 
 import java.awt.Graphics;
 import java.awt.Image;

@@ -1,6 +1,8 @@
 
 package bibliotheque.view;
 
+import bibliotheque.view.customComponents.BgPanel;
+import bibliotheque.view.customComponents.CustomListCellRenderer;
 import bibliotheque.model.DBConnection;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -15,9 +17,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.Color;
-import javax.swing.BorderFactory;
+import java.awt.Graphics;
+import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicSplitPaneDivider;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 /**
  *
@@ -562,13 +566,7 @@ public class MainFrame extends javax.swing.JFrame {
         tab3.setBackground(new java.awt.Color(253, 59, 99));
         tab3.setLayout(new java.awt.BorderLayout());
 
-        BasicSplitPaneUI splitPane = (BasicSplitPaneUI) jSplitPane1.getUI();
-        splitPane.getDivider().setBackground(new Color(253,206,216));
-        splitPane.getDivider().setForeground(new Color(253,59,99));
-        splitPane.getDivider().setBorder(BorderFactory.createLineBorder(new Color(253,59,99), 1));
         jSplitPane1.setBackground(tab3.getBackground());
-
-        jScrollPane1.setOpaque(false);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -755,7 +753,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton TB_card2;
     private javax.swing.JToggleButton TB_card3;
     private javax.swing.JToggleButton TB_card4;
-    private bibliotheque.view.BgPanel background;
+    private bibliotheque.view.customComponents.BgPanel background;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel controls_tab1;
     private javax.swing.JPanel defaultTab;
