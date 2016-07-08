@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Livre {
     
     private final int id, idEmprunteur;
-    private final String codeISBN, titre, auteur, mots_cles, theme, date_emprun;
+    private final String barCode, titre, auteur, mots_cles, theme, date_emprun;
     
     public Livre(int id, String codeISBN, String titre, String auteur, String mots_cles, String theme, int idEmprunteur, String date_emprun) {
         this.id = id;
-        this.codeISBN = codeISBN;
+        this.barCode = codeISBN;
         this.titre = titre;
         this.auteur = auteur;
         this.mots_cles = mots_cles;
@@ -130,8 +130,8 @@ public class Livre {
         return idEmprunteur;
     }
 
-    public String getCodeISBN() {
-        return codeISBN;
+    public String getBarCode() {
+        return barCode;
     }
 
     public String getTitre() {
@@ -156,7 +156,7 @@ public class Livre {
     
     @Override
     public String toString() {
-        return "id: " + id + "\nCode ISBN: " + codeISBN + "\nTitre: " + titre
+        return "id: " + id + "\nCode ISBN: " + barCode + "\nTitre: " + titre
                 + "\nAuteur: " + auteur + "\nMots clés: " + mots_cles + "\nThème: " + theme
                 + "\nid emprunteur: " + idEmprunteur + "\nDate d'emprun: " + date_emprun;
     }

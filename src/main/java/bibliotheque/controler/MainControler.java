@@ -1,13 +1,20 @@
 
 package bibliotheque.controler;
 
+import bibliotheque.controler.businessObjects.ScanForm;
 import bibliotheque.model.DBConnection;
+import bibliotheque.model.Eleve;
+import bibliotheque.model.Livre;
 import bibliotheque.view.MainFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
@@ -19,14 +26,19 @@ import javax.swing.UIManager;
  */
 public class MainControler {
 
-    MainFrame mainView;
-    Font glyphNormal, glyphSmall;
+    private final MainFrame mainView;
+    private final Font glyphNormal, glyphSmall;
+    private final ArrayList<Eleve> pupilsList;
+    private final ArrayList<Livre> booksList;
+    private ScanForm scanTab1, scanTab2;
 
-    public MainControler() {
+    public MainControler() throws SQLException {
         
         mainView = new MainFrame();
         glyphNormal = mainView.getB_help().getFont();
         glyphSmall = glyphNormal.deriveFont((float) Math.round(glyphNormal.getSize()*0.80));
+        pupilsList = Eleve.selectAll();
+        booksList = Livre.selectAll();
         
         initController();
     }
