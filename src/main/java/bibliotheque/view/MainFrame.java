@@ -651,8 +651,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_validate_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_validate_search_tab3.setForeground(controls_tab3.getForeground());
         B_validate_search_tab3.setText(" Rechercher ");
-        B_validate_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        B_validate_search_tab3.setBorderPainted(false);
+        B_validate_search_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_validate_search_tab3.setContentAreaFilled(false);
         B_validate_search_tab3.setFocusPainted(false);
         search_fields_tab3.add(B_validate_search_tab3);
@@ -715,17 +714,16 @@ public class MainFrame extends javax.swing.JFrame {
         managePupil_tab3.setOpaque(false);
 
         B_new_managePupil_tab3.setBackground(controls_tab3.getForeground());
-        B_new_managePupil_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        B_new_managePupil_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_new_managePupil_tab3.setForeground(controls_tab3.getForeground());
         B_new_managePupil_tab3.setText(" Nouvel élève ");
-        B_new_managePupil_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        B_new_managePupil_tab3.setBorderPainted(false);
+        B_new_managePupil_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_new_managePupil_tab3.setContentAreaFilled(false);
         B_new_managePupil_tab3.setFocusPainted(false);
         managePupil_tab3.add(B_new_managePupil_tab3);
 
         B_delete_managePupil_tab3.setBackground(new java.awt.Color(227, 47, 46));
-        B_delete_managePupil_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        B_delete_managePupil_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_delete_managePupil_tab3.setForeground(controls_tab3.getForeground());
         B_delete_managePupil_tab3.setText(" Supprimer l'élève ");
         B_delete_managePupil_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 47, 46)));
@@ -826,8 +824,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_validate_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_validate_search_tab4.setForeground(controls_tab4.getForeground());
         B_validate_search_tab4.setText(" Rechercher ");
-        B_validate_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        B_validate_search_tab4.setBorderPainted(false);
+        B_validate_search_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_validate_search_tab4.setContentAreaFilled(false);
         B_validate_search_tab4.setFocusPainted(false);
         search_fields_tab4.add(B_validate_search_tab4);
@@ -886,8 +883,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_new_managePupil_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_new_managePupil_tab4.setForeground(controls_tab4.getForeground());
         B_new_managePupil_tab4.setText(" Nouveau livre ");
-        B_new_managePupil_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        B_new_managePupil_tab4.setBorderPainted(false);
+        B_new_managePupil_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_new_managePupil_tab4.setContentAreaFilled(false);
         B_new_managePupil_tab4.setFocusPainted(false);
         managePupil_tab4.add(B_new_managePupil_tab4);
@@ -896,8 +892,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_delete_managePupil_tab5.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_delete_managePupil_tab5.setForeground(controls_tab4.getForeground());
         B_delete_managePupil_tab5.setText(" Modifier le livre ");
-        B_delete_managePupil_tab5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        B_delete_managePupil_tab5.setBorderPainted(false);
+        B_delete_managePupil_tab5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_delete_managePupil_tab5.setContentAreaFilled(false);
         B_delete_managePupil_tab5.setFocusPainted(false);
         managePupil_tab4.add(B_delete_managePupil_tab5);

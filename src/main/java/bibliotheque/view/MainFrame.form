@@ -1322,13 +1322,10 @@
                                         </Property>
                                         <Property name="text" type="java.lang.String" value=" Rechercher "/>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                            <LineBorder>
-                                              <Connection PropertyName="color" component="controls_tab3" name="foreground" type="property"/>
-                                            </LineBorder>
+                                          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                            <EmptyBorder/>
                                           </Border>
                                         </Property>
-                                        <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="focusPainted" type="boolean" value="false"/>
                                       </Properties>
@@ -1503,20 +1500,17 @@
                                   <Connection component="controls_tab3" name="foreground" type="property"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
+                                  <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection component="controls_tab3" name="foreground" type="property"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Nouvel &#xe9;l&#xe8;ve "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
-                                      <Connection PropertyName="color" component="controls_tab3" name="foreground" type="property"/>
-                                    </LineBorder>
+                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                    <EmptyBorder/>
                                   </Border>
                                 </Property>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
@@ -1527,7 +1521,7 @@
                                   <Color blue="2e" green="2f" red="e3" type="rgb"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
+                                  <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
                                 </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection component="controls_tab3" name="foreground" type="property"/>
@@ -1825,13 +1819,10 @@
                                         </Property>
                                         <Property name="text" type="java.lang.String" value=" Rechercher "/>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                            <LineBorder>
-                                              <Connection PropertyName="color" component="controls_tab4" name="foreground" type="property"/>
-                                            </LineBorder>
+                                          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                            <EmptyBorder/>
                                           </Border>
                                         </Property>
-                                        <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="focusPainted" type="boolean" value="false"/>
                                       </Properties>
@@ -1980,13 +1971,10 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Nouveau livre "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
-                                      <Connection PropertyName="color" component="controls_tab4" name="foreground" type="property"/>
-                                    </LineBorder>
+                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                    <EmptyBorder/>
                                   </Border>
                                 </Property>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
@@ -2004,11 +1992,10 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Modifier le livre "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder/>
+                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                    <EmptyBorder/>
                                   </Border>
                                 </Property>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
