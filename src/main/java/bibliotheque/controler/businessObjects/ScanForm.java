@@ -11,10 +11,10 @@ import javax.swing.JFormattedTextField;
  */
 public class ScanForm {
     
-    private JFormattedTextField barCode;
-    private ArrayList<Livre> booksList;
+    private final JFormattedTextField barCode;
+    private final ArrayList<Livre> booksList;
     
-    public ScanForm(JFormattedTextField barCode, ArrayList<Livre> booksList) {
+    public ScanForm(JFormattedTextField barCode, ArrayList booksList) {
         this.barCode = barCode;
         this.booksList = booksList;
     }
@@ -29,22 +29,6 @@ public class ScanForm {
             return booksList.get(i);
         else
             return null;
-    }
-    
-    public JFormattedTextField getBarCode() {
-        return barCode;
-    }
-
-    public void setBarCode(JFormattedTextField barCode) {
-        this.barCode = barCode;
-    }
-
-    public ArrayList<Livre> getBooksList() {
-        return booksList;
-    }
-
-    public void setBooksList(ArrayList<Livre> booksList) {
-        this.booksList = booksList;
     }
     
 }
