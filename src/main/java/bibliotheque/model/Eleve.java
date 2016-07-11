@@ -22,7 +22,7 @@ public class Eleve {
         this.prenom = prenom;
     }
     
-    public static ArrayList<Eleve> selectAll() throws SQLException {
+    public static ArrayList<Eleve> getAll() throws SQLException {
         ArrayList<Eleve> eleves = new ArrayList();
 
         try (Statement statement = DBConnection.createStatement();
@@ -48,7 +48,7 @@ public class Eleve {
         }
     }
     
-    public static ArrayList<Eleve> selectAllEmprunteur() throws SQLException {
+    public static ArrayList<Eleve> getAllBorrow() throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
         
         String query = "SELECT * FROM eleves WHERE id IN "
@@ -81,8 +81,8 @@ public class Eleve {
     public void updateEleve() throws SQLException {
         String query = "UPDATE eleves SET nom=?, prenom=? WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(1, nom);
-            statement.setString(2, prenom);
+            statement.setString(1, nom.toUpperCase());
+            statement.setString(2, prenom.toLowerCase());
             statement.setInt(3, id);
             
             statement.execute();
@@ -93,8 +93,8 @@ public class Eleve {
     public void insertEleve() throws SQLException {
         String query = "INSERT INTO eleves (nom, prenom) VALUES (?, ?)";
         try (PreparedStatement statemement = DBConnection.prepareStatement(query)) {
-            statemement.setString(1, nom);
-            statemement.setString(2, prenom);
+            statemement.setString(1, nom.toUpperCase());
+            statemement.setString(2, prenom.toLowerCase());
             
             statemement.execute();
             statemement.close();
@@ -138,6 +138,6 @@ public class Eleve {
     
     @Override
     public String toString() {
-        return "id: " + id + "\nNom: " + nom + "\nPrénom: " + prenom;
+        return nom + " " + prenom;
     }
 }

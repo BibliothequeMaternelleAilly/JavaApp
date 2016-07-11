@@ -3,7 +3,9 @@ package bibliotheque.controler.businessObjects;
 
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
@@ -18,19 +20,22 @@ public class BorrowForm {
     private final JList pupilsJList, booksJList;
     private final JTextField nameTextField, surnameTextField;
     
-    public BorrowForm(ArrayList pupilsList, ArrayList booksList, JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField) {
+    public BorrowForm(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
         
+        pupilsList = Eleve.getAll();
+        booksList = Livre.selectAll();
         this.booksJList = booksJList;
-        this.booksList = booksList;
         this.nameTextField = nameTextField;
-        this.pupilsJList = booksJList;
-        this.pupilsList = booksList;
+        this.pupilsJList = pupilsJList;
         this.surnameTextField = surnameTextField;
         
     }
     
     public void fillJList() {
-        
+        DefaultListModel<String> model = new DefaultListModel();
+        for (Eleve newPupil : pupilsList)
+            model.addElement(newPupil.toString());
+        pupilsJList.setModel(model);
     }
     
 }

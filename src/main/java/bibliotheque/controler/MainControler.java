@@ -1,6 +1,8 @@
 
 package bibliotheque.controler;
 
+import bibliotheque.controler.businessObjects.BorrowForm;
+import bibliotheque.controler.businessObjects.PupilsManagement;
 import bibliotheque.controler.businessObjects.ScanForm;
 import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
@@ -15,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
@@ -31,19 +34,23 @@ public class MainControler {
     private final ArrayList<Eleve> pupilsList;
     private final ArrayList<Livre> booksList;
     private ScanForm scanTab1, scanTab2;
+    private final BorrowForm formTab3;
 
     public MainControler() throws SQLException {
         
         mainView = new MainFrame();
         glyphNormal = mainView.getB_help().getFont();
         glyphSmall = glyphNormal.deriveFont((float) Math.round(glyphNormal.getSize()*0.80));
-        pupilsList = Eleve.selectAll();
+        pupilsList = Eleve.getAll();
         booksList = Livre.selectAll();
+        formTab3 = new BorrowForm(mainView.getLi_pupilList_tab3(), mainView.getLi_bookList_tab3(), mainView.getTF_name_search_tab3(), mainView.getTF_surname_search_tab3());
         
-        initController();
+       initController();
     }
     
     private void initController() {
+        
+        formTab3.fillJList();
         
         ActionListener closeActionListener = new ActionListener() {
             @Override
