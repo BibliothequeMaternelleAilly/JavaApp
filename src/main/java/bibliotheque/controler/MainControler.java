@@ -8,6 +8,7 @@ import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import bibliotheque.view.MainFrame;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +43,7 @@ public class MainControler {
         glyphNormal = mainView.getB_help().getFont();
         glyphSmall = glyphNormal.deriveFont((float) Math.round(glyphNormal.getSize()*0.80));
         pupilsList = Eleve.getAll();
-        booksList = Livre.selectAll();
+        booksList = Livre.getAll();
         formTab3 = new BorrowForm(mainView.getLi_pupilList_tab3(), mainView.getLi_bookList_tab3(), mainView.getTF_name_search_tab3(), mainView.getTF_surname_search_tab3());
         
        initController();
@@ -50,7 +51,7 @@ public class MainControler {
     
     private void initController() {
         
-        formTab3.fillJList();
+        formTab3.fillPupilsJList();
         
         ActionListener closeActionListener = new ActionListener() {
             @Override
@@ -157,7 +158,7 @@ public class MainControler {
         if (toggleButton!=mainView.getTB_card3()) unselectToggleButton(mainView.getTB_card3());
         if (toggleButton!=mainView.getTB_card4()) unselectToggleButton(mainView.getTB_card4());
 
-        UIManager.put("ToggleButton.select", toggleButton.getBackground().darker());
+        UIManager.put("ToggleButton.select", new Color(toggleButton.getBackground().getRGB()));
         SwingUtilities.updateComponentTreeUI(mainView);
     }
     
@@ -166,6 +167,11 @@ public class MainControler {
         if (!toggleButton.isSelected())
             toggleButton.setContentAreaFilled(!toggleButton.isContentAreaFilled());
     }
+
+    public MainFrame getMainView() {
+        return mainView;
+    }
+
 }
 
 

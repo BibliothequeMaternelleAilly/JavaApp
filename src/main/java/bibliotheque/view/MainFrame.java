@@ -8,7 +8,6 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.Toolkit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -38,24 +37,13 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Bibliothèque");
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
-        } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             maritime = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("MaritimeTropicalNeue.ttf"));
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         initComponents();
     }
 
@@ -169,7 +157,6 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocation(new java.awt.Point(0, 0));
-        setMinimumSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.75), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.75)));
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -217,7 +204,7 @@ public class MainFrame extends javax.swing.JFrame {
         toggleButtons.setRequestFocusEnabled(false);
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
-        TB_card1.setBackground(new java.awt.Color(254, 172, 59));
+        TB_card1.setBackground(new Color(254,172,59));
         TB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34)));
         TB_card1.setForeground(new java.awt.Color(254, 226, 165));
         TB_card1.setText("Emprunter");
@@ -231,7 +218,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_card1.setName("card1"); // NOI18N
         toggleButtons.add(TB_card1);
 
-        TB_card2.setBackground(new java.awt.Color(255, 97, 54));
+        TB_card2.setBackground(new Color(255,97,54));
         TB_card2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.4)));
         TB_card2.setForeground(new java.awt.Color(254, 226, 165));
         TB_card2.setText("Rendre");
@@ -245,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_card2.setName("card2"); // NOI18N
         toggleButtons.add(TB_card2);
 
-        TB_card3.setBackground(new java.awt.Color(253, 59, 99));
+        TB_card3.setBackground(new Color(253,59,99));
         TB_card3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_card3.setForeground(new java.awt.Color(254, 226, 165));
         TB_card3.setText("Éleves");
@@ -259,7 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
         TB_card3.setName("card3"); // NOI18N
         toggleButtons.add(TB_card3);
 
-        TB_card4.setBackground(new java.awt.Color(218, 94, 238));
+        TB_card4.setBackground(new Color(218,94,238));
         TB_card4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         TB_card4.setForeground(new java.awt.Color(254, 226, 165));
         TB_card4.setText("Livres");
@@ -603,6 +590,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Li_pupilList_tab3.setBackground(new java.awt.Color(254, 185, 200));
         Li_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138)));
+        Li_pupilList_tab3.setForeground(new java.awt.Color(253, 59, 99));
         CustomListCellRenderer cellRenderer_tab3 = new CustomListCellRenderer();
         cellRenderer_tab3.setBackground(new Color(253,157,177));
         cellRenderer_tab3.setForeground(Color.WHITE);
@@ -742,6 +730,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Li_pupilList_tab4.setBackground(new java.awt.Color(244, 185, 254));
         Li_pupilList_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 108, 254)));
+        Li_pupilList_tab4.setForeground(new java.awt.Color(218, 94, 238));
         CustomListCellRenderer cellRenderer_tab4 = new CustomListCellRenderer();
         cellRenderer_tab4.setBackground(new Color(239,157,253));
         cellRenderer_tab4.setForeground(Color.WHITE);
@@ -1131,10 +1120,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     
-    private Font littleBird;
-    private Font clearLine;
-    private Font glyphicons;
-    private Font maritime;
+    private Font littleBird, clearLine, glyphicons, maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_delete_manageBook_tab4;
     private javax.swing.JButton B_delete_managePupil_tab3;

@@ -40,6 +40,18 @@ public class Eleve {
         return eleves;
     }
     
+    public static Eleve getFromName(String name, String surname) throws SQLException {
+        String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
+        Eleve pupil;
+        try (PreparedStatement statement = DBConnection.prepareStatement(query); ResultSet result = statement.executeQuery()) {
+            result.next();
+            pupil = new Eleve(result.getInt("id"),
+                    result.getString("nom"),
+                    result.getString("prenom"));
+        }
+        return pupil;
+    }
+    
     public static void clearTable() throws SQLException {
         String query = "DELETE FROM eleves";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
@@ -78,17 +90,19 @@ public class Eleve {
         }
     }
     
-    public void updateEleve() throws SQLException {
-        String query = "UPDATE eleves SET nom=?, prenom=? WHERE id=?";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(1, nom.toUpperCase());
-            statement.setString(2, prenom.toLowerCase());
-            statement.setInt(3, id);
-            
-            statement.execute();
-            statement.close();
-        }
-    }
+//-----------------------------Update function disabled-----------------------------\\
+//
+//    public void updateEleve() throws SQLException {
+//        String query = "UPDATE eleves SET nom=?, prenom=? WHERE id=?";
+//        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+//            statement.setString(1, nom.toUpperCase());
+//            statement.setString(2, prenom.toLowerCase());
+//            statement.setInt(3, id);
+//            
+//            statement.execute();
+//            statement.close();
+//        }
+//    }
     
     public void insertEleve() throws SQLException {
         String query = "INSERT INTO eleves (nom, prenom) VALUES (?, ?)";
@@ -101,7 +115,7 @@ public class Eleve {
         }
     }
     
-    public ArrayList<Livre> selectLivres() throws SQLException {
+    public ArrayList<Livre> getBorrowedBooks() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
         String query = "SELECT * FROM livres WHERE idEmprunteur=?";
@@ -138,6 +152,7 @@ public class Eleve {
     
     @Override
     public String toString() {
-        return nom + " " + prenom;
+        String surname = this.prenom.substring(0,1).toUpperCase() + this.prenom.substring(1);
+        return nom + " " + surname;
     }
 }

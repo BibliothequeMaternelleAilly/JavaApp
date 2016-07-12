@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Livre {
     
-    private final int id, idEmprunteur;
-    private final String barCode, titre, auteur, mots_cles, theme, date_emprun;
+    private int id, idEmprunteur;
+    private String barCode, titre, auteur, mots_cles, theme, date_emprun;
     
     public Livre(int id, String codeISBN, String titre, String auteur, String mots_cles, String theme, int idEmprunteur, String date_emprun) {
         this.id = id;
@@ -28,7 +28,7 @@ public class Livre {
     }
 
     
-    public static ArrayList<Livre> selectAll() throws SQLException {
+    public static ArrayList<Livre> getAll() throws SQLException {
         ArrayList<Livre> livres = new ArrayList();
         
         try (Statement statement = DBConnection.createStatement();
@@ -55,7 +55,7 @@ public class Livre {
         }
     }
     
-    public static ArrayList<Livre> selectAllEmprunteur() throws SQLException {
+    public static ArrayList<Livre> getAllBorrow() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
         String query = "SELECT * FROM livres WHERE idEmprunteur!=''";
@@ -95,7 +95,8 @@ public class Livre {
             statement.setString(2, auteur);
             statement.setString(3, mots_cles);
             statement.setString(4, theme);
-            statement.setInt(5, idEmprunteur);
+            if (idEmprunteur==-1) statement.setString(5, "NULL");
+            else statement.setInt(5, idEmprunteur);
             statement.setString(6, date_emprun);
             statement.setInt(7, id);
             
@@ -153,11 +154,42 @@ public class Livre {
     public String getDate_emprun() {
         return date_emprun;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setIdEmprunteur(int idEmprunteur) {
+        this.idEmprunteur = idEmprunteur;
+    }
+
+    public void setBarCode(String barCode) {
+        this.barCode = barCode;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
+
+    public void setMots_cles(String mots_cles) {
+        this.mots_cles = mots_cles;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public void setDate_emprun(String date_emprun) {
+        this.date_emprun = date_emprun;
+    }
+    
     
     @Override
     public String toString() {
-        return "id: " + id + "\nCode ISBN: " + barCode + "\nTitre: " + titre
-                + "\nAuteur: " + auteur + "\nMots clés: " + mots_cles + "\nThème: " + theme
-                + "\nid emprunteur: " + idEmprunteur + "\nDate d'emprun: " + date_emprun;
+        return titre + " (" + auteur + ")";
     }
 }
