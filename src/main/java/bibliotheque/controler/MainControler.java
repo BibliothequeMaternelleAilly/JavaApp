@@ -7,8 +7,10 @@ import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import bibliotheque.view.MainFrame;
+import bibliotheque.view.customComponents.CustomToggleButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -106,10 +108,10 @@ public class MainControler {
         mainView.getB_settings().addMouseListener(buttonListener);
         mainView.getB_help().addMouseListener(buttonListener);
         mainView.getB_quit().addMouseListener(buttonListener);
-//        mainView.getTB_card1().addMouseListener(toggleButtonListener);
-//        mainView.getTB_card2().addMouseListener(toggleButtonListener);
-//        mainView.getTB_card3().addMouseListener(toggleButtonListener);
-//        mainView.getTB_card4().addMouseListener(toggleButtonListener);
+        mainView.getCTB_card1().addMouseListener(toggleButtonListener);
+        mainView.getCTB_card2().addMouseListener(toggleButtonListener);
+        mainView.getCTB_card3().addMouseListener(toggleButtonListener);
+        mainView.getCTB_card4().addMouseListener(toggleButtonListener);
 
     }
 
@@ -131,37 +133,37 @@ public class MainControler {
         else button.setFont(glyphNormal);
     }
     
-    private void unselectToggleButton(JToggleButton button) {
+    private void unselectToggleButton(CustomToggleButton button) {
         if (button.isSelected()) {
             button.setSelected(false);
-            button.setContentAreaFilled(false);
+            button.setOpaque(false);
         }
     }
     
     private void showTab(Object obj) {
-        JToggleButton toggleButton = (JToggleButton) obj;
+        CustomToggleButton toggleButton = (CustomToggleButton) obj;
         
-        String index = toggleButton.getName();
+        String index = toggleButton.getTabIndex();
         if (!toggleButton.isSelected()) index = "card0";
         mainView.getTabGroupsLayout().show(mainView.getTabGroups(), index);
     }
     
     private void toggleButtonsClicked(Object obj) {
-        JToggleButton toggleButton = (JToggleButton) obj;
+        CustomToggleButton toggleButton = (CustomToggleButton) obj;
         
-        if (toggleButton!=mainView.getTB_card1()) unselectToggleButton(mainView.getTB_card1());
-        if (toggleButton!=mainView.getTB_card2()) unselectToggleButton(mainView.getTB_card2());
-        if (toggleButton!=mainView.getTB_card3()) unselectToggleButton(mainView.getTB_card3());
-        if (toggleButton!=mainView.getTB_card4()) unselectToggleButton(mainView.getTB_card4());
+        if (toggleButton!=mainView.getCTB_card1()) unselectToggleButton(mainView.getCTB_card1());
+        if (toggleButton!=mainView.getCTB_card2()) unselectToggleButton(mainView.getCTB_card2());
+        if (toggleButton!=mainView.getCTB_card3()) unselectToggleButton(mainView.getCTB_card3());
+        if (toggleButton!=mainView.getCTB_card4()) unselectToggleButton(mainView.getCTB_card4());
 
-        UIManager.put("ToggleButton.select", new Color(toggleButton.getBackground().getRGB()));
-        SwingUtilities.updateComponentTreeUI(mainView);
+        toggleButton.toggle();
     }
     
     private void toggleToggleButtonsBg(Object obj) {
-        JToggleButton toggleButton = (JToggleButton) obj;
+        CustomToggleButton toggleButton = (CustomToggleButton) obj;
         if (!toggleButton.isSelected())
-            toggleButton.setContentAreaFilled(!toggleButton.isContentAreaFilled());
+            toggleButton.setOpaque(!toggleButton.isOpaque());
+        toggleButton.repaint();
     }
 
     public MainFrame getMainView() {

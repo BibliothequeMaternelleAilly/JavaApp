@@ -4,6 +4,7 @@ package bibliotheque.view;
 import bibliotheque.view.customComponents.BgPanel;
 import bibliotheque.view.customComponents.CustomListCellRenderer;
 import bibliotheque.model.DBConnection;
+import bibliotheque.view.customComponents.CustomToggleButton;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -204,48 +205,56 @@ public class MainFrame extends javax.swing.JFrame {
         toggleButtons.setRequestFocusEnabled(false);
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
+        CTB_card1.setBackground(new Color(0,0,0,0)
+        );
         CTB_card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 172, 59), 4));
         CTB_card1.setForeground(new java.awt.Color(254, 226, 165));
         CTB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34)));
         CTB_card1.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left));
-        CTB_card1.setName("card1"); // NOI18N
         CTB_card1.setOpaque(false);
         CTB_card1.setSelectedColor(new java.awt.Color(254, 172, 59));
+        CTB_card1.setTabIndex("card1");
         CTB_card1.setText("Emprunter");
-        CTB_card1.setUnselectedColor(new Color(254,172,59,128));
+        CTB_card1.setUnselectedColor(new Color(254,172,59,70));
         toggleButtons.add(CTB_card1);
 
+        CTB_card2.setBackground(new Color(0,0,0,0)
+        );
         CTB_card2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 97, 54), 4));
         CTB_card2.setForeground(new java.awt.Color(254, 226, 165));
         CTB_card2.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.4)));
         CTB_card2.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left));
-        CTB_card2.setName("card2"); // NOI18N
         CTB_card2.setOpaque(false);
         CTB_card2.setSelectedColor(new java.awt.Color(255, 97, 54));
+        CTB_card2.setTabIndex("card2");
         CTB_card2.setText("Rendre");
-        CTB_card2.setUnselectedColor(new Color(255,97,54,128));
+        CTB_card2.setUnselectedColor(new Color(255,97,54,70));
         toggleButtons.add(CTB_card2);
 
+        CTB_card3.setBackground(new Color(0,0,0,0)
+        );
         CTB_card3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 59, 99), 4));
         CTB_card3.setForeground(new java.awt.Color(254, 226, 165));
         CTB_card3.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         CTB_card3.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left));
-        CTB_card3.setName("card2"); // NOI18N
         CTB_card3.setOpaque(false);
         CTB_card3.setSelectedColor(new java.awt.Color(253, 59, 99));
+        CTB_card3.setTabIndex("card3");
         CTB_card3.setText("Éleves");
-        CTB_card3.setUnselectedColor(new Color(253,59,99,128));
+        CTB_card3.setUnselectedColor(new Color(253,59,99,70));
         toggleButtons.add(CTB_card3);
 
+        CTB_card4.setBackground(new Color(0,0,0,0)
+        );
         CTB_card4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(218, 94, 238), 4));
         CTB_card4.setForeground(new java.awt.Color(254, 226, 165));
         CTB_card4.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5)));
         CTB_card4.setMaximumSize(new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left));
-        CTB_card4.setName("card2"); // NOI18N
         CTB_card4.setOpaque(false);
         CTB_card4.setSelectedColor(new java.awt.Color(218, 94, 238));
+        CTB_card4.setTabIndex("card4");
         CTB_card4.setText("Livres");
-        CTB_card4.setUnselectedColor(new Color(218,94,238,128));
+        CTB_card4.setUnselectedColor(new Color(218,94,238,70));
         toggleButtons.add(CTB_card4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
@@ -911,20 +920,20 @@ public class MainFrame extends javax.swing.JFrame {
         return B_settings;
     }
 
-    public JToggleButton getTB_card1() {
-        return null;//TB_card1;
+    public CustomToggleButton getCTB_card1() {
+        return CTB_card1;
     }
 
-    public JToggleButton getTB_card2() {
-        return null;//TB_card2;
+    public CustomToggleButton getCTB_card2() {
+        return CTB_card2;
     }
 
-    public JToggleButton getTB_card3() {
-        return null;//TB_card3;
+    public CustomToggleButton getCTB_card3() {
+        return CTB_card3;
     }
 
-    public JToggleButton getTB_card4() {
-        return null;//TB_card4;
+    public CustomToggleButton getCTB_card4() {
+        return CTB_card4;
     }
 
     public CardLayout getTabGroupsLayout() {

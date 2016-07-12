@@ -13,9 +13,10 @@ import javax.swing.JPanel;
  */
 public class CustomToggleButton extends JPanel {
     
-    private boolean selected = false;
-    private Color selectedColor, unselectedColor;
-    private final JLabel text = new JLabel("ToggleButton");
+    protected boolean selected = false;
+    protected Color selectedColor, unselectedColor;
+    protected final JLabel text = new JLabel("ToggleButton");
+    protected String tabIndex;
     
     public CustomToggleButton() {
         super();
@@ -99,5 +100,13 @@ public class CustomToggleButton extends JPanel {
         } catch (NullPointerException e) {
         }
         super.setForeground(fg);
+    }
+
+    public String getTabIndex() {
+        return tabIndex;
+    }
+
+    public void setTabIndex(String tabIndex) {
+        this.tabIndex = tabIndex;
     }
 }
