@@ -264,7 +264,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainMenuButtons.setBackground(new java.awt.Color(49, 24, 13));
         mainMenuButtons.setPreferredSize(toggleButtons.getPreferredSize());
-        mainMenuButtons.setLayout(new javax.swing.BoxLayout(mainMenuButtons, javax.swing.BoxLayout.PAGE_AXIS));
+        mainMenuButtons.setLayout(new java.awt.GridLayout(4, 0));
 
         B_webSite.setBackground(new java.awt.Color(255, 78, 0));
         B_webSite.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
