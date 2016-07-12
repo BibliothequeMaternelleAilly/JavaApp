@@ -2,6 +2,7 @@
 package bibliotheque.view.customComponents;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,21 +13,17 @@ import javax.swing.JPanel;
  */
 public class CustomToggleButton extends JPanel {
     
-    private boolean selected;
+    private boolean selected = false;
     private Color selectedColor, unselectedColor;
-    private final JLabel text;
+    private final JLabel text = new JLabel("ToggleButton");
     
     public CustomToggleButton() {
         super();
         setLayout(new java.awt.BorderLayout());
-        selected = false;
         unselectedColor = getBackground();
         selectedColor = getBackground().darker();
-        text = new JLabel("ToggleButton");
-        text.setForeground(getForeground());
         text.setBorder(null);
-        text.setOpaque(true);
-        text.setFont(getFont());
+        text.setOpaque(false);
         text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
         this.add(text, java.awt.BorderLayout.CENTER);
@@ -39,7 +36,6 @@ public class CustomToggleButton extends JPanel {
             g.setColor(selected ? selectedColor:unselectedColor);
             g.fillRect(0, 0, getWidth(), getHeight());
         }
-        text.repaint();
     }
 
     public void toggle() {
@@ -85,5 +81,23 @@ public class CustomToggleButton extends JPanel {
     public void setText(String text) {
         this.text.setText(text);
         repaint();
+    }
+    
+    @Override
+    public void setFont(Font font) {
+        try {
+            this.text.setFont(font);
+        } catch (NullPointerException e) {
+        }
+        super.setFont(font);
+    }
+    
+    @Override
+    public void setForeground(Color fg) {
+        try {
+            this.text.setForeground(fg);
+        } catch (NullPointerException e) {
+        }
+        super.setForeground(fg);
     }
 }

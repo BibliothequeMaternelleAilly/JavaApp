@@ -111,7 +111,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JSeparator" name="jSeparator1">
+                <Component class="javax.swing.JSeparator" name="S_titleSeparator">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="a5" green="e2" red="fe" type="rgb"/>
@@ -154,18 +154,8 @@
                     <Property name="axis" type="int" value="3"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JToggleButton" name="TB_card1">
+                    <Component class="bibliotheque.view.customComponents.CustomToggleButton" name="CTB_card1">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Color(254,172,59)" type="code"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34))" type="code"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="a5" green="e2" red="fe" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Emprunter"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
@@ -173,35 +163,28 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
-                        </Property>
-                        <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                          <Insets value="[1, 1, 1, 1]"/>
-                        </Property>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width)" type="code"/>
-                        </Property>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[0, 0]"/>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="card1" noResource="true"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_card2">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Color(255,97,54)" type="code"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.4))" type="code"/>
-                        </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Rendre"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34))" type="code"/>
+                        </Property>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left)" type="code"/>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="card1" noResource="true"/>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="selectedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="3b" green="ac" red="fe" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Emprunter"/>
+                        <Property name="unselectedColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Color(254,172,59,128)" type="code"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="bibliotheque.view.customComponents.CustomToggleButton" name="CTB_card2">
+                      <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
@@ -209,35 +192,28 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
-                        </Property>
-                        <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                          <Insets value="[1, 1, 1, 1]"/>
-                        </Property>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width)" type="code"/>
-                        </Property>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[0, 0]"/>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="card2" noResource="true"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_card3">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Color(253,59,99)" type="code"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5))" type="code"/>
-                        </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&#xc9;leves"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.4))" type="code"/>
+                        </Property>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left)" type="code"/>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="card2" noResource="true"/>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="selectedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="36" green="61" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Rendre"/>
+                        <Property name="unselectedColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Color(255,97,54,128)" type="code"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="bibliotheque.view.customComponents.CustomToggleButton" name="CTB_card3">
+                      <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
@@ -245,35 +221,28 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
-                        </Property>
-                        <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                          <Insets value="[1, 1, 1, 1]"/>
-                        </Property>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width)" type="code"/>
-                        </Property>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[0, 0]"/>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="card3" noResource="true"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JToggleButton" name="TB_card4">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Color(218,94,238)" type="code"/>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5))" type="code"/>
                         </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="a5" green="e2" red="fe" type="rgb"/>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left)" type="code"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Livres"/>
+                        <Property name="name" type="java.lang.String" value="card2" noResource="true"/>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="selectedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="63" green="3b" red="fd" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&#xc9;leves"/>
+                        <Property name="unselectedColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Color(253,59,99,128)" type="code"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="bibliotheque.view.customComponents.CustomToggleButton" name="CTB_card4">
+                      <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder thickness="4">
@@ -281,21 +250,24 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="a5" green="e2" red="fe" type="rgb"/>
                         </Property>
-                        <Property name="focusPainted" type="boolean" value="false"/>
-                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                          <Insets value="[1, 1, 1, 1]"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.5))" type="code"/>
                         </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width)" type="code"/>
+                          <Connection code="new Dimension(toggleButtons.getPreferredSize().width, toggleButtons.getPreferredSize().width+2*CTB_card1.getInsets().left)" type="code"/>
                         </Property>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[0, 0]"/>
+                        <Property name="name" type="java.lang.String" value="card2" noResource="true"/>
+                        <Property name="opaque" type="boolean" value="false"/>
+                        <Property name="selectedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ee" green="5e" red="da" type="rgb"/>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="card4" noResource="true"/>
+                        <Property name="text" type="java.lang.String" value="Livres"/>
+                        <Property name="unselectedColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new Color(218,94,238,128)" type="code"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>

@@ -2,7 +2,6 @@
 package bibliotheque.controler;
 
 import bibliotheque.controler.businessObjects.BorrowForm;
-import bibliotheque.controler.businessObjects.PupilsManagement;
 import bibliotheque.controler.businessObjects.ScanForm;
 import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
@@ -16,9 +15,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
@@ -110,10 +106,10 @@ public class MainControler {
         mainView.getB_settings().addMouseListener(buttonListener);
         mainView.getB_help().addMouseListener(buttonListener);
         mainView.getB_quit().addMouseListener(buttonListener);
-        mainView.getTB_card1().addMouseListener(toggleButtonListener);
-        mainView.getTB_card2().addMouseListener(toggleButtonListener);
-        mainView.getTB_card3().addMouseListener(toggleButtonListener);
-        mainView.getTB_card4().addMouseListener(toggleButtonListener);
+//        mainView.getTB_card1().addMouseListener(toggleButtonListener);
+//        mainView.getTB_card2().addMouseListener(toggleButtonListener);
+//        mainView.getTB_card3().addMouseListener(toggleButtonListener);
+//        mainView.getTB_card4().addMouseListener(toggleButtonListener);
 
     }
 
