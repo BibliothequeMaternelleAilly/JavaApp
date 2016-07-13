@@ -1102,7 +1102,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="L_title_tab3">
+                        <Component class="javax.swing.JLabel" name="TA_title_tab3">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12))" type="code"/>
@@ -1141,7 +1141,7 @@
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
                             </Property>
-                            <Property name="dividerSize" type="int" value="5"/>
+                            <Property name="dividerSize" type="int" value="8"/>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="d8" green="ce" red="fd" type="rgb"/>
                             </Property>
@@ -1389,7 +1389,7 @@
                                     <Property name="rows" type="int" value="3"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="L_name_infos_tab3">
+                                    <Component class="javax.swing.JLabel" name="TA_name_infos_tab3">
                                       <Properties>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                           <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08))" type="code"/>
@@ -1400,7 +1400,7 @@
                                         <Property name="text" type="java.lang.String" value="NOM"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JLabel" name="L_surname_infos_tab3">
+                                    <Component class="javax.swing.JLabel" name="TA_surname_infos_tab3">
                                       <Properties>
                                         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                           <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06))" type="code"/>
@@ -1596,7 +1596,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="L_title_tab4">
+                        <Component class="javax.swing.JLabel" name="TA_title_tab4">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12))" type="code"/>
@@ -1739,7 +1739,7 @@
                                     </Property>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                                        <TitledBorder justification="2" title="Rechercher un &#xe9;l&#xe8;ve :">
+                                        <TitledBorder justification="2" title="Rechercher un livre :">
                                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                                             <EmptyBorder/>
                                           </Border>
@@ -1956,66 +1956,173 @@
                                     <Property name="rows" type="int" value="4"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="L_bookTitle_infos_tab4">
+                                    <Container class="javax.swing.JScrollPane" name="SP_bookTitle_infos_tab4">
                                       <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08))" type="code"/>
+                                        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                                        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
                                         </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="controls_tab4" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="text" type="java.lang.String" value="Titre"/>
-                                        <Property name="toolTipText" type="java.lang.String" value="Titre"/>
                                       </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="L_theme_infos_tab4">
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JTextArea" name="TA_bookTitle_infos_tab4">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="tab4" name="background" type="property"/>
+                                            </Property>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                            <Property name="rows" type="int" value="1"/>
+                                            <Property name="text" type="java.lang.String" value="Titre"/>
+                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JScrollPane" name="SP_theme_infos_tab4">
                                       <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06))" type="code"/>
+                                        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                                        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
                                         </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="controls_tab4" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="text" type="java.lang.String" value="Th&#xe8;me"/>
-                                        <Property name="toolTipText" type="java.lang.String" value="Th&#xe8;me"/>
                                       </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="L_author_infos_tab4">
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JTextArea" name="TA_theme_infos_tab4">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="tab4" name="background" type="property"/>
+                                            </Property>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                            <Property name="rows" type="int" value="1"/>
+                                            <Property name="text" type="java.lang.String" value="Th&#xe8;me"/>
+                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JScrollPane" name="SP_author_infos_tab4">
                                       <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06))" type="code"/>
+                                        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                                        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
                                         </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="controls_tab4" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="text" type="java.lang.String" value="Auteur"/>
-                                        <Property name="toolTipText" type="java.lang.String" value="Auteur"/>
                                       </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="L_keyWords_infos_tab4">
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JTextArea" name="TA_author_infos_tab4">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="tab4" name="background" type="property"/>
+                                            </Property>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                            <Property name="rows" type="int" value="1"/>
+                                            <Property name="text" type="java.lang.String" value="Auteur"/>
+                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JScrollPane" name="SP_keyWords_infos_tab4">
                                       <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06))" type="code"/>
+                                        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
                                         </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="controls_tab4" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="text" type="java.lang.String" value="Mots cl&#xe9;s"/>
-                                        <Property name="toolTipText" type="java.lang.String" value="Mots cl&#xe9;s"/>
                                       </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="L_pupilName_infos_tab4">
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JTextArea" name="TA_keyWords_infos_tab4">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="tab4" name="background" type="property"/>
+                                            </Property>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                            <Property name="lineWrap" type="boolean" value="true"/>
+                                            <Property name="rows" type="int" value="50"/>
+                                            <Property name="text" type="java.lang.String" value="Mots cl&#xe9;s"/>
+                                            <Property name="wrapStyleWord" type="boolean" value="true"/>
+                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JScrollPane" name="SP_pupilName_infos_tab4">
                                       <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
+                                        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                                        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
                                         </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="controls_tab4" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="text" type="java.lang.String" value="Emprunt&#xe9; par..."/>
-                                        <Property name="toolTipText" type="java.lang.String" value="Emprunt&#xe9; par..."/>
                                       </Properties>
-                                    </Component>
+                                      <AuxValues>
+                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                      </AuxValues>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JTextArea" name="TA_pupilName_infos_tab4">
+                                          <Properties>
+                                            <Property name="editable" type="boolean" value="false"/>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="tab4" name="background" type="property"/>
+                                            </Property>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                            <Property name="rows" type="int" value="1"/>
+                                            <Property name="text" type="java.lang.String" value="Emprunt&#xe9; par..."/>
+                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection component="controls_tab4" name="foreground" type="property"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
                                     <Container class="javax.swing.JPanel" name="P_return_tab4">
                                       <Properties>
                                         <Property name="opaque" type="boolean" value="false"/>

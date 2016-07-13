@@ -17,10 +17,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.Box;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -107,7 +107,7 @@ public class MainFrame extends javax.swing.JFrame {
         FTF_barCode_tab2 = new javax.swing.JFormattedTextField();
         B_validate_tab2 = new javax.swing.JButton();
         tab3 = new javax.swing.JPanel();
-        L_title_tab3 = new javax.swing.JLabel();
+        TA_title_tab3 = new javax.swing.JLabel();
         controls_tab3 = new javax.swing.JSplitPane();
         SP_pupilList_tab3 = new javax.swing.JScrollPane();
         Li_pupilList_tab3 = new javax.swing.JList<>();
@@ -119,8 +119,8 @@ public class MainFrame extends javax.swing.JFrame {
         TF_name_search_tab3 = new javax.swing.JTextField();
         B_validate_search_tab3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        L_name_infos_tab3 = new javax.swing.JLabel();
-        L_surname_infos_tab3 = new javax.swing.JLabel();
+        TA_name_infos_tab3 = new javax.swing.JLabel();
+        TA_surname_infos_tab3 = new javax.swing.JLabel();
         infos_fields_tab3 = new javax.swing.JPanel();
         SP_bookList_tab3 = new javax.swing.JScrollPane();
         Li_bookList_tab3 = new javax.swing.JList<>();
@@ -130,7 +130,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_new_managePupil_tab3 = new javax.swing.JButton();
         B_delete_managePupil_tab3 = new javax.swing.JButton();
         tab4 = new javax.swing.JPanel();
-        L_title_tab4 = new javax.swing.JLabel();
+        TA_title_tab4 = new javax.swing.JLabel();
         controls_tab4 = new javax.swing.JSplitPane();
         SP_pupilList_tab4 = new javax.swing.JScrollPane();
         Li_pupilList_tab4 = new javax.swing.JList<>();
@@ -145,11 +145,16 @@ public class MainFrame extends javax.swing.JFrame {
         TF_keyWords_search_tab6 = new javax.swing.JTextField();
         B_validate_search_tab4 = new javax.swing.JButton();
         infos_fields_tab4 = new javax.swing.JPanel();
-        L_bookTitle_infos_tab4 = new javax.swing.JLabel();
-        L_theme_infos_tab4 = new javax.swing.JLabel();
-        L_author_infos_tab4 = new javax.swing.JLabel();
-        L_keyWords_infos_tab4 = new javax.swing.JLabel();
-        L_pupilName_infos_tab4 = new javax.swing.JLabel();
+        SP_bookTitle_infos_tab4 = new javax.swing.JScrollPane();
+        TA_bookTitle_infos_tab4 = new javax.swing.JTextArea();
+        SP_theme_infos_tab4 = new javax.swing.JScrollPane();
+        TA_theme_infos_tab4 = new javax.swing.JTextArea();
+        SP_author_infos_tab4 = new javax.swing.JScrollPane();
+        TA_author_infos_tab4 = new javax.swing.JTextArea();
+        SP_keyWords_infos_tab4 = new javax.swing.JScrollPane();
+        TA_keyWords_infos_tab4 = new javax.swing.JTextArea();
+        SP_pupilName_infos_tab4 = new javax.swing.JScrollPane();
+        TA_pupilName_infos_tab4 = new javax.swing.JTextArea();
         P_return_tab4 = new javax.swing.JPanel();
         B_return_infos_tab4 = new javax.swing.JButton();
         manageBook_tab4 = new javax.swing.JPanel();
@@ -572,16 +577,16 @@ public class MainFrame extends javax.swing.JFrame {
         tab3.setBackground(new java.awt.Color(253, 59, 99));
         tab3.setLayout(new java.awt.BorderLayout());
 
-        L_title_tab3.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
-        L_title_tab3.setForeground(new java.awt.Color(255, 229, 235));
-        L_title_tab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title_tab3.setText("Gestion des élèves");
-        L_title_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
-        tab3.add(L_title_tab3, java.awt.BorderLayout.NORTH);
+        TA_title_tab3.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
+        TA_title_tab3.setForeground(new java.awt.Color(255, 229, 235));
+        TA_title_tab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TA_title_tab3.setText("Gestion des élèves");
+        TA_title_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        tab3.add(TA_title_tab3, java.awt.BorderLayout.NORTH);
 
         controls_tab3.setBackground(tab3.getBackground());
         controls_tab3.setBorder(null);
-        controls_tab3.setDividerSize(5);
+        controls_tab3.setDividerSize(8);
         controls_tab3.setForeground(new java.awt.Color(253, 206, 216));
         controls_tab3.setContinuousLayout(true);
 
@@ -657,15 +662,15 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridLayout(3, 0));
 
-        L_name_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
-        L_name_infos_tab3.setForeground(controls_tab3.getForeground());
-        L_name_infos_tab3.setText("NOM");
-        jPanel2.add(L_name_infos_tab3);
+        TA_name_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
+        TA_name_infos_tab3.setForeground(controls_tab3.getForeground());
+        TA_name_infos_tab3.setText("NOM");
+        jPanel2.add(TA_name_infos_tab3);
 
-        L_surname_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_surname_infos_tab3.setForeground(controls_tab3.getForeground());
-        L_surname_infos_tab3.setText("Prénom");
-        jPanel2.add(L_surname_infos_tab3);
+        TA_surname_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
+        TA_surname_infos_tab3.setForeground(controls_tab3.getForeground());
+        TA_surname_infos_tab3.setText("Prénom");
+        jPanel2.add(TA_surname_infos_tab3);
 
         infos_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 5, 1));
         infos_fields_tab3.setOpaque(false);
@@ -732,12 +737,12 @@ public class MainFrame extends javax.swing.JFrame {
         tab4.setBackground(new java.awt.Color(218, 94, 238));
         tab4.setLayout(new java.awt.BorderLayout());
 
-        L_title_tab4.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
-        L_title_tab4.setForeground(new java.awt.Color(251, 229, 255));
-        L_title_tab4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title_tab4.setText("Gestion des livres");
-        L_title_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
-        tab4.add(L_title_tab4, java.awt.BorderLayout.NORTH);
+        TA_title_tab4.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
+        TA_title_tab4.setForeground(new java.awt.Color(251, 229, 255));
+        TA_title_tab4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TA_title_tab4.setText("Gestion des livres");
+        TA_title_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        tab4.add(TA_title_tab4, java.awt.BorderLayout.NORTH);
 
         controls_tab4.setBackground(tab4.getBackground());
         controls_tab4.setBorder(null);
@@ -768,7 +773,7 @@ public class MainFrame extends javax.swing.JFrame {
         fields_tab4.setLayout(new java.awt.BorderLayout());
 
         search_fields_tab4.setBackground(tab4.getBackground());
-        search_fields_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), controls_tab4.getForeground()));
+        search_fields_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un livre :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), controls_tab4.getForeground()));
         search_fields_tab4.setLayout(new java.awt.BorderLayout());
 
         jScrollPane2.setBorder(null);
@@ -843,35 +848,72 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.setOpaque(false);
         infos_fields_tab4.setLayout(new java.awt.GridLayout(4, 2));
 
-        L_bookTitle_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
-        L_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_bookTitle_infos_tab4.setText("Titre");
-        L_bookTitle_infos_tab4.setToolTipText("Titre");
-        infos_fields_tab4.add(L_bookTitle_infos_tab4);
+        SP_bookTitle_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_bookTitle_infos_tab4.setViewportBorder(null);
 
-        L_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_theme_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_theme_infos_tab4.setText("Thème");
-        L_theme_infos_tab4.setToolTipText("Thème");
-        infos_fields_tab4.add(L_theme_infos_tab4);
+        TA_bookTitle_infos_tab4.setBackground(tab4.getBackground());
+        TA_bookTitle_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_bookTitle_infos_tab4.setRows(1);
+        TA_bookTitle_infos_tab4.setText("Titre");
+        TA_bookTitle_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_bookTitle_infos_tab4.setViewportView(TA_bookTitle_infos_tab4);
 
-        L_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_author_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_author_infos_tab4.setText("Auteur");
-        L_author_infos_tab4.setToolTipText("Auteur");
-        infos_fields_tab4.add(L_author_infos_tab4);
+        infos_fields_tab4.add(SP_bookTitle_infos_tab4);
 
-        L_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_keyWords_infos_tab4.setText("Mots clés");
-        L_keyWords_infos_tab4.setToolTipText("Mots clés");
-        infos_fields_tab4.add(L_keyWords_infos_tab4);
+        SP_theme_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_theme_infos_tab4.setViewportBorder(null);
 
-        L_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
-        L_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_pupilName_infos_tab4.setText("Emprunté par...");
-        L_pupilName_infos_tab4.setToolTipText("Emprunté par...");
-        infos_fields_tab4.add(L_pupilName_infos_tab4);
+        TA_theme_infos_tab4.setBackground(tab4.getBackground());
+        TA_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_theme_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_theme_infos_tab4.setRows(1);
+        TA_theme_infos_tab4.setText("Thème");
+        TA_theme_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_theme_infos_tab4.setViewportView(TA_theme_infos_tab4);
+
+        infos_fields_tab4.add(SP_theme_infos_tab4);
+
+        SP_author_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_author_infos_tab4.setViewportBorder(null);
+
+        TA_author_infos_tab4.setBackground(tab4.getBackground());
+        TA_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_author_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_author_infos_tab4.setRows(1);
+        TA_author_infos_tab4.setText("Auteur");
+        TA_author_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_author_infos_tab4.setViewportView(TA_author_infos_tab4);
+
+        infos_fields_tab4.add(SP_author_infos_tab4);
+
+        SP_keyWords_infos_tab4.setViewportBorder(null);
+
+        TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
+        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        TA_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_keyWords_infos_tab4.setLineWrap(true);
+        TA_keyWords_infos_tab4.setRows(50);
+        TA_keyWords_infos_tab4.setText("Mots clés");
+        TA_keyWords_infos_tab4.setWrapStyleWord(true);
+        TA_keyWords_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_keyWords_infos_tab4.setViewportView(TA_keyWords_infos_tab4);
+
+        infos_fields_tab4.add(SP_keyWords_infos_tab4);
+
+        SP_pupilName_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_pupilName_infos_tab4.setViewportBorder(null);
+
+        TA_pupilName_infos_tab4.setEditable(false);
+        TA_pupilName_infos_tab4.setBackground(tab4.getBackground());
+        TA_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_pupilName_infos_tab4.setRows(1);
+        TA_pupilName_infos_tab4.setText("Emprunté par...");
+        TA_pupilName_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_pupilName_infos_tab4.setViewportView(TA_pupilName_infos_tab4);
+
+        infos_fields_tab4.add(SP_pupilName_infos_tab4);
 
         P_return_tab4.setOpaque(false);
         P_return_tab4.setLayout(new java.awt.BorderLayout());
@@ -1063,40 +1105,40 @@ public class MainFrame extends javax.swing.JFrame {
         return FTF_barCode_tab2;
     }
 
-    public JLabel getL_author_infos_tab4() {
-        return L_author_infos_tab4;
+    public JTextArea getTA_author_infos_tab4() {
+        return TA_author_infos_tab4;
     }
 
     public JLabel getL_bookTitle_fields_tab1() {
         return L_bookTitle_fields_tab1;
     }
 
-    public JLabel getL_bookTitle_infos_tab4() {
-        return L_bookTitle_infos_tab4;
+    public JTextArea getTA_bookTitle_infos_tab4() {
+        return TA_bookTitle_infos_tab4;
     }
 
     public JLabel getL_name_fields_tab1() {
         return L_name_fields_tab1;
     }
 
-    public JLabel getL_name_infos_tab3() {
-        return L_name_infos_tab3;
+    public JLabel getTA_name_infos_tab3() {
+        return TA_name_infos_tab3;
     }
 
-    public JLabel getL_pupilName_infos_tab4() {
-        return L_pupilName_infos_tab4;
+    public JTextArea getTA_pupilName_infos_tab4() {
+        return TA_pupilName_infos_tab4;
     }
 
     public JLabel getL_scanFrame_title_tab1() {
         return L_scanFrame_title_tab1;
     }
 
-    public JLabel getL_surname_infos_tab3() {
-        return L_surname_infos_tab3;
+    public JLabel getTA_surname_infos_tab3() {
+        return TA_surname_infos_tab3;
     }
 
-    public JLabel getL_theme_infos_tab4() {
-        return L_theme_infos_tab4;
+    public JTextArea getTA_theme_infos_tab4() {
+        return TA_theme_infos_tab4;
     }
 
     public JList<String> getLi_bookList_tab3() {
@@ -1174,24 +1216,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FTF_barCode_tab2;
     private javax.swing.Box.Filler F_paging_scan_tab1;
     private javax.swing.Box.Filler F_paging_scan_tab2;
-    private javax.swing.JLabel L_author_infos_tab4;
     private javax.swing.JLabel L_bookTitle_fields_tab1;
-    private javax.swing.JLabel L_bookTitle_infos_tab4;
-    private javax.swing.JLabel L_keyWords_infos_tab4;
     private javax.swing.JLabel L_name_fields_tab1;
-    private javax.swing.JLabel L_name_infos_tab3;
-    private javax.swing.JLabel L_pupilName_infos_tab4;
     private javax.swing.JLabel L_scanFrame_title_tab1;
-    private javax.swing.JLabel L_surname_infos_tab3;
-    private javax.swing.JLabel L_theme_infos_tab4;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
     private javax.swing.JLabel L_title_scanFrame_tab2;
     private javax.swing.JLabel L_title_tab1;
     private javax.swing.JLabel L_title_tab2;
-    private javax.swing.JLabel L_title_tab3;
-    private javax.swing.JLabel L_title_tab4;
     private javax.swing.JList<String> Li_bookList_tab3;
     private javax.swing.JList<String> Li_pupilList_tab1;
     private javax.swing.JList<String> Li_pupilList_tab3;
@@ -1199,11 +1232,25 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel P_return_tab3;
     private javax.swing.JPanel P_return_tab4;
     private javax.swing.JPanel P_titles;
+    private javax.swing.JScrollPane SP_author_infos_tab4;
     private javax.swing.JScrollPane SP_bookList_tab3;
+    private javax.swing.JScrollPane SP_bookTitle_infos_tab4;
+    private javax.swing.JScrollPane SP_keyWords_infos_tab4;
     private javax.swing.JScrollPane SP_pupilList_tab1;
     private javax.swing.JScrollPane SP_pupilList_tab3;
     private javax.swing.JScrollPane SP_pupilList_tab4;
+    private javax.swing.JScrollPane SP_pupilName_infos_tab4;
+    private javax.swing.JScrollPane SP_theme_infos_tab4;
     private javax.swing.JSeparator S_titleSeparator;
+    private javax.swing.JTextArea TA_author_infos_tab4;
+    private javax.swing.JTextArea TA_bookTitle_infos_tab4;
+    private javax.swing.JTextArea TA_keyWords_infos_tab4;
+    private javax.swing.JLabel TA_name_infos_tab3;
+    private javax.swing.JTextArea TA_pupilName_infos_tab4;
+    private javax.swing.JLabel TA_surname_infos_tab3;
+    private javax.swing.JTextArea TA_theme_infos_tab4;
+    private javax.swing.JLabel TA_title_tab3;
+    private javax.swing.JLabel TA_title_tab4;
     private javax.swing.JTextField TF_author_search_tab4;
     private javax.swing.JTextField TF_bookTitle_search_tab4;
     private javax.swing.JTextField TF_keyWords_search_tab6;
