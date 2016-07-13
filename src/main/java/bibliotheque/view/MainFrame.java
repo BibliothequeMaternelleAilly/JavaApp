@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 import java.awt.Color;
 import javax.swing.Box;
 import javax.swing.JFormattedTextField;
@@ -114,14 +113,14 @@ public class MainFrame extends javax.swing.JFrame {
         Li_pupilList_tab3 = new javax.swing.JList<>();
         fields_tab3 = new javax.swing.JPanel();
         search_fields_tab3 = new javax.swing.JPanel();
-        TF_name_search_tab3 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         TF_surname_search_tab3 = new javax.swing.JTextField();
+        TF_name_search_tab3 = new javax.swing.JTextField();
         B_validate_search_tab3 = new javax.swing.JButton();
-        infos_fields_tab3 = new javax.swing.JPanel();
         L_name_infos_tab3 = new javax.swing.JLabel();
-        F_paging1_infos_tab3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         L_surname_infos_tab3 = new javax.swing.JLabel();
-        F_paging2_infos_tab3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        infos_fields_tab3 = new javax.swing.JPanel();
         SP_bookList_tab3 = new javax.swing.JScrollPane();
         Li_bookList_tab3 = new javax.swing.JList<>();
         P_return_tab3 = new javax.swing.JPanel();
@@ -215,7 +214,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card1.setSelectedColor(new java.awt.Color(254, 172, 59));
         CTB_card1.setTabIndex("card1");
         CTB_card1.setText("Emprunter");
-        CTB_card1.setUnselectedColor(new Color(254,172,59,70));
+        CTB_card1.setUnselectedColor(new Color(254,172,59,80));
         toggleButtons.add(CTB_card1);
 
         CTB_card2.setBackground(new Color(0,0,0,0)
@@ -228,7 +227,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card2.setSelectedColor(new java.awt.Color(255, 97, 54));
         CTB_card2.setTabIndex("card2");
         CTB_card2.setText("Rendre");
-        CTB_card2.setUnselectedColor(new Color(255,97,54,70));
+        CTB_card2.setUnselectedColor(new Color(255,97,54,80));
         toggleButtons.add(CTB_card2);
 
         CTB_card3.setBackground(new Color(0,0,0,0)
@@ -241,7 +240,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card3.setSelectedColor(new java.awt.Color(253, 59, 99));
         CTB_card3.setTabIndex("card3");
         CTB_card3.setText("Éleves");
-        CTB_card3.setUnselectedColor(new Color(253,59,99,70));
+        CTB_card3.setUnselectedColor(new Color(253,59,99,80));
         toggleButtons.add(CTB_card3);
 
         CTB_card4.setBackground(new Color(0,0,0,0)
@@ -254,7 +253,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card4.setSelectedColor(new java.awt.Color(218, 94, 238));
         CTB_card4.setTabIndex("card4");
         CTB_card4.setText("Livres");
-        CTB_card4.setUnselectedColor(new Color(218,94,238,70));
+        CTB_card4.setUnselectedColor(new Color(218,94,238,80));
         toggleButtons.add(CTB_card4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
@@ -577,7 +576,8 @@ public class MainFrame extends javax.swing.JFrame {
         tab3.add(L_title_tab3, java.awt.BorderLayout.NORTH);
 
         controls_tab3.setBackground(tab3.getBackground());
-        controls_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        controls_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)));
+        controls_tab3.setDividerSize(5);
         controls_tab3.setForeground(new java.awt.Color(253, 206, 216));
         controls_tab3.setContinuousLayout(true);
 
@@ -585,11 +585,12 @@ public class MainFrame extends javax.swing.JFrame {
         SP_pupilList_tab3.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         SP_pupilList_tab3.setOpaque(false);
 
-        Li_pupilList_tab3.setBackground(new java.awt.Color(254, 185, 200));
-        Li_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138)));
+        Li_pupilList_tab3.setBackground(new java.awt.Color(253, 157, 177));
+        Li_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138), 3));
         Li_pupilList_tab3.setForeground(new java.awt.Color(253, 59, 99));
         CustomListCellRenderer cellRenderer_tab3 = new CustomListCellRenderer();
-        cellRenderer_tab3.setBackground(new Color(253,157,177));
+        Color tab3Color = tab3.getBackground();
+        cellRenderer_tab3.setBackground(new Color(tab3Color.getRed(), tab3Color.getGreen(), tab3Color.getBlue(), 47));
         cellRenderer_tab3.setForeground(Color.WHITE);
         cellRenderer_tab3.setSelectionForeground(tab3.getBackground());
         cellRenderer_tab3.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
@@ -598,21 +599,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         controls_tab3.setLeftComponent(SP_pupilList_tab3);
 
+        fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 17, 1, 1));
         fields_tab3.setOpaque(false);
-        fields_tab3.setLayout(new javax.swing.BoxLayout(fields_tab3, javax.swing.BoxLayout.PAGE_AXIS));
+        fields_tab3.setLayout(new java.awt.GridLayout(4, 0));
 
-        search_fields_tab3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)), controls_tab3.getForeground()));
+        search_fields_tab3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), controls_tab3.getForeground()));
         search_fields_tab3.setOpaque(false);
+        search_fields_tab3.setLayout(new java.awt.BorderLayout());
 
-        TF_name_search_tab3.setBackground(controls_tab3.getForeground());
-        TF_name_search_tab3.setColumns(15);
-        TF_name_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        TF_name_search_tab3.setForeground(controls_tab3.getForeground());
-        TF_name_search_tab3.setText("NOM");
-        TF_name_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        TF_name_search_tab3.setCaretColor(controls_tab3.getForeground());
-        TF_name_search_tab3.setOpaque(false);
-        search_fields_tab3.add(TF_name_search_tab3);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setViewportBorder(null);
+
+        jPanel1.setBackground(tab3.getBackground());
 
         TF_surname_search_tab3.setBackground(controls_tab3.getForeground());
         TF_surname_search_tab3.setColumns(15);
@@ -622,7 +620,17 @@ public class MainFrame extends javax.swing.JFrame {
         TF_surname_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
         TF_surname_search_tab3.setCaretColor(controls_tab3.getForeground());
         TF_surname_search_tab3.setOpaque(false);
-        search_fields_tab3.add(TF_surname_search_tab3);
+        jPanel1.add(TF_surname_search_tab3);
+
+        TF_name_search_tab3.setBackground(controls_tab3.getForeground());
+        TF_name_search_tab3.setColumns(15);
+        TF_name_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        TF_name_search_tab3.setForeground(controls_tab3.getForeground());
+        TF_name_search_tab3.setText("NOM");
+        TF_name_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
+        TF_name_search_tab3.setCaretColor(controls_tab3.getForeground());
+        TF_name_search_tab3.setOpaque(false);
+        jPanel1.add(TF_name_search_tab3);
 
         B_validate_search_tab3.setBackground(controls_tab3.getForeground());
         B_validate_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
@@ -631,25 +639,27 @@ public class MainFrame extends javax.swing.JFrame {
         B_validate_search_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         B_validate_search_tab3.setContentAreaFilled(false);
         B_validate_search_tab3.setFocusPainted(false);
-        search_fields_tab3.add(B_validate_search_tab3);
+        jPanel1.add(B_validate_search_tab3);
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        search_fields_tab3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         fields_tab3.add(search_fields_tab3);
-
-        infos_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
-        infos_fields_tab3.setOpaque(false);
-        infos_fields_tab3.setLayout(new java.awt.GridLayout(4, 2));
 
         L_name_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
         L_name_infos_tab3.setForeground(controls_tab3.getForeground());
         L_name_infos_tab3.setText("NOM");
-        infos_fields_tab3.add(L_name_infos_tab3);
-        infos_fields_tab3.add(F_paging1_infos_tab3);
+        fields_tab3.add(L_name_infos_tab3);
 
         L_surname_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
         L_surname_infos_tab3.setForeground(controls_tab3.getForeground());
         L_surname_infos_tab3.setText("Prénom");
-        infos_fields_tab3.add(L_surname_infos_tab3);
-        infos_fields_tab3.add(F_paging2_infos_tab3);
+        fields_tab3.add(L_surname_infos_tab3);
+
+        infos_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        infos_fields_tab3.setOpaque(false);
+        infos_fields_tab3.setLayout(new javax.swing.BoxLayout(infos_fields_tab3, javax.swing.BoxLayout.LINE_AXIS));
 
         SP_bookList_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         SP_bookList_tab3.setViewportBorder(null);
@@ -718,6 +728,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         controls_tab4.setBackground(tab4.getBackground());
         controls_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        controls_tab4.setDividerSize(5);
         controls_tab4.setForeground(new java.awt.Color(246, 206, 253));
         controls_tab4.setContinuousLayout(true);
 
@@ -1024,14 +1035,6 @@ public class MainFrame extends javax.swing.JFrame {
         return FTF_barCode_tab2;
     }
 
-    public Box.Filler getF_paging1_infos_tab3() {
-        return F_paging1_infos_tab3;
-    }
-
-    public Box.Filler getF_paging2_infos_tab3() {
-        return F_paging2_infos_tab3;
-    }
-
     public JLabel getL_author_infos_tab4() {
         return L_author_infos_tab4;
     }
@@ -1141,8 +1144,6 @@ public class MainFrame extends javax.swing.JFrame {
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card4;
     private javax.swing.JFormattedTextField FTF_barCode_tab1;
     private javax.swing.JFormattedTextField FTF_barCode_tab2;
-    private javax.swing.Box.Filler F_paging1_infos_tab3;
-    private javax.swing.Box.Filler F_paging2_infos_tab3;
     private javax.swing.Box.Filler F_paging_scan_tab1;
     private javax.swing.Box.Filler F_paging_scan_tab2;
     private javax.swing.JLabel L_author_infos_tab4;
@@ -1197,6 +1198,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel fields_tab4;
     private javax.swing.JPanel infos_fields_tab3;
     private javax.swing.JPanel infos_fields_tab4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel manageBook_tab4;
     private javax.swing.JPanel managePupil_tab3;

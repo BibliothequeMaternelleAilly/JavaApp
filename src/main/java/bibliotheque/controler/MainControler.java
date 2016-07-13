@@ -10,7 +10,6 @@ import bibliotheque.view.MainFrame;
 import bibliotheque.view.customComponents.CustomToggleButton;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -18,9 +17,6 @@ import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JToggleButton;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 /**
  *
@@ -29,19 +25,21 @@ import javax.swing.UIManager;
 public class MainControler {
 
     private final MainFrame mainView;
-    private final Font glyphNormal, glyphSmall;
-    private final ArrayList<Eleve> pupilsList;
-    private final ArrayList<Livre> booksList;
+    private final Font glyphicons;
+    private final Color mainMenuButtons_bg, mainMenuButtons_fg;
     private ScanForm scanTab1, scanTab2;
     private final BorrowForm formTab3;
+    
+    private final ArrayList<Eleve> pupilsList = Eleve.getAll();
+    private final ArrayList<Livre> booksList = Livre.getAll();;
 
+    
     public MainControler() throws SQLException {
         
         mainView = new MainFrame();
-        glyphNormal = mainView.getB_help().getFont();
-        glyphSmall = glyphNormal.deriveFont((float) Math.round(glyphNormal.getSize()*0.80));
-        pupilsList = Eleve.getAll();
-        booksList = Livre.getAll();
+        glyphicons = mainView.getB_help().getFont();
+        mainMenuButtons_bg = mainView.getB_quit().getBackground();
+        mainMenuButtons_fg = mainView.getB_quit().getForeground();
         formTab3 = new BorrowForm(mainView.getLi_pupilList_tab3(), mainView.getLi_bookList_tab3(), mainView.getTF_name_search_tab3(), mainView.getTF_surname_search_tab3());
         
        initController();
@@ -129,8 +127,8 @@ public class MainControler {
         JButton button = (JButton) obj;
         button.setBorderPainted(!button.isBorderPainted());
         if (button.isBorderPainted())
-            button.setFont(glyphSmall);
-        else button.setFont(glyphNormal);
+            button.setFont(glyphicons.deriveFont((float) Math.round(glyphicons.getSize()*0.80)));
+        else button.setFont(glyphicons);
     }
     
     private void unselectToggleButton(CustomToggleButton button) {
