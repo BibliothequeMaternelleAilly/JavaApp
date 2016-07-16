@@ -16,9 +16,9 @@ public class Livre {
     private int id, idEmprunteur;
     private String barCode, titre, auteur, mots_cles, theme, date_emprun;
     
-    public Livre(int id, String codeISBN, String titre, String auteur, String mots_cles, String theme, int idEmprunteur, String date_emprun) {
+    public Livre(int id, String code_barre, String titre, String auteur, String mots_cles, String theme, int idEmprunteur, String date_emprun) {
         this.id = id;
-        this.barCode = codeISBN;
+        this.barCode = code_barre;
         this.titre = titre;
         this.auteur = auteur;
         this.mots_cles = mots_cles;
@@ -35,7 +35,7 @@ public class Livre {
              ResultSet result = statement.executeQuery("SELECT * FROM livres"))
         {
             while (result.next())
-                livres.add(new Livre(result.getInt("id"), result.getString("codeISBN"),
+                livres.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                                    result.getString("titre"), result.getString("auteur"),
                                    result.getString("mots_cles"), result.getString("theme"),
                                    result.getInt("idEmprunteur"), result.getString("date_emprun")));
@@ -63,7 +63,7 @@ public class Livre {
              ResultSet result = statement.executeQuery())
         {    
             while (result.next())
-                list.add(new Livre(result.getInt("id"), result.getString("codeISBN"),
+                list.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                         result.getString("titre"), result.getString("auteur"),
                         result.getString("mots_cles"), result.getString("theme"),
                         result.getInt("idEmprunteur"), result.getString("date_emprun")));
@@ -75,6 +75,22 @@ public class Livre {
         return list;
     }
     
+    public static Livre getFromTitle(String title, String author) throws SQLException {
+        String query = "SELECT * FROM livres WHERE titre=? AND auteur=?";
+        Livre book;
+        
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        statement.setString(1, title);
+        statement.setString(2, author);
+        try (ResultSet result = statement.executeQuery()) {
+            result.next();
+            book = new Livre(result.getInt("id"), result.getString("code_barre"),
+                             result.getString("titre"), result.getString("auteur"),
+                             result.getString("mots_cles"), result.getString("theme"),
+                             result.getInt("idEmprunteur"), result.getString("date_emprun"));
+        }
+        return book;
+    }
     
     public void deleteLivre() throws SQLException {
         String query = "DELETE FROM livres WHERE id=?";
@@ -122,6 +138,21 @@ public class Livre {
         }
     }
     
+    public Eleve getBorrower() throws SQLException {
+        Eleve borrower;
+        
+        String query = "SELECT * FROM eleve WHERE id=?";
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        statement.setInt(1, idEmprunteur);
+        try (ResultSet result = statement.executeQuery()) {
+            result.next();
+            borrower = new Eleve(result.getInt("id"),
+                                 result.getString("nom"),
+                                 result.getString("prenom"));
+        }
+        return borrower;
+    }
+    
     
     public int getId() {
         return id;
@@ -131,7 +162,7 @@ public class Livre {
         return idEmprunteur;
     }
 
-    public String getBarCode() {
+    public String getCode_barre() {
         return barCode;
     }
 
@@ -163,7 +194,7 @@ public class Livre {
         this.idEmprunteur = idEmprunteur;
     }
 
-    public void setBarCode(String barCode) {
+    public void setCode_barre(String barCode) {
         this.barCode = barCode;
     }
 

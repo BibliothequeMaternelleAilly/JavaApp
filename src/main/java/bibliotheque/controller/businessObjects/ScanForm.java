@@ -1,5 +1,5 @@
 
-package bibliotheque.controler.businessObjects;
+package bibliotheque.controller.businessObjects;
 
 import bibliotheque.model.Livre;
 import java.util.ArrayList;

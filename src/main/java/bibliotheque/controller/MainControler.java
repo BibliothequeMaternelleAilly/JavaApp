@@ -1,8 +1,9 @@
 
-package bibliotheque.controler;
+package bibliotheque.controller;
 
-import bibliotheque.controler.businessObjects.BorrowForm;
-import bibliotheque.controler.businessObjects.ScanForm;
+import bibliotheque.controller.businessObjects.BooksManagement;
+import bibliotheque.controller.businessObjects.PupilsManagement;
+import bibliotheque.controller.businessObjects.ScanForm;
 import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
@@ -28,7 +29,8 @@ public class MainControler {
     private final Font glyphicons;
     private final Color mainMenuButtons_bg, mainMenuButtons_fg;
     private ScanForm scanTab1, scanTab2;
-    private final BorrowForm formTab3;
+    private final PupilsManagement formTab3;
+    private final BooksManagement formTab4;
     
     private final ArrayList<Eleve> pupilsList = Eleve.getAll();
     private final ArrayList<Livre> booksList = Livre.getAll();;
@@ -40,7 +42,16 @@ public class MainControler {
         glyphicons = mainView.getB_help().getFont();
         mainMenuButtons_bg = mainView.getB_quit().getBackground();
         mainMenuButtons_fg = mainView.getB_quit().getForeground();
-        formTab3 = new BorrowForm(mainView.getLi_pupilList_tab3(), mainView.getLi_bookList_tab3(), mainView.getTF_name_search_tab3(), mainView.getTF_surname_search_tab3());
+        formTab3 = new PupilsManagement(mainView.getLi_pupilList_tab3(),
+                                        mainView.getLi_bookList_tab3(),
+                                        mainView.getTF_name_search_tab3(),
+                                        mainView.getTF_surname_search_tab3());
+        formTab4 = new BooksManagement(mainView.getLi_bookList_tab4(),
+                                       mainView.getTA_bookTitle_infos_tab4(),
+                                       mainView.getTA_author_infos_tab4(),
+                                       mainView.getTA_theme_infos_tab4(),
+                                       mainView.getTA_keyWords_infos_tab4(),
+                                       mainView.getTA_pupilName_infos_tab4());
         
        initController();
     }
@@ -48,6 +59,7 @@ public class MainControler {
     private void initController() {
         
         formTab3.fillPupilsJList();
+        formTab4.fillBooksJList();
         
         ActionListener closeActionListener = new ActionListener() {
             @Override

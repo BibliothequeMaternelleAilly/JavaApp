@@ -43,7 +43,11 @@ public class Eleve {
     public static Eleve getFromName(String name, String surname) throws SQLException {
         String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
         Eleve pupil;
-        try (PreparedStatement statement = DBConnection.prepareStatement(query); ResultSet result = statement.executeQuery()) {
+        
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        statement.setString(1, name);
+        statement.setString(2, surname);
+        try (ResultSet result = statement.executeQuery()) {
             result.next();
             pupil = new Eleve(result.getInt("id"),
                     result.getString("nom"),
@@ -124,7 +128,7 @@ public class Eleve {
             
             try (ResultSet result = statement.executeQuery()) {
                 while (result.next())
-                    list.add(new Livre(result.getInt("id"), result.getString("codeISBN"),
+                    list.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                             result.getString("titre"), result.getString("auteur"),
                             result.getString("mots_cles"), result.getString("theme"),
                             result.getInt("idEmprunteur"), result.getString("date_emprun")));

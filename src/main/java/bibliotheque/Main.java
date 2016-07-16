@@ -1,6 +1,6 @@
 package bibliotheque;
 
-import bibliotheque.controler.MainControler;
+import bibliotheque.controller.MainControler;
 import bibliotheque.model.DBConnection;
 //import bibliotheque.view.SearchResult;
 import java.sql.SQLException;

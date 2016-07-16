@@ -1,5 +1,5 @@
 
-package bibliotheque.controler.businessObjects;
+package bibliotheque.controller.businessObjects;
 
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
@@ -13,14 +13,14 @@ import javax.swing.JTextField;
  *
  * @author shiro
  */
-public class BorrowForm {
+public class PupilsManagement {
     
     private final ArrayList<Eleve> pupilsList;
     private final JList pupilsJList, booksJList;
     private final JTextField nameTextField, surnameTextField;
     private Eleve current;
     
-    public BorrowForm(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
+    public PupilsManagement(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
         
         pupilsList = Eleve.getAll();
         this.booksJList = booksJList;
