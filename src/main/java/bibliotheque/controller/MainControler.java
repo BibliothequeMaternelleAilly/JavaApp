@@ -17,7 +17,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -45,7 +49,9 @@ public class MainControler {
         formTab3 = new PupilsManagement(mainView.getLi_pupilList_tab3(),
                                         mainView.getLi_bookList_tab3(),
                                         mainView.getTF_name_search_tab3(),
-                                        mainView.getTF_surname_search_tab3());
+                                        mainView.getTF_surname_search_tab3(),
+                                        mainView.getL_name_infos_tab3(),
+                                        mainView.getL_surname_infos_tab3());
         formTab4 = new BooksManagement(mainView.getLi_bookList_tab4(),
                                        mainView.getTA_bookTitle_infos_tab4(),
                                        mainView.getTA_author_infos_tab4(),
@@ -111,6 +117,12 @@ public class MainControler {
                 toggleToggleButtonsBg(e.getSource());
             }
         };
+        ListSelectionListener pupilTab3SelectionListener = new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                selectPupil();
+            }
+        };
                 
         
         mainView.getB_quit().addActionListener(closeActionListener);
@@ -122,7 +134,7 @@ public class MainControler {
         mainView.getCTB_card2().addMouseListener(toggleButtonListener);
         mainView.getCTB_card3().addMouseListener(toggleButtonListener);
         mainView.getCTB_card4().addMouseListener(toggleButtonListener);
-
+        mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
     }
 
     private void closeView() {
@@ -175,8 +187,17 @@ public class MainControler {
             toggleButton.setOpaque(!toggleButton.isOpaque());
         toggleButton.repaint();
     }
+    
+    private void selectPupil() {
+        try {
+            formTab3.fillFields();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-    public MainFrame getMainView() {
+
+    private MainFrame getMainView() {
         return mainView;
     }
 

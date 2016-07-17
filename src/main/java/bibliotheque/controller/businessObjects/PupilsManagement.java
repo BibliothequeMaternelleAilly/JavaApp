@@ -6,6 +6,7 @@ import bibliotheque.model.Livre;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
@@ -15,22 +16,26 @@ import javax.swing.JTextField;
  */
 public class PupilsManagement {
     
-    private final ArrayList<Eleve> pupilsList;
+    private ArrayList<Eleve> pupilsList;
     private final JList pupilsJList, booksJList;
     private final JTextField nameTextField, surnameTextField;
+    private final JLabel nameLabel, surnameLabel;
     private Eleve current;
     
-    public PupilsManagement(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
+    public PupilsManagement(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField, JLabel nameLabel, JLabel surnameLabel) throws SQLException {
         
         pupilsList = Eleve.getAll();
         this.booksJList = booksJList;
         this.nameTextField = nameTextField;
         this.pupilsJList = pupilsJList;
         this.surnameTextField = surnameTextField;
+        this.nameLabel = nameLabel;
+        this.surnameLabel = surnameLabel;
+        fillPupilsJList();
         
     }
     
-    public void fillPupilsJList() {
+    private void fillPupilsJList() {
         DefaultListModel<String> model = new DefaultListModel();
         for (Eleve newPupil : pupilsList)
             model.addElement(newPupil.toString());
@@ -41,15 +46,27 @@ public class PupilsManagement {
         DefaultListModel<String> model = new DefaultListModel();
         String value = (String) pupilsJList.getSelectedValue();
         String name = value.substring(0, value.lastIndexOf(" ")),
-               surname = value.substring(value.indexOf(" ")+1);
+               surname = value.substring(value.lastIndexOf(" ")+1);
         current = Eleve.getFromFullName(name, surname);
         ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
         
-        nameTextField.setText(name);
-        surnameTextField.setText(surname);
+        nameLabel.setText(name);
+        surnameLabel.setText(surname);
         for (Livre book : borrowedBooks)
-            model.addElement(book.toString());
+            model.addElement(book.toString() + " : " + book.getDate_emprun());
         booksJList.setModel(model);
+    }
+    
+    public void resetFields() throws SQLException {
+        pupilsList = Eleve.getAll();
+        booksJList.removeAll();
+        pupilsJList.removeAll();
+        nameTextField.setText("NOM");
+        surnameTextField.setText("Prénom");
+        nameLabel.setText("NOM");
+        surnameLabel.setText("Prénom");
+        current = null;
+        fillPupilsJList();
     }
     
     public void returnBook() throws SQLException {

@@ -1,13 +1,15 @@
 
 package bibliotheque.controller.businessObjects;
 
-import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -15,7 +17,7 @@ import javax.swing.JTextArea;
  */
 public class BooksManagement {
     
-    private final ArrayList<Livre> booksList;
+    private ArrayList<Livre> booksList;
     private final JList booksJList;
     private final JTextArea titleTextArea, authorTextArea, themeTextArea, keyWordsTextArea, pupilTextArea;
     private Livre current;
@@ -29,9 +31,10 @@ public class BooksManagement {
         this.themeTextArea = themeTextArea;
         this.keyWordsTextArea = keyWordsTextArea;
         this.pupilTextArea = pupilTextArea;
+        fillBooksJList();
     }
     
-    public void fillBooksJList() {
+    private void fillBooksJList() {
         DefaultListModel<String> model = new DefaultListModel();
         for (Livre newBook : booksList)
             model.addElement(newBook.toString());
@@ -49,6 +52,9 @@ public class BooksManagement {
         authorTextArea.setText(author);
         themeTextArea.setText(current.getTheme());
         pupilTextArea.setText(current.getBorrower().toString());
+        TitledBorder pupilTextAreaBorder = (TitledBorder) pupilTextArea.getBorder();
+        pupilTextAreaBorder.setBorder(BorderFactory.createLineBorder(new Color(246,206,253)));
+        pupilTextAreaBorder.setTitle(current.getDate_emprun());
         String[] keywords = current.getMots_cles().split(";");
         int i = -1;
         for (String word : keywords)
@@ -57,7 +63,7 @@ public class BooksManagement {
     
     public void returnBook() throws SQLException {
         current.setIdEmprunteur(-1);
-        current.setDate_emprun("NULL");
+        current.setDate_emprun("");
         current.updateLivre();
         pupilTextArea.setText("");
     }

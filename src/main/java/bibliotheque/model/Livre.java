@@ -39,9 +39,6 @@ public class Livre {
                                    result.getString("titre"), result.getString("auteur"),
                                    result.getString("mots_cles"), result.getString("theme"),
                                    result.getInt("idEmprunteur"), result.getString("date_emprun")));
-            
-            result.close();
-            statement.close();
         }
         
         return livres;
@@ -51,7 +48,6 @@ public class Livre {
         String query = "DELETE FROM livres";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.execute();
-            statement.close();
         }
     }
     
@@ -67,9 +63,6 @@ public class Livre {
                         result.getString("titre"), result.getString("auteur"),
                         result.getString("mots_cles"), result.getString("theme"),
                         result.getInt("idEmprunteur"), result.getString("date_emprun")));
-            
-            result.close();
-            statement.close();
         }
         
         return list;
@@ -79,16 +72,18 @@ public class Livre {
         String query = "SELECT * FROM livres WHERE titre=? AND auteur=?";
         Livre book;
         
-        PreparedStatement statement = DBConnection.prepareStatement(query);
-        statement.setString(1, title);
-        statement.setString(2, author);
-        try (ResultSet result = statement.executeQuery()) {
-            result.next();
-            book = new Livre(result.getInt("id"), result.getString("code_barre"),
-                             result.getString("titre"), result.getString("auteur"),
-                             result.getString("mots_cles"), result.getString("theme"),
-                             result.getInt("idEmprunteur"), result.getString("date_emprun"));
+        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+            statement.setString(1, title);
+            statement.setString(2, author);
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                book = new Livre(result.getInt("id"), result.getString("code_barre"),
+                        result.getString("titre"), result.getString("auteur"),
+                        result.getString("mots_cles"), result.getString("theme"),
+                        result.getInt("idEmprunteur"), result.getString("date_emprun"));
+            }
         }
+        
         return book;
     }
     
@@ -96,9 +91,7 @@ public class Livre {
         String query = "DELETE FROM livres WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setInt(1, id);
-            
             statement.execute();
-            statement.close();
         }
     }
     
@@ -117,7 +110,6 @@ public class Livre {
             statement.setInt(7, id);
             
             statement.execute();
-            statement.close();
         }
     }
     
@@ -134,7 +126,6 @@ public class Livre {
             statement.setString(6, date_emprun);
             
             statement.execute();
-            statement.close();
         }
     }
     
@@ -142,13 +133,14 @@ public class Livre {
         Eleve borrower;
         
         String query = "SELECT * FROM eleve WHERE id=?";
-        PreparedStatement statement = DBConnection.prepareStatement(query);
-        statement.setInt(1, idEmprunteur);
-        try (ResultSet result = statement.executeQuery()) {
-            result.next();
-            borrower = new Eleve(result.getInt("id"),
-                                 result.getString("nom"),
-                                 result.getString("prenom"));
+        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+            statement.setInt(1, idEmprunteur);
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                borrower = new Eleve(result.getInt("id"),
+                        result.getString("nom"),
+                        result.getString("prenom"));
+            }
         }
         return borrower;
     }
@@ -183,7 +175,9 @@ public class Livre {
     }
 
     public String getDate_emprun() {
-        return date_emprun;
+        if (date_emprun.equals("")) return date_emprun;
+        String[] date = date_emprun.split("-");
+        return date[2] + "/" + date[1] + "/" + date[0];
     }
 
     public void setId(int id) {

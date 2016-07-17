@@ -4,6 +4,8 @@ package bibliotheque.controller.businessObjects;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,6 +74,7 @@ public class BorrowForm {
         try {
             Eleve borrower = Eleve.getFromFullName(nameTextField.getText().toUpperCase(), surnameTextField.getText().toLowerCase());
             book.setIdEmprunteur(borrower.getId());
+            book.setDate_emprun(LocalDate.now().toString());
             book.updateLivre();
         } catch (SQLException ex) {
             throw ex;
