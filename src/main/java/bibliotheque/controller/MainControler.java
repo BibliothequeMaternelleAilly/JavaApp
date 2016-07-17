@@ -129,6 +129,29 @@ public class MainControler {
                 toggleToggleButtonsBg(e.getSource());
             }
         };
+        MouseListener defaultButtonListener = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {}
+            @Override
+            public void mousePressed(MouseEvent e) {
+                pressDefaultButton(e.getSource());
+            }
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                releaseDefaulButton(e.getSource());
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                toggleDefaultButton(e.getSource());
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                toggleDefaultButton(e.getSource());
+            }
+        };
         ListSelectionListener pupilTab3SelectionListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -154,6 +177,7 @@ public class MainControler {
         mainView.getCTB_card4().addMouseListener(toggleButtonListener);
         mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
         mainView.getLi_bookList_tab4().addListSelectionListener(booksTab4SelectionListener);
+        mainView.getB_validate_search_tab3().addMouseListener(defaultButtonListener);
     }
 
     private void closeView() {
@@ -207,6 +231,25 @@ public class MainControler {
         if (!toggleButton.isSelected())
             toggleButton.setOpaque(!toggleButton.isOpaque());
         toggleButton.repaint();
+    }
+    
+    private void toggleDefaultButton(Object obj) {
+        JButton button = (JButton) obj;
+        Color tmp = button.getBackground();
+        button.setBackground(button.getForeground());
+        button.setForeground(tmp);
+        button.setContentAreaFilled(!button.isContentAreaFilled());
+    }
+    
+    private void pressDefaultButton(Object obj) {
+        JButton button = (JButton) obj;
+        Color bg = button.getBackground();
+        button.setBackground(new Color(bg.getRed()-50, bg.getGreen()-50, bg.getBlue()-50));
+    }
+    private void releaseDefaulButton(Object obj) {
+        JButton button = (JButton) obj;
+        Color bg = button.getBackground();
+        button.setBackground(new Color(bg.getRed()+50, bg.getGreen()+50, bg.getBlue()+50));
     }
     
     private void selectPupil() {

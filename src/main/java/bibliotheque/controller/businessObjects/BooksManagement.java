@@ -2,14 +2,11 @@
 package bibliotheque.controller.businessObjects;
 
 import bibliotheque.model.Livre;
-import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTextArea;
-import javax.swing.border.TitledBorder;
 
 /**
  *

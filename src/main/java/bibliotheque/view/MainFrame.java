@@ -829,7 +829,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel3.add(paging_search_fields_tab4);
 
-        B_validate_search_tab4.setBackground(controls_tab4.getForeground());
+        B_validate_search_tab4.setBackground(tab4.getBackground());
         B_validate_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_validate_search_tab4.setForeground(controls_tab4.getForeground());
         B_validate_search_tab4.setText(" Rechercher ");

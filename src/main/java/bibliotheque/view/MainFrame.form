@@ -1912,7 +1912,7 @@
                                             <Component class="javax.swing.JButton" name="B_validate_search_tab4">
                                               <Properties>
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                  <Connection component="tab4" name="background" type="property"/>
                                                 </Property>
                                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                                   <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
