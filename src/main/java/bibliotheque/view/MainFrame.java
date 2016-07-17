@@ -147,16 +147,16 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4 = new javax.swing.JPanel();
         SP_bookTitle_infos_tab4 = new javax.swing.JScrollPane();
         TA_bookTitle_infos_tab4 = new javax.swing.JTextArea();
-        SP_theme_infos_tab4 = new javax.swing.JScrollPane();
-        TA_theme_infos_tab4 = new javax.swing.JTextArea();
         SP_author_infos_tab4 = new javax.swing.JScrollPane();
         TA_author_infos_tab4 = new javax.swing.JTextArea();
-        SP_keyWords_infos_tab4 = new javax.swing.JScrollPane();
-        TA_keyWords_infos_tab4 = new javax.swing.JTextArea();
         SP_pupilName_infos_tab4 = new javax.swing.JScrollPane();
         TA_pupilName_infos_tab4 = new javax.swing.JTextArea();
         P_return_tab4 = new javax.swing.JPanel();
         B_return_infos_tab4 = new javax.swing.JButton();
+        SP_theme_infos_tab4 = new javax.swing.JScrollPane();
+        TA_theme_infos_tab4 = new javax.swing.JTextArea();
+        SP_keyWords_infos_tab4 = new javax.swing.JScrollPane();
+        TA_keyWords_infos_tab4 = new javax.swing.JTextArea();
         manageBook_tab4 = new javax.swing.JPanel();
         B_new_manageBook_tab4 = new javax.swing.JButton();
         B_modify_manageBook_tab4 = new javax.swing.JButton();
@@ -861,24 +861,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         infos_fields_tab4.add(SP_bookTitle_infos_tab4);
 
-        SP_theme_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        SP_theme_infos_tab4.setViewportBorder(null);
-
-        TA_theme_infos_tab4.setBackground(tab4.getBackground());
-        TA_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
-        TA_theme_infos_tab4.setForeground(controls_tab4.getForeground());
-        TA_theme_infos_tab4.setRows(1);
-        TA_theme_infos_tab4.setText("Thème");
-        TA_theme_infos_tab4.setCaretColor(controls_tab4.getForeground());
-        SP_theme_infos_tab4.setViewportView(TA_theme_infos_tab4);
-
-        infos_fields_tab4.add(SP_theme_infos_tab4);
-
         SP_author_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_author_infos_tab4.setViewportBorder(null);
 
         TA_author_infos_tab4.setBackground(tab4.getBackground());
-        TA_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
         TA_author_infos_tab4.setForeground(controls_tab4.getForeground());
         TA_author_infos_tab4.setRows(1);
         TA_author_infos_tab4.setText("Auteur");
@@ -887,30 +874,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         infos_fields_tab4.add(SP_author_infos_tab4);
 
-        SP_keyWords_infos_tab4.setViewportBorder(null);
-
-        TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
-        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
-        TA_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
-        TA_keyWords_infos_tab4.setLineWrap(true);
-        TA_keyWords_infos_tab4.setRows(50);
-        TA_keyWords_infos_tab4.setText("Mots clés");
-        TA_keyWords_infos_tab4.setWrapStyleWord(true);
-        TA_keyWords_infos_tab4.setCaretColor(controls_tab4.getForeground());
-        SP_keyWords_infos_tab4.setViewportView(TA_keyWords_infos_tab4);
-
-        infos_fields_tab4.add(SP_keyWords_infos_tab4);
-
         SP_pupilName_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_pupilName_infos_tab4.setViewportBorder(null);
 
         TA_pupilName_infos_tab4.setEditable(false);
         TA_pupilName_infos_tab4.setBackground(tab4.getBackground());
-        TA_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TA_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
         TA_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
         TA_pupilName_infos_tab4.setRows(1);
         TA_pupilName_infos_tab4.setText("Emprunté par...");
-        TA_pupilName_infos_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(246, 206, 253)));
         TA_pupilName_infos_tab4.setCaretColor(controls_tab4.getForeground());
         SP_pupilName_infos_tab4.setViewportView(TA_pupilName_infos_tab4);
 
@@ -929,6 +901,33 @@ public class MainFrame extends javax.swing.JFrame {
         P_return_tab4.add(B_return_infos_tab4, java.awt.BorderLayout.LINE_START);
 
         infos_fields_tab4.add(P_return_tab4);
+
+        SP_theme_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_theme_infos_tab4.setViewportBorder(null);
+
+        TA_theme_infos_tab4.setBackground(tab4.getBackground());
+        TA_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        TA_theme_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_theme_infos_tab4.setRows(1);
+        TA_theme_infos_tab4.setText("Thème");
+        TA_theme_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_theme_infos_tab4.setViewportView(TA_theme_infos_tab4);
+
+        infos_fields_tab4.add(SP_theme_infos_tab4);
+
+        SP_keyWords_infos_tab4.setViewportBorder(null);
+
+        TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
+        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
+        TA_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_keyWords_infos_tab4.setLineWrap(true);
+        TA_keyWords_infos_tab4.setText("Mots clés");
+        TA_keyWords_infos_tab4.setWrapStyleWord(true);
+        TA_keyWords_infos_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 108, 254), 3));
+        TA_keyWords_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_keyWords_infos_tab4.setViewportView(TA_keyWords_infos_tab4);
+
+        infos_fields_tab4.add(SP_keyWords_infos_tab4);
 
         fields_tab4.add(infos_fields_tab4, java.awt.BorderLayout.CENTER);
 

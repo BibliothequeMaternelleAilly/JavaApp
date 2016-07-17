@@ -52,14 +52,12 @@ public class BooksManagement {
             titleTextArea.setText(title);
             authorTextArea.setText(author);
             themeTextArea.setText(current.getTheme());
-            pupilTextArea.setText(current.getBorrower().toString());
-            TitledBorder pupilTextAreaBorder = (TitledBorder) pupilTextArea.getBorder();
-            pupilTextAreaBorder.setBorder(BorderFactory.createLineBorder(new Color(246,206,253)));
-            pupilTextAreaBorder.setTitle(current.getDate_emprun());
+            pupilTextArea.setText(current.getBorrower().toString()+" : "+current.getDate_emprun());
             String[] keywords = current.getMots_cles().split(";");
             keyWordsTextArea.setText("");
             for (String word : keywords)
                 keyWordsTextArea.append(word + "\n");
+            keyWordsTextArea.setCaretPosition(0);
         }
     }
     

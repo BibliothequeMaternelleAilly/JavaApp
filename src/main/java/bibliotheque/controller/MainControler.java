@@ -186,7 +186,7 @@ public class MainControler {
         
         String index = toggleButton.getTabIndex();
         if (!toggleButton.isSelected()) index = "card0";
-        if (index.equals("card4")) formTab3.resetFields();
+        if (index.equals("card3")) formTab3.resetFields();
         else if (index.equals("card4")) formTab4.resetFields();
         mainView.getTabGroupsLayout().show(mainView.getTabGroups(), index);
     }
