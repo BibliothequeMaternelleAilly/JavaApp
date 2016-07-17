@@ -64,8 +64,16 @@ public class MainControler {
     
     private void initController() {
         
-        formTab3.fillPupilsJList();
-        formTab4.fillBooksJList();
+        try {
+            formTab3.resetFields();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            formTab4.resetFields();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         ActionListener closeActionListener = new ActionListener() {
             @Override
@@ -98,7 +106,11 @@ public class MainControler {
         MouseListener toggleButtonListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                showTab(e.getSource());
+                try {
+                    showTab(e.getSource());
+                } catch (SQLException ex) {
+                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -122,6 +134,12 @@ public class MainControler {
             public void valueChanged(ListSelectionEvent e) {
                 selectPupil();
             }
+        },
+                            booksTab4SelectionListener = new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                selectBook();
+            }
         };
                 
         
@@ -135,6 +153,7 @@ public class MainControler {
         mainView.getCTB_card3().addMouseListener(toggleButtonListener);
         mainView.getCTB_card4().addMouseListener(toggleButtonListener);
         mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
+        mainView.getLi_bookList_tab4().addListSelectionListener(booksTab4SelectionListener);
     }
 
     private void closeView() {
@@ -162,11 +181,13 @@ public class MainControler {
         }
     }
     
-    private void showTab(Object obj) {
+    private void showTab(Object obj) throws SQLException {
         CustomToggleButton toggleButton = (CustomToggleButton) obj;
         
         String index = toggleButton.getTabIndex();
         if (!toggleButton.isSelected()) index = "card0";
+        if (index.equals("card4")) formTab3.resetFields();
+        else if (index.equals("card4")) formTab4.resetFields();
         mainView.getTabGroupsLayout().show(mainView.getTabGroups(), index);
     }
     
@@ -191,6 +212,14 @@ public class MainControler {
     private void selectPupil() {
         try {
             formTab3.fillFields();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void selectBook() {
+        try {
+            formTab4.fillFields();
         } catch (SQLException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }

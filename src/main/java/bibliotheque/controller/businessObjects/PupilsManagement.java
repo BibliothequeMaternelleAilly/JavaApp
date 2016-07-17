@@ -45,22 +45,23 @@ public class PupilsManagement {
     public void fillFields() throws SQLException {
         DefaultListModel<String> model = new DefaultListModel();
         String value = (String) pupilsJList.getSelectedValue();
-        String name = value.substring(0, value.lastIndexOf(" ")),
-               surname = value.substring(value.lastIndexOf(" ")+1);
-        current = Eleve.getFromFullName(name, surname);
-        ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
-        
-        nameLabel.setText(name);
-        surnameLabel.setText(surname);
-        for (Livre book : borrowedBooks)
-            model.addElement(book.toString() + " : " + book.getDate_emprun());
-        booksJList.setModel(model);
+        if (value!=null) {
+            String name = value.substring(0, value.lastIndexOf(" ")),
+                   surname = value.substring(value.lastIndexOf(" ")+1);
+            current = Eleve.getFromFullName(name, surname);
+            ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
+
+            nameLabel.setText(name);
+            surnameLabel.setText(surname);
+            for (Livre book : borrowedBooks)
+                model.addElement(book.toString() + " : " + book.getDate_emprun());
+            booksJList.setModel(model);
+        }
     }
     
     public void resetFields() throws SQLException {
         pupilsList = Eleve.getAll();
-        booksJList.removeAll();
-        pupilsJList.removeAll();
+        booksJList.setModel(new DefaultListModel());
         nameTextField.setText("NOM");
         surnameTextField.setText("Prénom");
         nameLabel.setText("NOM");

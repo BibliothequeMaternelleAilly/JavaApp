@@ -132,7 +132,7 @@ public class Livre {
     public Eleve getBorrower() throws SQLException {
         Eleve borrower;
         
-        String query = "SELECT * FROM eleve WHERE id=?";
+        String query = "SELECT * FROM eleves WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setInt(1, idEmprunteur);
             try (ResultSet result = statement.executeQuery()) {

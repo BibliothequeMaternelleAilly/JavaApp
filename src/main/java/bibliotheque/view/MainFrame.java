@@ -890,7 +890,7 @@ public class MainFrame extends javax.swing.JFrame {
         SP_keyWords_infos_tab4.setViewportBorder(null);
 
         TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
-        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         TA_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
         TA_keyWords_infos_tab4.setLineWrap(true);
         TA_keyWords_infos_tab4.setRows(50);
