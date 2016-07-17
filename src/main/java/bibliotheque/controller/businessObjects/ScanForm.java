@@ -23,9 +23,9 @@ public class ScanForm {
         int listSize = booksList.size(), i = -1;
         String code = barCode.getText();
         
-        while (i!=listSize && !code.equals(booksList.get(i).getBarCode())) i++;
+        while (i!=listSize && !code.equals(booksList.get(i).getCode_barre())) i++;
         
-        if (code.equals(booksList.get(i).getBarCode()))
+        if (code.equals(booksList.get(i).getCode_barre()))
             return booksList.get(i);
         else
             return null;

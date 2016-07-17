@@ -22,6 +22,7 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         DBConnection.newInstance("/home/shiro/BDDbibliotheque.sqlite");
         MainControler cntler = new MainControler();
         //SearchResult test = new SearchResult(cntler.getMainView().getLi_pupilList_tab3());

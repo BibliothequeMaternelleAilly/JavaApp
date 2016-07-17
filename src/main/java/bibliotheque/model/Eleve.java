@@ -40,11 +40,11 @@ public class Eleve {
         return eleves;
     }
     
-    public static Eleve getFromName(String name, String surname) throws SQLException {
+    public static Eleve getFromFullName(String name, String surname) throws SQLException {
         String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
         Eleve pupil;
-        
         PreparedStatement statement = DBConnection.prepareStatement(query);
+        
         statement.setString(1, name);
         statement.setString(2, surname);
         try (ResultSet result = statement.executeQuery()) {
@@ -53,7 +53,69 @@ public class Eleve {
                     result.getString("nom"),
                     result.getString("prenom"));
         }
+        
         return pupil;
+    }
+    
+    public static ArrayList<Eleve> getAllFromFullName(String name, String surname) throws SQLException {
+        ArrayList<Eleve> list = new ArrayList();
+        String query = "SELECT * FROM eleves WHERE nom LIKE ?% AND prenom LIKE ?%";
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        
+        statement.setString(1, name.toUpperCase());
+        statement.setString(2, surname.toLowerCase());
+        try (ResultSet result = statement.executeQuery())
+        {
+            while (result.next())
+                list.add(new Eleve(result.getInt("id"),
+                                     result.getString("nom"),
+                                     result.getString("prenom")));
+
+            result.close();
+            statement.close();
+        }
+        
+        return list;
+    }
+    
+    public static ArrayList<Eleve> getAllFromName(String name) throws SQLException {
+        ArrayList<Eleve> list = new ArrayList();
+        String query = "SELECT * FROM eleves WHERE nom LIKE ?%";
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        
+        statement.setString(1, name.toUpperCase());
+        try (ResultSet result = statement.executeQuery())
+        {
+            while (result.next())
+                list.add(new Eleve(result.getInt("id"),
+                                   result.getString("nom"),
+                                   result.getString("prenom")));
+
+            result.close();
+            statement.close();
+        }
+        
+        return list;
+    }
+    
+    public static ArrayList<Eleve> getAllFromSurname(String surname) throws SQLException {
+        ArrayList<Eleve> list = new ArrayList();
+        String query = "SELECT * FROM eleves WHERE prenom LIKE ?%";
+        PreparedStatement statement = DBConnection.prepareStatement(query);
+        
+        statement.setString(1, surname.toLowerCase());
+        try (ResultSet result = statement.executeQuery())
+        {
+            while (result.next())
+                list.add(new Eleve(result.getInt("id"),
+                                     result.getString("nom"),
+                                     result.getString("prenom")));
+
+            result.close();
+            statement.close();
+        }
+        
+        return list;
     }
     
     public static void clearTable() throws SQLException {

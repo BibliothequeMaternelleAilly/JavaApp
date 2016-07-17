@@ -42,7 +42,7 @@ public class PupilsManagement {
         String value = (String) pupilsJList.getSelectedValue();
         String name = value.substring(0, value.lastIndexOf(" ")),
                surname = value.substring(value.indexOf(" ")+1);
-        current = Eleve.getFromName(name, surname);
+        current = Eleve.getFromFullName(name, surname);
         ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
         
         nameTextField.setText(name);
