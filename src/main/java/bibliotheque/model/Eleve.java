@@ -32,7 +32,7 @@ public class Eleve {
                 eleves.add(new Eleve(result.getInt("id"),
                         result.getString("nom"),
                         result.getString("prenom")));
-        }
+        }        
         
         return eleves;
     }
@@ -41,8 +41,8 @@ public class Eleve {
         String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
         Eleve pupil;
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(1, name);
-            statement.setString(2, surname);
+            statement.setString(1, name.toUpperCase());
+            statement.setString(2, surname.toLowerCase());
             try (ResultSet result = statement.executeQuery()) {
                 result.next();
                 pupil = new Eleve(result.getInt("id"),
@@ -133,7 +133,7 @@ public class Eleve {
     
 
     public void deleteEleve() throws SQLException {
-        String query = "DELETE FROM eleves WHERE id=?";
+        String query = "DELETE FROM eleves WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setInt(1, id);
             statement.execute();
@@ -194,10 +194,19 @@ public class Eleve {
     public String getPrenom() {
         return prenom;
     }
+
+//    public void setNom(String nom) {
+//        this.nom = nom;
+//    }
+//
+//    public void setPrenom(String prenom) {
+//        this.prenom = prenom;
+//    }
+    
     
     @Override
     public String toString() {
         String surname = this.prenom.substring(0,1).toUpperCase() + this.prenom.substring(1);
-        return nom + " " + surname;
+        return nom.toUpperCase() + " " + surname;
     }
 }

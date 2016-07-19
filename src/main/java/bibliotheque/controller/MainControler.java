@@ -31,7 +31,8 @@ public class MainControler {
 
     private final MainFrame mainView;
     private final Font glyphicons;
-    private final Color mainMenuButtons_bg, mainMenuButtons_fg;
+    private Font defaultButtonsFont;
+    private Color borderButtons_fg = Color.WHITE, borderButtons_bg;
     private ScanForm scanTab1, scanTab2;
     private final PupilsManagement formTab3;
     private final BooksManagement formTab4;
@@ -44,8 +45,6 @@ public class MainControler {
         
         mainView = new MainFrame();
         glyphicons = mainView.getB_help().getFont();
-        mainMenuButtons_bg = mainView.getB_quit().getBackground();
-        mainMenuButtons_fg = mainView.getB_quit().getForeground();
         formTab3 = new PupilsManagement(mainView.getLi_pupilList_tab3(),
                                         mainView.getLi_bookList_tab3(),
                                         mainView.getTF_name_search_tab3(),
@@ -81,7 +80,13 @@ public class MainControler {
                 closeView();
             }
         };
-        MouseListener buttonListener = new MouseListener() {
+        ActionListener deletePupilActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deletePupil(e.getSource());
+            }
+        };
+        MouseListener mainMenuButtonsListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {}
             @Override
@@ -152,6 +157,29 @@ public class MainControler {
                 toggleDefaultButton(e.getSource());
             }
         };
+        MouseListener borderedButtonListener = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {}
+            @Override
+            public void mousePressed(MouseEvent e) {
+                pressBorderedButton(e.getSource());
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                releaseBorderedButton(e.getSource());
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                toggleBorderedButton(e.getSource());
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                toggleBorderedButton(e.getSource());
+            }
+        };
         ListSelectionListener pupilTab3SelectionListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -167,17 +195,33 @@ public class MainControler {
                 
         
         mainView.getB_quit().addActionListener(closeActionListener);
-        mainView.getB_webSite().addMouseListener(buttonListener);
-        mainView.getB_settings().addMouseListener(buttonListener);
-        mainView.getB_help().addMouseListener(buttonListener);
-        mainView.getB_quit().addMouseListener(buttonListener);
+        mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
+        
+        mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
+        mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
+        mainView.getB_help().addMouseListener(mainMenuButtonsListener);
+        mainView.getB_quit().addMouseListener(mainMenuButtonsListener);
+        
         mainView.getCTB_card1().addMouseListener(toggleButtonListener);
         mainView.getCTB_card2().addMouseListener(toggleButtonListener);
         mainView.getCTB_card3().addMouseListener(toggleButtonListener);
         mainView.getCTB_card4().addMouseListener(toggleButtonListener);
+        
         mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
         mainView.getLi_bookList_tab4().addListSelectionListener(booksTab4SelectionListener);
+        
         mainView.getB_validate_search_tab3().addMouseListener(defaultButtonListener);
+        mainView.getB_new_managePupil_tab3().addMouseListener(defaultButtonListener);
+        mainView.getB_new_manageBook_tab4().addMouseListener(defaultButtonListener);
+        mainView.getB_modify_manageBook_tab4().addMouseListener(defaultButtonListener);
+        mainView.getB_validate_search_tab4().addMouseListener(defaultButtonListener);
+        
+        mainView.getB_validate_fields_tab1().addMouseListener(borderedButtonListener);
+        mainView.getB_return_infos_tab3().addMouseListener(borderedButtonListener);
+        mainView.getB_delete_managePupil_tab3().addMouseListener(borderedButtonListener);
+        mainView.getB_return_infos_tab4().addMouseListener(borderedButtonListener);
+        mainView.getB_delete_manageBook_tab4().addMouseListener(borderedButtonListener);
+        
     }
 
     private void closeView() {
@@ -235,26 +279,34 @@ public class MainControler {
     
     private void toggleDefaultButton(Object obj) {
         JButton button = (JButton) obj;
-        Color tmp = button.getBackground();
-        button.setBackground(button.getForeground());
-        button.setForeground(tmp);
-        button.setContentAreaFilled(!button.isContentAreaFilled());
+        if (button.isEnabled()) {
+            Color tmp = button.getBackground();
+            button.setBackground(button.getForeground());
+            button.setForeground(tmp);
+            button.setOpaque(!button.isOpaque());
+        }
     }
     
     private void pressDefaultButton(Object obj) {
         JButton button = (JButton) obj;
-        Color bg = button.getBackground();
-        button.setBackground(new Color(bg.getRed()-50, bg.getGreen()-50, bg.getBlue()-50));
+        if (button.isEnabled()) {
+            defaultButtonsFont = button.getFont();
+            button.setFont(defaultButtonsFont.deriveFont((float) Math.round(defaultButtonsFont.getSize()*0.9)));
+            button.setBorderPainted(true);
+        }
     }
     private void releaseDefaulButton(Object obj) {
         JButton button = (JButton) obj;
-        Color bg = button.getBackground();
-        button.setBackground(new Color(bg.getRed()+50, bg.getGreen()+50, bg.getBlue()+50));
+        if (button.isEnabled()) {
+            button.setFont(defaultButtonsFont);
+            button.setBorderPainted(false);
+        }
     }
     
     private void selectPupil() {
         try {
             formTab3.fillFields();
+            mainView.getB_delete_managePupil_tab3().setEnabled(true);
         } catch (SQLException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -268,6 +320,43 @@ public class MainControler {
         }
     }
 
+    private void toggleBorderedButton(Object obj) {
+        JButton button = (JButton) obj;
+        if (button.isEnabled()) {
+            Color tmp = button.getForeground();
+            button.setForeground(borderButtons_fg);
+            borderButtons_fg = tmp;
+            button.setOpaque(!button.isOpaque());
+        }
+    }
+    
+    private void pressBorderedButton(Object obj) {
+        JButton button = (JButton) obj;
+        if (button.isEnabled()) {
+            borderButtons_bg = button.getBackground();
+            button.setBackground(borderButtons_bg.darker());
+        }
+    }
+    
+    private void releaseBorderedButton(Object obj) {
+        JButton button = (JButton) obj;
+        if (button.isEnabled()) button.setBackground(borderButtons_bg);
+    }
+    
+    private void deletePupil(Object obj) {
+        JButton button = (JButton) obj;
+        try {
+            formTab3.returnAllBooks();
+            formTab3.deletePupil();
+            formTab3.resetFields();
+            releaseBorderedButton(button);
+            toggleBorderedButton(button);
+            mainView.getB_delete_managePupil_tab3().setEnabled(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
 
     private MainFrame getMainView() {
         return mainView;

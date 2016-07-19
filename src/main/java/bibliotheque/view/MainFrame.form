@@ -603,122 +603,6 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
                           <SubComponents>
-                            <Container class="javax.swing.JPanel" name="scan_tab1">
-                              <Properties>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="d" green="14" red="31" type="rgb"/>
-                                </Property>
-                                <Property name="opaque" type="boolean" value="false"/>
-                              </Properties>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                                  <CardConstraints cardName="card1"/>
-                                </Constraint>
-                              </Constraints>
-
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                <Property name="columns" type="int" value="0"/>
-                                <Property name="rows" type="int" value="3"/>
-                              </Layout>
-                              <SubComponents>
-                                <Component class="javax.swing.Box$Filler" name="F_paging_scan_tab1">
-                                  <Properties>
-                                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                                      <Dimension value="[32767, 32767]"/>
-                                    </Property>
-                                  </Properties>
-                                  <AuxValues>
-                                    <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
-                                  </AuxValues>
-                                </Component>
-                                <Container class="javax.swing.JPanel" name="scanFrame_tab1">
-                                  <Properties>
-                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="bd" green="f7" red="fe" type="rgb"/>
-                                    </Property>
-                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="d" green="14" red="31" type="rgb"/>
-                                    </Property>
-                                  </Properties>
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
-                                    <Property name="axis" type="int" value="3"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="L_scanFrame_title_tab1">
-                                      <Properties>
-                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
-                                        </Property>
-                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection component="scan_tab1" name="foreground" type="property"/>
-                                        </Property>
-                                        <Property name="horizontalAlignment" type="int" value="0"/>
-                                        <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre du livre ou le taper dans la zone de texte:"/>
-                                      </Properties>
-                                    </Component>
-                                    <Container class="javax.swing.JPanel" name="controls_scanFrame_tab1">
-                                      <Properties>
-                                        <Property name="opaque" type="boolean" value="false"/>
-                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                          <Connection code="new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4))" type="code"/>
-                                        </Property>
-                                      </Properties>
-
-                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-                                      <SubComponents>
-                                        <Component class="javax.swing.JFormattedTextField" name="FTF_barCode_tab1">
-                                          <Properties>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="4a" green="b0" red="f9" type="rgb"/>
-                                            </Property>
-                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                                <LineBorder>
-                                                  <Connection PropertyName="color" component="scan_tab1" name="foreground" type="property"/>
-                                                </LineBorder>
-                                              </Border>
-                                            </Property>
-                                            <Property name="columns" type="int" value="13"/>
-                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="bd" green="f7" red="fe" type="rgb"/>
-                                            </Property>
-                                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                              <Format format="#############" subtype="-1" type="5"/>
-                                            </Property>
-                                            <Property name="horizontalAlignment" type="int" value="0"/>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
-                                            </Property>
-                                            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                                              <Insets value="[0, 0, 500, 0]"/>
-                                            </Property>
-                                          </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.JButton" name="B_validate_scanFrame_tab1">
-                                          <Properties>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13))" type="code"/>
-                                            </Property>
-                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="28" green="b2" red="7b" type="rgb"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="&quot;\uE084&quot;" type="code"/>
-                                            </Property>
-                                            <Property name="toolTipText" type="java.lang.String" value="Valider"/>
-                                            <Property name="borderPainted" type="boolean" value="false"/>
-                                            <Property name="contentAreaFilled" type="boolean" value="false"/>
-                                            <Property name="enabled" type="boolean" value="false"/>
-                                            <Property name="focusPainted" type="boolean" value="false"/>
-                                          </Properties>
-                                        </Component>
-                                      </SubComponents>
-                                    </Container>
-                                  </SubComponents>
-                                </Container>
-                              </SubComponents>
-                            </Container>
                             <Container class="javax.swing.JPanel" name="fields_tab1">
                               <Properties>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -916,6 +800,7 @@
                                           <Connection component="fields_tab1" name="foreground" type="property"/>
                                         </Property>
                                         <Property name="text" type="java.lang.String" value="   Emprunter   "/>
+                                        <Property name="toolTipText" type="java.lang.String" value=""/>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                             <LineBorder>
@@ -924,9 +809,128 @@
                                           </Border>
                                         </Property>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                          <Color id="Curseur en forme de main"/>
+                                        </Property>
                                         <Property name="focusPainted" type="boolean" value="false"/>
                                       </Properties>
                                     </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="scan_tab1">
+                              <Properties>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d" green="14" red="31" type="rgb"/>
+                                </Property>
+                                <Property name="opaque" type="boolean" value="false"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card1"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                <Property name="columns" type="int" value="0"/>
+                                <Property name="rows" type="int" value="3"/>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.Box$Filler" name="F_paging_scan_tab1">
+                                  <Properties>
+                                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                      <Dimension value="[32767, 32767]"/>
+                                    </Property>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.Glue"/>
+                                  </AuxValues>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="scanFrame_tab1">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="bd" green="f7" red="fe" type="rgb"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d" green="14" red="31" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
+                                    <Property name="axis" type="int" value="3"/>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="L_scanFrame_title_tab1">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05))" type="code"/>
+                                        </Property>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection component="scan_tab1" name="foreground" type="property"/>
+                                        </Property>
+                                        <Property name="horizontalAlignment" type="int" value="0"/>
+                                        <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre du livre ou le taper dans la zone de texte:"/>
+                                      </Properties>
+                                    </Component>
+                                    <Container class="javax.swing.JPanel" name="controls_scanFrame_tab1">
+                                      <Properties>
+                                        <Property name="opaque" type="boolean" value="false"/>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection code="new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4))" type="code"/>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JFormattedTextField" name="FTF_barCode_tab1">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="4a" green="b0" red="f9" type="rgb"/>
+                                            </Property>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                                <LineBorder>
+                                                  <Connection PropertyName="color" component="scan_tab1" name="foreground" type="property"/>
+                                                </LineBorder>
+                                              </Border>
+                                            </Property>
+                                            <Property name="columns" type="int" value="13"/>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="bd" green="f7" red="fe" type="rgb"/>
+                                            </Property>
+                                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                              <Format format="#############" subtype="-1" type="5"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07))" type="code"/>
+                                            </Property>
+                                            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                                              <Insets value="[0, 0, 500, 0]"/>
+                                            </Property>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="B_validate_scanFrame_tab1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13))" type="code"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="28" green="b2" red="7b" type="rgb"/>
+                                            </Property>
+                                            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="&quot;\uE084&quot;" type="code"/>
+                                            </Property>
+                                            <Property name="toolTipText" type="java.lang.String" value="Valider"/>
+                                            <Property name="borderPainted" type="boolean" value="false"/>
+                                            <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                            <Property name="enabled" type="boolean" value="false"/>
+                                            <Property name="focusPainted" type="boolean" value="false"/>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
                                   </SubComponents>
                                 </Container>
                               </SubComponents>
@@ -1350,7 +1354,7 @@
                                             <Component class="javax.swing.JButton" name="B_validate_search_tab3">
                                               <Properties>
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                                  <Connection component="tab3" name="background" type="property"/>
                                                 </Property>
                                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                                   <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
@@ -1360,10 +1364,13 @@
                                                 </Property>
                                                 <Property name="text" type="java.lang.String" value=" Rechercher "/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                                                    <EmptyBorder/>
+                                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                                    <LineBorder thickness="3">
+                                                      <Connection PropertyName="color" component="tab3" name="background" type="property"/>
+                                                    </LineBorder>
                                                   </Border>
                                                 </Property>
+                                                <Property name="borderPainted" type="boolean" value="false"/>
                                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                                 <Property name="focusPainted" type="boolean" value="false"/>
                                               </Properties>
@@ -1537,7 +1544,7 @@
                             <Component class="javax.swing.JButton" name="B_new_managePupil_tab3">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                  <Connection component="tab3" name="background" type="property"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
@@ -1547,10 +1554,13 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Nouvel &#xe9;l&#xe8;ve "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                                    <EmptyBorder/>
+                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                    <LineBorder thickness="3">
+                                      <Connection PropertyName="color" component="tab3" name="background" type="property"/>
+                                    </LineBorder>
                                   </Border>
                                 </Property>
+                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
@@ -1575,6 +1585,7 @@
                                   </Border>
                                 </Property>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                <Property name="enabled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
                             </Component>
@@ -1586,6 +1597,9 @@
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ee" green="5e" red="da" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="fe" green="9e" red="f0" type="rgb"/>
                         </Property>
                       </Properties>
                       <Constraints>
@@ -1691,8 +1705,8 @@
                               <SubComponents>
                                 <Component class="javax.swing.JList" name="Li_bookList_tab4">
                                   <Properties>
-                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="fe" green="9e" red="f0" type="rgb"/>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                      <Connection component="tab4" name="foreground" type="property"/>
                                     </Property>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1701,8 +1715,8 @@
                                         </LineBorder>
                                       </Border>
                                     </Property>
-                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="ee" green="5e" red="da" type="rgb"/>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                      <Connection component="tab4" name="foreground" type="property"/>
                                     </Property>
                                     <Property name="model" postCode="CustomListCellRenderer cellRenderer_tab4 = new CustomListCellRenderer();&#xa;tabColor = tab4.getBackground();&#xa;cellRenderer_tab4.setBackground(new Color(tabColor.getRed(), tabColor.getGreen(), tabColor.getBlue(), 40));&#xa;cellRenderer_tab4.setForeground(Color.WHITE);&#xa;cellRenderer_tab4.setSelectionForeground(tabColor);&#xa;cellRenderer_tab4.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));"/>
                                     <Property name="cellRenderer" type="javax.swing.ListCellRenderer" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1806,7 +1820,7 @@
                                                 <Component class="javax.swing.JTextField" name="TF_bookTitle_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1832,7 +1846,7 @@
                                                 <Component class="javax.swing.JTextField" name="TF_theme_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1858,7 +1872,7 @@
                                                 <Component class="javax.swing.JTextField" name="TF_author_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1884,7 +1898,7 @@
                                                 <Component class="javax.swing.JTextField" name="TF_keyWords_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1922,10 +1936,13 @@
                                                 </Property>
                                                 <Property name="text" type="java.lang.String" value=" Rechercher "/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                                                    <EmptyBorder/>
+                                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                                    <LineBorder thickness="3">
+                                                      <Connection PropertyName="color" component="tab4" name="background" type="property"/>
+                                                    </LineBorder>
                                                   </Border>
                                                 </Property>
+                                                <Property name="borderPainted" type="boolean" value="false"/>
                                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                                 <Property name="focusPainted" type="boolean" value="false"/>
                                               </Properties>
@@ -1953,11 +1970,16 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                     <Property name="columns" type="int" value="2"/>
+                                    <Property name="horizontalGap" type="int" value="5"/>
                                     <Property name="rows" type="int" value="4"/>
+                                    <Property name="verticalGap" type="int" value="5"/>
                                   </Layout>
                                   <SubComponents>
                                     <Container class="javax.swing.JScrollPane" name="SP_bookTitle_infos_tab4">
                                       <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
+                                        </Property>
                                         <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -1991,6 +2013,9 @@
                                     </Container>
                                     <Container class="javax.swing.JScrollPane" name="SP_author_infos_tab4">
                                       <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
+                                        </Property>
                                         <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -2024,6 +2049,9 @@
                                     </Container>
                                     <Container class="javax.swing.JScrollPane" name="SP_pupilName_infos_tab4">
                                       <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
+                                        </Property>
                                         <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -2095,6 +2123,9 @@
                                     </Container>
                                     <Container class="javax.swing.JScrollPane" name="SP_theme_infos_tab4">
                                       <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
+                                        </Property>
                                         <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -2128,6 +2159,9 @@
                                     </Container>
                                     <Container class="javax.swing.JScrollPane" name="SP_keyWords_infos_tab4">
                                       <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="null"/>
+                                        </Property>
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
                                         </Property>
@@ -2201,7 +2235,7 @@
                             <Component class="javax.swing.JButton" name="B_new_manageBook_tab4">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection component="controls_tab4" name="foreground" type="property"/>
+                                  <Connection component="tab4" name="background" type="property"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
@@ -2211,10 +2245,13 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Nouveau livre "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                                    <EmptyBorder/>
+                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                    <LineBorder thickness="3">
+                                      <Connection PropertyName="color" component="tab4" name="background" type="property"/>
+                                    </LineBorder>
                                   </Border>
                                 </Property>
+                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
@@ -2222,7 +2259,7 @@
                             <Component class="javax.swing.JButton" name="B_modify_manageBook_tab4">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection component="controls_tab4" name="foreground" type="property"/>
+                                  <Connection component="tab4" name="background" type="property"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04))" type="code"/>
@@ -2232,10 +2269,13 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value=" Modifier le livre "/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                                    <EmptyBorder/>
+                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                    <LineBorder thickness="3">
+                                      <Connection PropertyName="color" component="tab4" name="background" type="property"/>
+                                    </LineBorder>
                                   </Border>
                                 </Property>
+                                <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>

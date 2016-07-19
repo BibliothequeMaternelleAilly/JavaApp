@@ -54,7 +54,7 @@ public class Livre {
     public static ArrayList<Livre> getAllBorrow() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
-        String query = "SELECT * FROM livres WHERE idEmprunteur!=''";
+        String query = "SELECT * FROM livres WHERE idEmprunteur IS NOT NULL";
         try (PreparedStatement statement = DBConnection.prepareStatement(query);
              ResultSet result = statement.executeQuery())
         {    
@@ -104,7 +104,7 @@ public class Livre {
             statement.setString(2, auteur);
             statement.setString(3, mots_cles);
             statement.setString(4, theme);
-            if (idEmprunteur==-1) statement.setString(5, "NULL");
+            if (idEmprunteur==-1) statement.setString(5, null);
             else statement.setInt(5, idEmprunteur);
             statement.setString(6, date_emprun);
             statement.setInt(7, id);

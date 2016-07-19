@@ -21,7 +21,7 @@ public class BooksManagement {
     
     public BooksManagement(JList booksJList, JTextArea titleTextArea, JTextArea authorTextArea, JTextArea themeTextArea, JTextArea keyWordsTextArea, JTextArea pupilTextArea) throws SQLException {
         
-        booksList = Livre.getAll();
+        booksList = Livre.getAllBorrow();
         this.booksJList = booksJList;
         this.titleTextArea = titleTextArea;
         this.authorTextArea = authorTextArea;
@@ -59,7 +59,7 @@ public class BooksManagement {
     }
     
     public void resetFields() throws SQLException {
-        booksList = Livre.getAll();
+        booksList = Livre.getAllBorrow();
         titleTextArea.setText("Titre");
         authorTextArea.setText("Auteur");
         themeTextArea.setText("Thème");

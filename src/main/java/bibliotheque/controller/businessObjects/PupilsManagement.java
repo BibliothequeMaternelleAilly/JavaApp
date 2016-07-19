@@ -24,7 +24,7 @@ public class PupilsManagement {
     
     public PupilsManagement(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField, JLabel nameLabel, JLabel surnameLabel) throws SQLException {
         
-        pupilsList = Eleve.getAll();
+        pupilsList = Eleve.getAllBorrow();
         this.booksJList = booksJList;
         this.nameTextField = nameTextField;
         this.pupilsJList = pupilsJList;
@@ -60,7 +60,7 @@ public class PupilsManagement {
     }
     
     public void resetFields() throws SQLException {
-        pupilsList = Eleve.getAll();
+        pupilsList = Eleve.getAllBorrow();
         booksJList.setModel(new DefaultListModel());
         nameTextField.setText("NOM");
         surnameTextField.setText("Prénom");
@@ -76,6 +76,21 @@ public class PupilsManagement {
         borrowedBook.setDate_emprun("NULL");
         borrowedBook.updateLivre();
         booksJList.remove(booksJList.getSelectedIndex());
+    }
+    
+    public void returnAllBooks() throws SQLException {
+        ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
+        for (Livre book:borrowedBooks) {
+            book.setIdEmprunteur(-1);
+            book.setDate_emprun(null);
+            book.updateLivre();
+        }
+        booksJList.setModel(new DefaultListModel());
+    }
+    
+    public void deletePupil() throws SQLException {
+        current.deleteEleve();
+        current = null;
     }
     
 }
