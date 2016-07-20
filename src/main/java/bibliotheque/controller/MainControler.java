@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -346,12 +347,19 @@ public class MainControler {
     private void deletePupil(Object obj) {
         JButton button = (JButton) obj;
         try {
-            formTab3.returnAllBooks();
-            formTab3.deletePupil();
-            formTab3.resetFields();
-            releaseBorderedButton(button);
-            toggleBorderedButton(button);
-            mainView.getB_delete_managePupil_tab3().setEnabled(false);
+            if (JOptionPane.showConfirmDialog(mainView, "Voulez-vous vraiment supprimer cet éleve: " + formTab3.getCurrent().toString(), "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0)
+            {
+                if (formTab3.hasCurrentBorrowed() &&
+                    JOptionPane.showConfirmDialog(mainView, "Attention! L'élève semble ne pas avoir rendu de livres.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0)
+                {
+                    formTab3.returnAllBooks();
+                    formTab3.deletePupil();
+                    formTab3.resetFields();
+                    releaseBorderedButton(button);
+                    toggleBorderedButton(button);
+                    mainView.getB_delete_managePupil_tab3().setEnabled(false);
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }

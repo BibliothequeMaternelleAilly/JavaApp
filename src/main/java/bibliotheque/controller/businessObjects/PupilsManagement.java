@@ -92,5 +92,14 @@ public class PupilsManagement {
         current.deleteEleve();
         current = null;
     }
+
+    
+    public Eleve getCurrent() {
+        return current;
+    }
+    
+    public boolean hasCurrentBorrowed() throws SQLException {
+        return !current.getBorrowedBooks().isEmpty();
+    }
     
 }
