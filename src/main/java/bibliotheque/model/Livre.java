@@ -38,7 +38,8 @@ public class Livre {
                 livres.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                                    result.getString("titre"), result.getString("auteur"),
                                    result.getString("mots_cles"), result.getString("theme"),
-                                   result.getInt("idEmprunteur"), result.getString("date_emprun")));
+                                   result.getInt("idEmprunteur")==0?-1:result.getInt("idEmprunteur"),
+                                   result.getString("date_emprun")));
         }
         
         return livres;
@@ -80,7 +81,27 @@ public class Livre {
                 book = new Livre(result.getInt("id"), result.getString("code_barre"),
                         result.getString("titre"), result.getString("auteur"),
                         result.getString("mots_cles"), result.getString("theme"),
-                        result.getInt("idEmprunteur"), result.getString("date_emprun"));
+                        result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
+                        result.getString("date_emprun"));
+            }
+        }
+        
+        return book;
+    }
+    
+    public static Livre getFromBarCode(String barCode) throws SQLException {
+        String query = "SELECT * FROM livres WHERE code_barre=?";
+        Livre book;
+        
+        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+            statement.setString(1, barCode);
+            try (ResultSet result = statement.executeQuery()) {
+                result.next();
+                book = new Livre(result.getInt("id"), result.getString("code_barre"),
+                        result.getString("titre"), result.getString("auteur"),
+                        result.getString("mots_cles"), result.getString("theme"),
+                        result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
+                        result.getString("date_emprun"));
             }
         }
         
@@ -104,9 +125,9 @@ public class Livre {
             statement.setString(2, auteur);
             statement.setString(3, mots_cles);
             statement.setString(4, theme);
-            if (idEmprunteur==-1) statement.setString(5, null);
+            if (idEmprunteur==-1) statement.setObject(5, null);
             else statement.setInt(5, idEmprunteur);
-            statement.setString(6, date_emprun);
+            statement.setString(6, date_emprun.equals("") ? null:date_emprun);
             statement.setInt(7, id);
             
             statement.execute();
@@ -122,14 +143,17 @@ public class Livre {
             statement.setString(2, auteur);
             statement.setString(3, mots_cles);
             statement.setString(4, theme);
-            statement.setInt(5, idEmprunteur);
-            statement.setString(6, date_emprun);
+            if (idEmprunteur==-1) statement.setObject(5, null);
+            else statement.setInt(5, idEmprunteur);
+            statement.setString(6, date_emprun.equals("") ? null:date_emprun);
             
             statement.execute();
         }
     }
     
     public Eleve getBorrower() throws SQLException {
+        if (idEmprunteur==-1) return null;
+            
         Eleve borrower;
         
         String query = "SELECT * FROM eleves WHERE id=?";

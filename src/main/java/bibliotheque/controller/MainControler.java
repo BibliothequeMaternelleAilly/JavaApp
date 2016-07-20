@@ -353,13 +353,16 @@ public class MainControler {
     
     private void deletePupil(Object obj) {
         JButton button = (JButton) obj;
+        boolean delete = true;
         try {
             if (JOptionPane.showConfirmDialog(mainView, "Voulez-vous vraiment supprimer cet éleve: " + formTab3.getCurrent().toString(), "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0)
             {
-                if (formTab3.hasCurrentBorrowed() &&
-                    JOptionPane.showConfirmDialog(mainView, "Attention! L'élève semble ne pas avoir rendu de livres.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0)
-                {
-                    formTab3.returnAllBooks();
+                if (formTab3.hasCurrentBorrowed()) {
+                    if (JOptionPane.showConfirmDialog(mainView, "Attention! L'élève semble ne pas avoir rendu de livres.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0) formTab3.returnAllBooks();
+                    else delete = false;
+                }
+                
+                if (delete) {
                     formTab3.deletePupil();
                     formTab3.resetFields();
                     releaseBorderedButton(button);
@@ -374,13 +377,16 @@ public class MainControler {
     
     private void deleteBook (Object obj) {
         JButton button = (JButton) obj;
+        boolean delete = true;
         try {
             if (JOptionPane.showConfirmDialog(mainView, "Voulez-vous vraiment supprimer ce livre : " + formTab4.getCurrent().toString(), "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0)
             {
-                if (formTab4.isCurrentBorrowed() &&
-                    JOptionPane.showConfirmDialog(mainView, "Attention! Ce livre semble avoir été emprunté.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0)
-                {
-                    formTab4.returnBook();
+                if (formTab4.isCurrentBorrowed()) {
+                    if (JOptionPane.showConfirmDialog(mainView, "Attention! Ce livre semble avoir été emprunté.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0) formTab4.returnBook();
+                    else delete = false;
+                }
+                    
+                if (delete) {
                     formTab4.deleteBook();
                     formTab4.resetFields();
                     releaseBorderedButton(button);

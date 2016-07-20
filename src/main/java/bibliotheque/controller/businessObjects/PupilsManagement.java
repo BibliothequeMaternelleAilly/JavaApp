@@ -20,7 +20,7 @@ public class PupilsManagement {
     private final JList pupilsJList, booksJList;
     private final JTextField nameTextField, surnameTextField;
     private final JLabel nameLabel, surnameLabel;
-    private Eleve current;
+    private Eleve current = null;
     
     public PupilsManagement(JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField, JLabel nameLabel, JLabel surnameLabel) throws SQLException {
         

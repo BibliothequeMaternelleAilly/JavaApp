@@ -17,7 +17,7 @@ public class BooksManagement {
     private ArrayList<Livre> booksList;
     private final JList booksJList;
     private final JTextArea titleTextArea, authorTextArea, themeTextArea, keyWordsTextArea, pupilTextArea;
-    private Livre current;
+    private Livre current = null;
     
     public BooksManagement(JList booksJList, JTextArea titleTextArea, JTextArea authorTextArea, JTextArea themeTextArea, JTextArea keyWordsTextArea, JTextArea pupilTextArea) throws SQLException {
         
@@ -65,6 +65,7 @@ public class BooksManagement {
         themeTextArea.setText("Thème");
         keyWordsTextArea.setText("Mots clés");
         pupilTextArea.setText("Emprunté par...");
+        current = null;
         fillBooksJList();
     }
     
@@ -72,6 +73,7 @@ public class BooksManagement {
         current.setIdEmprunteur(-1);
         current.setDate_emprun("");
         current.updateLivre();
+        current = null;
         pupilTextArea.setText("");
     }
 
