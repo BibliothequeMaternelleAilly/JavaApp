@@ -87,6 +87,12 @@ public class MainControler {
                 deletePupil(e.getSource());
             }
         };
+        ActionListener deleteBookActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteBook(e.getSource());
+            }
+        };
         MouseListener mainMenuButtonsListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {}
@@ -197,6 +203,7 @@ public class MainControler {
         
         mainView.getB_quit().addActionListener(closeActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
+        mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
         
         mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
         mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
@@ -358,6 +365,27 @@ public class MainControler {
                     releaseBorderedButton(button);
                     toggleBorderedButton(button);
                     mainView.getB_delete_managePupil_tab3().setEnabled(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void deleteBook (Object obj) {
+        JButton button = (JButton) obj;
+        try {
+            if (JOptionPane.showConfirmDialog(mainView, "Voulez-vous vraiment supprimer ce livre : " + formTab4.getCurrent().toString(), "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0)
+            {
+                if (formTab4.isCurrentBorrowed() &&
+                    JOptionPane.showConfirmDialog(mainView, "Attention! Ce livre semble avoir été emprunté.\nVoulez-vous continuer?", "Confirmation de suppresion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)==0)
+                {
+                    formTab4.returnBook();
+                    formTab4.deleteBook();
+                    formTab4.resetFields();
+                    releaseBorderedButton(button);
+                    toggleBorderedButton(button);
+                    mainView.getB_delete_manageBook_tab4().setEnabled(false);
                 }
             }
         } catch (SQLException ex) {

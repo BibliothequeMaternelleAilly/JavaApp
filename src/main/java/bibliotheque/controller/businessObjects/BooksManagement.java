@@ -74,5 +74,19 @@ public class BooksManagement {
         current.updateLivre();
         pupilTextArea.setText("");
     }
+
+    public void deleteBook() throws SQLException {
+        current.deleteLivre();
+        current = null;
+    }
+    
+    
+    public Livre getCurrent() {
+        return current;
+    }
+    
+    public boolean isCurrentBorrowed() throws SQLException {
+        return current.getBorrower() != null;
+    }
     
 }
