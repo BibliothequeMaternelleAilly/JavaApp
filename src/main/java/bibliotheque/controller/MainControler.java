@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -34,7 +35,7 @@ public class MainControler {
     private final Font glyphicons;
     private Font defaultButtonsFont;
     private Color borderButtons_fg = Color.WHITE, borderButtons_bg;
-    private ScanForm scanTab1, scanTab2;
+    private final ScanForm scanTab1, scanTab2;
     private final PupilsManagement formTab3;
     private final BooksManagement formTab4;
     
@@ -58,6 +59,8 @@ public class MainControler {
                                        mainView.getTA_theme_infos_tab4(),
                                        mainView.getTA_keyWords_infos_tab4(),
                                        mainView.getTA_pupilName_infos_tab4());
+        scanTab1 = new ScanForm(mainView.getFTF_barCode_tab1());
+        scanTab2 = new ScanForm(mainView.getFTF_barCode_tab2());
         
        initController();
     }
@@ -91,6 +94,12 @@ public class MainControler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deleteBook(e.getSource());
+            }
+        };
+        ActionListener validateScanFieldActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
             }
         };
         MouseListener mainMenuButtonsListener = new MouseListener() {
@@ -394,6 +403,23 @@ public class MainControler {
                     mainView.getB_delete_manageBook_tab4().setEnabled(false);
                 }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void borrowScanAction() {
+        mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
+        try {
+            mainView.getL_bookTitle_fields_tab1().setText(scanTab1.getBook().toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void returnScanAction() {
+        try {
+            scanTab2.returnBook();
         } catch (SQLException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }

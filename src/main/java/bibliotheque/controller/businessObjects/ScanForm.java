@@ -1,8 +1,13 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import javax.swing.JFormattedTextField;
 
 /**
@@ -12,23 +17,21 @@ import javax.swing.JFormattedTextField;
 public class ScanForm {
     
     private final JFormattedTextField barCode;
-    private final ArrayList<Livre> booksList;
     
-    public ScanForm(JFormattedTextField barCode, ArrayList booksList) {
-        this.barCode = barCode;
-        this.booksList = booksList;
+    public ScanForm(JFormattedTextField textField) {
+        this.barCode = textField;
     }
-
-    public Livre getBook() {
-        int listSize = booksList.size(), i = -1;
-        String code = barCode.getText();
-        
-        while (i!=listSize && !code.equals(booksList.get(i).getCode_barre())) i++;
-        
-        if (code.equals(booksList.get(i).getCode_barre()))
-            return booksList.get(i);
-        else
-            return null;
+    
+    public Livre getBook() throws SQLException {
+        return Livre.getFromBarCode(barCode.getText());
+    }
+    
+    public void returnBook() throws SQLException {
+        Livre current = Livre.getFromBarCode(barCode.getText());
+        current.setIdEmprunteur(-1);
+        current.setDate_emprun("");
+        current.updateLivre();
+        if (Livre.getFromBarCode(barCode.getText())!=null) throw new SQLException();
     }
     
 }

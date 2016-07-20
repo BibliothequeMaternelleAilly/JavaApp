@@ -71,7 +71,7 @@ public class BorrowForm {
     
     public void borrowBook() throws SQLException {
         try {
-            Eleve borrower = Eleve.getFromFullName(nameTextField.getText().toUpperCase(), surnameTextField.getText().toLowerCase());
+            Eleve borrower = Eleve.getFromFullName(nameTextField.getText(), surnameTextField.getText());
             book.setIdEmprunteur(borrower.getId());
             book.setDate_emprun(LocalDate.now().toString());
             book.updateLivre();
