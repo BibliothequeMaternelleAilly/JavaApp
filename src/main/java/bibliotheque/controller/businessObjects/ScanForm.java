@@ -5,10 +5,9 @@
  */
 package bibliotheque.controller.businessObjects;
 
-import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
-import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,9 +15,9 @@ import javax.swing.JFormattedTextField;
  */
 public class ScanForm {
     
-    private final JFormattedTextField barCode;
+    private final JTextField barCode;
     
-    public ScanForm(JFormattedTextField textField) {
+    public ScanForm(JTextField textField) {
         this.barCode = textField;
     }
     
@@ -33,5 +32,9 @@ public class ScanForm {
         current.updateLivre();
         if (Livre.getFromBarCode(barCode.getText())!=null) throw new SQLException();
     }
+    
+    public boolean isBarCodeValid() {
+        return barCode.getText().replaceAll(" ", "").length()==13;
+   }
     
 }

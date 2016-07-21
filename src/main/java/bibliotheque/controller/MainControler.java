@@ -13,15 +13,18 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -59,8 +62,8 @@ public class MainControler {
                                        mainView.getTA_theme_infos_tab4(),
                                        mainView.getTA_keyWords_infos_tab4(),
                                        mainView.getTA_pupilName_infos_tab4());
-        scanTab1 = new ScanForm(mainView.getFTF_barCode_tab1());
-        scanTab2 = new ScanForm(mainView.getFTF_barCode_tab2());
+        scanTab1 = new ScanForm(mainView.getTF_barCode_tab1());
+        scanTab2 = null/*new ScanForm(mainView.getFTF_barCode_tab2())*/;
         
        initController();
     }
@@ -96,11 +99,28 @@ public class MainControler {
                 deleteBook(e.getSource());
             }
         };
-        ActionListener validateScanFieldActionListener = new ActionListener() {
+        ActionListener validateScan1ActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                borrowScanAction();
             }
+        };
+        ActionListener validateScan2ActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                returnScanAction();
+            }
+        };
+        KeyListener scanFieldValueListener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                checkScanValue(e);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {}
         };
         MouseListener mainMenuButtonsListener = new MouseListener() {
             @Override
@@ -213,6 +233,11 @@ public class MainControler {
         mainView.getB_quit().addActionListener(closeActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
         mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
+        mainView.getB_validate_scanFrame_tab1().addActionListener(validateScan1ActionListener);
+        mainView.getB_validate_tab2().addActionListener(validateScan2ActionListener);
+        
+        mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
+        mainView.getFTF_barCode_tab2().addKeyListener(scanFieldValueListener);
         
         mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
         mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
@@ -409,9 +434,15 @@ public class MainControler {
     }
     
     private void borrowScanAction() {
-        mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
         try {
-            mainView.getL_bookTitle_fields_tab1().setText(scanTab1.getBook().toString());
+            Livre book = scanTab1.getBook();
+            if (book!=null) {
+                mainView.getL_bookTitle_fields_tab1().setText(book.toString());
+                mainView.getB_validate_scanFrame_tab1().setEnabled(false);
+                mainView.getTF_barCode_tab1().setText("");
+                mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
+            } else
+                JOptionPane.showMessageDialog(mainView, "Le code barre que vous avez entré ne correspond à aucun livre.", "Erreur", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -420,10 +451,28 @@ public class MainControler {
     private void returnScanAction() {
         try {
             scanTab2.returnBook();
+            mainView.getFTF_barCode_tab2().setText("");
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(mainView, "Il y a eu une erreur dans l'écriture de la base de donnée. Veuillez recommencer.", "Erreur", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void checkScanValue(KeyEvent e) {
+        JTextField scan = (JTextField) e.getSource();
+        String currentText = scan.getText();
+        
+        if (scan==mainView.getTF_barCode_tab1()) {
+            if (e.getKeyChar()=='\b')
+                scan.setText(currentText.substring(0, currentText.length()-1));
+            else if (!scanTab1.isBarCodeValid())
+                scan.setText(currentText+e.getKeyChar());
+            mainView.getB_validate_scanFrame_tab1().setEnabled(scanTab1.isBarCodeValid());
+        } else {
+            
+            mainView.getB_validate_tab2().setEnabled(scanTab2.isBarCodeValid());
+        }
+   }
             
 
     private MainFrame getMainView() {
