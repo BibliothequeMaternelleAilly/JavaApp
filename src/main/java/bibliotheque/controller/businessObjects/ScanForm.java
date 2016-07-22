@@ -7,6 +7,7 @@ package bibliotheque.controller.businessObjects;
 
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -16,9 +17,11 @@ import javax.swing.JTextField;
 public class ScanForm {
     
     private final JTextField barCode;
+    private final JButton validateButton;
     
-    public ScanForm(JTextField textField) {
+    public ScanForm(JTextField textField, JButton validateButton) {
         this.barCode = textField;
+        this.validateButton = validateButton;
     }
     
     public Livre getBook() throws SQLException {
@@ -33,8 +36,13 @@ public class ScanForm {
         if (Livre.getFromBarCode(barCode.getText())!=null) throw new SQLException();
     }
     
-    public boolean isBarCodeValid() {
-        return barCode.getText().replaceAll(" ", "").length()==13;
-   }
-    
+    public void changeTextFieldValue(char c) {
+        String currentText = barCode.getText();
+        
+        if (c=='\b' && currentText.length()!=0)
+            barCode.setText(currentText.substring(0, currentText.length()-1));
+        else if (currentText.length()!=13 && Character.isDigit(c))
+            barCode.setText(currentText+c);
+        validateButton.setEnabled(barCode.getText().length()==13);
+    }
 }

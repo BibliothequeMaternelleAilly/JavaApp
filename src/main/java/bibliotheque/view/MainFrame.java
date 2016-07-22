@@ -104,7 +104,7 @@ public class MainFrame extends javax.swing.JFrame {
         scanFrame_tab2 = new javax.swing.JPanel();
         L_title_scanFrame_tab2 = new javax.swing.JLabel();
         scanFrame_controls_tab2 = new javax.swing.JPanel();
-        FTF_barCode_tab2 = new javax.swing.JFormattedTextField();
+        TF_barCode_tab2 = new javax.swing.JTextField();
         B_validate_tab2 = new javax.swing.JButton();
         tab3 = new javax.swing.JPanel();
         L_title_tab3 = new javax.swing.JLabel();
@@ -400,10 +400,10 @@ public class MainFrame extends javax.swing.JFrame {
         controls_scanFrame_tab1.setPreferredSize(new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4)));
 
         TF_barCode_tab1.setEditable(false);
-        TF_barCode_tab1.setBackground(new java.awt.Color(249, 176, 74));
+        TF_barCode_tab1.setBackground(new java.awt.Color(255, 241, 200));
         TF_barCode_tab1.setColumns(13);
         TF_barCode_tab1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
-        TF_barCode_tab1.setForeground(new java.awt.Color(254, 247, 189));
+        TF_barCode_tab1.setForeground(new java.awt.Color(249, 176, 74));
         TF_barCode_tab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TF_barCode_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab1.getForeground()));
         controls_scanFrame_tab1.add(TF_barCode_tab1);
@@ -540,18 +540,14 @@ public class MainFrame extends javax.swing.JFrame {
         scanFrame_controls_tab2.setOpaque(false);
         scanFrame_controls_tab2.setPreferredSize(new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4)));
 
-        FTF_barCode_tab2.setBackground(new java.awt.Color(253, 105, 55));
-        FTF_barCode_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab2.getForeground()));
-        FTF_barCode_tab2.setColumns(13);
-        FTF_barCode_tab2.setForeground(new java.awt.Color(254, 226, 189));
-        try {
-            FTF_barCode_tab2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        FTF_barCode_tab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        FTF_barCode_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
-        scanFrame_controls_tab2.add(FTF_barCode_tab2);
+        TF_barCode_tab2.setEditable(false);
+        TF_barCode_tab2.setBackground(new java.awt.Color(254, 213, 199));
+        TF_barCode_tab2.setColumns(13);
+        TF_barCode_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TF_barCode_tab2.setForeground(new java.awt.Color(253, 105, 55));
+        TF_barCode_tab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TF_barCode_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab2.getForeground()));
+        scanFrame_controls_tab2.add(TF_barCode_tab2);
 
         B_validate_tab2.setFont(glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13)));
         B_validate_tab2.setForeground(new java.awt.Color(123, 178, 40));
@@ -561,7 +557,6 @@ public class MainFrame extends javax.swing.JFrame {
         B_validate_tab2.setContentAreaFilled(false);
         B_validate_tab2.setEnabled(false);
         B_validate_tab2.setFocusPainted(false);
-        B_validate_tab2.setOpaque(true);
         scanFrame_controls_tab2.add(B_validate_tab2);
 
         scanFrame_tab2.add(scanFrame_controls_tab2);
@@ -1115,8 +1110,8 @@ public class MainFrame extends javax.swing.JFrame {
         return TF_barCode_tab1;
     }
 
-    public JFormattedTextField getFTF_barCode_tab2() {
-        return FTF_barCode_tab2;
+    public JTextField getTF_barCode_tab2() {
+        return TF_barCode_tab2;
     }
 
     public JTextArea getTA_author_infos_tab4() {
@@ -1230,7 +1225,6 @@ public class MainFrame extends javax.swing.JFrame {
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card2;
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card3;
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card4;
-    private javax.swing.JFormattedTextField FTF_barCode_tab2;
     private javax.swing.Box.Filler F_paging_scan_tab1;
     private javax.swing.Box.Filler F_paging_scan_tab2;
     private javax.swing.JLabel L_bookTitle_fields_tab1;
@@ -1270,6 +1264,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea TA_theme_infos_tab4;
     private javax.swing.JTextField TF_author_search_tab4;
     private javax.swing.JTextField TF_barCode_tab1;
+    private javax.swing.JTextField TF_barCode_tab2;
     private javax.swing.JTextField TF_bookTitle_search_tab4;
     private javax.swing.JTextField TF_keyWords_search_tab4;
     private javax.swing.JTextField TF_name_nameFields_tab1;
