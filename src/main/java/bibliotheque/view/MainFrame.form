@@ -681,6 +681,9 @@
                                               <Color blue="4a" green="b0" red="f9" type="rgb"/>
                                             </Property>
                                             <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                              <Connection code="&quot;&quot;" type="code"/>
+                                            </Property>
                                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                 <LineBorder>
@@ -775,7 +778,7 @@
                                         </Property>
                                       </Properties>
                                     </Component>
-                                    <Container class="javax.swing.JPanel" name="nameFields_fields_tab1">
+                                    <Container class="javax.swing.JPanel" name="pupilsFields_fields_tab1">
                                       <Properties>
                                         <Property name="autoscrolls" type="boolean" value="true"/>
                                         <Property name="opaque" type="boolean" value="false"/>
@@ -784,7 +787,7 @@
                                         </Property>
                                       </Properties>
 
-                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                                       <SubComponents>
                                         <Container class="javax.swing.JScrollPane" name="SP_pupilList_tab1">
                                           <Properties>
@@ -837,60 +840,69 @@
                                             </Component>
                                           </SubComponents>
                                         </Container>
-                                        <Component class="javax.swing.JTextField" name="TF_name_nameFields_tab1">
+                                        <Container class="javax.swing.JPanel" name="nameFields_pupilsFields_tab1">
                                           <Properties>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="4a" green="b0" red="f9" type="rgb"/>
-                                            </Property>
-                                            <Property name="columns" type="int" value="15"/>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7))" type="code"/>
-                                            </Property>
-                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection component="fields_tab1" name="foreground" type="property"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="NOM"/>
-                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                                <LineBorder>
-                                                  <Connection PropertyName="color" component="fields_tab1" name="foreground" type="property"/>
-                                                </LineBorder>
-                                              </Border>
-                                            </Property>
-                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="d" green="18" red="31" type="rgb"/>
-                                            </Property>
-                                            <Property name="caretPosition" type="int" value="0"/>
                                             <Property name="opaque" type="boolean" value="false"/>
                                           </Properties>
-                                        </Component>
-                                        <Component class="javax.swing.JTextField" name="TF_surname_nameFields_tab1">
-                                          <Properties>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="4a" green="b0" red="f9" type="rgb"/>
-                                            </Property>
-                                            <Property name="columns" type="int" value="15"/>
-                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection code="L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7))" type="code"/>
-                                            </Property>
-                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                              <Connection component="fields_tab1" name="foreground" type="property"/>
-                                            </Property>
-                                            <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
-                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                                <LineBorder>
-                                                  <Connection PropertyName="color" component="fields_tab1" name="foreground" type="property"/>
-                                                </LineBorder>
-                                              </Border>
-                                            </Property>
-                                            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="d" green="18" red="31" type="rgb"/>
-                                            </Property>
-                                            <Property name="caretPosition" type="int" value="0"/>
-                                            <Property name="opaque" type="boolean" value="false"/>
-                                          </Properties>
-                                        </Component>
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JTextField" name="TF_name_nameFields_tab1">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="4a" green="b0" red="f9" type="rgb"/>
+                                                </Property>
+                                                <Property name="columns" type="int" value="15"/>
+                                                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                                  <Connection code="L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7))" type="code"/>
+                                                </Property>
+                                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                                  <Connection component="fields_tab1" name="foreground" type="property"/>
+                                                </Property>
+                                                <Property name="text" type="java.lang.String" value="NOM"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="NOM"/>
+                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                                    <LineBorder>
+                                                      <Connection PropertyName="color" component="fields_tab1" name="foreground" type="property"/>
+                                                    </LineBorder>
+                                                  </Border>
+                                                </Property>
+                                                <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="4a" green="b0" red="f9" type="rgb"/>
+                                                </Property>
+                                                <Property name="opaque" type="boolean" value="false"/>
+                                              </Properties>
+                                            </Component>
+                                            <Component class="javax.swing.JTextField" name="TF_surname_nameFields_tab1">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="4a" green="b0" red="f9" type="rgb"/>
+                                                </Property>
+                                                <Property name="columns" type="int" value="15"/>
+                                                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                                  <Connection code="L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7))" type="code"/>
+                                                </Property>
+                                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                                  <Connection component="fields_tab1" name="foreground" type="property"/>
+                                                </Property>
+                                                <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="Pr&#xe9;nom"/>
+                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                                    <LineBorder>
+                                                      <Connection PropertyName="color" component="fields_tab1" name="foreground" type="property"/>
+                                                    </LineBorder>
+                                                  </Border>
+                                                </Property>
+                                                <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="4a" green="b0" red="f9" type="rgb"/>
+                                                </Property>
+                                                <Property name="opaque" type="boolean" value="false"/>
+                                              </Properties>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
                                       </SubComponents>
                                     </Container>
                                   </SubComponents>
@@ -926,6 +938,29 @@
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                                           <Color id="Curseur en forme de main"/>
                                         </Property>
+                                        <Property name="focusPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="B_cancel_fields_tab1">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="2e" green="2f" red="e3" type="rgb"/>
+                                        </Property>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection component="L_name_fields_tab1" name="getFont" type="method"/>
+                                        </Property>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection component="fields_tab1" name="foreground" type="property"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="   Annuler   "/>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                            <LineBorder>
+                                              <Color PropertyName="color" blue="2e" green="2f" red="e3" type="rgb"/>
+                                            </LineBorder>
+                                          </Border>
+                                        </Property>
+                                        <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="focusPainted" type="boolean" value="false"/>
                                       </Properties>
                                     </Component>

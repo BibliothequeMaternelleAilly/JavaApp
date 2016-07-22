@@ -21,11 +21,10 @@ public class BorrowForm {
     private final JList pupilsJList;
     private ArrayList<Eleve> pupilsList;
     private final JTextField nameTextField, surnameTextField;
-    private final Livre book;
+    protected Livre book;
     
-    public BorrowForm(JList pupilsJList, JTextField nameTextField, JTextField surnameTextField, Livre book) throws SQLException {
+    public BorrowForm(JList pupilsJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
         
-        this.book = book;
         this.pupilsJList = pupilsJList;
         this.nameTextField = nameTextField;
         this.surnameTextField = surnameTextField;
@@ -38,19 +37,20 @@ public class BorrowForm {
     
     public void updateList() {
         DefaultListModel<String> model = new DefaultListModel();
-        if (!nameTextField.getText().equals("") && !surnameTextField.getText().equals("")) {
+        String name = nameTextField.getText(), surname = surnameTextField.getText();
+        if (name!=null && surname!=null && !name.equals("NOM") && !surname.equals("Prénom")) {
             try {
                 pupilsList = Eleve.getAllFromFullName(nameTextField.getText(), surnameTextField.getText());
             } catch (SQLException ex) {
                 Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (!nameTextField.getText().equals("")) {
+        } else if (name!=null && !name.equals("NOM")) {
             try {
                 pupilsList = Eleve.getAllFromName(nameTextField.getText());
             } catch (SQLException ex) {
                 Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (!surnameTextField.getText().equals("")) {
+        } else if (surname!=null && !surname.equals("Prénom")) {
             try {
                 pupilsList = Eleve.getAllFromSurname(surnameTextField.getText());
             } catch (SQLException ex) {
@@ -69,15 +69,25 @@ public class BorrowForm {
         surnameTextField.setText(value.substring(value.indexOf(" ")+1));     
     }
     
+    public void resetFields() {
+        pupilsJList.setModel(new DefaultListModel());
+        nameTextField.setText("NOM");
+        surnameTextField.setText("Prénom");
+    }
+    
     public void borrowBook() throws SQLException {
-        try {
-            Eleve borrower = Eleve.getFromFullName(nameTextField.getText(), surnameTextField.getText());
-            book.setIdEmprunteur(borrower.getId());
-            book.setDate_emprun(LocalDate.now().toString());
-            book.updateLivre();
-        } catch (SQLException ex) {
-            throw ex;
-        }
+        Eleve borrower = Eleve.getFromFullName(nameTextField.getText(), surnameTextField.getText());
+        getBook().setIdEmprunteur(borrower.getId());
+        getBook().setDate_emprun(LocalDate.now().toString());
+        getBook().updateLivre();
+    }
+
+    public Livre getBook() {
+        return book;
+    }
+
+    public void setBook(Livre book) {
+        this.book = book;
     }
     
 }

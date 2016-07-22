@@ -41,7 +41,7 @@ public class Eleve {
         String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
         Eleve pupil;
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(1, name.toUpperCase());
+            statement.setString(0, name.toUpperCase());
             statement.setString(2, surname.toLowerCase());
             try (ResultSet result = statement.executeQuery()) {
                 result.next();
@@ -55,11 +55,11 @@ public class Eleve {
     
     public static ArrayList<Eleve> getAllFromFullName(String name, String surname) throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE nom LIKE ?% AND prenom LIKE ?%";
+        String query = "SELECT * FROM eleves WHERE nom LIKE ? AND prenom LIKE ?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query))
         {
-            statement.setString(1, name.toUpperCase());
-            statement.setString(2, surname.toLowerCase());
+            statement.setString(1, name.toUpperCase() + "%");
+            statement.setString(2, surname.toLowerCase() + "%");
             try (ResultSet result = statement.executeQuery())
             {
                 while (result.next())
@@ -74,10 +74,10 @@ public class Eleve {
     
     public static ArrayList<Eleve> getAllFromName(String name) throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE nom LIKE ?%";
+        String query = "SELECT * FROM eleves WHERE nom LIKE ?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query))
         {
-            statement.setString(1, name.toUpperCase());
+            statement.setString(1, name.toUpperCase() + "%");
             try (ResultSet result = statement.executeQuery())
             {
                 while (result.next())
@@ -92,10 +92,10 @@ public class Eleve {
     
     public static ArrayList<Eleve> getAllFromSurname(String surname) throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE prenom LIKE ?%";
+        String query = "SELECT * FROM eleves WHERE prenom LIKE ?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query))
         {
-            statement.setString(1, surname.toLowerCase());
+            statement.setString(1, surname.toLowerCase() + "%");
             try (ResultSet result = statement.executeQuery())
             {
                 while (result.next())
@@ -119,7 +119,7 @@ public class Eleve {
         ArrayList<Eleve> list = new ArrayList();
         
         String query = "SELECT * FROM eleves WHERE id IN "
-                         + "(SELECT idEmprunteur FROM livres WHERE idEmprunteur!='')";
+                         + "(SELECT idEmprunteur FROM livres WHERE idEmprunteur IS NOT NULL)";
         try (PreparedStatement statement = DBConnection.prepareStatement(query);
              ResultSet result = statement.executeQuery())
         {

@@ -2,6 +2,7 @@
 package bibliotheque.controller;
 
 import bibliotheque.controller.businessObjects.BooksManagement;
+import bibliotheque.controller.businessObjects.BorrowForm;
 import bibliotheque.controller.businessObjects.PupilsManagement;
 import bibliotheque.controller.businessObjects.ScanForm;
 import bibliotheque.model.DBConnection;
@@ -19,13 +20,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -40,6 +46,7 @@ public class MainControler {
     private Font defaultButtonsFont;
     private Color borderButtons_fg = Color.WHITE, borderButtons_bg;
     private final ScanForm scanTab1, scanTab2;
+    private final BorrowForm formTab1;
     private final PupilsManagement formTab3;
     private final BooksManagement formTab4;
     
@@ -51,6 +58,9 @@ public class MainControler {
         
         mainView = new MainFrame();
         glyphicons = mainView.getB_help().getFont();
+        formTab1 = new BorrowForm(mainView.getLi_pupilList_tab1(),
+                                  mainView.getTF_name_nameFields_tab1(),
+                                  mainView.getTF_surname_nameFields_tab1());
         formTab3 = new PupilsManagement(mainView.getLi_pupilList_tab3(),
                                         mainView.getLi_bookList_tab3(),
                                         mainView.getTF_name_search_tab3(),
@@ -105,24 +115,41 @@ public class MainControler {
         ActionListener validateScan1ActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                releaseNoBorderButton(e.getSource());
                 borrowScanAction();
+                toggleTextFieldValue(mainView.getTF_barCode_tab1());
             }
         };
         ActionListener validateScan2ActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                releaseNoBorderButton(e.getSource());
                 returnScanAction();
+                toggleTextFieldValue(mainView.getTF_barCode_tab2());
+            }
+        };
+        ActionListener cancelFieldsActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formTab1.resetFields();
+                mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
             }
         };
         FocusListener textFieldsFocusListener = new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                toggleTextFields(e.getSource());
+                JTextField source = (JTextField) e.getSource();
+                if (source.getToolTipText().equals(source.getText()))
+                    toggleTextFieldValue(source);
+                toggleTextFieldColor(source);
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                toggleTextFields(e.getSource());
+                JTextField source = (JTextField) e.getSource();
+                if (source.getText().equals(""))
+                    toggleTextFieldValue(source);
+                toggleTextFieldColor((JTextField) e.getSource());
             }
         };
         KeyListener scanFieldValueListener = new KeyListener() {
@@ -134,6 +161,17 @@ public class MainControler {
                     scanTab2.changeTextFieldValue(e.getKeyChar());
             }
 
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        };
+        KeyListener pupilSearchTab1Listener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                formTab1.updateList();
+            }
+            
             @Override
             public void keyPressed(KeyEvent e) {}
             @Override
@@ -240,9 +278,7 @@ public class MainControler {
             }
 
             @Override
-            public void mouseReleased(MouseEvent e) {
-                releaseNoBorderButton(e.getSource());
-            }
+            public void mouseReleased(MouseEvent e) {}
             @Override
             public void mouseClicked(MouseEvent e) {
             }
@@ -263,16 +299,26 @@ public class MainControler {
                 selectBook();
             }
         };
-                
+        ListSelectionListener pupilTab1SelectionListener = new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (((JList) e.getSource()).getSelectedIndex()!=-1)
+                    formTab1.fillFields();
+            }
+        };
+        
         
         mainView.getB_quit().addActionListener(closeActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
         mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
         mainView.getB_validate_scanFrame_tab1().addActionListener(validateScan1ActionListener);
         mainView.getB_validate_tab2().addActionListener(validateScan2ActionListener);
+        mainView.getB_cancel_fields_tab1().addActionListener(cancelFieldsActionListener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
+        mainView.getTF_name_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
+        mainView.getTF_surname_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
         
         mainView.getTF_barCode_tab1().addFocusListener(textFieldsFocusListener);
         mainView.getTF_barCode_tab2().addFocusListener(textFieldsFocusListener);
@@ -297,6 +343,7 @@ public class MainControler {
         
         mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
         mainView.getLi_bookList_tab4().addListSelectionListener(booksTab4SelectionListener);
+        mainView.getLi_pupilList_tab1().addListSelectionListener(pupilTab1SelectionListener);
         
         mainView.getB_validate_search_tab3().addMouseListener(defaultButtonListener);
         mainView.getB_new_managePupil_tab3().addMouseListener(defaultButtonListener);
@@ -309,6 +356,7 @@ public class MainControler {
         mainView.getB_delete_managePupil_tab3().addMouseListener(borderedButtonListener);
         mainView.getB_return_infos_tab4().addMouseListener(borderedButtonListener);
         mainView.getB_delete_manageBook_tab4().addMouseListener(borderedButtonListener);
+        mainView.getB_cancel_fields_tab1().addMouseListener(borderedButtonListener);
         
         mainView.getB_validate_scanFrame_tab1().addMouseListener(noBorderButtonListener);
         mainView.getB_validate_tab2().addMouseListener(noBorderButtonListener);
@@ -502,6 +550,7 @@ public class MainControler {
             mainView.getB_validate_scanFrame_tab1().setEnabled(false);
             mainView.getTF_barCode_tab1().setText("");
             mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
+            formTab1.setBook(book);
         } catch (SQLException ex) {
             mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre.");
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
@@ -523,8 +572,11 @@ public class MainControler {
         }
     }
     
-    private void toggleTextFields(Object obj) {
-        JTextField textField = (JTextField) obj;
+    private void toggleTextFieldValue(JTextField textField) {
+        textField.setText(textField.getToolTipText().equals(textField.getText()) ? "":textField.getToolTipText());
+    }
+    
+    private void toggleTextFieldColor(JTextField textField) {
         Color tmp = textField.getBackground();
         textField.setBackground(textField.getForeground());
         textField.setForeground(tmp);
