@@ -233,6 +233,24 @@ public class MainControler {
                 toggleBorderedButton(e.getSource());
             }
         };
+        MouseListener noBorderButtonListener = new MouseListener() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                pressNoBorderButton(e.getSource());
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                releaseNoBorderButton(e.getSource());
+            }
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        };
         ListSelectionListener pupilTab3SelectionListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -291,6 +309,9 @@ public class MainControler {
         mainView.getB_delete_managePupil_tab3().addMouseListener(borderedButtonListener);
         mainView.getB_return_infos_tab4().addMouseListener(borderedButtonListener);
         mainView.getB_delete_manageBook_tab4().addMouseListener(borderedButtonListener);
+        
+        mainView.getB_validate_scanFrame_tab1().addMouseListener(noBorderButtonListener);
+        mainView.getB_validate_tab2().addMouseListener(noBorderButtonListener);
         
     }
 
@@ -413,6 +434,19 @@ public class MainControler {
         if (button.isEnabled()) button.setBackground(borderButtons_bg);
     }
     
+    private void pressNoBorderButton(Object obj) {
+        JButton button = (JButton) obj;
+        if (button.isEnabled()) {
+            button.setBackground(button.getForeground());
+            button.setForeground(button.getForeground().darker());
+        }
+    }
+    
+    private void releaseNoBorderButton(Object obj) {
+        JButton button = (JButton) obj;
+        if (button.isEnabled()) button.setForeground(button.getBackground());
+    }
+    
     private void deletePupil(Object obj) {
         JButton button = (JButton) obj;
         boolean delete = true;
@@ -464,14 +498,12 @@ public class MainControler {
     private void borrowScanAction() {
         try {
             Livre book = scanTab1.getBook();
-            if (book!=null) {
-                mainView.getL_bookTitle_fields_tab1().setText(book.toString());
-                mainView.getB_validate_scanFrame_tab1().setEnabled(false);
-                mainView.getTF_barCode_tab1().setText("");
-                mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
-            } else
-                JOptionPane.showMessageDialog(mainView, "Le code barre que vous avez entré ne correspond à aucun livre.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            mainView.getL_bookTitle_fields_tab1().setText(book.toString());
+            mainView.getB_validate_scanFrame_tab1().setEnabled(false);
+            mainView.getTF_barCode_tab1().setText("");
+            mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
         } catch (SQLException ex) {
+            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre.");
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -479,9 +511,14 @@ public class MainControler {
     private void returnScanAction() {
         try {
             scanTab2.returnBook();
+            if (scanTab2.getBook().getIdEmprunteur()!=-1)
+                mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
+            else
+                mainView.showMessage("Le livre à bien été rendu.");
             mainView.getTF_barCode_tab2().setText("");
+            mainView.getB_validate_scanFrame_tab1().setEnabled(false);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(mainView, "Il y a eu une erreur dans l'écriture de la base de donnée. Veuillez recommencer.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre emprunté.");
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

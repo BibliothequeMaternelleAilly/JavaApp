@@ -20,6 +20,7 @@ import java.awt.Color;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -408,6 +409,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_barCode_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab1.getForeground()));
         controls_scanFrame_tab1.add(TF_barCode_tab1);
 
+        B_validate_scanFrame_tab1.setBackground(new java.awt.Color(123, 178, 40));
         B_validate_scanFrame_tab1.setFont(glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13)));
         B_validate_scanFrame_tab1.setForeground(new java.awt.Color(123, 178, 40));
         B_validate_scanFrame_tab1.setText("\uE084");
@@ -988,6 +990,18 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosed
 
+    public void showErrorMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public void showWarningMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Attention", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+    
     public JButton getB_help() {
         return B_help;
     }

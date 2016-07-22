@@ -33,7 +33,6 @@ public class ScanForm {
         current.setIdEmprunteur(-1);
         current.setDate_emprun("");
         current.updateLivre();
-        if (Livre.getFromBarCode(barCode.getText())!=null) throw new SQLException();
     }
     
     public void changeTextFieldValue(char c) {
