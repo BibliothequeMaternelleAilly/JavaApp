@@ -1295,7 +1295,7 @@
                                             <Component class="javax.swing.JTextField" name="TF_name_search_tab3">
                                               <Properties>
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                                  <Connection component="controls_tab3" name="background" type="property"/>
                                                 </Property>
                                                 <Property name="columns" type="int" value="15"/>
                                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1313,15 +1313,14 @@
                                                   </Border>
                                                 </Property>
                                                 <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                                  <Connection component="controls_tab3" name="background" type="property"/>
                                                 </Property>
-                                                <Property name="opaque" type="boolean" value="false"/>
                                               </Properties>
                                             </Component>
                                             <Component class="javax.swing.JTextField" name="TF_surname_search_tab3">
                                               <Properties>
                                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                                  <Connection component="controls_tab3" name="background" type="property"/>
                                                 </Property>
                                                 <Property name="columns" type="int" value="15"/>
                                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1339,9 +1338,8 @@
                                                   </Border>
                                                 </Property>
                                                 <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                  <Connection component="controls_tab3" name="foreground" type="property"/>
+                                                  <Connection component="controls_tab3" name="background" type="property"/>
                                                 </Property>
-                                                <Property name="opaque" type="boolean" value="false"/>
                                               </Properties>
                                             </Component>
                                             <Component class="javax.swing.JButton" name="B_validate_search_tab3">
@@ -1813,7 +1811,7 @@
                                                 <Component class="javax.swing.JTextField" name="TF_bookTitle_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1831,15 +1829,14 @@
                                                       </Border>
                                                     </Property>
                                                     <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
-                                                    <Property name="opaque" type="boolean" value="false"/>
                                                   </Properties>
                                                 </Component>
                                                 <Component class="javax.swing.JTextField" name="TF_theme_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1857,15 +1854,14 @@
                                                       </Border>
                                                     </Property>
                                                     <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
-                                                    <Property name="opaque" type="boolean" value="false"/>
                                                   </Properties>
                                                 </Component>
                                                 <Component class="javax.swing.JTextField" name="TF_author_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1883,15 +1879,14 @@
                                                       </Border>
                                                     </Property>
                                                     <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
-                                                    <Property name="opaque" type="boolean" value="false"/>
                                                   </Properties>
                                                 </Component>
                                                 <Component class="javax.swing.JTextField" name="TF_keyWords_search_tab4">
                                                   <Properties>
                                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
                                                     <Property name="columns" type="int" value="15"/>
                                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -1909,9 +1904,8 @@
                                                       </Border>
                                                     </Property>
                                                     <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                                      <Connection component="controls_tab4" name="foreground" type="property"/>
+                                                      <Connection component="controls_tab4" name="background" type="property"/>
                                                     </Property>
-                                                    <Property name="opaque" type="boolean" value="false"/>
                                                   </Properties>
                                                 </Component>
                                               </SubComponents>

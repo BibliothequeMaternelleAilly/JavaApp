@@ -617,24 +617,22 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 1));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        TF_name_search_tab3.setBackground(controls_tab3.getForeground());
+        TF_name_search_tab3.setBackground(controls_tab3.getBackground());
         TF_name_search_tab3.setColumns(15);
         TF_name_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_name_search_tab3.setForeground(controls_tab3.getForeground());
         TF_name_search_tab3.setText("NOM");
         TF_name_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        TF_name_search_tab3.setCaretColor(controls_tab3.getForeground());
-        TF_name_search_tab3.setOpaque(false);
+        TF_name_search_tab3.setCaretColor(controls_tab3.getBackground());
         jPanel1.add(TF_name_search_tab3);
 
-        TF_surname_search_tab3.setBackground(controls_tab3.getForeground());
+        TF_surname_search_tab3.setBackground(controls_tab3.getBackground());
         TF_surname_search_tab3.setColumns(15);
         TF_surname_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_surname_search_tab3.setForeground(controls_tab3.getForeground());
         TF_surname_search_tab3.setText("Prénom");
         TF_surname_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        TF_surname_search_tab3.setCaretColor(controls_tab3.getForeground());
-        TF_surname_search_tab3.setOpaque(false);
+        TF_surname_search_tab3.setCaretColor(controls_tab3.getBackground());
         jPanel1.add(TF_surname_search_tab3);
 
         B_validate_search_tab3.setBackground(tab3.getBackground());
@@ -784,44 +782,40 @@ public class MainFrame extends javax.swing.JFrame {
         paging_search_fields_tab4.setOpaque(false);
         paging_search_fields_tab4.setLayout(new java.awt.GridLayout(2, 0, 3, 3));
 
-        TF_bookTitle_search_tab4.setBackground(tab4.getForeground());
+        TF_bookTitle_search_tab4.setBackground(controls_tab4.getBackground());
         TF_bookTitle_search_tab4.setColumns(15);
         TF_bookTitle_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_bookTitle_search_tab4.setForeground(controls_tab4.getForeground());
         TF_bookTitle_search_tab4.setText("Titre");
         TF_bookTitle_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_bookTitle_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_bookTitle_search_tab4.setOpaque(false);
+        TF_bookTitle_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_bookTitle_search_tab4);
 
-        TF_theme_search_tab4.setBackground(tab4.getForeground());
+        TF_theme_search_tab4.setBackground(controls_tab4.getBackground());
         TF_theme_search_tab4.setColumns(15);
         TF_theme_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_theme_search_tab4.setForeground(controls_tab4.getForeground());
         TF_theme_search_tab4.setText("Thème");
         TF_theme_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_theme_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_theme_search_tab4.setOpaque(false);
+        TF_theme_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_theme_search_tab4);
 
-        TF_author_search_tab4.setBackground(tab4.getForeground());
+        TF_author_search_tab4.setBackground(controls_tab4.getBackground());
         TF_author_search_tab4.setColumns(15);
         TF_author_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_author_search_tab4.setForeground(controls_tab4.getForeground());
         TF_author_search_tab4.setText("Auteur");
         TF_author_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_author_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_author_search_tab4.setOpaque(false);
+        TF_author_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_author_search_tab4);
 
-        TF_keyWords_search_tab4.setBackground(tab4.getForeground());
+        TF_keyWords_search_tab4.setBackground(controls_tab4.getBackground());
         TF_keyWords_search_tab4.setColumns(15);
         TF_keyWords_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_keyWords_search_tab4.setForeground(controls_tab4.getForeground());
         TF_keyWords_search_tab4.setText("Mots clés");
         TF_keyWords_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_keyWords_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_keyWords_search_tab4.setOpaque(false);
+        TF_keyWords_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_keyWords_search_tab4);
 
         jPanel3.add(paging_search_fields_tab4);

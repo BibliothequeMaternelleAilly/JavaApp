@@ -257,6 +257,15 @@ public class MainControler {
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
         
         mainView.getTF_barCode_tab1().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_barCode_tab2().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_name_nameFields_tab1().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_surname_nameFields_tab1().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_name_search_tab3().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_surname_search_tab3().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_author_search_tab4().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_bookTitle_search_tab4().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_keyWords_search_tab4().addFocusListener(textFieldsFocusListener);
+        mainView.getTF_theme_search_tab4().addFocusListener(textFieldsFocusListener);
         
         mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
         mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
