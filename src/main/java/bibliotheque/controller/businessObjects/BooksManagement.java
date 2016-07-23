@@ -77,7 +77,7 @@ public class BooksManagement {
         current.setDate_emprun("");
         current.updateLivre();
         current = null;
-        pupilTextArea.setText("");
+        resetFields();
     }
 
     public void deleteBook() throws SQLException {

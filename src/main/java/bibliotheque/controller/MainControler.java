@@ -142,6 +142,39 @@ public class MainControler {
                 validateBorrow();
             }
         };
+        ActionListener returnBookTab3Listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formTab3.returnBook();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        ActionListener returnAllBookTab3Listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formTab3.returnAllBooks();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        ActionListener returnBookTab4Listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formTab4.returnBook();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
         FocusListener textFieldsFocusListener = new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -322,6 +355,9 @@ public class MainControler {
         mainView.getB_validate_tab2().addActionListener(validateScan2ActionListener);
         mainView.getB_cancel_fields_tab1().addActionListener(cancelFieldsActionListener);
         mainView.getB_validate_fields_tab1().addActionListener(borrowButtonActionListener);
+        mainView.getB_returnAll_infos_tab3().addActionListener(returnAllBookTab3Listener);
+        mainView.getB_return_infos_tab3().addActionListener(returnBookTab3Listener);
+        mainView.getB_return_infos_tab4().addActionListener(returnBookTab4Listener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
@@ -365,6 +401,7 @@ public class MainControler {
         mainView.getB_return_infos_tab4().addMouseListener(borderedButtonListener);
         mainView.getB_delete_manageBook_tab4().addMouseListener(borderedButtonListener);
         mainView.getB_cancel_fields_tab1().addMouseListener(borderedButtonListener);
+        mainView.getB_returnAll_infos_tab3().addMouseListener(borderedButtonListener);
         
         mainView.getB_validate_scanFrame_tab1().addMouseListener(noBorderButtonListener);
         mainView.getB_validate_tab2().addMouseListener(noBorderButtonListener);

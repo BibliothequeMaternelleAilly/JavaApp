@@ -17,7 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -129,6 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
         Li_bookList_tab3 = new javax.swing.JList<>();
         P_return_tab3 = new javax.swing.JPanel();
         B_return_infos_tab3 = new javax.swing.JButton();
+        B_returnAll_infos_tab3 = new javax.swing.JButton();
         managePupil_tab3 = new javax.swing.JPanel();
         B_new_managePupil_tab3 = new javax.swing.JButton();
         B_delete_managePupil_tab3 = new javax.swing.JButton();
@@ -616,6 +616,7 @@ public class MainFrame extends javax.swing.JFrame {
         cellRenderer_tab3.setForeground(Color.WHITE);
         cellRenderer_tab3.setSelectionForeground(tabColor);
         cellRenderer_tab3.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        Li_pupilList_tab3.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Li_pupilList_tab3.setCellRenderer(cellRenderer_tab3);
         SP_pupilList_tab3.setViewportView(Li_pupilList_tab3);
 
@@ -702,16 +703,25 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab3.add(SP_bookList_tab3);
 
         P_return_tab3.setOpaque(false);
-        P_return_tab3.setLayout(new java.awt.BorderLayout());
+        P_return_tab3.setLayout(new java.awt.GridLayout());
 
         B_return_infos_tab3.setBackground(new java.awt.Color(123, 178, 40));
         B_return_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_return_infos_tab3.setForeground(controls_tab3.getForeground());
-        B_return_infos_tab3.setText("  Rendu  ");
+        B_return_infos_tab3.setText("  Rendre  ");
         B_return_infos_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
         B_return_infos_tab3.setContentAreaFilled(false);
         B_return_infos_tab3.setFocusPainted(false);
-        P_return_tab3.add(B_return_infos_tab3, java.awt.BorderLayout.LINE_START);
+        P_return_tab3.add(B_return_infos_tab3);
+
+        B_returnAll_infos_tab3.setBackground(new java.awt.Color(123, 178, 40));
+        B_returnAll_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
+        B_returnAll_infos_tab3.setForeground(controls_tab3.getForeground());
+        B_returnAll_infos_tab3.setText("  Rendre tous  ");
+        B_returnAll_infos_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
+        B_returnAll_infos_tab3.setContentAreaFilled(false);
+        B_returnAll_infos_tab3.setFocusPainted(false);
+        P_return_tab3.add(B_returnAll_infos_tab3);
 
         infos_fields_tab3.add(P_return_tab3);
 
@@ -780,6 +790,7 @@ public class MainFrame extends javax.swing.JFrame {
         cellRenderer_tab4.setForeground(Color.WHITE);
         cellRenderer_tab4.setSelectionForeground(tabColor);
         cellRenderer_tab4.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        Li_bookList_tab4.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Li_bookList_tab4.setCellRenderer(cellRenderer_tab4);
         SP_pupilList_tab4.setViewportView(Li_bookList_tab4);
 
@@ -1114,6 +1125,10 @@ public class MainFrame extends javax.swing.JFrame {
         return B_new_managePupil_tab3;
     }
 
+    public JButton getB_returnAll_infos_tab3() {
+        return B_returnAll_infos_tab3;
+    }
+    
     public JButton getB_return_infos_tab3() {
         return B_return_infos_tab3;
     }
@@ -1249,6 +1264,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton B_new_manageBook_tab4;
     private javax.swing.JButton B_new_managePupil_tab3;
     private javax.swing.JButton B_quit;
+    private javax.swing.JButton B_returnAll_infos_tab3;
     private javax.swing.JButton B_return_infos_tab3;
     private javax.swing.JButton B_return_infos_tab4;
     private javax.swing.JButton B_settings;

@@ -72,18 +72,24 @@ public class PupilsManagement {
     }
     
     public void returnBook() throws SQLException {
-        Livre borrowedBook = current.getBorrowedBooks().get(booksJList.getSelectedIndex());
-        borrowedBook.setIdEmprunteur(-1);
-        borrowedBook.setDate_emprun("NULL");
-        borrowedBook.updateLivre();
-        booksJList.remove(booksJList.getSelectedIndex());
+        ArrayList<Livre> books = current.getBorrowedBooks();
+        int[] index = booksJList.getSelectedIndices();
+        if (index.length!=0) {
+            for (int i : index) {
+                books.get(i).setIdEmprunteur(-1);
+                books.get(i).setDate_emprun("");
+                books.get(i).updateLivre();
+            }
+        }
+        while (booksJList.getSelectedIndex()!=-1)
+           ((DefaultListModel) booksJList.getModel()).remove(booksJList.getSelectedIndex());
     }
     
     public void returnAllBooks() throws SQLException {
         ArrayList<Livre> borrowedBooks = current.getBorrowedBooks();
         for (Livre book:borrowedBooks) {
             book.setIdEmprunteur(-1);
-            book.setDate_emprun(null);
+            book.setDate_emprun("");
             book.updateLivre();
         }
         booksJList.setModel(new DefaultListModel());
