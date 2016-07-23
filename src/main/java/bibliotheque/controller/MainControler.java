@@ -25,9 +25,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -190,6 +193,17 @@ public class MainControler {
                 if (source.getText().equals(""))
                     toggleTextFieldValue(source);
                 toggleTextFieldColor((JTextField) e.getSource());
+            }
+        };
+        FocusListener textAreaFocusListener = new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                toggleScrollPane(e.getSource());
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                toggleScrollPane(e.getSource());
             }
         };
         KeyListener scanFieldValueListener = new KeyListener() {
@@ -374,6 +388,11 @@ public class MainControler {
         mainView.getTF_bookTitle_search_tab4().addFocusListener(textFieldsFocusListener);
         mainView.getTF_keyWords_search_tab4().addFocusListener(textFieldsFocusListener);
         mainView.getTF_theme_search_tab4().addFocusListener(textFieldsFocusListener);
+        mainView.getTA_bookTitle_infos_tab4().addFocusListener(textAreaFocusListener);
+        mainView.getTA_author_infos_tab4().addFocusListener(textAreaFocusListener);
+        mainView.getTA_keyWords_infos_tab4().addFocusListener(textAreaFocusListener);
+        mainView.getTA_pupilName_infos_tab4().addFocusListener(textAreaFocusListener);
+        mainView.getTA_theme_infos_tab4().addFocusListener(textAreaFocusListener);
         
         mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
         mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
@@ -644,6 +663,11 @@ public class MainControler {
         Color tmp = textField.getBackground();
         textField.setBackground(textField.getForeground());
         textField.setForeground(tmp);
+    }
+    
+    private void toggleScrollPane(Object obj) {
+        JScrollPane scrollPane = (JScrollPane) ((JTextArea) obj).getParent().getParent();
+        scrollPane.setBorder(scrollPane.getBorder()==null? BorderFactory.createLineBorder(scrollPane.getForeground()):null);
     }
 
 

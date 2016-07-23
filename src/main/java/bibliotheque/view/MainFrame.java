@@ -20,6 +20,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -616,7 +617,6 @@ public class MainFrame extends javax.swing.JFrame {
         cellRenderer_tab3.setForeground(Color.WHITE);
         cellRenderer_tab3.setSelectionForeground(tabColor);
         cellRenderer_tab3.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        Li_pupilList_tab3.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Li_pupilList_tab3.setCellRenderer(cellRenderer_tab3);
         SP_pupilList_tab3.setViewportView(Li_pupilList_tab3);
 
@@ -790,7 +790,6 @@ public class MainFrame extends javax.swing.JFrame {
         cellRenderer_tab4.setForeground(Color.WHITE);
         cellRenderer_tab4.setSelectionForeground(tabColor);
         cellRenderer_tab4.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        Li_bookList_tab4.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Li_bookList_tab4.setCellRenderer(cellRenderer_tab4);
         SP_pupilList_tab4.setViewportView(Li_bookList_tab4);
 
@@ -878,6 +877,7 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.setLayout(new java.awt.GridLayout(4, 2, 5, 5));
 
         SP_bookTitle_infos_tab4.setBorder(null);
+        SP_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
         SP_bookTitle_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_bookTitle_infos_tab4.setViewportBorder(null);
 
@@ -892,6 +892,7 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.add(SP_bookTitle_infos_tab4);
 
         SP_author_infos_tab4.setBorder(null);
+        SP_author_infos_tab4.setForeground(controls_tab4.getForeground());
         SP_author_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_author_infos_tab4.setViewportBorder(null);
 
@@ -906,6 +907,7 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.add(SP_author_infos_tab4);
 
         SP_pupilName_infos_tab4.setBorder(null);
+        SP_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
         SP_pupilName_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_pupilName_infos_tab4.setViewportBorder(null);
 
@@ -935,6 +937,7 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.add(P_return_tab4);
 
         SP_theme_infos_tab4.setBorder(null);
+        SP_theme_infos_tab4.setForeground(controls_tab4.getForeground());
         SP_theme_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         SP_theme_infos_tab4.setViewportBorder(null);
 
@@ -949,6 +952,7 @@ public class MainFrame extends javax.swing.JFrame {
         infos_fields_tab4.add(SP_theme_infos_tab4);
 
         SP_keyWords_infos_tab4.setBorder(null);
+        SP_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
         SP_keyWords_infos_tab4.setViewportBorder(null);
 
         TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
@@ -1251,6 +1255,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     public JTextField getTF_theme_search_tab4() {
         return TF_theme_search_tab4;
+    }
+
+    public JScrollPane getSP_author_infos_tab4() {
+        return SP_author_infos_tab4;
     }
     
     
