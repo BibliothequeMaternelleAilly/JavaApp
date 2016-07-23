@@ -82,7 +82,7 @@
                   <Color blue="ce" green="fa" red="fd" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Bibliotheque de l&apos;&#xe9;cole maternelle"/>
+                <Property name="text" type="java.lang.String" value="Biblioth&#xe8;que de l&apos;&#xe9;cole maternelle"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1243, 17]"/>
                 </Property>
@@ -244,7 +244,7 @@
                           <Color blue="63" green="3b" red="fd" type="rgb"/>
                         </Property>
                         <Property name="tabIndex" type="java.lang.String" value="card3"/>
-                        <Property name="text" type="java.lang.String" value="&#xc9;leves"/>
+                        <Property name="text" type="java.lang.String" value="&#xc9;l&#xe8;ves"/>
                         <Property name="unselectedColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="new Color(253,59,99,80)" type="code"/>
                         </Property>
@@ -1088,6 +1088,9 @@
                                           <Color blue="37" green="69" red="fd" type="rgb"/>
                                         </Property>
                                         <Property name="horizontalAlignment" type="int" value="0"/>
+                                        <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection code="&quot;&quot;" type="code"/>
+                                        </Property>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                             <LineBorder>
@@ -1151,7 +1154,7 @@
                               <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                                 <CompoundBorder>
                                   <Border PropertyName="outside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
+                                    <LineBorder thickness="3">
                                       <Color PropertyName="color" blue="d8" green="ce" red="fd" type="rgb"/>
                                     </LineBorder>
                                   </Border>
@@ -1343,6 +1346,7 @@
                                                   <Connection component="controls_tab3" name="foreground" type="property"/>
                                                 </Property>
                                                 <Property name="text" type="java.lang.String" value="NOM"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="NOM"/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                     <LineBorder>
@@ -1368,6 +1372,7 @@
                                                   <Connection component="controls_tab3" name="foreground" type="property"/>
                                                 </Property>
                                                 <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="Pr&#xe9;nom"/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                     <LineBorder>
@@ -1550,7 +1555,7 @@
                               <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                                 <CompoundBorder>
                                   <Border PropertyName="outside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
+                                    <LineBorder thickness="3">
                                       <Color PropertyName="color" blue="d8" green="ce" red="fd" type="rgb"/>
                                     </LineBorder>
                                   </Border>
@@ -1653,7 +1658,7 @@
                               <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                                 <CompoundBorder>
                                   <Border PropertyName="outside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
+                                    <LineBorder thickness="3">
                                       <Color PropertyName="color" blue="fd" green="ce" red="f6" type="rgb"/>
                                     </LineBorder>
                                   </Border>
@@ -1859,6 +1864,7 @@
                                                       <Connection component="controls_tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="text" type="java.lang.String" value="Titre"/>
+                                                    <Property name="toolTipText" type="java.lang.String" value="Titre"/>
                                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                         <LineBorder>
@@ -1884,6 +1890,7 @@
                                                       <Connection component="controls_tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="text" type="java.lang.String" value="Th&#xe8;me"/>
+                                                    <Property name="toolTipText" type="java.lang.String" value="Th&#xe8;me"/>
                                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                         <LineBorder>
@@ -1909,6 +1916,7 @@
                                                       <Connection component="controls_tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="text" type="java.lang.String" value="Auteur"/>
+                                                    <Property name="toolTipText" type="java.lang.String" value="Auteur"/>
                                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                         <LineBorder>
@@ -1934,6 +1942,7 @@
                                                       <Connection component="controls_tab4" name="foreground" type="property"/>
                                                     </Property>
                                                     <Property name="text" type="java.lang.String" value="Mots cl&#xe9;s"/>
+                                                    <Property name="toolTipText" type="java.lang.String" value="Mots cl&#xe9;s"/>
                                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                         <LineBorder>
@@ -2237,7 +2246,7 @@
                               <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                                 <CompoundBorder>
                                   <Border PropertyName="outside" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
+                                    <LineBorder thickness="3">
                                       <Color PropertyName="color" blue="fd" green="ce" red="f6" type="rgb"/>
                                     </LineBorder>
                                   </Border>

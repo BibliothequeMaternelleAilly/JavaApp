@@ -193,7 +193,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_title.setFont(littleBird.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1)));
         L_title.setForeground(new java.awt.Color(253, 250, 206));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title.setText("Bibliotheque de l'école maternelle");
+        L_title.setText("Bibliothèque de l'école maternelle");
         L_title.setMaximumSize(new java.awt.Dimension(1243, 17));
         L_title.setMinimumSize(new java.awt.Dimension(1243, 17));
         workingArea.add(L_title, java.awt.BorderLayout.NORTH);
@@ -250,7 +250,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card3.setOpaque(false);
         CTB_card3.setSelectedColor(new java.awt.Color(253, 59, 99));
         CTB_card3.setTabIndex("card3");
-        CTB_card3.setText("Éleves");
+        CTB_card3.setText("Élèves");
         CTB_card3.setUnselectedColor(new Color(253,59,99,80));
         toggleButtons.add(CTB_card3);
 
@@ -565,6 +565,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_barCode_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
         TF_barCode_tab2.setForeground(new java.awt.Color(253, 105, 55));
         TF_barCode_tab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TF_barCode_tab2.setToolTipText("");
         TF_barCode_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab2.getForeground()));
         scanFrame_controls_tab2.add(TF_barCode_tab2);
 
@@ -593,7 +594,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab3.setForeground(new java.awt.Color(255, 229, 235));
         L_title_tab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title_tab3.setText("Gestion des élèves");
-        L_title_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        L_title_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         tab3.add(L_title_tab3, java.awt.BorderLayout.NORTH);
 
         controls_tab3.setBackground(tab3.getBackground());
@@ -641,6 +642,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_name_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_name_search_tab3.setForeground(controls_tab3.getForeground());
         TF_name_search_tab3.setText("NOM");
+        TF_name_search_tab3.setToolTipText("NOM");
         TF_name_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
         TF_name_search_tab3.setCaretColor(controls_tab3.getBackground());
         jPanel1.add(TF_name_search_tab3);
@@ -650,6 +652,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_surname_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_surname_search_tab3.setForeground(controls_tab3.getForeground());
         TF_surname_search_tab3.setText("Prénom");
+        TF_surname_search_tab3.setToolTipText("Prénom");
         TF_surname_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
         TF_surname_search_tab3.setCaretColor(controls_tab3.getBackground());
         jPanel1.add(TF_surname_search_tab3);
@@ -720,7 +723,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         tab3.add(controls_tab3, java.awt.BorderLayout.CENTER);
 
-        managePupil_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        managePupil_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         managePupil_tab3.setOpaque(false);
 
         B_new_managePupil_tab3.setBackground(tab3.getBackground());
@@ -755,7 +758,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab4.setForeground(new java.awt.Color(251, 229, 255));
         L_title_tab4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title_tab4.setText("Gestion des livres");
-        L_title_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        L_title_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         tab4.add(L_title_tab4, java.awt.BorderLayout.NORTH);
 
         controls_tab4.setBackground(tab4.getBackground());
@@ -806,6 +809,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_bookTitle_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_bookTitle_search_tab4.setForeground(controls_tab4.getForeground());
         TF_bookTitle_search_tab4.setText("Titre");
+        TF_bookTitle_search_tab4.setToolTipText("Titre");
         TF_bookTitle_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
         TF_bookTitle_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_bookTitle_search_tab4);
@@ -815,6 +819,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_theme_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_theme_search_tab4.setForeground(controls_tab4.getForeground());
         TF_theme_search_tab4.setText("Thème");
+        TF_theme_search_tab4.setToolTipText("Thème");
         TF_theme_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
         TF_theme_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_theme_search_tab4);
@@ -824,6 +829,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_author_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_author_search_tab4.setForeground(controls_tab4.getForeground());
         TF_author_search_tab4.setText("Auteur");
+        TF_author_search_tab4.setToolTipText("Auteur");
         TF_author_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
         TF_author_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_author_search_tab4);
@@ -833,6 +839,7 @@ public class MainFrame extends javax.swing.JFrame {
         TF_keyWords_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_keyWords_search_tab4.setForeground(controls_tab4.getForeground());
         TF_keyWords_search_tab4.setText("Mots clés");
+        TF_keyWords_search_tab4.setToolTipText("Mots clés");
         TF_keyWords_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
         TF_keyWords_search_tab4.setCaretColor(controls_tab4.getBackground());
         paging_search_fields_tab4.add(TF_keyWords_search_tab4);
@@ -951,7 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         tab4.add(controls_tab4, java.awt.BorderLayout.CENTER);
 
-        manageBook_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
+        manageBook_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         manageBook_tab4.setOpaque(false);
 
         B_new_manageBook_tab4.setBackground(tab4.getBackground());

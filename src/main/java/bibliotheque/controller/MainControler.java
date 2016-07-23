@@ -5,6 +5,7 @@ import bibliotheque.controller.businessObjects.BooksManagement;
 import bibliotheque.controller.businessObjects.BorrowForm;
 import bibliotheque.controller.businessObjects.PupilsManagement;
 import bibliotheque.controller.businessObjects.ScanForm;
+import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.DBConnection;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
@@ -20,8 +21,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -30,8 +29,6 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -131,8 +128,18 @@ public class MainControler {
         ActionListener cancelFieldsActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formTab1.resetFields();
+                try {
+                    formTab1.resetFields();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
+            }
+        };
+        ActionListener borrowButtonActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                validateBorrow();
             }
         };
         FocusListener textFieldsFocusListener = new FocusListener() {
@@ -314,6 +321,7 @@ public class MainControler {
         mainView.getB_validate_scanFrame_tab1().addActionListener(validateScan1ActionListener);
         mainView.getB_validate_tab2().addActionListener(validateScan2ActionListener);
         mainView.getB_cancel_fields_tab1().addActionListener(cancelFieldsActionListener);
+        mainView.getB_validate_fields_tab1().addActionListener(borrowButtonActionListener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
@@ -446,7 +454,7 @@ public class MainControler {
         try {
             formTab3.fillFields();
             mainView.getB_delete_managePupil_tab3().setEnabled(true);
-        } catch (SQLException ex) {
+        } catch (SQLException | UnfoundException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -454,7 +462,7 @@ public class MainControler {
     private void selectBook() {
         try {
             formTab4.fillFields();
-        } catch (SQLException ex) {
+        } catch (SQLException | UnfoundException ex) {
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -552,8 +560,10 @@ public class MainControler {
             mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
             formTab1.setBook(book);
         } catch (SQLException ex) {
-            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre.");
+            mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnfoundException ex) {
+            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre non emprunté.");
         }
     }
     
@@ -562,13 +572,30 @@ public class MainControler {
             scanTab2.returnBook();
             if (scanTab2.getBook().getIdEmprunteur()!=-1)
                 mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
-            else
-                mainView.showMessage("Le livre à bien été rendu.");
+            else mainView.showMessage("Le livre à bien été rendu.");
+            
             mainView.getTF_barCode_tab2().setText("");
-            mainView.getB_validate_scanFrame_tab1().setEnabled(false);
         } catch (SQLException ex) {
-            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre emprunté.");
+            mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
             Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnfoundException ex) {
+            mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre emprunté.");
+        } finally {
+            mainView.getB_validate_tab2().setEnabled(false);
+        }
+    }
+    
+    private void validateBorrow() {
+        try {
+            formTab1.borrowBook();
+            mainView.showMessage("Le livre a bien été emprunté.");
+            formTab1.resetFields();
+            mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
+        } catch (SQLException ex) {
+            mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
+            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnfoundException ex) {
+            mainView.showErrorMessage("L'élève entré est introuvable.");
         }
     }
     

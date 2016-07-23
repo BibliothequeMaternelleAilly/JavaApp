@@ -1,6 +1,7 @@
 
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
@@ -24,15 +25,10 @@ public class BorrowForm {
     protected Livre book;
     
     public BorrowForm(JList pupilsJList, JTextField nameTextField, JTextField surnameTextField) throws SQLException {
-        
         this.pupilsJList = pupilsJList;
         this.nameTextField = nameTextField;
         this.surnameTextField = surnameTextField;
-        pupilsList = Eleve.getAll();
-        DefaultListModel<String> model = new DefaultListModel();
-        for (Eleve pupil : pupilsList)
-            model.addElement(pupil.toString());
-        this.pupilsJList.setModel(model);
+        resetFields();
     }
     
     public void updateList() {
@@ -69,17 +65,23 @@ public class BorrowForm {
         surnameTextField.setText(value.substring(value.indexOf(" ")+1));     
     }
     
-    public void resetFields() {
-        pupilsJList.setModel(new DefaultListModel());
+    public void resetFields() throws SQLException {
+        pupilsList = Eleve.getAll();
+        DefaultListModel<String> model = new DefaultListModel();
+        for (Eleve pupil : pupilsList)
+            model.addElement(pupil.toString());
+        this.pupilsJList.setModel(model);
         nameTextField.setText("NOM");
         surnameTextField.setText("Prénom");
     }
     
-    public void borrowBook() throws SQLException {
+    public void borrowBook() throws SQLException, UnfoundException {
         Eleve borrower = Eleve.getFromFullName(nameTextField.getText(), surnameTextField.getText());
-        getBook().setIdEmprunteur(borrower.getId());
-        getBook().setDate_emprun(LocalDate.now().toString());
-        getBook().updateLivre();
+        book.setIdEmprunteur(borrower.getId());
+        book.setDate_emprun(LocalDate.now().toString());
+        book.updateLivre();
+        if (Livre.getFromBarCode(book.getCode_barre()).getIdEmprunteur()!=borrower.getId())
+            throw new SQLException();
     }
 
     public Livre getBook() {

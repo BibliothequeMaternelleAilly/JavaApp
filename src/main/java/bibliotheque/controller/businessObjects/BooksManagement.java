@@ -1,9 +1,12 @@
 
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTextArea;
@@ -38,7 +41,7 @@ public class BooksManagement {
         booksJList.setModel(model);
     }
     
-    public void fillFields() throws SQLException {
+    public void fillFields() throws SQLException, UnfoundException {
         DefaultListModel<String> model = new DefaultListModel();
         String value = (String) booksJList.getSelectedValue();
         if (value!=null) {
@@ -88,7 +91,12 @@ public class BooksManagement {
     }
     
     public boolean isCurrentBorrowed() throws SQLException {
-        return current.getBorrower() != null;
+        try {
+            current.getBorrower();
+            return true;
+        } catch (UnfoundException ex) {
+            return false;
+        }
     }
     
 }

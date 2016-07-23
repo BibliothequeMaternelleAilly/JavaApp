@@ -1,6 +1,7 @@
 
 package bibliotheque.model;
 
+import bibliotheque.exceptions.UnfoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,42 +70,43 @@ public class Livre {
         return list;
     }
     
-    public static Livre getFromTitle(String title, String author) throws SQLException {
+    public static Livre getFromTitle(String title, String author) throws SQLException, UnfoundException {
         String query = "SELECT * FROM livres WHERE titre=? AND auteur=?";
-        Livre book;
+        Livre book = null;
         
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setString(1, title);
             statement.setString(2, author);
             try (ResultSet result = statement.executeQuery()) {
-                result.next();
-                book = new Livre(result.getInt("id"), result.getString("code_barre"),
-                        result.getString("titre"), result.getString("auteur"),
-                        result.getString("mots_cles"), result.getString("theme"),
-                        result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
-                        result.getString("date_emprun"));
+                if (result.next()) {
+                    book = new Livre(result.getInt("id"), result.getString("code_barre"),
+                            result.getString("titre"), result.getString("auteur"),
+                            result.getString("mots_cles"), result.getString("theme"),
+                            result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
+                            result.getString("date_emprun"));
+                } else throw new UnfoundException();
             }
         }
         
         return book;
     }
     
-    public static Livre getFromBarCode(String barCode) throws SQLException {
+    public static Livre getFromBarCode(String barCode) throws SQLException, UnfoundException {
         String query = "SELECT * FROM livres WHERE code_barre=?";
-        Livre book;
+        Livre book = null;
         
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setString(1, barCode);
             try (ResultSet result = statement.executeQuery()) {
-                result.next();
-                book = new Livre(result.getInt("id"), result.getString("code_barre"),
-                        result.getString("titre"), result.getString("auteur"),
-                        result.getString("mots_cles"), result.getString("theme"),
-                        result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
-                        result.getString("date_emprun"));
+                if (result.next()) {
+                    book = new Livre(result.getInt("id"), result.getString("code_barre"),
+                            result.getString("titre"), result.getString("auteur"),
+                            result.getString("mots_cles"), result.getString("theme"),
+                            result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
+                            result.getString("date_emprun"));
+                } else throw new UnfoundException();
             }
         }
-        
         return book;
     }
     
@@ -151,19 +153,20 @@ public class Livre {
         }
     }
     
-    public Eleve getBorrower() throws SQLException {
+    public Eleve getBorrower() throws SQLException, UnfoundException {
         if (idEmprunteur==-1) return null;
             
-        Eleve borrower;
+        Eleve borrower = null;
         
         String query = "SELECT * FROM eleves WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setInt(1, idEmprunteur);
             try (ResultSet result = statement.executeQuery()) {
-                result.next();
-                borrower = new Eleve(result.getInt("id"),
-                        result.getString("nom"),
-                        result.getString("prenom"));
+                if (result.next()) {
+                    borrower = new Eleve(result.getInt("id"),
+                            result.getString("nom"),
+                            result.getString("prenom"));
+                } else throw new UnfoundException();
             }
         }
         return borrower;

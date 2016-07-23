@@ -1,6 +1,7 @@
 
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
@@ -42,7 +43,7 @@ public class PupilsManagement {
         pupilsJList.setModel(model);
     }
     
-    public void fillFields() throws SQLException {
+    public void fillFields() throws SQLException, UnfoundException {
         DefaultListModel<String> model = new DefaultListModel();
         String value = (String) pupilsJList.getSelectedValue();
         if (value!=null) {

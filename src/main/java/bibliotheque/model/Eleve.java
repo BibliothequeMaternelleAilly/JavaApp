@@ -1,6 +1,7 @@
 
 package bibliotheque.model;
 
+import bibliotheque.exceptions.UnfoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,17 +38,18 @@ public class Eleve {
         return eleves;
     }
     
-    public static Eleve getFromFullName(String name, String surname) throws SQLException {
+    public static Eleve getFromFullName(String name, String surname) throws SQLException, UnfoundException {
         String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
-        Eleve pupil;
+        Eleve pupil = null;
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(0, name.toUpperCase());
+            statement.setString(1, name.toUpperCase());
             statement.setString(2, surname.toLowerCase());
             try (ResultSet result = statement.executeQuery()) {
-                result.next();
-                pupil = new Eleve(result.getInt("id"),
-                        result.getString("nom"),
-                        result.getString("prenom"));
+                if (result.next()) {
+                    pupil = new Eleve(result.getInt("id"),
+                            result.getString("nom"),
+                            result.getString("prenom"));
+                } else throw new UnfoundException();
             }
         }
         return pupil;

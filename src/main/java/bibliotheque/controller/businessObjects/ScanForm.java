@@ -5,6 +5,7 @@
  */
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Livre;
 import java.sql.SQLException;
 import javax.swing.JButton;
@@ -24,12 +25,15 @@ public class ScanForm {
         this.validateButton = validateButton;
     }
     
-    public Livre getBook() throws SQLException {
-        return Livre.getFromBarCode(barCode.getText());
+    public Livre getBook() throws SQLException, UnfoundException {
+        Livre book = Livre.getFromBarCode(barCode.getText());
+        if (book.getIdEmprunteur()!=-1) throw new UnfoundException();
+        return book;
     }
     
-    public void returnBook() throws SQLException {
+    public void returnBook() throws SQLException, UnfoundException {
         Livre current = Livre.getFromBarCode(barCode.getText());
+        if (current.getIdEmprunteur()==-1) throw new UnfoundException();
         current.setIdEmprunteur(-1);
         current.setDate_emprun("");
         current.updateLivre();
