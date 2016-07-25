@@ -17,12 +17,11 @@ import javax.swing.border.Border;
  */
 public class CustomListCellRenderer implements ListCellRenderer {
 
-    private Color background = new Color(249,176,74),
+    protected Color background = new Color(249,176,74),
                   selectionForeground = new Color(254,247,189),
                   foreground = new Color(49,24,13);
     
-    private Font defaultFont = null;
-    
+    protected Font defaultFont = null;    
     protected DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer();
     
     @Override
