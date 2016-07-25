@@ -35,7 +35,7 @@ public class ScanForm {
         Livre current = Livre.getFromBarCode(barCode.getText());
         if (current.getIdEmprunteur()==-1) throw new UnfoundException();
         current.setIdEmprunteur(-1);
-        current.setDate_emprun("");
+        current.setDate_emprun(null);
         current.updateLivre();
     }
     

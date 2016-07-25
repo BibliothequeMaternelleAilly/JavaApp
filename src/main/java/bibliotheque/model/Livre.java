@@ -70,7 +70,7 @@ public class Livre {
         return list;
     }
     
-    public static Livre getFromTitle(String title, String author) throws SQLException, UnfoundException {
+    public static Livre getFromTitle_Author(String title, String author) throws SQLException, UnfoundException {
         String query = "SELECT * FROM livres WHERE titre=? AND auteur=?";
         Livre book = null;
         
@@ -110,6 +110,35 @@ public class Livre {
         return book;
     }
     
+    public static ArrayList<Livre> getAllFromFullFields(String title, String author, String theme, String keyWords) throws SQLException {
+        ArrayList<Livre> list = new ArrayList();
+        String query = "SELECT * FROM livres WHERE titre LIKE ? AND auteur LIKE ? AND theme LIKE ?";
+        String[] tab = keyWords.split(";");
+        int l=tab.length;
+        for (int i=0; i<l; i++)
+            query += " AND mots_cles LIKE ?";
+        
+        try (PreparedStatement statement = DBConnection.prepareStatement(query))
+        {    
+            statement.setString(1, "%" + title + "%");
+            statement.setString(2, "%" + author + "%");
+            statement.setString(3, "%" + theme + "%");
+            for (int i=0; i<l; i++)
+                statement.setString(i+4, "%" + tab[i] + "%");
+            
+            try (ResultSet result = statement.executeQuery()) {
+                while (result.next())
+                    list.add(new Livre(result.getInt("id"), result.getString("code_barre"),
+                            result.getString("titre"), result.getString("auteur"),
+                            result.getString("mots_cles"), result.getString("theme"),
+                            result.getInt("idEmprunteur"), result.getString("date_emprun")));
+            }
+        }
+        
+        return list;
+    }
+    
+    
     public void deleteLivre() throws SQLException {
         String query = "DELETE FROM livres WHERE id=?";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
@@ -129,7 +158,7 @@ public class Livre {
             statement.setString(4, theme);
             if (idEmprunteur==-1) statement.setObject(5, null);
             else statement.setInt(5, idEmprunteur);
-            statement.setString(6, date_emprun.equals("") ? null:date_emprun);
+            statement.setString(6, date_emprun);
             statement.setInt(7, id);
             
             statement.execute();
@@ -147,15 +176,15 @@ public class Livre {
             statement.setString(4, theme);
             if (idEmprunteur==-1) statement.setObject(5, null);
             else statement.setInt(5, idEmprunteur);
-            statement.setString(6, date_emprun.equals("") ? null:date_emprun);
+            statement.setString(6, date_emprun);
             
             statement.execute();
         }
     }
     
     public Eleve getBorrower() throws SQLException, UnfoundException {
-        if (idEmprunteur==-1) return null;
-            
+        if (idEmprunteur==-1) throw new UnfoundException();
+        
         Eleve borrower = null;
         
         String query = "SELECT * FROM eleves WHERE id=?";
@@ -166,7 +195,7 @@ public class Livre {
                     borrower = new Eleve(result.getInt("id"),
                             result.getString("nom"),
                             result.getString("prenom"));
-                } else throw new UnfoundException();
+                }
             }
         }
         return borrower;
@@ -201,8 +230,8 @@ public class Livre {
         return theme;
     }
 
-    public String getDate_emprun() {
-        if (date_emprun.equals("")) return date_emprun;
+    public String getDate_emprun() throws UnfoundException {
+        if (date_emprun==null) throw new UnfoundException();
         String[] date = date_emprun.split("-");
         return date[2] + "/" + date[1] + "/" + date[0];
     }

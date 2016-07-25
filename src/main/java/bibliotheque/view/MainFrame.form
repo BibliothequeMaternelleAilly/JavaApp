@@ -859,8 +859,8 @@
                                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                                   <Connection component="fields_tab1" name="foreground" type="property"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="NOM"/>
-                                                <Property name="toolTipText" type="java.lang.String" value="NOM"/>
+                                                <Property name="text" type="java.lang.String" value="Nom"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="Nom"/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                     <LineBorder>
@@ -1299,7 +1299,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                                   <SubComponents>
-                                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                                    <Container class="javax.swing.JScrollPane" name="SP_paging_search_fields_tab3">
                                       <Properties>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -1317,7 +1317,7 @@
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Container class="javax.swing.JPanel" name="jPanel1">
+                                        <Container class="javax.swing.JPanel" name="paging_search_fields_tab3">
                                           <Properties>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="tab3" name="background" type="property"/>
@@ -1345,8 +1345,8 @@
                                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                                   <Connection component="controls_tab3" name="foreground" type="property"/>
                                                 </Property>
-                                                <Property name="text" type="java.lang.String" value="NOM"/>
-                                                <Property name="toolTipText" type="java.lang.String" value="NOM"/>
+                                                <Property name="text" type="java.lang.String" value="Nom"/>
+                                                <Property name="toolTipText" type="java.lang.String" value="Nom"/>
                                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                                     <LineBorder>
@@ -1415,7 +1415,7 @@
                                     </Container>
                                   </SubComponents>
                                 </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel2">
+                                <Container class="javax.swing.JPanel" name="info_fields_tab3">
                                   <Properties>
                                     <Property name="opaque" type="boolean" value="false"/>
                                   </Properties>
@@ -1438,7 +1438,7 @@
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                           <Connection component="controls_tab3" name="foreground" type="property"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="NOM"/>
+                                        <Property name="text" type="java.lang.String" value="Nom"/>
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JLabel" name="L_surname_infos_tab3">
@@ -1452,7 +1452,7 @@
                                         <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
                                       </Properties>
                                     </Component>
-                                    <Container class="javax.swing.JPanel" name="infos_fields_tab3">
+                                    <Container class="javax.swing.JPanel" name="books_infos_fields_tab3">
                                       <Properties>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -1534,6 +1534,7 @@
                                                   </Border>
                                                 </Property>
                                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                                <Property name="enabled" type="boolean" value="false"/>
                                                 <Property name="focusPainted" type="boolean" value="false"/>
                                               </Properties>
                                             </Component>
@@ -1557,6 +1558,7 @@
                                                   </Border>
                                                 </Property>
                                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                                <Property name="enabled" type="boolean" value="false"/>
                                                 <Property name="focusPainted" type="boolean" value="false"/>
                                               </Properties>
                                             </Component>
@@ -1826,7 +1828,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                                   <SubComponents>
-                                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                                    <Container class="javax.swing.JScrollPane" name="SP_paging_search_fields_tab4">
                                       <Properties>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -1844,7 +1846,7 @@
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Container class="javax.swing.JPanel" name="jPanel3">
+                                        <Container class="javax.swing.JPanel" name="paging_search_fields_tab4">
                                           <Properties>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="tab4" name="background" type="property"/>
@@ -1860,7 +1862,7 @@
                                             <Property name="verticalGap" type="int" value="0"/>
                                           </Layout>
                                           <SubComponents>
-                                            <Container class="javax.swing.JPanel" name="paging_search_fields_tab4">
+                                            <Container class="javax.swing.JPanel" name="pagingTF_search_fields_tab4">
                                               <Properties>
                                                 <Property name="opaque" type="boolean" value="false"/>
                                               </Properties>
@@ -2026,7 +2028,7 @@
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                     <Property name="columns" type="int" value="2"/>
                                     <Property name="horizontalGap" type="int" value="5"/>
-                                    <Property name="rows" type="int" value="4"/>
+                                    <Property name="rows" type="int" value="3"/>
                                     <Property name="verticalGap" type="int" value="5"/>
                                   </Layout>
                                   <SubComponents>
@@ -2042,14 +2044,12 @@
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
                                         </Property>
+                                        <Property name="opaque" type="boolean" value="false"/>
                                       </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                      </AuxValues>
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JTextArea" name="TA_bookTitle_infos_tab4">
+                                        <Component class="javax.swing.JTextField" name="TF_bookTitle_infos_tab4">
                                           <Properties>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="tab4" name="background" type="property"/>
@@ -2060,8 +2060,11 @@
                                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
-                                            <Property name="rows" type="int" value="1"/>
                                             <Property name="text" type="java.lang.String" value="Titre"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Titre"/>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="null"/>
+                                            </Property>
                                             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
@@ -2081,14 +2084,12 @@
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
                                         </Property>
+                                        <Property name="opaque" type="boolean" value="false"/>
                                       </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                      </AuxValues>
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JTextArea" name="TA_author_infos_tab4">
+                                        <Component class="javax.swing.JTextField" name="TF_author_infos_tab4">
                                           <Properties>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="tab4" name="background" type="property"/>
@@ -2099,8 +2100,11 @@
                                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
-                                            <Property name="rows" type="int" value="1"/>
                                             <Property name="text" type="java.lang.String" value="Auteur"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Auteur"/>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="null"/>
+                                            </Property>
                                             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
@@ -2108,7 +2112,7 @@
                                         </Component>
                                       </SubComponents>
                                     </Container>
-                                    <Container class="javax.swing.JScrollPane" name="SP_pupilName_infos_tab4">
+                                    <Container class="javax.swing.JScrollPane" name="SP_pupil_infos_tab4">
                                       <Properties>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
@@ -2120,14 +2124,12 @@
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
                                         </Property>
+                                        <Property name="opaque" type="boolean" value="false"/>
                                       </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                      </AuxValues>
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JTextArea" name="TA_pupilName_infos_tab4">
+                                        <Component class="javax.swing.JTextField" name="TF_pupilName_infos_tab4">
                                           <Properties>
                                             <Property name="editable" type="boolean" value="false"/>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -2139,8 +2141,11 @@
                                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
-                                            <Property name="rows" type="int" value="1"/>
-                                            <Property name="text" type="java.lang.String" value="Emprunt&#xe9; par..."/>
+                                            <Property name="text" type="java.lang.String" value="Emprunteur"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Emprunteur"/>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="null"/>
+                                            </Property>
                                             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
@@ -2175,6 +2180,7 @@
                                               </Border>
                                             </Property>
                                             <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                            <Property name="enabled" type="boolean" value="false"/>
                                             <Property name="focusPainted" type="boolean" value="false"/>
                                           </Properties>
                                           <Constraints>
@@ -2197,14 +2203,12 @@
                                         <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                           <Border info="null"/>
                                         </Property>
+                                        <Property name="opaque" type="boolean" value="false"/>
                                       </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                                      </AuxValues>
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JTextArea" name="TA_theme_infos_tab4">
+                                        <Component class="javax.swing.JTextField" name="TF_theme_infos_tab4">
                                           <Properties>
                                             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="tab4" name="background" type="property"/>
@@ -2215,8 +2219,11 @@
                                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
-                                            <Property name="rows" type="int" value="1"/>
                                             <Property name="text" type="java.lang.String" value="Th&#xe8;me"/>
+                                            <Property name="toolTipText" type="java.lang.String" value="Th&#xe8;me"/>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="null"/>
+                                            </Property>
                                             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                               <Connection component="controls_tab4" name="foreground" type="property"/>
                                             </Property>
@@ -2337,7 +2344,7 @@
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection component="controls_tab4" name="foreground" type="property"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value=" Modifier le livre "/>
+                                <Property name="text" type="java.lang.String" value="Enregistrer les modifications"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                     <LineBorder thickness="3">
@@ -2347,6 +2354,7 @@
                                 </Property>
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                <Property name="enabled" type="boolean" value="false"/>
                                 <Property name="focusPainted" type="boolean" value="false"/>
                               </Properties>
                             </Component>

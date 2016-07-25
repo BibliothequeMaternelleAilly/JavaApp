@@ -30,16 +30,16 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.JTextComponent;
 
 /**
  *
  * @author shiro
  */
-public class MainControler {
+public class MainController {
 
     private final MainFrame mainView;
     private final Font glyphicons;
@@ -54,25 +54,32 @@ public class MainControler {
     private final ArrayList<Livre> booksList = Livre.getAll();;
 
     
-    public MainControler() throws SQLException {
+    public MainController() throws SQLException {
         
         mainView = new MainFrame();
         glyphicons = mainView.getB_help().getFont();
         formTab1 = new BorrowForm(mainView.getLi_pupilList_tab1(),
                                   mainView.getTF_name_nameFields_tab1(),
                                   mainView.getTF_surname_nameFields_tab1());
-        formTab3 = new PupilsManagement(mainView.getLi_pupilList_tab3(),
+        formTab3 = new PupilsManagement(mainView.getB_return_infos_tab3(),
+                                        mainView.getB_returnAll_infos_tab3(),
+                                        mainView.getLi_pupilList_tab3(),
                                         mainView.getLi_bookList_tab3(),
                                         mainView.getTF_name_search_tab3(),
                                         mainView.getTF_surname_search_tab3(),
                                         mainView.getL_name_infos_tab3(),
                                         mainView.getL_surname_infos_tab3());
-        formTab4 = new BooksManagement(mainView.getLi_bookList_tab4(),
-                                       mainView.getTA_bookTitle_infos_tab4(),
-                                       mainView.getTA_author_infos_tab4(),
-                                       mainView.getTA_theme_infos_tab4(),
+        formTab4 = new BooksManagement(mainView.getB_return_infos_tab4(),
+                                       mainView.getLi_bookList_tab4(),
+                                       mainView.getTF_bookTitle_search_tab4(),
+                                       mainView.getTF_author_search_tab4(),
+                                       mainView.getTF_theme_search_tab4(),
+                                       mainView.getTF_keyWords_search_tab4(),
+                                       mainView.getTF_bookTitle_infos_tab4(),
+                                       mainView.getTF_author_infos_tab4(),
+                                       mainView.getTF_theme_infos_tab4(),
                                        mainView.getTA_keyWords_infos_tab4(),
-                                       mainView.getTA_pupilName_infos_tab4());
+                                       mainView.getTF_pupilName_infos_tab4());
         scanTab1 = new ScanForm(mainView.getTF_barCode_tab1(),
                                 mainView.getB_validate_scanFrame_tab1());
         scanTab2 = new ScanForm(mainView.getTF_barCode_tab2(),
@@ -86,12 +93,12 @@ public class MainControler {
         try {
             formTab3.resetFields();
         } catch (SQLException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             formTab4.resetFields();
         } catch (SQLException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         ActionListener closeActionListener = new ActionListener() {
@@ -116,6 +123,7 @@ public class MainControler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 releaseNoBorderButton(e.getSource());
+                toggleBorderedButton(e.getSource());
                 borrowScanAction();
                 toggleTextFieldValue(mainView.getTF_barCode_tab1());
             }
@@ -134,7 +142,7 @@ public class MainControler {
                 try {
                     formTab1.resetFields();
                 } catch (SQLException ex) {
-                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
             }
@@ -149,10 +157,12 @@ public class MainControler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    releaseBorderedButton(e.getSource());
+                    toggleBorderedButton(e.getSource());
                     formTab3.returnBook();
                 } catch (SQLException ex) {
                     mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         };
@@ -160,10 +170,12 @@ public class MainControler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    releaseBorderedButton(e.getSource());
+                    toggleBorderedButton(e.getSource());
                     formTab3.returnAllBooks();
                 } catch (SQLException ex) {
                     mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         };
@@ -171,10 +183,49 @@ public class MainControler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    releaseBorderedButton(e.getSource());
+                    toggleBorderedButton(e.getSource());
                     formTab4.returnBook();
                 } catch (SQLException ex) {
                     mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        ActionListener searchPupilListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formTab3.searchPupil();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        ActionListener searchBookListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formTab4.searchBook();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        ActionListener saveModificationsListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    releaseDefaulButton(e.getSource());
+                    toggleDefaultButton(e.getSource());
+                    ((JButton) e.getSource()).setEnabled(false);
+                    formTab4.validateChanges();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    ((JButton) e.getSource()).setEnabled(true);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         };
@@ -195,7 +246,7 @@ public class MainControler {
                 toggleTextFieldColor((JTextField) e.getSource());
             }
         };
-        FocusListener textAreaFocusListener = new FocusListener() {
+        FocusListener infoTextAreaFocusListener = new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
                 toggleScrollPane(e.getSource());
@@ -231,6 +282,18 @@ public class MainControler {
             @Override
             public void keyReleased(KeyEvent e) {}
         };
+        KeyListener bookInfoListener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (formTab4.getCurrent()!=null)
+                    mainView.getB_modify_manageBook_tab4().setEnabled(true);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        };
         MouseListener mainMenuButtonsListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {}
@@ -259,7 +322,7 @@ public class MainControler {
                 try {
                     showTab(e.getSource());
                 } catch (SQLException ex) {
-                    Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             @Override
@@ -350,7 +413,17 @@ public class MainControler {
                             booksTab4SelectionListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                selectBook();
+                try {
+                    if (mainView.getB_modify_manageBook_tab4().isEnabled() &&
+                            JOptionPane.showConfirmDialog(mainView, "Voulez-vous enregistrer les changements réalisés sur le livre en cours?", "Enregistrement des changements", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0) {
+                        mainView.getB_modify_manageBook_tab4().setEnabled(false);
+                        formTab4.validateChanges();
+                    }
+                    selectBook();
+                } catch (SQLException ex) {
+                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         };
         ListSelectionListener pupilTab1SelectionListener = new ListSelectionListener() {
@@ -358,6 +431,12 @@ public class MainControler {
             public void valueChanged(ListSelectionEvent e) {
                 if (((JList) e.getSource()).getSelectedIndex()!=-1)
                     formTab1.fillFields();
+            }
+        };
+        ListSelectionListener bookTab3ListSelectionListener = new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                formTab3.enableReturnButton();
             }
         };
         
@@ -372,11 +451,18 @@ public class MainControler {
         mainView.getB_returnAll_infos_tab3().addActionListener(returnAllBookTab3Listener);
         mainView.getB_return_infos_tab3().addActionListener(returnBookTab3Listener);
         mainView.getB_return_infos_tab4().addActionListener(returnBookTab4Listener);
+        mainView.getB_validate_search_tab3().addActionListener(searchPupilListener);
+        mainView.getB_validate_search_tab4().addActionListener(searchBookListener);
+        mainView.getB_modify_manageBook_tab4().addActionListener(saveModificationsListener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
         mainView.getTF_name_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
         mainView.getTF_surname_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
+        mainView.getTF_author_infos_tab4().addKeyListener(bookInfoListener);
+        mainView.getTF_bookTitle_infos_tab4().addKeyListener(bookInfoListener);
+        mainView.getTF_theme_infos_tab4().addKeyListener(bookInfoListener);
+        mainView.getTA_keyWords_infos_tab4().addKeyListener(bookInfoListener);
         
         mainView.getTF_barCode_tab1().addFocusListener(textFieldsFocusListener);
         mainView.getTF_barCode_tab2().addFocusListener(textFieldsFocusListener);
@@ -388,11 +474,11 @@ public class MainControler {
         mainView.getTF_bookTitle_search_tab4().addFocusListener(textFieldsFocusListener);
         mainView.getTF_keyWords_search_tab4().addFocusListener(textFieldsFocusListener);
         mainView.getTF_theme_search_tab4().addFocusListener(textFieldsFocusListener);
-        mainView.getTA_bookTitle_infos_tab4().addFocusListener(textAreaFocusListener);
-        mainView.getTA_author_infos_tab4().addFocusListener(textAreaFocusListener);
-        mainView.getTA_keyWords_infos_tab4().addFocusListener(textAreaFocusListener);
-        mainView.getTA_pupilName_infos_tab4().addFocusListener(textAreaFocusListener);
-        mainView.getTA_theme_infos_tab4().addFocusListener(textAreaFocusListener);
+        mainView.getTF_bookTitle_infos_tab4().addFocusListener(infoTextAreaFocusListener);
+        mainView.getTF_author_infos_tab4().addFocusListener(infoTextAreaFocusListener);
+        mainView.getTA_keyWords_infos_tab4().addFocusListener(infoTextAreaFocusListener);
+        mainView.getTF_pupilName_infos_tab4().addFocusListener(infoTextAreaFocusListener);
+        mainView.getTF_theme_infos_tab4().addFocusListener(infoTextAreaFocusListener);
         
         mainView.getB_webSite().addMouseListener(mainMenuButtonsListener);
         mainView.getB_settings().addMouseListener(mainMenuButtonsListener);
@@ -407,6 +493,7 @@ public class MainControler {
         mainView.getLi_pupilList_tab3().addListSelectionListener(pupilTab3SelectionListener);
         mainView.getLi_bookList_tab4().addListSelectionListener(booksTab4SelectionListener);
         mainView.getLi_pupilList_tab1().addListSelectionListener(pupilTab1SelectionListener);
+        mainView.getLi_bookList_tab3().addListSelectionListener(bookTab3ListSelectionListener);
         
         mainView.getB_validate_search_tab3().addMouseListener(defaultButtonListener);
         mainView.getB_new_managePupil_tab3().addMouseListener(defaultButtonListener);
@@ -511,7 +598,7 @@ public class MainControler {
             formTab3.fillFields();
             mainView.getB_delete_managePupil_tab3().setEnabled(true);
         } catch (SQLException | UnfoundException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -519,7 +606,7 @@ public class MainControler {
         try {
             formTab4.fillFields();
         } catch (SQLException | UnfoundException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -579,7 +666,7 @@ public class MainControler {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -603,7 +690,7 @@ public class MainControler {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -617,7 +704,7 @@ public class MainControler {
             formTab1.setBook(book);
         } catch (SQLException ex) {
             mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnfoundException ex) {
             mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre non emprunté.");
         }
@@ -633,7 +720,7 @@ public class MainControler {
             mainView.getTF_barCode_tab2().setText("");
         } catch (SQLException ex) {
             mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnfoundException ex) {
             mainView.showErrorMessage("Le code barre que vous avez entré ne correspond à aucun livre emprunté.");
         } finally {
@@ -649,7 +736,7 @@ public class MainControler {
             mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
         } catch (SQLException ex) {
             mainView.showErrorMessage("L'opération a échoué! Veuillez réessayer.");
-            Logger.getLogger(MainControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnfoundException ex) {
             mainView.showErrorMessage("L'élève entré est introuvable.");
         }
@@ -666,7 +753,7 @@ public class MainControler {
     }
     
     private void toggleScrollPane(Object obj) {
-        JScrollPane scrollPane = (JScrollPane) ((JTextArea) obj).getParent().getParent();
+        JScrollPane scrollPane = (JScrollPane) ((JTextComponent) obj).getParent().getParent();
         scrollPane.setBorder(scrollPane.getBorder()==null? BorderFactory.createLineBorder(scrollPane.getForeground()):null);
     }
 

@@ -73,43 +73,7 @@ public class Eleve {
         
         return list;
     }
-    
-    public static ArrayList<Eleve> getAllFromName(String name) throws SQLException {
-        ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE nom LIKE ?";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query))
-        {
-            statement.setString(1, name.toUpperCase() + "%");
-            try (ResultSet result = statement.executeQuery())
-            {
-                while (result.next())
-                    list.add(new Eleve(result.getInt("id"),
-                            result.getString("nom"),
-                            result.getString("prenom")));
-            }
-        }
-        
-        return list;
-    }
-    
-    public static ArrayList<Eleve> getAllFromSurname(String surname) throws SQLException {
-        ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE prenom LIKE ?";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query))
-        {
-            statement.setString(1, surname.toLowerCase() + "%");
-            try (ResultSet result = statement.executeQuery())
-            {
-                while (result.next())
-                    list.add(new Eleve(result.getInt("id"),
-                            result.getString("nom"),
-                            result.getString("prenom")));
-            }
-        }
-        
-        return list;
-    }
-    
+
     public static void clearTable() throws SQLException {
         String query = "DELETE FROM eleves";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {

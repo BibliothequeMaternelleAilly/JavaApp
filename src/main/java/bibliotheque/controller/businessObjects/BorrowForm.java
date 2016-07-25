@@ -34,24 +34,10 @@ public class BorrowForm {
     public void updateList() {
         DefaultListModel<String> model = new DefaultListModel();
         String name = nameTextField.getText(), surname = surnameTextField.getText();
-        if (name!=null && surname!=null && !name.equals("NOM") && !surname.equals("Prénom")) {
-            try {
-                pupilsList = Eleve.getAllFromFullName(nameTextField.getText(), surnameTextField.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (name!=null && !name.equals("NOM")) {
-            try {
-                pupilsList = Eleve.getAllFromName(nameTextField.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (surname!=null && !surname.equals("Prénom")) {
-            try {
-                pupilsList = Eleve.getAllFromSurname(surnameTextField.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            pupilsList = Eleve.getAllFromFullName(name.equals("Nom")? "":name, surname.equals("Prénom")? "":surname);
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         for (Eleve pupil : pupilsList)
@@ -71,7 +57,7 @@ public class BorrowForm {
         for (Eleve pupil : pupilsList)
             model.addElement(pupil.toString());
         this.pupilsJList.setModel(model);
-        nameTextField.setText("NOM");
+        nameTextField.setText("Nom");
         surnameTextField.setText("Prénom");
     }
     
