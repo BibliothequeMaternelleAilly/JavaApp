@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
@@ -37,7 +38,7 @@ public class SearchResult extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         setVisible(true);
-        jPanel1.setVisible(true);
+        mainPanel.setVisible(true);
     }
 
     /**
@@ -49,11 +50,13 @@ public class SearchResult extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        SP_pupilList_tab3 = new javax.swing.JScrollPane();
-        Li_pupilList_tab3 = new javax.swing.JList<>();
+        mainPanel = new javax.swing.JPanel();
+        SP_searchResults = new javax.swing.JScrollPane();
+        Li_searchResults = new javax.swing.JList<>();
         L_title = new javax.swing.JLabel();
-        B_validate_tab2 = new javax.swing.JButton();
+        buttons = new javax.swing.JPanel();
+        B_validate = new javax.swing.JButton();
+        B_cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -62,51 +65,80 @@ public class SearchResult extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.2)));
 
-        jPanel1.setBackground(model.getForeground());
-        jPanel1.setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.4), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.4)));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        mainPanel.setBackground(model.getForeground());
+        mainPanel.setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.4), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.4)));
+        mainPanel.setLayout(new java.awt.BorderLayout());
 
-        SP_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(model.getBackground()));
-        SP_pupilList_tab3.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        SP_pupilList_tab3.setOpaque(false);
+        SP_searchResults.setBorder(javax.swing.BorderFactory.createLineBorder(model.getBackground()));
+        SP_searchResults.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        SP_searchResults.setOpaque(false);
 
-        Li_pupilList_tab3.setBackground(model.getBackground());
-        Li_pupilList_tab3.setBorder(model.getBorder());
-        Li_pupilList_tab3.setCellRenderer(model.getCellRenderer());
-        SP_pupilList_tab3.setViewportView(Li_pupilList_tab3);
+        Li_searchResults.setBackground(model.getBackground());
+        Li_searchResults.setBorder(model.getBorder());
+        Li_searchResults.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        Li_searchResults.setCellRenderer(model.getCellRenderer());
+        SP_searchResults.setViewportView(Li_searchResults);
 
-        jPanel1.add(SP_pupilList_tab3, java.awt.BorderLayout.CENTER);
+        mainPanel.add(SP_searchResults, java.awt.BorderLayout.CENTER);
 
-        L_title.setFont(littleBird.deriveFont((float) Math.round(jPanel1.getPreferredSize().height*0.1)));
+        L_title.setFont(littleBird.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.1)));
         L_title.setForeground(new java.awt.Color(253, 250, 206));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Résultat de la recherche");
-        jPanel1.add(L_title, java.awt.BorderLayout.NORTH);
+        mainPanel.add(L_title, java.awt.BorderLayout.NORTH);
 
-        B_validate_tab2.setFont(glyphicons.deriveFont((float) Math.round(jPanel1.getPreferredSize().height*0.13)));
-        B_validate_tab2.setForeground(new java.awt.Color(123, 178, 40));
-        B_validate_tab2.setText("\uE084");
-        B_validate_tab2.setToolTipText("Valider");
-        B_validate_tab2.setBorderPainted(false);
-        B_validate_tab2.setContentAreaFilled(false);
-        B_validate_tab2.setEnabled(false);
-        B_validate_tab2.setFocusPainted(false);
-        jPanel1.add(B_validate_tab2, java.awt.BorderLayout.PAGE_END);
+        buttons.setOpaque(false);
+        buttons.setLayout(new java.awt.GridLayout());
 
-        jPanel1.setVisible(false);
+        B_validate.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.13)));
+        B_validate.setForeground(new java.awt.Color(123, 178, 40));
+        B_validate.setText("\uE084");
+        B_validate.setToolTipText("Valider");
+        B_validate.setBorderPainted(false);
+        B_validate.setContentAreaFilled(false);
+        B_validate.setEnabled(false);
+        B_validate.setFocusPainted(false);
+        buttons.add(B_validate);
 
-        getContentPane().add(jPanel1);
+        B_cancel.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.13)));
+        B_cancel.setForeground(new java.awt.Color(227, 47, 46));
+        B_cancel.setText("\uE083");
+        B_cancel.setToolTipText("Annuler");
+        B_cancel.setBorderPainted(false);
+        B_cancel.setContentAreaFilled(false);
+        B_cancel.setFocusPainted(false);
+        buttons.add(B_cancel);
+
+        mainPanel.add(buttons, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.setVisible(false);
+
+        getContentPane().add(mainPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getB_validate() {
+        return B_validate;
+    }
+
+    public JList<String> getLi_searchResults() {
+        return Li_searchResults;
+    }
+
+    public JButton getB_cancel() {
+        return B_cancel;
+    }
+
     
     private Font littleBird, glyphicons;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton B_validate_tab2;
+    private javax.swing.JButton B_cancel;
+    private javax.swing.JButton B_validate;
     private javax.swing.JLabel L_title;
-    private javax.swing.JList<String> Li_pupilList_tab3;
-    private javax.swing.JScrollPane SP_pupilList_tab3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JList<String> Li_searchResults;
+    private javax.swing.JScrollPane SP_searchResults;
+    private javax.swing.JPanel buttons;
+    private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

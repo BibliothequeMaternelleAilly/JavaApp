@@ -16,12 +16,11 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 import java.awt.Color;
-import javax.swing.Box;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -85,19 +84,21 @@ public class MainFrame extends javax.swing.JFrame {
         scanFrame_tab1 = new javax.swing.JPanel();
         L_scanFrame_title_tab1 = new javax.swing.JLabel();
         controls_scanFrame_tab1 = new javax.swing.JPanel();
-        FTF_barCode_tab1 = new javax.swing.JFormattedTextField();
+        TF_barCode_tab1 = new javax.swing.JTextField();
         B_validate_scanFrame_tab1 = new javax.swing.JButton();
         fields_tab1 = new javax.swing.JPanel();
         fields_tab1_top = new javax.swing.JPanel();
         L_bookTitle_fields_tab1 = new javax.swing.JLabel();
         L_name_fields_tab1 = new javax.swing.JLabel();
-        nameFields_fields_tab1 = new javax.swing.JPanel();
+        pupilsFields_fields_tab1 = new javax.swing.JPanel();
         SP_pupilList_tab1 = new javax.swing.JScrollPane();
         Li_pupilList_tab1 = new javax.swing.JList<>();
+        nameFields_pupilsFields_tab1 = new javax.swing.JPanel();
         TF_name_nameFields_tab1 = new javax.swing.JTextField();
         TF_surname_nameFields_tab1 = new javax.swing.JTextField();
         fields_tab1_btm = new javax.swing.JPanel();
         B_validate_fields_tab1 = new javax.swing.JButton();
+        B_cancel_fields_tab1 = new javax.swing.JButton();
         tab2 = new javax.swing.JPanel();
         L_title_tab2 = new javax.swing.JLabel();
         scan_tab2 = new javax.swing.JPanel();
@@ -105,7 +106,7 @@ public class MainFrame extends javax.swing.JFrame {
         scanFrame_tab2 = new javax.swing.JPanel();
         L_title_scanFrame_tab2 = new javax.swing.JLabel();
         scanFrame_controls_tab2 = new javax.swing.JPanel();
-        FTF_barCode_tab2 = new javax.swing.JFormattedTextField();
+        TF_barCode_tab2 = new javax.swing.JTextField();
         B_validate_tab2 = new javax.swing.JButton();
         tab3 = new javax.swing.JPanel();
         L_title_tab3 = new javax.swing.JLabel();
@@ -114,18 +115,20 @@ public class MainFrame extends javax.swing.JFrame {
         Li_pupilList_tab3 = new javax.swing.JList<>();
         fields_tab3 = new javax.swing.JPanel();
         search_fields_tab3 = new javax.swing.JPanel();
+        SP_paging_search_fields_tab3 = new javax.swing.JScrollPane();
+        paging_search_fields_tab3 = new javax.swing.JPanel();
         TF_name_search_tab3 = new javax.swing.JTextField();
         TF_surname_search_tab3 = new javax.swing.JTextField();
         B_validate_search_tab3 = new javax.swing.JButton();
-        infos_fields_tab3 = new javax.swing.JPanel();
+        info_fields_tab3 = new javax.swing.JPanel();
         L_name_infos_tab3 = new javax.swing.JLabel();
-        F_paging1_infos_tab3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         L_surname_infos_tab3 = new javax.swing.JLabel();
-        F_paging2_infos_tab3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        books_infos_fields_tab3 = new javax.swing.JPanel();
         SP_bookList_tab3 = new javax.swing.JScrollPane();
         Li_bookList_tab3 = new javax.swing.JList<>();
         P_return_tab3 = new javax.swing.JPanel();
         B_return_infos_tab3 = new javax.swing.JButton();
+        B_returnAll_infos_tab3 = new javax.swing.JButton();
         managePupil_tab3 = new javax.swing.JPanel();
         B_new_managePupil_tab3 = new javax.swing.JButton();
         B_delete_managePupil_tab3 = new javax.swing.JButton();
@@ -133,23 +136,30 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab4 = new javax.swing.JLabel();
         controls_tab4 = new javax.swing.JSplitPane();
         SP_pupilList_tab4 = new javax.swing.JScrollPane();
-        Li_pupilList_tab4 = new javax.swing.JList<>();
+        Li_bookList_tab4 = new javax.swing.JList<>();
         fields_tab4 = new javax.swing.JPanel();
         search_fields_tab4 = new javax.swing.JPanel();
+        SP_paging_search_fields_tab4 = new javax.swing.JScrollPane();
         paging_search_fields_tab4 = new javax.swing.JPanel();
+        pagingTF_search_fields_tab4 = new javax.swing.JPanel();
         TF_bookTitle_search_tab4 = new javax.swing.JTextField();
-        TF_theme_search_tab5 = new javax.swing.JTextField();
+        TF_theme_search_tab4 = new javax.swing.JTextField();
         TF_author_search_tab4 = new javax.swing.JTextField();
-        TF_keyWords_search_tab6 = new javax.swing.JTextField();
+        TF_keyWords_search_tab4 = new javax.swing.JTextField();
         B_validate_search_tab4 = new javax.swing.JButton();
         infos_fields_tab4 = new javax.swing.JPanel();
-        L_bookTitle_infos_tab4 = new javax.swing.JLabel();
-        L_theme_infos_tab4 = new javax.swing.JLabel();
-        L_author_infos_tab4 = new javax.swing.JLabel();
-        L_keyWords_infos_tab4 = new javax.swing.JLabel();
-        L_pupilName_infos_tab4 = new javax.swing.JLabel();
+        SP_bookTitle_infos_tab4 = new javax.swing.JScrollPane();
+        TF_bookTitle_infos_tab4 = new javax.swing.JTextField();
+        SP_author_infos_tab4 = new javax.swing.JScrollPane();
+        TF_author_infos_tab4 = new javax.swing.JTextField();
+        SP_pupil_infos_tab4 = new javax.swing.JScrollPane();
+        TF_pupilName_infos_tab4 = new javax.swing.JTextField();
         P_return_tab4 = new javax.swing.JPanel();
         B_return_infos_tab4 = new javax.swing.JButton();
+        SP_theme_infos_tab4 = new javax.swing.JScrollPane();
+        TF_theme_infos_tab4 = new javax.swing.JTextField();
+        SP_keyWords_infos_tab4 = new javax.swing.JScrollPane();
+        TA_keyWords_infos_tab4 = new javax.swing.JTextArea();
         manageBook_tab4 = new javax.swing.JPanel();
         B_new_manageBook_tab4 = new javax.swing.JButton();
         B_modify_manageBook_tab4 = new javax.swing.JButton();
@@ -183,7 +193,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_title.setFont(littleBird.deriveFont((float) Math.round(workingArea.getPreferredSize().height*0.1)));
         L_title.setForeground(new java.awt.Color(253, 250, 206));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title.setText("Bibliotheque de l'école maternelle");
+        L_title.setText("Bibliothèque de l'école maternelle");
         L_title.setMaximumSize(new java.awt.Dimension(1243, 17));
         L_title.setMinimumSize(new java.awt.Dimension(1243, 17));
         workingArea.add(L_title, java.awt.BorderLayout.NORTH);
@@ -215,7 +225,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card1.setSelectedColor(new java.awt.Color(254, 172, 59));
         CTB_card1.setTabIndex("card1");
         CTB_card1.setText("Emprunter");
-        CTB_card1.setUnselectedColor(new Color(254,172,59,70));
+        CTB_card1.setUnselectedColor(new Color(254,172,59,80));
         toggleButtons.add(CTB_card1);
 
         CTB_card2.setBackground(new Color(0,0,0,0)
@@ -228,7 +238,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card2.setSelectedColor(new java.awt.Color(255, 97, 54));
         CTB_card2.setTabIndex("card2");
         CTB_card2.setText("Rendre");
-        CTB_card2.setUnselectedColor(new Color(255,97,54,70));
+        CTB_card2.setUnselectedColor(new Color(255,97,54,80));
         toggleButtons.add(CTB_card2);
 
         CTB_card3.setBackground(new Color(0,0,0,0)
@@ -240,8 +250,8 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card3.setOpaque(false);
         CTB_card3.setSelectedColor(new java.awt.Color(253, 59, 99));
         CTB_card3.setTabIndex("card3");
-        CTB_card3.setText("Éleves");
-        CTB_card3.setUnselectedColor(new Color(253,59,99,70));
+        CTB_card3.setText("Élèves");
+        CTB_card3.setUnselectedColor(new Color(253,59,99,80));
         toggleButtons.add(CTB_card3);
 
         CTB_card4.setBackground(new Color(0,0,0,0)
@@ -254,7 +264,7 @@ public class MainFrame extends javax.swing.JFrame {
         CTB_card4.setSelectedColor(new java.awt.Color(218, 94, 238));
         CTB_card4.setTabIndex("card4");
         CTB_card4.setText("Livres");
-        CTB_card4.setUnselectedColor(new Color(218,94,238,70));
+        CTB_card4.setUnselectedColor(new Color(218,94,238,80));
         toggleButtons.add(CTB_card4);
 
         controls.add(toggleButtons, java.awt.BorderLayout.LINE_START);
@@ -392,20 +402,17 @@ public class MainFrame extends javax.swing.JFrame {
         controls_scanFrame_tab1.setOpaque(false);
         controls_scanFrame_tab1.setPreferredSize(new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4)));
 
-        FTF_barCode_tab1.setBackground(new java.awt.Color(249, 176, 74));
-        FTF_barCode_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab1.getForeground()));
-        FTF_barCode_tab1.setColumns(13);
-        FTF_barCode_tab1.setForeground(new java.awt.Color(254, 247, 189));
-        try {
-            FTF_barCode_tab1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        FTF_barCode_tab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        FTF_barCode_tab1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
-        FTF_barCode_tab1.setMargin(new java.awt.Insets(0, 0, 500, 0));
-        controls_scanFrame_tab1.add(FTF_barCode_tab1);
+        TF_barCode_tab1.setEditable(false);
+        TF_barCode_tab1.setBackground(new java.awt.Color(255, 241, 200));
+        TF_barCode_tab1.setColumns(13);
+        TF_barCode_tab1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TF_barCode_tab1.setForeground(new java.awt.Color(249, 176, 74));
+        TF_barCode_tab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TF_barCode_tab1.setToolTipText("");
+        TF_barCode_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab1.getForeground()));
+        controls_scanFrame_tab1.add(TF_barCode_tab1);
 
+        B_validate_scanFrame_tab1.setBackground(new java.awt.Color(123, 178, 40));
         B_validate_scanFrame_tab1.setFont(glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13)));
         B_validate_scanFrame_tab1.setForeground(new java.awt.Color(123, 178, 40));
         B_validate_scanFrame_tab1.setText("\uE084");
@@ -443,9 +450,10 @@ public class MainFrame extends javax.swing.JFrame {
         L_name_fields_tab1.setMaximumSize(new java.awt.Dimension(32767, 17));
         fields_tab1_top.add(L_name_fields_tab1);
 
-        nameFields_fields_tab1.setAutoscrolls(true);
-        nameFields_fields_tab1.setOpaque(false);
-        nameFields_fields_tab1.setPreferredSize(new java.awt.Dimension(0, 0));
+        pupilsFields_fields_tab1.setAutoscrolls(true);
+        pupilsFields_fields_tab1.setOpaque(false);
+        pupilsFields_fields_tab1.setPreferredSize(new java.awt.Dimension(0, 0));
+        pupilsFields_fields_tab1.setLayout(new javax.swing.BoxLayout(pupilsFields_fields_tab1, javax.swing.BoxLayout.LINE_AXIS));
 
         SP_pupilList_tab1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13)), "Liste des élèves", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.9)), fields_tab1.getForeground()));
         SP_pupilList_tab1.setForeground(fields_tab1.getForeground());
@@ -459,31 +467,35 @@ public class MainFrame extends javax.swing.JFrame {
         Li_pupilList_tab1.setVisibleRowCount(4);
         SP_pupilList_tab1.setViewportView(Li_pupilList_tab1);
 
-        nameFields_fields_tab1.add(SP_pupilList_tab1);
+        pupilsFields_fields_tab1.add(SP_pupilList_tab1);
+
+        nameFields_pupilsFields_tab1.setOpaque(false);
 
         TF_name_nameFields_tab1.setBackground(new java.awt.Color(249, 176, 74));
         TF_name_nameFields_tab1.setColumns(15);
         TF_name_nameFields_tab1.setFont(L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7)));
         TF_name_nameFields_tab1.setForeground(fields_tab1.getForeground());
-        TF_name_nameFields_tab1.setText("NOM");
+        TF_name_nameFields_tab1.setText("Nom");
+        TF_name_nameFields_tab1.setToolTipText("Nom");
         TF_name_nameFields_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(fields_tab1.getForeground()));
-        TF_name_nameFields_tab1.setCaretColor(new java.awt.Color(49, 24, 13));
-        TF_name_nameFields_tab1.setCaretPosition(0);
+        TF_name_nameFields_tab1.setCaretColor(new java.awt.Color(249, 176, 74));
         TF_name_nameFields_tab1.setOpaque(false);
-        nameFields_fields_tab1.add(TF_name_nameFields_tab1);
+        nameFields_pupilsFields_tab1.add(TF_name_nameFields_tab1);
 
         TF_surname_nameFields_tab1.setBackground(new java.awt.Color(249, 176, 74));
         TF_surname_nameFields_tab1.setColumns(15);
         TF_surname_nameFields_tab1.setFont(L_name_fields_tab1.getFont().deriveFont((float) Math.round(L_name_fields_tab1.getFont().getSize()*0.7)));
         TF_surname_nameFields_tab1.setForeground(fields_tab1.getForeground());
         TF_surname_nameFields_tab1.setText("Prénom");
+        TF_surname_nameFields_tab1.setToolTipText("Prénom");
         TF_surname_nameFields_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(fields_tab1.getForeground()));
-        TF_surname_nameFields_tab1.setCaretColor(new java.awt.Color(49, 24, 13));
-        TF_surname_nameFields_tab1.setCaretPosition(0);
+        TF_surname_nameFields_tab1.setCaretColor(new java.awt.Color(249, 176, 74));
         TF_surname_nameFields_tab1.setOpaque(false);
-        nameFields_fields_tab1.add(TF_surname_nameFields_tab1);
+        nameFields_pupilsFields_tab1.add(TF_surname_nameFields_tab1);
 
-        fields_tab1_top.add(nameFields_fields_tab1);
+        pupilsFields_fields_tab1.add(nameFields_pupilsFields_tab1);
+
+        fields_tab1_top.add(pupilsFields_fields_tab1);
 
         fields_tab1.add(fields_tab1_top);
 
@@ -493,10 +505,21 @@ public class MainFrame extends javax.swing.JFrame {
         B_validate_fields_tab1.setFont(L_name_fields_tab1.getFont());
         B_validate_fields_tab1.setForeground(fields_tab1.getForeground());
         B_validate_fields_tab1.setText("   Emprunter   ");
+        B_validate_fields_tab1.setToolTipText("");
         B_validate_fields_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(90, 150, 0)));
         B_validate_fields_tab1.setContentAreaFilled(false);
+        B_validate_fields_tab1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         B_validate_fields_tab1.setFocusPainted(false);
         fields_tab1_btm.add(B_validate_fields_tab1);
+
+        B_cancel_fields_tab1.setBackground(new java.awt.Color(227, 47, 46));
+        B_cancel_fields_tab1.setFont(L_name_fields_tab1.getFont());
+        B_cancel_fields_tab1.setForeground(fields_tab1.getForeground());
+        B_cancel_fields_tab1.setText("   Annuler   ");
+        B_cancel_fields_tab1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 47, 46)));
+        B_cancel_fields_tab1.setContentAreaFilled(false);
+        B_cancel_fields_tab1.setFocusPainted(false);
+        fields_tab1_btm.add(B_cancel_fields_tab1);
 
         fields_tab1.add(fields_tab1_btm);
 
@@ -536,18 +559,15 @@ public class MainFrame extends javax.swing.JFrame {
         scanFrame_controls_tab2.setOpaque(false);
         scanFrame_controls_tab2.setPreferredSize(new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4)));
 
-        FTF_barCode_tab2.setBackground(new java.awt.Color(253, 105, 55));
-        FTF_barCode_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab2.getForeground()));
-        FTF_barCode_tab2.setColumns(13);
-        FTF_barCode_tab2.setForeground(new java.awt.Color(254, 226, 189));
-        try {
-            FTF_barCode_tab2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        FTF_barCode_tab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        FTF_barCode_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
-        scanFrame_controls_tab2.add(FTF_barCode_tab2);
+        TF_barCode_tab2.setEditable(false);
+        TF_barCode_tab2.setBackground(new java.awt.Color(254, 213, 199));
+        TF_barCode_tab2.setColumns(13);
+        TF_barCode_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TF_barCode_tab2.setForeground(new java.awt.Color(253, 105, 55));
+        TF_barCode_tab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TF_barCode_tab2.setToolTipText("");
+        TF_barCode_tab2.setBorder(javax.swing.BorderFactory.createLineBorder(scan_tab2.getForeground()));
+        scanFrame_controls_tab2.add(TF_barCode_tab2);
 
         B_validate_tab2.setFont(glyphicons.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.13)));
         B_validate_tab2.setForeground(new java.awt.Color(123, 178, 40));
@@ -574,122 +594,155 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_tab3.setForeground(new java.awt.Color(255, 229, 235));
         L_title_tab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title_tab3.setText("Gestion des élèves");
+        L_title_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         tab3.add(L_title_tab3, java.awt.BorderLayout.NORTH);
 
         controls_tab3.setBackground(tab3.getBackground());
-        controls_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        controls_tab3.setBorder(null);
+        controls_tab3.setDividerSize(8);
         controls_tab3.setForeground(new java.awt.Color(253, 206, 216));
         controls_tab3.setContinuousLayout(true);
 
-        SP_pupilList_tab3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), "Élèves ayant emprunté", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(253, 206, 216)));
+        SP_pupilList_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5), javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)), "Élèves ayant emprunté", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(253, 206, 216))));
         SP_pupilList_tab3.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         SP_pupilList_tab3.setOpaque(false);
 
-        Li_pupilList_tab3.setBackground(new java.awt.Color(254, 185, 200));
-        Li_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138)));
+        Li_pupilList_tab3.setBackground(new java.awt.Color(253, 157, 177));
+        Li_pupilList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138), 3));
         Li_pupilList_tab3.setForeground(new java.awt.Color(253, 59, 99));
         CustomListCellRenderer cellRenderer_tab3 = new CustomListCellRenderer();
-        cellRenderer_tab3.setBackground(new Color(253,157,177));
+        Color tabColor = tab3.getBackground();
+        cellRenderer_tab3.setBackground(new Color(tabColor.getRed(), tabColor.getGreen(), tabColor.getBlue(), 47));
         cellRenderer_tab3.setForeground(Color.WHITE);
-        cellRenderer_tab3.setSelectionForeground(tab3.getBackground());
+        cellRenderer_tab3.setSelectionForeground(tabColor);
         cellRenderer_tab3.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         Li_pupilList_tab3.setCellRenderer(cellRenderer_tab3);
         SP_pupilList_tab3.setViewportView(Li_pupilList_tab3);
 
         controls_tab3.setLeftComponent(SP_pupilList_tab3);
 
+        fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         fields_tab3.setOpaque(false);
-        fields_tab3.setLayout(new javax.swing.BoxLayout(fields_tab3, javax.swing.BoxLayout.PAGE_AXIS));
+        fields_tab3.setLayout(new java.awt.BorderLayout());
 
-        search_fields_tab3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)), controls_tab3.getForeground()));
+        search_fields_tab3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(0, 1, 5, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), controls_tab3.getForeground()));
         search_fields_tab3.setOpaque(false);
+        search_fields_tab3.setLayout(new java.awt.BorderLayout());
 
-        TF_name_search_tab3.setBackground(controls_tab3.getForeground());
+        SP_paging_search_fields_tab3.setBorder(null);
+        SP_paging_search_fields_tab3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_paging_search_fields_tab3.setViewportBorder(null);
+
+        paging_search_fields_tab3.setBackground(tab3.getBackground());
+        paging_search_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 1));
+        paging_search_fields_tab3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        TF_name_search_tab3.setBackground(controls_tab3.getBackground());
         TF_name_search_tab3.setColumns(15);
         TF_name_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_name_search_tab3.setForeground(controls_tab3.getForeground());
-        TF_name_search_tab3.setText("NOM");
+        TF_name_search_tab3.setText("Nom");
+        TF_name_search_tab3.setToolTipText("Nom");
         TF_name_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        TF_name_search_tab3.setCaretColor(controls_tab3.getForeground());
-        TF_name_search_tab3.setOpaque(false);
-        search_fields_tab3.add(TF_name_search_tab3);
+        TF_name_search_tab3.setCaretColor(controls_tab3.getBackground());
+        paging_search_fields_tab3.add(TF_name_search_tab3);
 
-        TF_surname_search_tab3.setBackground(controls_tab3.getForeground());
+        TF_surname_search_tab3.setBackground(controls_tab3.getBackground());
         TF_surname_search_tab3.setColumns(15);
         TF_surname_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_surname_search_tab3.setForeground(controls_tab3.getForeground());
         TF_surname_search_tab3.setText("Prénom");
+        TF_surname_search_tab3.setToolTipText("Prénom");
         TF_surname_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab3.getForeground()));
-        TF_surname_search_tab3.setCaretColor(controls_tab3.getForeground());
-        TF_surname_search_tab3.setOpaque(false);
-        search_fields_tab3.add(TF_surname_search_tab3);
+        TF_surname_search_tab3.setCaretColor(controls_tab3.getBackground());
+        paging_search_fields_tab3.add(TF_surname_search_tab3);
 
-        B_validate_search_tab3.setBackground(controls_tab3.getForeground());
+        B_validate_search_tab3.setBackground(tab3.getBackground());
         B_validate_search_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_validate_search_tab3.setForeground(controls_tab3.getForeground());
         B_validate_search_tab3.setText(" Rechercher ");
-        B_validate_search_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        B_validate_search_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(tab3.getBackground(), 3));
+        B_validate_search_tab3.setBorderPainted(false);
         B_validate_search_tab3.setContentAreaFilled(false);
         B_validate_search_tab3.setFocusPainted(false);
-        search_fields_tab3.add(B_validate_search_tab3);
+        paging_search_fields_tab3.add(B_validate_search_tab3);
 
-        fields_tab3.add(search_fields_tab3);
+        SP_paging_search_fields_tab3.setViewportView(paging_search_fields_tab3);
 
-        infos_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
-        infos_fields_tab3.setOpaque(false);
-        infos_fields_tab3.setLayout(new java.awt.GridLayout(4, 2));
+        search_fields_tab3.add(SP_paging_search_fields_tab3, java.awt.BorderLayout.CENTER);
+
+        fields_tab3.add(search_fields_tab3, java.awt.BorderLayout.NORTH);
+
+        info_fields_tab3.setOpaque(false);
+        info_fields_tab3.setLayout(new java.awt.GridLayout(3, 0));
 
         L_name_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
         L_name_infos_tab3.setForeground(controls_tab3.getForeground());
-        L_name_infos_tab3.setText("NOM");
-        infos_fields_tab3.add(L_name_infos_tab3);
-        infos_fields_tab3.add(F_paging1_infos_tab3);
+        L_name_infos_tab3.setText("Nom");
+        info_fields_tab3.add(L_name_infos_tab3);
 
         L_surname_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
         L_surname_infos_tab3.setForeground(controls_tab3.getForeground());
         L_surname_infos_tab3.setText("Prénom");
-        infos_fields_tab3.add(L_surname_infos_tab3);
-        infos_fields_tab3.add(F_paging2_infos_tab3);
+        info_fields_tab3.add(L_surname_infos_tab3);
+
+        books_infos_fields_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 5, 1));
+        books_infos_fields_tab3.setOpaque(false);
+        books_infos_fields_tab3.setLayout(new javax.swing.BoxLayout(books_infos_fields_tab3, javax.swing.BoxLayout.LINE_AXIS));
 
         SP_bookList_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         SP_bookList_tab3.setViewportBorder(null);
         SP_bookList_tab3.setOpaque(false);
 
-        Li_bookList_tab3.setBackground(new java.awt.Color(254, 185, 200));
+        Li_bookList_tab3.setBackground(new java.awt.Color(253, 157, 177));
         Li_bookList_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 108, 138), 2));
         Li_bookList_tab3.setCellRenderer(cellRenderer_tab3);
         SP_bookList_tab3.setViewportView(Li_bookList_tab3);
 
-        infos_fields_tab3.add(SP_bookList_tab3);
+        books_infos_fields_tab3.add(SP_bookList_tab3);
 
         P_return_tab3.setOpaque(false);
-        P_return_tab3.setLayout(new java.awt.BorderLayout());
+        P_return_tab3.setLayout(new java.awt.GridLayout(1, 0));
 
         B_return_infos_tab3.setBackground(new java.awt.Color(123, 178, 40));
         B_return_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_return_infos_tab3.setForeground(controls_tab3.getForeground());
-        B_return_infos_tab3.setText("  Rendu  ");
+        B_return_infos_tab3.setText("  Rendre  ");
         B_return_infos_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
         B_return_infos_tab3.setContentAreaFilled(false);
+        B_return_infos_tab3.setEnabled(false);
         B_return_infos_tab3.setFocusPainted(false);
-        P_return_tab3.add(B_return_infos_tab3, java.awt.BorderLayout.LINE_START);
+        P_return_tab3.add(B_return_infos_tab3);
 
-        infos_fields_tab3.add(P_return_tab3);
+        B_returnAll_infos_tab3.setBackground(new java.awt.Color(123, 178, 40));
+        B_returnAll_infos_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
+        B_returnAll_infos_tab3.setForeground(controls_tab3.getForeground());
+        B_returnAll_infos_tab3.setText("  Rendre tous  ");
+        B_returnAll_infos_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
+        B_returnAll_infos_tab3.setContentAreaFilled(false);
+        B_returnAll_infos_tab3.setEnabled(false);
+        B_returnAll_infos_tab3.setFocusPainted(false);
+        P_return_tab3.add(B_returnAll_infos_tab3);
 
-        fields_tab3.add(infos_fields_tab3);
+        books_infos_fields_tab3.add(P_return_tab3);
+
+        info_fields_tab3.add(books_infos_fields_tab3);
+
+        fields_tab3.add(info_fields_tab3, java.awt.BorderLayout.CENTER);
 
         controls_tab3.setRightComponent(fields_tab3);
 
         tab3.add(controls_tab3, java.awt.BorderLayout.CENTER);
 
-        managePupil_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 1));
+        managePupil_tab3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         managePupil_tab3.setOpaque(false);
 
-        B_new_managePupil_tab3.setBackground(controls_tab3.getForeground());
+        B_new_managePupil_tab3.setBackground(tab3.getBackground());
         B_new_managePupil_tab3.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_new_managePupil_tab3.setForeground(controls_tab3.getForeground());
         B_new_managePupil_tab3.setText(" Nouvel élève ");
-        B_new_managePupil_tab3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        B_new_managePupil_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(tab3.getBackground(), 3));
+        B_new_managePupil_tab3.setBorderPainted(false);
         B_new_managePupil_tab3.setContentAreaFilled(false);
         B_new_managePupil_tab3.setFocusPainted(false);
         managePupil_tab3.add(B_new_managePupil_tab3);
@@ -700,6 +753,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_delete_managePupil_tab3.setText(" Supprimer l'élève ");
         B_delete_managePupil_tab3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(227, 47, 46)));
         B_delete_managePupil_tab3.setContentAreaFilled(false);
+        B_delete_managePupil_tab3.setEnabled(false);
         B_delete_managePupil_tab3.setFocusPainted(false);
         managePupil_tab3.add(B_delete_managePupil_tab3);
 
@@ -708,131 +762,172 @@ public class MainFrame extends javax.swing.JFrame {
         tabGroups.add(tab3, "card3");
 
         tab4.setBackground(new java.awt.Color(218, 94, 238));
+        tab4.setForeground(new java.awt.Color(240, 158, 254));
         tab4.setLayout(new java.awt.BorderLayout());
 
         L_title_tab4.setFont(clearLine.deriveFont((float) Math.round(tabGroups.getPreferredSize().height *0.12)));
         L_title_tab4.setForeground(new java.awt.Color(251, 229, 255));
         L_title_tab4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title_tab4.setText("Gestion des livres");
+        L_title_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         tab4.add(L_title_tab4, java.awt.BorderLayout.NORTH);
 
         controls_tab4.setBackground(tab4.getBackground());
-        controls_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        controls_tab4.setBorder(null);
+        controls_tab4.setDividerSize(8);
         controls_tab4.setForeground(new java.awt.Color(246, 206, 253));
         controls_tab4.setContinuousLayout(true);
 
-        SP_pupilList_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), "Livres empruntés", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(246, 206, 253)));
+        SP_pupilList_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5), javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253)), "Livres empruntés", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), new java.awt.Color(246, 206, 253))));
         SP_pupilList_tab4.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         SP_pupilList_tab4.setOpaque(false);
 
-        Li_pupilList_tab4.setBackground(new java.awt.Color(244, 185, 254));
-        Li_pupilList_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 108, 254)));
-        Li_pupilList_tab4.setForeground(new java.awt.Color(218, 94, 238));
+        Li_bookList_tab4.setBackground(tab4.getForeground());
+        Li_bookList_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 108, 254), 3));
+        Li_bookList_tab4.setForeground(tab4.getForeground());
         CustomListCellRenderer cellRenderer_tab4 = new CustomListCellRenderer();
-        cellRenderer_tab4.setBackground(new Color(239,157,253));
+        tabColor = tab4.getBackground();
+        cellRenderer_tab4.setBackground(new Color(tabColor.getRed(), tabColor.getGreen(), tabColor.getBlue(), 40));
         cellRenderer_tab4.setForeground(Color.WHITE);
-        cellRenderer_tab4.setSelectionForeground(tab4.getBackground());
+        cellRenderer_tab4.setSelectionForeground(tabColor);
         cellRenderer_tab4.setDefaultFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        Li_pupilList_tab4.setCellRenderer(cellRenderer_tab4);
-        SP_pupilList_tab4.setViewportView(Li_pupilList_tab4);
+        Li_bookList_tab4.setCellRenderer(cellRenderer_tab4);
+        SP_pupilList_tab4.setViewportView(Li_bookList_tab4);
 
         controls_tab4.setLeftComponent(SP_pupilList_tab4);
 
+        fields_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         fields_tab4.setOpaque(false);
-        fields_tab4.setLayout(new javax.swing.BoxLayout(fields_tab4, javax.swing.BoxLayout.PAGE_AXIS));
+        fields_tab4.setLayout(new java.awt.BorderLayout());
 
-        search_fields_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un élève :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)), controls_tab4.getForeground()));
-        search_fields_tab4.setOpaque(false);
+        search_fields_tab4.setBackground(tab4.getBackground());
+        search_fields_tab4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Rechercher un livre :", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)), controls_tab4.getForeground()));
+        search_fields_tab4.setLayout(new java.awt.BorderLayout());
 
-        paging_search_fields_tab4.setOpaque(false);
-        paging_search_fields_tab4.setLayout(new java.awt.GridLayout(2, 0, 3, 3));
+        SP_paging_search_fields_tab4.setBorder(null);
+        SP_paging_search_fields_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_paging_search_fields_tab4.setViewportBorder(null);
 
-        TF_bookTitle_search_tab4.setBackground(controls_tab4.getForeground());
+        paging_search_fields_tab4.setBackground(tab4.getBackground());
+        paging_search_fields_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 15, 1));
+        paging_search_fields_tab4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        pagingTF_search_fields_tab4.setOpaque(false);
+        pagingTF_search_fields_tab4.setLayout(new java.awt.GridLayout(2, 0, 3, 3));
+
+        TF_bookTitle_search_tab4.setBackground(controls_tab4.getBackground());
         TF_bookTitle_search_tab4.setColumns(15);
         TF_bookTitle_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_bookTitle_search_tab4.setForeground(controls_tab4.getForeground());
         TF_bookTitle_search_tab4.setText("Titre");
+        TF_bookTitle_search_tab4.setToolTipText("Titre");
         TF_bookTitle_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_bookTitle_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_bookTitle_search_tab4.setOpaque(false);
-        paging_search_fields_tab4.add(TF_bookTitle_search_tab4);
+        TF_bookTitle_search_tab4.setCaretColor(controls_tab4.getBackground());
+        pagingTF_search_fields_tab4.add(TF_bookTitle_search_tab4);
 
-        TF_theme_search_tab5.setBackground(controls_tab4.getForeground());
-        TF_theme_search_tab5.setColumns(15);
-        TF_theme_search_tab5.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        TF_theme_search_tab5.setForeground(controls_tab4.getForeground());
-        TF_theme_search_tab5.setText("Thème");
-        TF_theme_search_tab5.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_theme_search_tab5.setCaretColor(controls_tab4.getForeground());
-        TF_theme_search_tab5.setOpaque(false);
-        paging_search_fields_tab4.add(TF_theme_search_tab5);
+        TF_theme_search_tab4.setBackground(controls_tab4.getBackground());
+        TF_theme_search_tab4.setColumns(15);
+        TF_theme_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        TF_theme_search_tab4.setForeground(controls_tab4.getForeground());
+        TF_theme_search_tab4.setText("Thème");
+        TF_theme_search_tab4.setToolTipText("Thème");
+        TF_theme_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
+        TF_theme_search_tab4.setCaretColor(controls_tab4.getBackground());
+        pagingTF_search_fields_tab4.add(TF_theme_search_tab4);
 
-        TF_author_search_tab4.setBackground(controls_tab4.getForeground());
+        TF_author_search_tab4.setBackground(controls_tab4.getBackground());
         TF_author_search_tab4.setColumns(15);
         TF_author_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
         TF_author_search_tab4.setForeground(controls_tab4.getForeground());
         TF_author_search_tab4.setText("Auteur");
+        TF_author_search_tab4.setToolTipText("Auteur");
         TF_author_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_author_search_tab4.setCaretColor(controls_tab4.getForeground());
-        TF_author_search_tab4.setOpaque(false);
-        paging_search_fields_tab4.add(TF_author_search_tab4);
+        TF_author_search_tab4.setCaretColor(controls_tab4.getBackground());
+        pagingTF_search_fields_tab4.add(TF_author_search_tab4);
 
-        TF_keyWords_search_tab6.setBackground(controls_tab4.getForeground());
-        TF_keyWords_search_tab6.setColumns(15);
-        TF_keyWords_search_tab6.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
-        TF_keyWords_search_tab6.setForeground(controls_tab4.getForeground());
-        TF_keyWords_search_tab6.setText("Mots clés");
-        TF_keyWords_search_tab6.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
-        TF_keyWords_search_tab6.setCaretColor(controls_tab4.getForeground());
-        TF_keyWords_search_tab6.setOpaque(false);
-        paging_search_fields_tab4.add(TF_keyWords_search_tab6);
+        TF_keyWords_search_tab4.setBackground(controls_tab4.getBackground());
+        TF_keyWords_search_tab4.setColumns(15);
+        TF_keyWords_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.03)));
+        TF_keyWords_search_tab4.setForeground(controls_tab4.getForeground());
+        TF_keyWords_search_tab4.setText("Mots clés");
+        TF_keyWords_search_tab4.setToolTipText("Mots clés");
+        TF_keyWords_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(controls_tab4.getForeground()));
+        TF_keyWords_search_tab4.setCaretColor(controls_tab4.getBackground());
+        pagingTF_search_fields_tab4.add(TF_keyWords_search_tab4);
 
-        search_fields_tab4.add(paging_search_fields_tab4);
+        paging_search_fields_tab4.add(pagingTF_search_fields_tab4);
 
-        B_validate_search_tab4.setBackground(controls_tab4.getForeground());
+        B_validate_search_tab4.setBackground(tab4.getBackground());
         B_validate_search_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_validate_search_tab4.setForeground(controls_tab4.getForeground());
         B_validate_search_tab4.setText(" Rechercher ");
-        B_validate_search_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        B_validate_search_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(tab4.getBackground(), 3));
+        B_validate_search_tab4.setBorderPainted(false);
         B_validate_search_tab4.setContentAreaFilled(false);
         B_validate_search_tab4.setFocusPainted(false);
-        search_fields_tab4.add(B_validate_search_tab4);
+        paging_search_fields_tab4.add(B_validate_search_tab4);
 
-        fields_tab4.add(search_fields_tab4);
+        SP_paging_search_fields_tab4.setViewportView(paging_search_fields_tab4);
+
+        search_fields_tab4.add(SP_paging_search_fields_tab4, java.awt.BorderLayout.CENTER);
+
+        fields_tab4.add(search_fields_tab4, java.awt.BorderLayout.NORTH);
 
         infos_fields_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
         infos_fields_tab4.setOpaque(false);
-        infos_fields_tab4.setLayout(new java.awt.GridLayout(4, 2));
+        infos_fields_tab4.setLayout(new java.awt.GridLayout(3, 2, 5, 5));
 
-        L_bookTitle_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.08)));
-        L_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_bookTitle_infos_tab4.setText("Titre");
-        L_bookTitle_infos_tab4.setToolTipText("Titre");
-        infos_fields_tab4.add(L_bookTitle_infos_tab4);
+        SP_bookTitle_infos_tab4.setBorder(null);
+        SP_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
+        SP_bookTitle_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_bookTitle_infos_tab4.setViewportBorder(null);
+        SP_bookTitle_infos_tab4.setOpaque(false);
 
-        L_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_theme_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_theme_infos_tab4.setText("Thème");
-        L_theme_infos_tab4.setToolTipText("Thème");
-        infos_fields_tab4.add(L_theme_infos_tab4);
+        TF_bookTitle_infos_tab4.setBackground(tab4.getBackground());
+        TF_bookTitle_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
+        TF_bookTitle_infos_tab4.setForeground(controls_tab4.getForeground());
+        TF_bookTitle_infos_tab4.setText("Titre");
+        TF_bookTitle_infos_tab4.setToolTipText("Titre");
+        TF_bookTitle_infos_tab4.setBorder(null);
+        TF_bookTitle_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_bookTitle_infos_tab4.setViewportView(TF_bookTitle_infos_tab4);
 
-        L_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_author_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_author_infos_tab4.setText("Auteur");
-        L_author_infos_tab4.setToolTipText("Auteur");
-        infos_fields_tab4.add(L_author_infos_tab4);
+        infos_fields_tab4.add(SP_bookTitle_infos_tab4);
 
-        L_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
-        L_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_keyWords_infos_tab4.setText("Mots clés");
-        L_keyWords_infos_tab4.setToolTipText("Mots clés");
-        infos_fields_tab4.add(L_keyWords_infos_tab4);
+        SP_author_infos_tab4.setBorder(null);
+        SP_author_infos_tab4.setForeground(controls_tab4.getForeground());
+        SP_author_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_author_infos_tab4.setViewportBorder(null);
+        SP_author_infos_tab4.setOpaque(false);
 
-        L_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
-        L_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
-        L_pupilName_infos_tab4.setText("Emprunté par...");
-        L_pupilName_infos_tab4.setToolTipText("Emprunté par...");
-        infos_fields_tab4.add(L_pupilName_infos_tab4);
+        TF_author_infos_tab4.setBackground(tab4.getBackground());
+        TF_author_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.06)));
+        TF_author_infos_tab4.setForeground(controls_tab4.getForeground());
+        TF_author_infos_tab4.setText("Auteur");
+        TF_author_infos_tab4.setToolTipText("Auteur");
+        TF_author_infos_tab4.setBorder(null);
+        TF_author_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_author_infos_tab4.setViewportView(TF_author_infos_tab4);
+
+        infos_fields_tab4.add(SP_author_infos_tab4);
+
+        SP_pupil_infos_tab4.setBorder(null);
+        SP_pupil_infos_tab4.setForeground(controls_tab4.getForeground());
+        SP_pupil_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_pupil_infos_tab4.setViewportBorder(null);
+        SP_pupil_infos_tab4.setOpaque(false);
+
+        TF_pupilName_infos_tab4.setEditable(false);
+        TF_pupilName_infos_tab4.setBackground(tab4.getBackground());
+        TF_pupilName_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        TF_pupilName_infos_tab4.setForeground(controls_tab4.getForeground());
+        TF_pupilName_infos_tab4.setText("Emprunteur");
+        TF_pupilName_infos_tab4.setToolTipText("Emprunteur");
+        TF_pupilName_infos_tab4.setBorder(null);
+        TF_pupilName_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_pupil_infos_tab4.setViewportView(TF_pupilName_infos_tab4);
+
+        infos_fields_tab4.add(SP_pupil_infos_tab4);
 
         P_return_tab4.setOpaque(false);
         P_return_tab4.setLayout(new java.awt.BorderLayout());
@@ -843,35 +938,72 @@ public class MainFrame extends javax.swing.JFrame {
         B_return_infos_tab4.setText("  Rendu  ");
         B_return_infos_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
         B_return_infos_tab4.setContentAreaFilled(false);
+        B_return_infos_tab4.setEnabled(false);
         B_return_infos_tab4.setFocusPainted(false);
         P_return_tab4.add(B_return_infos_tab4, java.awt.BorderLayout.LINE_START);
 
         infos_fields_tab4.add(P_return_tab4);
 
-        fields_tab4.add(infos_fields_tab4);
+        SP_theme_infos_tab4.setBorder(null);
+        SP_theme_infos_tab4.setForeground(controls_tab4.getForeground());
+        SP_theme_infos_tab4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        SP_theme_infos_tab4.setViewportBorder(null);
+        SP_theme_infos_tab4.setOpaque(false);
+
+        TF_theme_infos_tab4.setBackground(tab4.getBackground());
+        TF_theme_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
+        TF_theme_infos_tab4.setForeground(controls_tab4.getForeground());
+        TF_theme_infos_tab4.setText("Thème");
+        TF_theme_infos_tab4.setToolTipText("Thème");
+        TF_theme_infos_tab4.setBorder(null);
+        TF_theme_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_theme_infos_tab4.setViewportView(TF_theme_infos_tab4);
+
+        infos_fields_tab4.add(SP_theme_infos_tab4);
+
+        SP_keyWords_infos_tab4.setBorder(null);
+        SP_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
+        SP_keyWords_infos_tab4.setViewportBorder(null);
+
+        TA_keyWords_infos_tab4.setBackground(tab4.getBackground());
+        TA_keyWords_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
+        TA_keyWords_infos_tab4.setForeground(controls_tab4.getForeground());
+        TA_keyWords_infos_tab4.setLineWrap(true);
+        TA_keyWords_infos_tab4.setText("Mots clés");
+        TA_keyWords_infos_tab4.setWrapStyleWord(true);
+        TA_keyWords_infos_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 108, 254), 3));
+        TA_keyWords_infos_tab4.setCaretColor(controls_tab4.getForeground());
+        SP_keyWords_infos_tab4.setViewportView(TA_keyWords_infos_tab4);
+
+        infos_fields_tab4.add(SP_keyWords_infos_tab4);
+
+        fields_tab4.add(infos_fields_tab4, java.awt.BorderLayout.CENTER);
 
         controls_tab4.setRightComponent(fields_tab4);
 
         tab4.add(controls_tab4, java.awt.BorderLayout.CENTER);
 
-        manageBook_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 1));
+        manageBook_tab4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(246, 206, 253), 3), javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1)));
         manageBook_tab4.setOpaque(false);
 
-        B_new_manageBook_tab4.setBackground(controls_tab4.getForeground());
+        B_new_manageBook_tab4.setBackground(tab4.getBackground());
         B_new_manageBook_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_new_manageBook_tab4.setForeground(controls_tab4.getForeground());
         B_new_manageBook_tab4.setText(" Nouveau livre ");
-        B_new_manageBook_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        B_new_manageBook_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(tab4.getBackground(), 3));
+        B_new_manageBook_tab4.setBorderPainted(false);
         B_new_manageBook_tab4.setContentAreaFilled(false);
         B_new_manageBook_tab4.setFocusPainted(false);
         manageBook_tab4.add(B_new_manageBook_tab4);
 
-        B_modify_manageBook_tab4.setBackground(controls_tab4.getForeground());
+        B_modify_manageBook_tab4.setBackground(tab4.getBackground());
         B_modify_manageBook_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_modify_manageBook_tab4.setForeground(controls_tab4.getForeground());
-        B_modify_manageBook_tab4.setText(" Modifier le livre ");
-        B_modify_manageBook_tab4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        B_modify_manageBook_tab4.setText("Enregistrer les modifications");
+        B_modify_manageBook_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(tab4.getBackground(), 3));
+        B_modify_manageBook_tab4.setBorderPainted(false);
         B_modify_manageBook_tab4.setContentAreaFilled(false);
+        B_modify_manageBook_tab4.setEnabled(false);
         B_modify_manageBook_tab4.setFocusPainted(false);
         manageBook_tab4.add(B_modify_manageBook_tab4);
 
@@ -908,6 +1040,18 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosed
 
+    public void showErrorMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public void showWarningMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Attention", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+    
     public JButton getB_help() {
         return B_help;
     }
@@ -939,13 +1083,17 @@ public class MainFrame extends javax.swing.JFrame {
     public CardLayout getTabGroupsLayout() {
         return (CardLayout) tabGroups.getLayout();
     }
+    
+    public CardLayout getControls_tab1Layout() {
+        return (CardLayout) controls_tab1.getLayout();
+    }
 
     public JPanel getTabGroups() {
         return tabGroups;
     }
-
-    public JPanel getToggleButtons() {
-        return toggleButtons;
+    
+    public JPanel getControls_tab1() {
+        return controls_tab1;
     }
 
     public JButton getB_webSite() {
@@ -968,6 +1116,10 @@ public class MainFrame extends javax.swing.JFrame {
         return maritime;
     }
 
+    public JButton getB_cancel_fields_tab1() {
+        return B_cancel_fields_tab1;
+    }
+
     public JButton getB_delete_manageBook_tab4() {
         return B_delete_manageBook_tab4;
     }
@@ -988,6 +1140,10 @@ public class MainFrame extends javax.swing.JFrame {
         return B_new_managePupil_tab3;
     }
 
+    public JButton getB_returnAll_infos_tab3() {
+        return B_returnAll_infos_tab3;
+    }
+    
     public JButton getB_return_infos_tab3() {
         return B_return_infos_tab3;
     }
@@ -1016,32 +1172,20 @@ public class MainFrame extends javax.swing.JFrame {
         return B_validate_tab2;
     }
 
-    public JFormattedTextField getFTF_barCode_tab1() {
-        return FTF_barCode_tab1;
+    public JTextField getTF_barCode_tab1() {
+        return TF_barCode_tab1;
     }
 
-    public JFormattedTextField getFTF_barCode_tab2() {
-        return FTF_barCode_tab2;
-    }
-
-    public Box.Filler getF_paging1_infos_tab3() {
-        return F_paging1_infos_tab3;
-    }
-
-    public Box.Filler getF_paging2_infos_tab3() {
-        return F_paging2_infos_tab3;
-    }
-
-    public JLabel getL_author_infos_tab4() {
-        return L_author_infos_tab4;
+    public JTextField getTF_barCode_tab2() {
+        return TF_barCode_tab2;
     }
 
     public JLabel getL_bookTitle_fields_tab1() {
         return L_bookTitle_fields_tab1;
     }
 
-    public JLabel getL_bookTitle_infos_tab4() {
-        return L_bookTitle_infos_tab4;
+    public JTextArea getTA_keyWords_infos_tab4() {
+        return TA_keyWords_infos_tab4;
     }
 
     public JLabel getL_name_fields_tab1() {
@@ -1052,20 +1196,12 @@ public class MainFrame extends javax.swing.JFrame {
         return L_name_infos_tab3;
     }
 
-    public JLabel getL_pupilName_infos_tab4() {
-        return L_pupilName_infos_tab4;
-    }
-
     public JLabel getL_scanFrame_title_tab1() {
         return L_scanFrame_title_tab1;
     }
 
     public JLabel getL_surname_infos_tab3() {
         return L_surname_infos_tab3;
-    }
-
-    public JLabel getL_theme_infos_tab4() {
-        return L_theme_infos_tab4;
     }
 
     public JList<String> getLi_bookList_tab3() {
@@ -1080,8 +1216,8 @@ public class MainFrame extends javax.swing.JFrame {
         return Li_pupilList_tab3;
     }
 
-    public JList<String> getLi_pupilList_tab4() {
-        return Li_pupilList_tab4;
+    public JList<String> getLi_bookList_tab4() {
+        return Li_bookList_tab4;
     }
 
     public JTextField getTF_author_search_tab4() {
@@ -1092,8 +1228,8 @@ public class MainFrame extends javax.swing.JFrame {
         return TF_bookTitle_search_tab4;
     }
 
-    public JTextField getTF_keyWords_search_tab6() {
-        return TF_keyWords_search_tab6;
+    public JTextField getTF_keyWords_search_tab4() {
+        return TF_keyWords_search_tab4;
     }
 
     public JTextField getTF_name_nameFields_tab1() {
@@ -1112,13 +1248,30 @@ public class MainFrame extends javax.swing.JFrame {
         return TF_surname_search_tab3;
     }
 
-    public JTextField getTF_theme_search_tab5() {
-        return TF_theme_search_tab5;
+    public JTextField getTF_theme_search_tab4() {
+        return TF_theme_search_tab4;
+    }
+
+    public JTextField getTF_author_infos_tab4() {
+        return TF_author_infos_tab4;
+    }
+
+    public JTextField getTF_bookTitle_infos_tab4() {
+        return TF_bookTitle_infos_tab4;
+    }
+
+    public JTextField getTF_pupilName_infos_tab4() {
+        return TF_pupilName_infos_tab4;
+    }
+
+    public JTextField getTF_theme_infos_tab4() {
+        return TF_theme_infos_tab4;
     }
     
     
     private Font littleBird, clearLine, glyphicons, maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_cancel_fields_tab1;
     private javax.swing.JButton B_delete_manageBook_tab4;
     private javax.swing.JButton B_delete_managePupil_tab3;
     private javax.swing.JButton B_help;
@@ -1126,6 +1279,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton B_new_manageBook_tab4;
     private javax.swing.JButton B_new_managePupil_tab3;
     private javax.swing.JButton B_quit;
+    private javax.swing.JButton B_returnAll_infos_tab3;
     private javax.swing.JButton B_return_infos_tab3;
     private javax.swing.JButton B_return_infos_tab4;
     private javax.swing.JButton B_settings;
@@ -1139,22 +1293,13 @@ public class MainFrame extends javax.swing.JFrame {
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card2;
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card3;
     private bibliotheque.view.customComponents.CustomToggleButton CTB_card4;
-    private javax.swing.JFormattedTextField FTF_barCode_tab1;
-    private javax.swing.JFormattedTextField FTF_barCode_tab2;
-    private javax.swing.Box.Filler F_paging1_infos_tab3;
-    private javax.swing.Box.Filler F_paging2_infos_tab3;
     private javax.swing.Box.Filler F_paging_scan_tab1;
     private javax.swing.Box.Filler F_paging_scan_tab2;
-    private javax.swing.JLabel L_author_infos_tab4;
     private javax.swing.JLabel L_bookTitle_fields_tab1;
-    private javax.swing.JLabel L_bookTitle_infos_tab4;
-    private javax.swing.JLabel L_keyWords_infos_tab4;
     private javax.swing.JLabel L_name_fields_tab1;
     private javax.swing.JLabel L_name_infos_tab3;
-    private javax.swing.JLabel L_pupilName_infos_tab4;
     private javax.swing.JLabel L_scanFrame_title_tab1;
     private javax.swing.JLabel L_surname_infos_tab3;
-    private javax.swing.JLabel L_theme_infos_tab4;
     private javax.swing.JLabel L_title;
     private javax.swing.JLabel L_title1;
     private javax.swing.JLabel L_title2;
@@ -1164,26 +1309,41 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel L_title_tab3;
     private javax.swing.JLabel L_title_tab4;
     private javax.swing.JList<String> Li_bookList_tab3;
+    private javax.swing.JList<String> Li_bookList_tab4;
     private javax.swing.JList<String> Li_pupilList_tab1;
     private javax.swing.JList<String> Li_pupilList_tab3;
-    private javax.swing.JList<String> Li_pupilList_tab4;
     private javax.swing.JPanel P_return_tab3;
     private javax.swing.JPanel P_return_tab4;
     private javax.swing.JPanel P_titles;
+    private javax.swing.JScrollPane SP_author_infos_tab4;
     private javax.swing.JScrollPane SP_bookList_tab3;
+    private javax.swing.JScrollPane SP_bookTitle_infos_tab4;
+    private javax.swing.JScrollPane SP_keyWords_infos_tab4;
+    private javax.swing.JScrollPane SP_paging_search_fields_tab3;
+    private javax.swing.JScrollPane SP_paging_search_fields_tab4;
     private javax.swing.JScrollPane SP_pupilList_tab1;
     private javax.swing.JScrollPane SP_pupilList_tab3;
     private javax.swing.JScrollPane SP_pupilList_tab4;
+    private javax.swing.JScrollPane SP_pupil_infos_tab4;
+    private javax.swing.JScrollPane SP_theme_infos_tab4;
     private javax.swing.JSeparator S_titleSeparator;
+    private javax.swing.JTextArea TA_keyWords_infos_tab4;
+    private javax.swing.JTextField TF_author_infos_tab4;
     private javax.swing.JTextField TF_author_search_tab4;
+    private javax.swing.JTextField TF_barCode_tab1;
+    private javax.swing.JTextField TF_barCode_tab2;
+    private javax.swing.JTextField TF_bookTitle_infos_tab4;
     private javax.swing.JTextField TF_bookTitle_search_tab4;
-    private javax.swing.JTextField TF_keyWords_search_tab6;
+    private javax.swing.JTextField TF_keyWords_search_tab4;
     private javax.swing.JTextField TF_name_nameFields_tab1;
     private javax.swing.JTextField TF_name_search_tab3;
+    private javax.swing.JTextField TF_pupilName_infos_tab4;
     private javax.swing.JTextField TF_surname_nameFields_tab1;
     private javax.swing.JTextField TF_surname_search_tab3;
-    private javax.swing.JTextField TF_theme_search_tab5;
+    private javax.swing.JTextField TF_theme_infos_tab4;
+    private javax.swing.JTextField TF_theme_search_tab4;
     private bibliotheque.view.customComponents.BgPanel background;
+    private javax.swing.JPanel books_infos_fields_tab3;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel controls_scanFrame_tab1;
     private javax.swing.JPanel controls_tab1;
@@ -1195,13 +1355,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel fields_tab1_top;
     private javax.swing.JPanel fields_tab3;
     private javax.swing.JPanel fields_tab4;
-    private javax.swing.JPanel infos_fields_tab3;
+    private javax.swing.JPanel info_fields_tab3;
     private javax.swing.JPanel infos_fields_tab4;
     private javax.swing.JPanel mainMenuButtons;
     private javax.swing.JPanel manageBook_tab4;
     private javax.swing.JPanel managePupil_tab3;
-    private javax.swing.JPanel nameFields_fields_tab1;
+    private javax.swing.JPanel nameFields_pupilsFields_tab1;
+    private javax.swing.JPanel pagingTF_search_fields_tab4;
+    private javax.swing.JPanel paging_search_fields_tab3;
     private javax.swing.JPanel paging_search_fields_tab4;
+    private javax.swing.JPanel pupilsFields_fields_tab1;
     private javax.swing.JPanel scanFrame_controls_tab2;
     private javax.swing.JPanel scanFrame_tab1;
     private javax.swing.JPanel scanFrame_tab2;
