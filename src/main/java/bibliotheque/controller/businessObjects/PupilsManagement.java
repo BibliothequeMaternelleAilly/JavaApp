@@ -1,6 +1,7 @@
 
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.controller.NewPupilController;
 import bibliotheque.controller.SearchResultsController;
 import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Eleve;
@@ -23,15 +24,17 @@ public class PupilsManagement {
     private final JList pupilsJList, booksJList;
     private final JTextField nameTextField, surnameTextField;
     private final JLabel nameLabel, surnameLabel;
-    private final JButton returnButton, returnAllButton;
+    private final JButton returnButton, returnAllButton, deleteButton;
     private Eleve current = null;
     private SearchResultsController resultController;
+    private NewPupilController pupilController;
     
-    public PupilsManagement(JButton returnButton, JButton returnAllButton, JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField, JLabel nameLabel, JLabel surnameLabel) throws SQLException {
+    public PupilsManagement(JButton returnButton, JButton returnAllButton, JButton deleteButton, JList pupilsJList, JList booksJList, JTextField nameTextField, JTextField surnameTextField, JLabel nameLabel, JLabel surnameLabel) throws SQLException {
         
         pupilsList = Eleve.getAllBorrow();
         this.returnButton = returnButton;
         this.returnAllButton = returnAllButton;
+        this.deleteButton = deleteButton;
         this.booksJList = booksJList;
         this.nameTextField = nameTextField;
         this.pupilsJList = pupilsJList;
@@ -67,6 +70,7 @@ public class PupilsManagement {
             booksJList.setModel(model);
             enableReturnButton();
             returnAllButton.setEnabled(booksJList.getModel().getSize()!=0);
+            deleteButton.setEnabled(true);
         }
     }
     
@@ -80,6 +84,7 @@ public class PupilsManagement {
         current = null;
         returnButton.setEnabled(false);
         returnAllButton.setEnabled(false);
+        deleteButton.setEnabled(false);
         fillPupilsJList();
     }
     
@@ -132,6 +137,10 @@ public class PupilsManagement {
     
     public void enableReturnButton() {
         returnButton.setEnabled(booksJList.getModel().getSize()!=0 && booksJList.getSelectedIndex()!=-1);
+    }
+    
+    public void createNewPupil() {
+        pupilController = new NewPupilController();
     }
     
     

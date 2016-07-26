@@ -2,7 +2,6 @@
 package bibliotheque.view;
 
 import bibliotheque.view.customComponents.BgPanel;
-import bibliotheque.view.customComponents.CustomListCellRenderer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,21 +12,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author shiro
  */
-public class SearchResult extends javax.swing.JFrame {
+public class NewPupil extends javax.swing.JFrame {
 
-    private JList model;
-    public SearchResult(JList model) {
-        
-        this.model = model;
+    public NewPupil() {
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
             glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
+            maritime = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("MaritimeTropicalNeue.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -35,6 +33,7 @@ public class SearchResult extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         setVisible(true);
+        B_cancel.requestFocusInWindow();
         mainPanel.setVisible(true);
     }
 
@@ -48,9 +47,10 @@ public class SearchResult extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        SP_searchResults = new javax.swing.JScrollPane();
-        Li_searchResults = new javax.swing.JList<>();
         L_title = new javax.swing.JLabel();
+        controls = new javax.swing.JPanel();
+        TF_name = new javax.swing.JTextField();
+        TF_surname = new javax.swing.JTextField();
         buttons = new javax.swing.JPanel();
         B_validate = new javax.swing.JButton();
         B_cancel = new javax.swing.JButton();
@@ -62,41 +62,55 @@ public class SearchResult extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.2)));
 
-        mainPanel.setBackground(model.getForeground());
-        mainPanel.setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.4), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.4)));
+        mainPanel.setBackground(new java.awt.Color(253, 59, 99));
+        mainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216)));
+        mainPanel.setForeground(new java.awt.Color(253, 206, 216));
+        mainPanel.setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.6), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.6)));
         mainPanel.setLayout(new java.awt.BorderLayout());
 
-        SP_searchResults.setBorder(javax.swing.BorderFactory.createLineBorder(model.getBackground()));
-        SP_searchResults.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        SP_searchResults.setOpaque(false);
-
-        Li_searchResults.setBackground(model.getBackground());
-        Li_searchResults.setBorder(model.getBorder());
-        Li_searchResults.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        Li_searchResults.setCellRenderer(model.getCellRenderer());
-        SP_searchResults.setViewportView(Li_searchResults);
-
-        mainPanel.add(SP_searchResults, java.awt.BorderLayout.CENTER);
-
-        L_title.setFont(littleBird.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.13)));
-        L_title.setForeground(((CustomListCellRenderer) model.getCellRenderer()).getForeground());
+        L_title.setFont(littleBird.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.18)));
+        L_title.setForeground(new java.awt.Color(253, 206, 216));
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title.setText("Résultat de la recherche");
+        L_title.setText("Nouvel élève");
         mainPanel.add(L_title, java.awt.BorderLayout.NORTH);
+
+        controls.setBackground(mainPanel.getBackground());
+        controls.setForeground(mainPanel.getForeground());
+        controls.setOpaque(false);
+        controls.setLayout(new java.awt.GridLayout(2, 0));
+
+        TF_name.setBackground(controls.getBackground());
+        TF_name.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.15)));
+        TF_name.setForeground(controls.getForeground());
+        TF_name.setText("Nom");
+        TF_name.setToolTipText("Nom");
+        TF_name.setBorder(null);
+        TF_name.setCaretColor(controls.getForeground());
+        controls.add(TF_name);
+
+        TF_surname.setBackground(controls.getBackground());
+        TF_surname.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.12)));
+        TF_surname.setForeground(controls.getForeground());
+        TF_surname.setText("Prénom");
+        TF_surname.setToolTipText("Prénom");
+        TF_surname.setBorder(null);
+        TF_surname.setCaretColor(controls.getForeground());
+        controls.add(TF_surname);
+
+        mainPanel.add(controls, java.awt.BorderLayout.CENTER);
 
         buttons.setOpaque(false);
 
-        B_validate.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.15)));
+        B_validate.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.13)));
         B_validate.setForeground(new java.awt.Color(123, 178, 40));
         B_validate.setText("\uE084");
         B_validate.setToolTipText("Valider");
         B_validate.setBorderPainted(false);
         B_validate.setContentAreaFilled(false);
-        B_validate.setEnabled(false);
         B_validate.setFocusPainted(false);
         buttons.add(B_validate);
 
-        B_cancel.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.15)));
+        B_cancel.setFont(glyphicons.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.13)));
         B_cancel.setForeground(new java.awt.Color(227, 47, 46));
         B_cancel.setText("\uE083");
         B_cancel.setToolTipText("Annuler");
@@ -114,27 +128,40 @@ public class SearchResult extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void showErrorMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+    
     public JButton getB_validate() {
         return B_validate;
-    }
-
-    public JList<String> getLi_searchResults() {
-        return Li_searchResults;
     }
 
     public JButton getB_cancel() {
         return B_cancel;
     }
 
+    public JTextField getTF_name() {
+        return TF_name;
+    }
+
+    public JTextField getTF_surname() {
+        return TF_surname;
+    }
+
     
-    private Font littleBird, glyphicons;
+    private Font littleBird, glyphicons, maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_cancel;
     private javax.swing.JButton B_validate;
     private javax.swing.JLabel L_title;
-    private javax.swing.JList<String> Li_searchResults;
-    private javax.swing.JScrollPane SP_searchResults;
+    private javax.swing.JTextField TF_name;
+    private javax.swing.JTextField TF_surname;
     private javax.swing.JPanel buttons;
+    private javax.swing.JPanel controls;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

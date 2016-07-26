@@ -63,6 +63,7 @@ public class MainController {
                                   mainView.getTF_surname_nameFields_tab1());
         formTab3 = new PupilsManagement(mainView.getB_return_infos_tab3(),
                                         mainView.getB_returnAll_infos_tab3(),
+                                        mainView.getB_delete_managePupil_tab3(),
                                         mainView.getLi_pupilList_tab3(),
                                         mainView.getLi_bookList_tab3(),
                                         mainView.getTF_name_search_tab3(),
@@ -70,6 +71,7 @@ public class MainController {
                                         mainView.getL_name_infos_tab3(),
                                         mainView.getL_surname_infos_tab3());
         formTab4 = new BooksManagement(mainView.getB_return_infos_tab4(),
+                                       mainView.getB_delete_manageBook_tab4(),
                                        mainView.getLi_bookList_tab4(),
                                        mainView.getTF_bookTitle_search_tab4(),
                                        mainView.getTF_author_search_tab4(),
@@ -110,12 +112,16 @@ public class MainController {
         ActionListener deletePupilActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                releaseBorderedButton(e.getSource());
+                toggleBorderedButton(e.getSource());
                 deletePupil(e.getSource());
             }
         };
         ActionListener deleteBookActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                releaseBorderedButton(e.getSource());
+                toggleBorderedButton(e.getSource());
                 deleteBook(e.getSource());
             }
         };
@@ -123,7 +129,6 @@ public class MainController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 releaseNoBorderButton(e.getSource());
-                toggleBorderedButton(e.getSource());
                 borrowScanAction();
                 toggleTextFieldValue(mainView.getTF_barCode_tab1());
             }
@@ -150,6 +155,7 @@ public class MainController {
         ActionListener borrowButtonActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                releaseBorderedButton(e.getSource());
                 validateBorrow();
             }
         };
@@ -229,6 +235,12 @@ public class MainController {
                 }
             }
         };
+        ActionListener newPupilActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formTab3.createNewPupil();
+            }
+        };
         FocusListener textFieldsFocusListener = new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -241,7 +253,7 @@ public class MainController {
             @Override
             public void focusLost(FocusEvent e) {
                 JTextField source = (JTextField) e.getSource();
-                if (source.getText().equals(""))
+                if (source.getText().isEmpty())
                     toggleTextFieldValue(source);
                 toggleTextFieldColor((JTextField) e.getSource());
             }
@@ -454,6 +466,7 @@ public class MainController {
         mainView.getB_validate_search_tab3().addActionListener(searchPupilListener);
         mainView.getB_validate_search_tab4().addActionListener(searchBookListener);
         mainView.getB_modify_manageBook_tab4().addActionListener(saveModificationsListener);
+        mainView.getB_new_managePupil_tab3().addActionListener(newPupilActionListener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
@@ -697,11 +710,12 @@ public class MainController {
     private void borrowScanAction() {
         try {
             Livre book = scanTab1.getBook();
-            mainView.getL_bookTitle_fields_tab1().setText(book.toString());
             mainView.getB_validate_scanFrame_tab1().setEnabled(false);
             mainView.getTF_barCode_tab1().setText("");
             mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card2");
+            formTab1.resetFields();
             formTab1.setBook(book);
+            mainView.getL_bookTitle_fields_tab1().setText(book.toString());
         } catch (SQLException ex) {
             mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);

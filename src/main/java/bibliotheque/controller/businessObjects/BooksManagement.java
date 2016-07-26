@@ -20,17 +20,19 @@ public class BooksManagement {
     
     private ArrayList<Livre> booksList, resultList;
     private SearchResultsController resultController;
-    private final JButton returnButton;
+    
+    private final JButton returnButton, deleteButton;
     private final JList booksJList;
     private final JTextArea keyWordsInfo;
     private final JTextField titleInfo, authorInfo, themeInfo, pupilInfo;
     private final JTextField titleTextField, authorTextField, themeTextField, keyWordsTextField;
     private Livre current = null;
     
-    public BooksManagement(JButton returnButton, JList booksJList, JTextField titleTextField, JTextField authorTextField, JTextField themeTextField, JTextField keyWordsTextField, JTextField titleInfo, JTextField authorInfo, JTextField themeInfo, JTextArea keyWordsInfo, JTextField pupilInfo) throws SQLException {
+    public BooksManagement(JButton returnButton, JButton deleteButton, JList booksJList, JTextField titleTextField, JTextField authorTextField, JTextField themeTextField, JTextField keyWordsTextField, JTextField titleInfo, JTextField authorInfo, JTextField themeInfo, JTextArea keyWordsInfo, JTextField pupilInfo) throws SQLException {
         
         booksList = Livre.getAllBorrow();
         this.returnButton = returnButton;
+        this.deleteButton = deleteButton;
         this.booksJList = booksJList;
         this.titleInfo = titleInfo;
         this.authorInfo = authorInfo;
@@ -72,6 +74,7 @@ public class BooksManagement {
             try {
                 pupilInfo.setText(current.getBorrower().toString()+" : "+current.getDate_emprun());
                 returnButton.setEnabled(true);
+                deleteButton.setEnabled(true);
             } catch (UnfoundException ex) {}
         }
     }
@@ -84,6 +87,7 @@ public class BooksManagement {
         keyWordsInfo.setText("Mots clés");
         pupilInfo.setText("Emprunteur");
         returnButton.setEnabled(false);
+        deleteButton.setEnabled(false);
         current = null;
         fillBooksJList();
     }
