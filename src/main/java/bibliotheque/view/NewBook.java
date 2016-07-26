@@ -1,6 +1,7 @@
 
 package bibliotheque.view;
 
+import bibliotheque.FilesFactory;
 import bibliotheque.view.customComponents.BgPanel;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,9 +25,9 @@ public class NewBook extends javax.swing.JFrame {
 
     public NewBook() {
         try {
-            littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-            glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
-            maritime = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("MaritimeTropicalNeue.ttf"));
+            littleBird = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("LittleBird.ttf"));
+            glyphicons = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("glyphicons.ttf"));
+            maritime = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("MaritimeTropicalNeue.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

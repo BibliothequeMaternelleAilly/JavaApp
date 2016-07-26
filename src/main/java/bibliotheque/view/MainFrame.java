@@ -1,6 +1,7 @@
 
 package bibliotheque.view;
 
+import bibliotheque.FilesFactory;
 import bibliotheque.view.customComponents.BgPanel;
 import bibliotheque.view.customComponents.CustomListCellRenderer;
 import bibliotheque.model.DBConnection;
@@ -36,10 +37,10 @@ public class MainFrame extends javax.swing.JFrame {
         
         setTitle("Bibliothèque");
         try {
-            littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-            clearLine = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("ClearLine.ttf"));
-            glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
-            maritime = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("MaritimeTropicalNeue.ttf"));
+            littleBird = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("LittleBird.ttf"));
+            clearLine = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("ClearLine.ttf"));
+            glyphicons = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("glyphicons.ttf"));
+            maritime = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("MaritimeTropicalNeue.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

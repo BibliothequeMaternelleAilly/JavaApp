@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <groupId>0</groupId>
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>Bibliotheque</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -13,9 +13,9 @@
     
     <dependencies>
         <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.7.2</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
         </dependency>
     </dependencies>
     
@@ -42,4 +42,7 @@
             <url>file:${project.basedir}/lib</url>
         </repository>
     </repositories>
+    <name>Bibliotheque</name>
+    <description>Application java pour la gestion de la bibliothèque de l'école maternelle,
+à Ailly-sur-Noye</description>
 </project>

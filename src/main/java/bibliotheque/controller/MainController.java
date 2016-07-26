@@ -1,6 +1,7 @@
 
 package bibliotheque.controller;
 
+import bibliotheque.FilesFactory;
 import bibliotheque.controller.businessObjects.BooksManagement;
 import bibliotheque.controller.businessObjects.BorrowForm;
 import bibliotheque.controller.businessObjects.PupilsManagement;
@@ -23,6 +24,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -50,14 +52,21 @@ public class MainController {
     private final PupilsManagement formTab3;
     private final BooksManagement formTab4;
     
-    private final ArrayList<Eleve> pupilsList = Eleve.getAll();
-    private final ArrayList<Livre> booksList = Livre.getAll();;
+    private ArrayList<Eleve> pupilsList;
+    private ArrayList<Livre> booksList;
 
     
     public MainController() throws SQLException {
         
         mainView = new MainFrame();
+        createconnection();
         glyphicons = mainView.getB_help().getFont();
+        try {
+            pupilsList = Eleve.getAll();
+            booksList = Livre.getAll();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         formTab1 = new BorrowForm(mainView.getLi_pupilList_tab1(),
                                   mainView.getTF_name_nameFields_tab1(),
                                   mainView.getTF_surname_nameFields_tab1());
@@ -90,6 +99,42 @@ public class MainController {
        initController();
     }
     
+    
+    private void createconnection() {
+        String ip, name, user, password;
+        boolean connection = true;
+        List<String> content;
+        do {
+            if (FilesFactory.fileExists("settings"))
+                content = FilesFactory.getAllLines("settings");
+            else
+                content = FilesFactory.getContentOfRes("settings");
+
+            ip = content.get(0);
+            name = content.get(1);
+            user = content.get(2);
+            password = content.get(3);
+            try {
+                DBConnection.newInstance(ip+":3306/", name, user, password);
+                FilesFactory.createFile("settings", ip+"\n"+name+"\n"+user+"\n"+password);
+                connection = true;
+            } catch (SQLException ex) {
+                if (!connection) {
+                    mainView.showErrorMessage("La base de donnée est introuvable!");
+                    mainView.dispose();
+                    connection = true;
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                } else {
+                    connection = false;
+                    mainView.showErrorMessage("Impossible d'établir la connexion avec la base de donnée.");
+                    settings();
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } while (!connection);
+    }
+    
     private void initController() {
         
         try {
@@ -107,6 +152,12 @@ public class MainController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 closeView();
+            }
+        };
+        ActionListener settingsActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                settings();
             }
         };
         ActionListener deletePupilActionListener = new ActionListener() {
@@ -461,6 +512,7 @@ public class MainController {
         
         
         mainView.getB_quit().addActionListener(closeActionListener);
+        mainView.getB_settings().addActionListener(settingsActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
         mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
         mainView.getB_validate_scanFrame_tab1().addActionListener(validateScan1ActionListener);
@@ -538,6 +590,31 @@ public class MainController {
     private void closeView() {
         mainView.dispose();
         DBConnection.close();
+    }
+    
+    private void settings() {
+        String ip, name, user, password, old_ip, old_name, old_user, old_password;
+        ip = JOptionPane.showInputDialog("Entrez l'adresse ip de la raspberry\nou laissez vide pour ne rien changer");
+        name = JOptionPane.showInputDialog("Entrez le nom de la base de donnée\nou laissez vide pour ne rien changer");
+        user = JOptionPane.showInputDialog("Entrez le nom d'utilisateur pour se connecter à la base de donnée\nou laissez vide pour ne rien changer");
+        password = JOptionPane.showInputDialog("Entrez le mot de passe de connexion de la base de donnée\nou laissez vide pour ne rien changer");
+        
+        List<String> content;
+        if (FilesFactory.fileExists("settings"))
+            content = FilesFactory.getAllLines("settings");
+        else
+            content = FilesFactory.getContentOfRes("settings");
+
+        old_ip = content.get(0);
+        old_name = content.get(1);
+        old_user = content.get(2);
+        old_password = content.get(3);
+        
+        FilesFactory.createFile("settings", (ip==null||ip.isEmpty()? old_ip:ip) + "\n" +
+                                            (name==null||name.isEmpty()? old_name:name) + "\n" +
+                                            (user==null||user.isEmpty()? old_user:user) + "\n" +
+                                            (password==null||password.isEmpty()? old_password:password));
+        
     }
     
     private void toggleMainMenuButtonsBg(Object obj) {

@@ -1,6 +1,7 @@
 
 package bibliotheque.view;
 
+import bibliotheque.FilesFactory;
 import bibliotheque.view.customComponents.BgPanel;
 import bibliotheque.view.customComponents.CustomListCellRenderer;
 import java.awt.Color;
@@ -26,8 +27,8 @@ public class SearchResult extends javax.swing.JFrame {
         
         this.model = model;
         try {
-            littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
-            glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
+            littleBird = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("LittleBird.ttf"));
+            glyphicons = Font.createFont(Font.TRUETYPE_FONT, FilesFactory.getResStream("glyphicons.ttf"));
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

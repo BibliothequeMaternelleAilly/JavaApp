@@ -18,19 +18,14 @@ public final class DBConnection {
     private final Connection connection;
     private static volatile DBConnection instance = null;
     
-    private DBConnection(String path) throws SQLException, ClassNotFoundException {
-        Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:" + path);
+    private DBConnection(String ip, String name, String user, String password) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mysql://"+ip+name, user, password);
     }
     
-    public static void newInstance(String path) {
-        if (instance == null) {
-            try {
-                instance = new DBConnection(path);
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+    public static void newInstance(String ip, String name, String user, String password) throws SQLException, ClassNotFoundException {
+        if (instance == null)
+            instance = new DBConnection(ip, name, user, password);
     }
     
     public static void close() {
