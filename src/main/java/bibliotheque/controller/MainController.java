@@ -192,6 +192,7 @@ public class MainController {
                     releaseBorderedButton(e.getSource());
                     toggleBorderedButton(e.getSource());
                     formTab4.returnBook();
+                    formTab4.resetFields();
                 } catch (SQLException ex) {
                     mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
                     Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,6 +240,12 @@ public class MainController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 formTab3.createNewPupil();
+            }
+        };
+        ActionListener newBookActionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formTab4.createBook();
             }
         };
         FocusListener textFieldsFocusListener = new FocusListener() {
@@ -467,6 +474,7 @@ public class MainController {
         mainView.getB_validate_search_tab4().addActionListener(searchBookListener);
         mainView.getB_modify_manageBook_tab4().addActionListener(saveModificationsListener);
         mainView.getB_new_managePupil_tab3().addActionListener(newPupilActionListener);
+        mainView.getB_new_manageBook_tab4().addActionListener(newBookActionListener);
         
         mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
@@ -675,7 +683,6 @@ public class MainController {
                     formTab3.resetFields();
                     releaseBorderedButton(button);
                     toggleBorderedButton(button);
-                    mainView.getB_delete_managePupil_tab3().setEnabled(false);
                 }
             }
         } catch (SQLException ex) {
@@ -699,7 +706,6 @@ public class MainController {
                     formTab4.resetFields();
                     releaseBorderedButton(button);
                     toggleBorderedButton(button);
-                    mainView.getB_delete_manageBook_tab4().setEnabled(false);
                 }
             }
         } catch (SQLException ex) {

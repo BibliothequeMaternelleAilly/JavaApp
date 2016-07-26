@@ -46,6 +46,6 @@ public class ScanForm {
             barCode.setText(currentText.substring(0, currentText.length()-1));
         else if (currentText.length()!=13 && Character.isDigit(c))
             barCode.setText(currentText+c);
-        validateButton.setEnabled(barCode.getText().length()==13);
+        validateButton.setEnabled(barCode.getText().length()>=10);
     }
 }

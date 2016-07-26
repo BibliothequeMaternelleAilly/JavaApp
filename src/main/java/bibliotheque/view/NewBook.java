@@ -20,9 +20,9 @@ import javax.swing.JTextField;
  *
  * @author shiro
  */
-public class NewPupil extends javax.swing.JFrame {
+public class NewBook extends javax.swing.JFrame {
 
-    public NewPupil() {
+    public NewBook() {
         try {
             littleBird = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("LittleBird.ttf"));
             glyphicons = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("glyphicons.ttf"));
@@ -30,7 +30,6 @@ public class NewPupil extends javax.swing.JFrame {
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(BgPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         setUndecorated(true);
         initComponents();
         setVisible(true);
@@ -50,8 +49,11 @@ public class NewPupil extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         L_title = new javax.swing.JLabel();
         controls = new javax.swing.JPanel();
-        TF_name = new javax.swing.JTextField();
-        TF_surname = new javax.swing.JTextField();
+        TF_title = new javax.swing.JTextField();
+        TF_author = new javax.swing.JTextField();
+        TF_barCode = new javax.swing.JTextField();
+        TF_theme = new javax.swing.JTextField();
+        TF_keywords = new javax.swing.JTextField();
         buttons = new javax.swing.JPanel();
         B_validate = new javax.swing.JButton();
         B_cancel = new javax.swing.JButton();
@@ -63,41 +65,68 @@ public class NewPupil extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.2)));
 
-        mainPanel.setBackground(new java.awt.Color(253, 59, 99));
+        mainPanel.setBackground(new java.awt.Color(218, 94, 238));
         mainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(253, 206, 216), 5));
-        mainPanel.setForeground(new java.awt.Color(253, 206, 216));
+        mainPanel.setForeground(new java.awt.Color(246, 206, 253));
         mainPanel.setPreferredSize(new Dimension((int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.6), (int) Math.round(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.6)));
         mainPanel.setLayout(new java.awt.BorderLayout());
 
         L_title.setFont(littleBird.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.18)));
-        L_title.setForeground(new java.awt.Color(253, 206, 216));
+        L_title.setForeground(mainPanel.getForeground());
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title.setText("Nouvel élève");
+        L_title.setText("Nouveau livre");
         mainPanel.add(L_title, java.awt.BorderLayout.NORTH);
 
         controls.setBackground(mainPanel.getBackground());
         controls.setForeground(mainPanel.getForeground());
         controls.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(controls.getForeground()), BorderFactory.createEmptyBorder(1, ((int) Math.round(mainPanel.getPreferredSize().height*0.05)), 1, ((int) Math.round(mainPanel.getPreferredSize().height*0.05)))));
         controls.setOpaque(false);
-        controls.setLayout(new java.awt.GridLayout(2, 0));
+        controls.setLayout(new java.awt.GridLayout(0, 1, 0, (int) Math.round(mainPanel.getPreferredSize().height*0.01)));
 
-        TF_name.setBackground(controls.getBackground());
-        TF_name.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.15)));
-        TF_name.setForeground(controls.getForeground());
-        TF_name.setText("Nom");
-        TF_name.setToolTipText("Nom");
-        TF_name.setBorder(null);
-        TF_name.setCaretColor(controls.getForeground());
-        controls.add(TF_name);
+        TF_title.setBackground(controls.getBackground());
+        TF_title.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.09)));
+        TF_title.setForeground(controls.getForeground());
+        TF_title.setText("Titre");
+        TF_title.setToolTipText("Titre");
+        TF_title.setBorder(null);
+        TF_title.setCaretColor(controls.getForeground());
+        controls.add(TF_title);
 
-        TF_surname.setBackground(controls.getBackground());
-        TF_surname.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.12)));
-        TF_surname.setForeground(controls.getForeground());
-        TF_surname.setText("Prénom");
-        TF_surname.setToolTipText("Prénom");
-        TF_surname.setBorder(null);
-        TF_surname.setCaretColor(controls.getForeground());
-        controls.add(TF_surname);
+        TF_author.setBackground(controls.getBackground());
+        TF_author.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.09)));
+        TF_author.setForeground(controls.getForeground());
+        TF_author.setText("Auteur");
+        TF_author.setToolTipText("Auteur");
+        TF_author.setBorder(null);
+        TF_author.setCaretColor(controls.getForeground());
+        controls.add(TF_author);
+
+        TF_barCode.setBackground(controls.getBackground());
+        TF_barCode.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.09)));
+        TF_barCode.setForeground(controls.getForeground());
+        TF_barCode.setText("Code-barre/Code ISBN");
+        TF_barCode.setToolTipText("Code-barre/Code ISBN");
+        TF_barCode.setBorder(null);
+        TF_barCode.setCaretColor(controls.getForeground());
+        controls.add(TF_barCode);
+
+        TF_theme.setBackground(controls.getBackground());
+        TF_theme.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.09)));
+        TF_theme.setForeground(controls.getForeground());
+        TF_theme.setText("Thème");
+        TF_theme.setToolTipText("Thème");
+        TF_theme.setBorder(null);
+        TF_theme.setCaretColor(controls.getForeground());
+        controls.add(TF_theme);
+
+        TF_keywords.setBackground(controls.getBackground());
+        TF_keywords.setFont(maritime.deriveFont((float) Math.round(mainPanel.getPreferredSize().height*0.09)));
+        TF_keywords.setForeground(controls.getForeground());
+        TF_keywords.setText("Mots-clés");
+        TF_keywords.setToolTipText("Mots-clés");
+        TF_keywords.setBorder(null);
+        TF_keywords.setCaretColor(controls.getForeground());
+        controls.add(TF_keywords);
 
         mainPanel.add(controls, java.awt.BorderLayout.CENTER);
 
@@ -146,22 +175,38 @@ public class NewPupil extends javax.swing.JFrame {
         return B_cancel;
     }
 
-    public JTextField getTF_name() {
-        return TF_name;
+    public JTextField getTF_author() {
+        return TF_author;
     }
 
-    public JTextField getTF_surname() {
-        return TF_surname;
+    public JTextField getTF_barCode() {
+        return TF_barCode;
     }
 
+    public JTextField getTF_keywords() {
+        return TF_keywords;
+    }
+
+    public JTextField getTF_theme() {
+        return TF_theme;
+    }
+
+    public JTextField getTF_title() {
+        return TF_title;
+    }
+
+    
     
     private Font littleBird, glyphicons, maritime;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_cancel;
     private javax.swing.JButton B_validate;
     private javax.swing.JLabel L_title;
-    private javax.swing.JTextField TF_name;
-    private javax.swing.JTextField TF_surname;
+    private javax.swing.JTextField TF_author;
+    private javax.swing.JTextField TF_barCode;
+    private javax.swing.JTextField TF_keywords;
+    private javax.swing.JTextField TF_theme;
+    private javax.swing.JTextField TF_title;
     private javax.swing.JPanel buttons;
     private javax.swing.JPanel controls;
     private javax.swing.JPanel mainPanel;

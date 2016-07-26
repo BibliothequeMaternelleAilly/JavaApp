@@ -935,7 +935,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_return_infos_tab4.setBackground(new java.awt.Color(123, 178, 40));
         B_return_infos_tab4.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.04)));
         B_return_infos_tab4.setForeground(controls_tab4.getForeground());
-        B_return_infos_tab4.setText("  Rendu  ");
+        B_return_infos_tab4.setText("  Rendre  ");
         B_return_infos_tab4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(123, 178, 40)));
         B_return_infos_tab4.setContentAreaFilled(false);
         B_return_infos_tab4.setEnabled(false);

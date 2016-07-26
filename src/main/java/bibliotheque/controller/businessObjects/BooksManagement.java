@@ -1,6 +1,7 @@
 
 package bibliotheque.controller.businessObjects;
 
+import bibliotheque.controller.NewBookController;
 import bibliotheque.controller.SearchResultsController;
 import bibliotheque.exceptions.UnfoundException;
 import bibliotheque.model.Livre;
@@ -20,7 +21,7 @@ public class BooksManagement {
     
     private ArrayList<Livre> booksList, resultList;
     private SearchResultsController resultController;
-    
+    private NewBookController bookController;
     private final JButton returnButton, deleteButton;
     private final JList booksJList;
     private final JTextArea keyWordsInfo;
@@ -71,10 +72,10 @@ public class BooksManagement {
             for (String word : keywords)
                 keyWordsInfo.append(word + "\n");
             keyWordsInfo.setCaretPosition(0);
+            deleteButton.setEnabled(true);
             try {
                 pupilInfo.setText(current.getBorrower().toString()+" : "+current.getDate_emprun());
                 returnButton.setEnabled(true);
-                deleteButton.setEnabled(true);
             } catch (UnfoundException ex) {}
         }
     }
@@ -96,8 +97,6 @@ public class BooksManagement {
         current.setIdEmprunteur(-1);
         current.setDate_emprun(null);
         current.updateLivre();
-        current = null;
-        resetFields();
     }
 
     public void deleteBook() throws SQLException {
@@ -134,6 +133,10 @@ public class BooksManagement {
         current.updateLivre();
         booksList = Livre.getAllBorrow();
         fillBooksJList();
+    }
+    
+    public void createBook() {
+        bookController = new NewBookController();
     }
     
     

@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class Livre {
     
     private int id, idEmprunteur;
-    private String barCode, titre, auteur, mots_cles, theme, date_emprun;
+    private String code_barre, titre, auteur, mots_cles, theme, date_emprun;
     
     public Livre(int id, String code_barre, String titre, String auteur, String mots_cles, String theme, int idEmprunteur, String date_emprun) {
         this.id = id;
-        this.barCode = code_barre;
+        this.code_barre = code_barre;
         this.titre = titre;
         this.auteur = auteur;
         this.mots_cles = mots_cles;
@@ -28,6 +28,12 @@ public class Livre {
         this.date_emprun = date_emprun;
     }
 
+    public static void clearTable() throws SQLException {
+        String query = "DELETE FROM livres";
+        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
+            statement.execute();
+        }
+    }
     
     public static ArrayList<Livre> getAll() throws SQLException {
         ArrayList<Livre> livres = new ArrayList();
@@ -46,13 +52,6 @@ public class Livre {
         return livres;
     }
     
-    public static void clearTable() throws SQLException {
-        String query = "DELETE FROM livres";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.execute();
-        }
-    }
-    
     public static ArrayList<Livre> getAllBorrow() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
@@ -64,7 +63,8 @@ public class Livre {
                 list.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                         result.getString("titre"), result.getString("auteur"),
                         result.getString("mots_cles"), result.getString("theme"),
-                        result.getInt("idEmprunteur"), result.getString("date_emprun")));
+                        result.getInt("idEmprunteur")==0?-1:result.getInt("idEmprunteur"),
+                        result.getString("date_emprun")));
         }
         
         return list;
@@ -131,7 +131,8 @@ public class Livre {
                     list.add(new Livre(result.getInt("id"), result.getString("code_barre"),
                             result.getString("titre"), result.getString("auteur"),
                             result.getString("mots_cles"), result.getString("theme"),
-                            result.getInt("idEmprunteur"), result.getString("date_emprun")));
+                            result.getInt("idEmprunteur")==0 ? -1:result.getInt("idEmprunteur"),
+                            result.getString("date_emprun")));
             }
         }
         
@@ -166,17 +167,18 @@ public class Livre {
     }
     
     public void insertLivre() throws SQLException {
-        String query = "INSERT INTO livres (titre, auteur, mots_cles, theme,"
+        String query = "INSERT INTO livres (code_barre, titre, auteur, mots_cles, theme,"
                                         + " idEmprunteur, date_emprun)"
-                    + " VALUES (?, ?, ?, ?, ?, ?)";
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.setString(1, titre);
-            statement.setString(2, auteur);
-            statement.setString(3, mots_cles);
-            statement.setString(4, theme);
-            if (idEmprunteur==-1) statement.setObject(5, null);
-            else statement.setInt(5, idEmprunteur);
-            statement.setString(6, date_emprun);
+            statement.setString(1, code_barre);
+            statement.setString(2, titre);
+            statement.setString(3, auteur);
+            statement.setString(4, mots_cles==null? "":mots_cles);
+            statement.setString(5, theme==null? "":theme);
+            if (idEmprunteur==-1) statement.setObject(6, null);
+            else statement.setInt(6, idEmprunteur);
+            statement.setString(7, date_emprun);
             
             statement.execute();
         }
@@ -211,7 +213,7 @@ public class Livre {
     }
 
     public String getCode_barre() {
-        return barCode;
+        return code_barre;
     }
 
     public String getTitre() {
@@ -245,7 +247,7 @@ public class Livre {
     }
 
     public void setCode_barre(String barCode) {
-        this.barCode = barCode;
+        this.code_barre = barCode;
     }
 
     public void setTitre(String titre) {
