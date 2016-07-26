@@ -33,6 +33,14 @@ public final class DBConnection {
         }
     }
     
+    public static void close() {
+        try {
+            instance.getConnection().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static DBConnection getInstance() {
         return instance;
     }
