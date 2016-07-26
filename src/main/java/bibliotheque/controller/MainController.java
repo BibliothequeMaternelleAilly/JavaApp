@@ -13,6 +13,7 @@ import bibliotheque.model.Livre;
 import bibliotheque.view.MainFrame;
 import bibliotheque.view.customComponents.CustomToggleButton;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -150,6 +154,9 @@ public class MainController {
         
         ActionListener closeActionListener = (ActionEvent e) -> {
             closeView();
+        };
+        ActionListener webSiteActionListener = (ActionEvent e) -> {
+            launchBrowser();
         };
         ActionListener settingsActionListener = (ActionEvent e) -> {
             settings();
@@ -452,6 +459,7 @@ public class MainController {
         
         
         mainView.getB_quit().addActionListener(closeActionListener);
+        mainView.getB_webSite().addActionListener(webSiteActionListener);
         mainView.getB_settings().addActionListener(settingsActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
         mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
@@ -530,6 +538,17 @@ public class MainController {
     private void closeView() {
         mainView.dispose();
         DBConnection.close();
+    }
+    
+    private void launchBrowser() {
+        if(Desktop.isDesktopSupported()) {
+            String url = "http://" + FilesFactory.getLine(0, "settings") + "/BiblioPi";
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (IOException | URISyntaxException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     private void settings() {

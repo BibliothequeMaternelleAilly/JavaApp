@@ -306,7 +306,7 @@ public class MainFrame extends javax.swing.JFrame {
         B_help.setFont(glyphicons.deriveFont((float) Math.round(mainMenuButtons.getPreferredSize().width*0.60)));
         B_help.setForeground(new java.awt.Color(254, 226, 165));
         B_help.setText("\uE085");
-        B_help.setToolTipText("À propos…");
+        B_help.setToolTipText("Aide");
         B_help.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 24, 13), 4));
         B_help.setBorderPainted(false);
         B_help.setContentAreaFilled(false);
