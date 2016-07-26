@@ -40,8 +40,9 @@ public class BorrowForm {
             Logger.getLogger(BorrowForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        for (Eleve pupil : pupilsList)
+        pupilsList.stream().forEach((pupil) -> {
             model.addElement(pupil.toString());
+        });
         pupilsJList.setModel(model);
     }
     
@@ -54,8 +55,9 @@ public class BorrowForm {
     public void resetFields() throws SQLException {
         pupilsList = Eleve.getAll();
         DefaultListModel<String> model = new DefaultListModel();
-        for (Eleve pupil : pupilsList)
+        pupilsList.stream().forEach((pupil) -> {
             model.addElement(pupil.toString());
+        });
         this.pupilsJList.setModel(model);
         nameTextField.setText("Nom");
         surnameTextField.setText("Prénom");

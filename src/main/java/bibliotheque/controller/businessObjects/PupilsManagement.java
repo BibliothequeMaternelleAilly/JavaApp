@@ -47,8 +47,9 @@ public class PupilsManagement {
     
     private void fillPupilsJList() {
         DefaultListModel<String> model = new DefaultListModel();
-        for (Eleve newPupil : pupilsList)
+        pupilsList.stream().forEach((newPupil) -> {
             model.addElement(newPupil.toString());
+        });
         pupilsJList.setModel(model);
     }
     

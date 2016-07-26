@@ -2,10 +2,8 @@
 package bibliotheque.controller;
 
 import bibliotheque.exceptions.UnfoundException;
-import bibliotheque.model.Eleve;
 import bibliotheque.model.Livre;
 import bibliotheque.view.NewBook;
-import bibliotheque.view.NewPupil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -83,17 +81,11 @@ public class NewBookController {
             @Override
             public void keyReleased(KeyEvent e) {}
         };
-        ActionListener cancelButtonListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newBookView.dispose();
-            }
+        ActionListener cancelButtonListener = (ActionEvent e) -> {
+            newBookView.dispose();
         };
-        ActionListener validateButtonListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createNewBook();
-            }
+        ActionListener validateButtonListener = (ActionEvent e) -> {
+            createNewBook();
         };
         
         newBookView.getTF_author().addFocusListener(textFieldsFocusListener);

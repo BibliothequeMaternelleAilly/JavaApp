@@ -148,156 +148,108 @@ public class MainController {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        ActionListener closeActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                closeView();
-            }
+        ActionListener closeActionListener = (ActionEvent e) -> {
+            closeView();
         };
-        ActionListener settingsActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                settings();
-            }
+        ActionListener settingsActionListener = (ActionEvent e) -> {
+            settings();
         };
-        ActionListener deletePupilActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        ActionListener deletePupilActionListener = (ActionEvent e) -> {
+            releaseBorderedButton(e.getSource());
+            toggleBorderedButton(e.getSource());
+            deletePupil(e.getSource());
+        };
+        ActionListener deleteBookActionListener = (ActionEvent e) -> {
+            releaseBorderedButton(e.getSource());
+            toggleBorderedButton(e.getSource());
+            deleteBook(e.getSource());
+        };
+        ActionListener validateScan1ActionListener = (ActionEvent e) -> {
+            releaseNoBorderButton(e.getSource());
+            borrowScanAction();
+            toggleTextFieldValue(mainView.getTF_barCode_tab1());
+        };
+        ActionListener validateScan2ActionListener = (ActionEvent e) -> {
+            releaseNoBorderButton(e.getSource());
+            returnScanAction();
+            toggleTextFieldValue(mainView.getTF_barCode_tab2());
+        };
+        ActionListener cancelFieldsActionListener = (ActionEvent e) -> {
+            try {
+                formTab1.resetFields();
+            } catch (SQLException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
+        };
+        ActionListener borrowButtonActionListener = (ActionEvent e) -> {
+            releaseBorderedButton(e.getSource());
+            validateBorrow();
+        };
+        ActionListener returnBookTab3Listener = (ActionEvent e) -> {
+            try {
                 releaseBorderedButton(e.getSource());
                 toggleBorderedButton(e.getSource());
-                deletePupil(e.getSource());
+                formTab3.returnBook();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener deleteBookActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        ActionListener returnAllBookTab3Listener = (ActionEvent e) -> {
+            try {
                 releaseBorderedButton(e.getSource());
                 toggleBorderedButton(e.getSource());
-                deleteBook(e.getSource());
+                formTab3.returnAllBooks();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener validateScan1ActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                releaseNoBorderButton(e.getSource());
-                borrowScanAction();
-                toggleTextFieldValue(mainView.getTF_barCode_tab1());
-            }
-        };
-        ActionListener validateScan2ActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                releaseNoBorderButton(e.getSource());
-                returnScanAction();
-                toggleTextFieldValue(mainView.getTF_barCode_tab2());
-            }
-        };
-        ActionListener cancelFieldsActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    formTab1.resetFields();
-                } catch (SQLException ex) {
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                mainView.getControls_tab1Layout().show(mainView.getControls_tab1(), "card1");
-            }
-        };
-        ActionListener borrowButtonActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        ActionListener returnBookTab4Listener = (ActionEvent e) -> {
+            try {
                 releaseBorderedButton(e.getSource());
-                validateBorrow();
+                toggleBorderedButton(e.getSource());
+                formTab4.returnBook();
+                formTab4.resetFields();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener returnBookTab3Listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    releaseBorderedButton(e.getSource());
-                    toggleBorderedButton(e.getSource());
-                    formTab3.returnBook();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        ActionListener searchPupilListener = (ActionEvent e) -> {
+            try {
+                formTab3.searchPupil();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener returnAllBookTab3Listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    releaseBorderedButton(e.getSource());
-                    toggleBorderedButton(e.getSource());
-                    formTab3.returnAllBooks();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        ActionListener searchBookListener = (ActionEvent e) -> {
+            try {
+                formTab4.searchBook();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener returnBookTab4Listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    releaseBorderedButton(e.getSource());
-                    toggleBorderedButton(e.getSource());
-                    formTab4.returnBook();
-                    formTab4.resetFields();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        ActionListener saveModificationsListener = (ActionEvent e) -> {
+            try {
+                releaseDefaulButton(e.getSource());
+                toggleDefaultButton(e.getSource());
+                ((JButton) e.getSource()).setEnabled(false);
+                formTab4.validateChanges();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                ((JButton) e.getSource()).setEnabled(true);
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ActionListener searchPupilListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    formTab3.searchPupil();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+        ActionListener newPupilActionListener = (ActionEvent e) -> {
+            formTab3.createNewPupil();
         };
-        ActionListener searchBookListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    formTab4.searchBook();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        };
-        ActionListener saveModificationsListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    releaseDefaulButton(e.getSource());
-                    toggleDefaultButton(e.getSource());
-                    ((JButton) e.getSource()).setEnabled(false);
-                    formTab4.validateChanges();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    ((JButton) e.getSource()).setEnabled(true);
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        };
-        ActionListener newPupilActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                formTab3.createNewPupil();
-            }
-        };
-        ActionListener newBookActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                formTab4.createBook();
-            }
+        ActionListener newBookActionListener = (ActionEvent e) -> {
+            formTab4.createBook();
         };
         FocusListener textFieldsFocusListener = new FocusListener() {
             @Override
@@ -474,40 +426,28 @@ public class MainController {
             @Override
             public void mouseExited(MouseEvent e) {}
         };
-        ListSelectionListener pupilTab3SelectionListener = new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                selectPupil();
-            }
-        },
-                            booksTab4SelectionListener = new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                try {
-                    if (mainView.getB_modify_manageBook_tab4().isEnabled() &&
-                            JOptionPane.showConfirmDialog(mainView, "Voulez-vous enregistrer les changements réalisés sur le livre en cours?", "Enregistrement des changements", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0) {
-                        mainView.getB_modify_manageBook_tab4().setEnabled(false);
-                        formTab4.validateChanges();
-                    }
-                    selectBook();
-                } catch (SQLException ex) {
-                    mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
-                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        ListSelectionListener pupilTab3SelectionListener = (ListSelectionEvent e) -> {
+            selectPupil();
+        };
+        ListSelectionListener booksTab4SelectionListener = (ListSelectionEvent e) -> {
+            try {
+                if (mainView.getB_modify_manageBook_tab4().isEnabled() &&
+                        JOptionPane.showConfirmDialog(mainView, "Voulez-vous enregistrer les changements réalisés sur le livre en cours?", "Enregistrement des changements", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE)==0) {
+                    mainView.getB_modify_manageBook_tab4().setEnabled(false);
+                    formTab4.validateChanges();
                 }
+                selectBook();
+            } catch (SQLException ex) {
+                mainView.showErrorMessage("Une erreur est survenue! Veuillez réessayer.");
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         };
-        ListSelectionListener pupilTab1SelectionListener = new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (((JList) e.getSource()).getSelectedIndex()!=-1)
-                    formTab1.fillFields();
-            }
+        ListSelectionListener pupilTab1SelectionListener = (ListSelectionEvent e) -> {
+            if (((JList) e.getSource()).getSelectedIndex()!=-1)
+                formTab1.fillFields();
         };
-        ListSelectionListener bookTab3ListSelectionListener = new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                formTab3.enableReturnButton();
-            }
+        ListSelectionListener bookTab3ListSelectionListener = (ListSelectionEvent e) -> {
+            formTab3.enableReturnButton();
         };
         
         

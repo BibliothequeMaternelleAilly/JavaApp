@@ -67,17 +67,11 @@ public class NewPupilController {
             @Override
             public void mouseExited(MouseEvent e) {}
         };
-        ActionListener cancelButtonListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newPupilView.dispose();
-            }
+        ActionListener cancelButtonListener = (ActionEvent e) -> {
+            newPupilView.dispose();
         };
-        ActionListener validateButtonListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createNewPupil();
-            }
+        ActionListener validateButtonListener = (ActionEvent e) -> {
+            createNewPupil();
         };
         
         newPupilView.getTF_name().addFocusListener(textFieldsFocusListener);

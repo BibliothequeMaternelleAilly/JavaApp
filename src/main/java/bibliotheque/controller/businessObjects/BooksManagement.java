@@ -50,8 +50,9 @@ public class BooksManagement {
     
     private void fillBooksJList() {
         DefaultListModel<String> model = new DefaultListModel();
-        for (Livre newBook : booksList)
+        booksList.stream().forEach((newBook) -> {
             model.addElement(newBook.toString());
+        });
         booksJList.setModel(model);
     }
     
