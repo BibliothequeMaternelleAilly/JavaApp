@@ -654,7 +654,7 @@
                                           <Connection component="scan_tab1" name="foreground" type="property"/>
                                         </Property>
                                         <Property name="horizontalAlignment" type="int" value="0"/>
-                                        <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre du livre ou le taper dans la zone de texte:"/>
+                                        <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre / code ISBN du livre ou tapez-le dans la zone de texte:"/>
                                       </Properties>
                                     </Component>
                                     <Container class="javax.swing.JPanel" name="controls_scanFrame_tab1">
@@ -1061,7 +1061,7 @@
                                       <Connection component="scan_tab2" name="foreground" type="property"/>
                                     </Property>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
-                                    <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre du livre ou le taper dans la zone de texte:"/>
+                                    <Property name="text" type="java.lang.String" value="Veuillez scanner le code barre / code ISBN du livre ou tapez-le dans la zone de texte:"/>
                                   </Properties>
                                 </Component>
                                 <Container class="javax.swing.JPanel" name="scanFrame_controls_tab2">

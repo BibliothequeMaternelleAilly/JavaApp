@@ -397,7 +397,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_scanFrame_title_tab1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
         L_scanFrame_title_tab1.setForeground(scan_tab1.getForeground());
         L_scanFrame_title_tab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_scanFrame_title_tab1.setText("Veuillez scanner le code barre du livre ou le taper dans la zone de texte:");
+        L_scanFrame_title_tab1.setText("Veuillez scanner le code barre / code ISBN du livre ou tapez-le dans la zone de texte:");
         scanFrame_tab1.add(L_scanFrame_title_tab1);
 
         controls_scanFrame_tab1.setOpaque(false);
@@ -554,7 +554,7 @@ public class MainFrame extends javax.swing.JFrame {
         L_title_scanFrame_tab2.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.05)));
         L_title_scanFrame_tab2.setForeground(scan_tab2.getForeground());
         L_title_scanFrame_tab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        L_title_scanFrame_tab2.setText("Veuillez scanner le code barre du livre ou le taper dans la zone de texte:");
+        L_title_scanFrame_tab2.setText("Veuillez scanner le code barre / code ISBN du livre ou tapez-le dans la zone de texte:");
         scanFrame_tab2.add(L_title_scanFrame_tab2);
 
         scanFrame_controls_tab2.setOpaque(false);
