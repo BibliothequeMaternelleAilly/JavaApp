@@ -123,6 +123,7 @@ public class MainController {
                 FilesFactory.createFile("settings", ip+"\n"+name+"\n"+user+"\n"+password);
                 connection = true;
             } catch (SQLException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                 if (!connection) {
                     mainView.showErrorMessage("La base de donnée est introuvable!");
                     mainView.dispose();
