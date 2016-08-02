@@ -216,8 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
         toggleButtons.setRequestFocusEnabled(false);
         toggleButtons.setLayout(new javax.swing.BoxLayout(toggleButtons, javax.swing.BoxLayout.PAGE_AXIS));
 
-        CTB_card1.setBackground(new Color(0,0,0,0)
-        );
+        CTB_card1.setBackground(new Color(0,0,0,0));
         CTB_card1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 172, 59), 4));
         CTB_card1.setForeground(new java.awt.Color(254, 226, 165));
         CTB_card1.setFont(clearLine.deriveFont((float) Math.round(toggleButtons.getPreferredSize().width*0.34)));

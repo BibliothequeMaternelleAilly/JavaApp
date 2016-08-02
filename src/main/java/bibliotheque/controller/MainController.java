@@ -120,7 +120,6 @@ public class MainController {
             password = content.get(3);
             try {
                 DBConnection.newInstance(ip+":3306/", name, user, password);
-                FilesFactory.createFile("settings", ip+"\n"+name+"\n"+user+"\n"+password);
                 connection = true;
             } catch (SQLException ex) {
                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,6 +160,7 @@ public class MainController {
         };
         ActionListener settingsActionListener = (ActionEvent e) -> {
             settings();
+            mainView.showMessage("Veuillez redémarrer le logiciel pour appliquer les changements.");
         };
         ActionListener deletePupilActionListener = (ActionEvent e) -> {
             releaseBorderedButton(e.getSource());
