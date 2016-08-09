@@ -28,18 +28,12 @@ public class Livre {
         this.date_emprun = date_emprun;
     }
 
-    public static void clearTable() throws SQLException {
-        String query = "DELETE FROM livres";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.execute();
-        }
-    }
     
     public static ArrayList<Livre> getAll() throws SQLException {
         ArrayList<Livre> livres = new ArrayList();
         
         try (Statement statement = DBConnection.createStatement();
-             ResultSet result = statement.executeQuery("SELECT * FROM livres"))
+             ResultSet result = statement.executeQuery("SELECT * FROM livres ORDER BY titre"))
         {
             while (result.next())
                 livres.add(new Livre(result.getInt("id"), result.getString("code_barre"),
@@ -55,7 +49,7 @@ public class Livre {
     public static ArrayList<Livre> getAllBorrow() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
-        String query = "SELECT * FROM livres WHERE idEmprunteur IS NOT NULL";
+        String query = "SELECT * FROM livres WHERE idEmprunteur IS NOT NULL ORDER BY titre";
         try (PreparedStatement statement = DBConnection.prepareStatement(query);
              ResultSet result = statement.executeQuery())
         {    
@@ -71,7 +65,7 @@ public class Livre {
     }
     
     public static Livre getFromTitle_Author(String title, String author) throws SQLException, UnfoundException {
-        String query = "SELECT * FROM livres WHERE titre=? AND auteur=?";
+        String query = "SELECT * FROM livres WHERE titre=? AND auteur=? ORDER BY titre";
         Livre book = null;
         
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
@@ -92,7 +86,7 @@ public class Livre {
     }
     
     public static Livre getFromBarCode(String barCode) throws SQLException, UnfoundException {
-        String query = "SELECT * FROM livres WHERE code_barre=?";
+        String query = "SELECT * FROM livres WHERE code_barre=? ORDER BY titre";
         Livre book = null;
         
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
@@ -112,7 +106,7 @@ public class Livre {
     
     public static ArrayList<Livre> getAllFromFullFields(String title, String author, String theme, String keyWords) throws SQLException {
         ArrayList<Livre> list = new ArrayList();
-        String query = "SELECT * FROM livres WHERE titre LIKE ? AND auteur LIKE ? AND theme LIKE ?";
+        String query = "SELECT * FROM livres WHERE titre LIKE ? AND auteur LIKE ? AND theme LIKE ? ORDER BY titre";
         String[] tab = keyWords.split(";");
         int l=tab.length;
         for (int i=0; i<l; i++)

@@ -27,7 +27,7 @@ public class Eleve {
         ArrayList<Eleve> eleves = new ArrayList();
 
         try (Statement statement = DBConnection.createStatement();
-             ResultSet result = statement.executeQuery("SELECT * FROM eleves"))
+             ResultSet result = statement.executeQuery("SELECT * FROM eleves ORDER BY nom, prenom"))
         {
             while (result.next())
                 eleves.add(new Eleve(result.getInt("id"),
@@ -39,7 +39,7 @@ public class Eleve {
     }
     
     public static Eleve getFromFullName(String name, String surname) throws SQLException, UnfoundException {
-        String query = "SELECT * FROM eleves WHERE nom=? AND prenom=?";
+        String query = "SELECT * FROM eleves WHERE nom=? AND prenom=? ORDER BY nom, prenom";
         Eleve pupil = null;
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setString(1, name.toUpperCase());
@@ -57,7 +57,7 @@ public class Eleve {
     
     public static ArrayList<Eleve> getAllFromFullName(String name, String surname) throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
-        String query = "SELECT * FROM eleves WHERE nom LIKE ? AND prenom LIKE ?";
+        String query = "SELECT * FROM eleves WHERE nom LIKE ? AND prenom LIKE ? ORDER BY nom, prenom";
         try (PreparedStatement statement = DBConnection.prepareStatement(query))
         {
             statement.setString(1, name.toUpperCase() + "%");
@@ -73,19 +73,13 @@ public class Eleve {
         
         return list;
     }
-
-    public static void clearTable() throws SQLException {
-        String query = "DELETE FROM eleves";
-        try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
-            statement.execute();
-        }
-    }
     
     public static ArrayList<Eleve> getAllBorrow() throws SQLException {
         ArrayList<Eleve> list = new ArrayList();
         
         String query = "SELECT * FROM eleves WHERE id IN "
-                         + "(SELECT idEmprunteur FROM livres WHERE idEmprunteur IS NOT NULL)";
+                        + "(SELECT idEmprunteur FROM livres WHERE idEmprunteur IS NOT NULL) "
+                        + "ORDER BY nom, prenom";
         try (PreparedStatement statement = DBConnection.prepareStatement(query);
              ResultSet result = statement.executeQuery())
         {
@@ -132,7 +126,7 @@ public class Eleve {
     public ArrayList<Livre> getBorrowedBooks() throws SQLException {
         ArrayList<Livre> list = new ArrayList();
         
-        String query = "SELECT * FROM livres WHERE idEmprunteur=?";
+        String query = "SELECT * FROM livres WHERE idEmprunteur=? ORDER BY titre";
         try (PreparedStatement statement = DBConnection.prepareStatement(query)) {
             statement.setInt(1, id);
             try (ResultSet result = statement.executeQuery()) {

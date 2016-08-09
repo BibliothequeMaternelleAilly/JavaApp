@@ -19,8 +19,8 @@ public final class DBConnection {
     private static volatile DBConnection instance = null;
     
     private DBConnection(String ip, String name, String user, String password) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://"+ip+name, user, password);
+        Class.forName("org.mariadb.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mariadb://"+ip+name, user, password);
     }
     
     public static void newInstance(String ip, String name, String user, String password) throws SQLException, ClassNotFoundException {
