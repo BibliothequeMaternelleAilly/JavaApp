@@ -1,0 +1,7 @@
+bibliotheque
+bibliotheque.controller
+bibliotheque.controller.businessObjects
+bibliotheque.exceptions
+bibliotheque.model
+bibliotheque.view
+bibliotheque.view.customComponents
