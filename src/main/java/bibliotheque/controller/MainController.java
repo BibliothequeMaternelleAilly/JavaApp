@@ -156,11 +156,14 @@ public class MainController {
             closeView();
         };
         ActionListener webSiteActionListener = (ActionEvent e) -> {
-            launchBrowser();
+            launchBrowser("/BiblioPi");
         };
         ActionListener settingsActionListener = (ActionEvent e) -> {
             settings();
             mainView.showMessage("Veuillez redémarrer le logiciel pour appliquer les changements.");
+        };
+        ActionListener helpActionListener = (ActionEvent e) -> {
+            launchBrowser(null);
         };
         ActionListener deletePupilActionListener = (ActionEvent e) -> {
             releaseBorderedButton(e.getSource());
@@ -462,6 +465,7 @@ public class MainController {
         mainView.getB_quit().addActionListener(closeActionListener);
         mainView.getB_webSite().addActionListener(webSiteActionListener);
         mainView.getB_settings().addActionListener(settingsActionListener);
+        mainView.getB_help().addActionListener(helpActionListener);
         mainView.getB_delete_managePupil_tab3().addActionListener(deletePupilActionListener);
         mainView.getB_delete_manageBook_tab4().addActionListener(deleteBookActionListener);
         mainView.getB_validate_scanFrame_tab1().addActionListener(validateScan1ActionListener);
@@ -541,13 +545,21 @@ public class MainController {
         DBConnection.close();
     }
     
-    private void launchBrowser() {
+    private void launchBrowser(String path) {
         if(Desktop.isDesktopSupported()) {
-            String url = "http://" + FilesFactory.getLine(0, "settings") + "/BiblioPi";
-            try {
-                Desktop.getDesktop().browse(new URI(url));
-            } catch (IOException | URISyntaxException ex) {
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            if (path!=null) {
+                String url = "http://" + FilesFactory.getLine(0, "settings") + path;
+                try {
+                    Desktop.getDesktop().browse(new URI(url));
+                } catch (IOException | URISyntaxException ex) {
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
+                    Desktop.getDesktop().open(FilesFactory.getResFile("documentation.html"));
+                } catch (IOException ex) {
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }
