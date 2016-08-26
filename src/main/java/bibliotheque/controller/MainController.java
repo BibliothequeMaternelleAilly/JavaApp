@@ -481,7 +481,7 @@ public class MainController {
         mainView.getB_new_managePupil_tab3().addActionListener(newPupilActionListener);
         mainView.getB_new_manageBook_tab4().addActionListener(newBookActionListener);
         
-//        mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
+        mainView.getTF_barCode_tab1().addKeyListener(scanFieldValueListener);
         mainView.getTF_barCode_tab2().addKeyListener(scanFieldValueListener);
         mainView.getTF_name_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
         mainView.getTF_surname_nameFields_tab1().addKeyListener(pupilSearchTab1Listener);
@@ -548,7 +548,11 @@ public class MainController {
     private void launchBrowser(String path) {
         if(Desktop.isDesktopSupported()) {
             if (path!=null) {
-                String url = "http://" + FilesFactory.getLine(0, "settings") + path;
+                String url;
+                if (FilesFactory.fileExists("settings"))
+                    url = "http://" + FilesFactory.getLine(0, "settings") + path;
+                else
+                    url = "http://" + FilesFactory.getContentOfRes("settings").get(0) + path;
                 try {
                     Desktop.getDesktop().browse(new URI(url));
                 } catch (IOException | URISyntaxException ex) {
