@@ -43,15 +43,10 @@
                         <id>make-assembly</id>
                         <!-- bind to the packaging phase -->
                         <phase>package</phase>
-
                         <goals>
                                 <goal>single</goal>
                         </goals>
-
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
+                  </execution>
                 </executions>
             </plugin>
         </plugins>
