@@ -548,7 +548,11 @@ public class MainController {
     private void launchBrowser(String path) {
         if(Desktop.isDesktopSupported()) {
             if (path!=null) {
-                String url = "http://" + FilesFactory.getLine(0, "settings") + path;
+                String url;
+                if (FilesFactory.fileExists("settings"))
+                    url = "http://" + FilesFactory.getLine(0, "settings") + path;
+                else
+                    url = "http://" + FilesFactory.getContentOfRes("settings").get(0) + path;
                 try {
                     Desktop.getDesktop().browse(new URI(url));
                 } catch (IOException | URISyntaxException ex) {
