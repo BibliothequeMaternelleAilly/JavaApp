@@ -402,7 +402,6 @@ public class MainFrame extends javax.swing.JFrame {
         controls_scanFrame_tab1.setOpaque(false);
         controls_scanFrame_tab1.setPreferredSize(new Dimension(scanFrame_tab1.getPreferredSize().width, (int) Math.round(scanFrame_tab1.getPreferredSize().height*0.4)));
 
-        TF_barCode_tab1.setEditable(false);
         TF_barCode_tab1.setBackground(new java.awt.Color(255, 241, 200));
         TF_barCode_tab1.setColumns(13);
         TF_barCode_tab1.setFont(maritime.deriveFont((float) Math.round(tabGroups.getPreferredSize().height*0.07)));
